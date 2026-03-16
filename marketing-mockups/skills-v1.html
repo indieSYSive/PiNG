@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PiNG! — Skills Library</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-deep: #0d0f14; --bg-surface: #14171f; --bg-elevated: #1a1e28;
+    --bg-hover: rgba(255,255,255,0.04); --bg-active: rgba(255,255,255,0.08);
+    --border: rgba(255,255,255,0.06); --border-subtle: rgba(255,255,255,0.03);
+    --text-primary: #e2e4ea; --text-secondary: #8890a4; --text-muted: #555d73;
+    --accent: #4fa0ff; --accent-dim: rgba(79,160,255,0.5); --accent-glow: rgba(79,160,255,0.1);
+    --warm-accent: #e8a87c;
+    --green: #34d399; --red: #f87171; --yellow: #fbbf24;
+    --purple: #a78bfa; --orange: #fb923c; --cyan: #22d3ee;
+    --green-dim: rgba(52,211,153,0.12); --red-dim: rgba(248,113,113,0.12);
+    --purple-dim: rgba(167,139,250,0.12); --orange-dim: rgba(251,146,60,0.12);
+    --cyan-dim: rgba(34,211,238,0.10); --yellow-dim: rgba(251,191,36,0.12);
+    --blue: #3b82f6; --blue-dim: rgba(59,130,246,0.12);
+    --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', monospace;
+    --radius-sm: 6px; --radius-lg: 12px;
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.03);
+    --card-shadow-hover: 0 4px 16px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  body { font-family: var(--font); background: var(--bg-deep); color: var(--text-primary); font-size: 13px; -webkit-font-smoothing: antialiased; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+
+  /* ===== TITLE BAR ===== */
+  .title-bar { height: 38px; background: var(--bg-surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 12px; flex-shrink: 0; -webkit-app-region: drag; }
+  .traffic-lights { display: flex; gap: 8px; margin-right: 16px; -webkit-app-region: no-drag; }
+  .tl { width: 12px; height: 12px; border-radius: 50%; }
+  .tl-c { background: #ff5f57; } .tl-m { background: #febc2e; } .tl-x { background: #28c840; }
+  .title-nav { display: flex; align-items: center; gap: 4px; font-size: 12px; -webkit-app-region: no-drag; }
+  .title-nav a { color: var(--text-muted); text-decoration: none; cursor: pointer; padding: 3px 8px; border-radius: 4px; transition: all 0.12s; }
+  .title-nav a:hover { color: var(--text-secondary); background: var(--bg-hover); }
+  .title-nav .current { color: var(--text-primary); font-weight: 500; }
+  .title-nav .sep { color: var(--text-muted); font-size: 11px; margin: 0 2px; }
+  .title-spacer { flex: 1; }
+
+  /* ===== MAIN LAYOUT ===== */
+  .main { display: flex; flex: 1; overflow: hidden; }
+
+  /* ===== LEFT SIDEBAR ===== */
+  .sidebar { width: 220px; background: var(--bg-surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; }
+  .sb-brand { padding: 16px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border-subtle); }
+  .sb-brand-icon { width: 32px; height: 32px; flex-shrink: 0; }
+  .sb-brand-label { font-size: 13px; font-weight: 700; letter-spacing: -0.01em; }
+  .sb-nav { padding: 8px 8px 0; display: flex; flex-direction: column; gap: 1px; }
+  .sb-nav-item { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: var(--radius-sm); font-size: 12px; color: var(--text-secondary); cursor: pointer; transition: all 0.1s; }
+  .sb-nav-item:hover { background: var(--bg-hover); color: var(--text-primary); }
+  .sb-nav-item.active { background: var(--accent-glow); color: var(--accent); }
+  .sb-nav-item svg { width: 14px; height: 14px; flex-shrink: 0; opacity: 0.7; }
+  .sb-nav-item.active svg { opacity: 1; }
+  .sb-nav-badge { margin-left: auto; font-size: 10px; font-weight: 600; min-width: 16px; height: 16px; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 0 4px; background: rgba(255,255,255,0.08); color: var(--text-muted); }
+  .sb-separator { height: 1px; background: rgba(255,255,255,0.04); margin: 6px 14px; }
+  .sb-section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); padding: 10px 14px 4px; }
+  .sb-categories { flex: 1; overflow-y: auto; padding: 0 8px; }
+  .sb-cat { display: flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: var(--radius-sm); font-size: 12px; color: var(--text-secondary); cursor: pointer; transition: all 0.1s; }
+  .sb-cat:hover { background: var(--bg-hover); color: var(--text-primary); }
+  .sb-cat-arrow { font-size: 8px; width: 12px; text-align: center; transition: transform 0.15s; color: var(--text-muted); flex-shrink: 0; }
+  .sb-cat-arrow.open { transform: rotate(90deg); }
+  .sb-cat-icon { width: 14px; height: 14px; border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .sb-cat-name { flex: 1; }
+  .sb-cat-count { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); }
+  .sb-subcats { display: none; padding-left: 20px; }
+  .sb-subcats.open { display: block; }
+  .sb-subcat { padding: 4px 10px; font-size: 11px; color: var(--text-muted); cursor: pointer; border-radius: var(--radius-sm); transition: all 0.1s; }
+  .sb-subcat:hover { color: var(--text-secondary); background: var(--bg-hover); }
+  .sb-footer { border-top: 1px solid rgba(255,255,255,0.04); padding: 8px; }
+  .sb-new-cat { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 6px; border-radius: var(--radius-sm); font-size: 11px; color: var(--text-muted); cursor: pointer; transition: all 0.12s; border: 1px dashed rgba(255,255,255,0.06); background: transparent; font-family: var(--font); width: 100%; }
+  .sb-new-cat:hover { color: var(--text-secondary); border-color: rgba(255,255,255,0.12); background: var(--bg-hover); }
+  .sb-new-cat svg { width: 12px; height: 12px; }
+  .sb-skill-count { font-size: 10px; color: var(--text-muted); text-align: center; padding: 6px 0 2px; }
+
+  /* ===== CONTENT AREA ===== */
+  .content { flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative; }
+
+  /* ===== TOOLBAR ===== */
+  .toolbar { display: flex; align-items: center; gap: 10px; padding: 12px 24px; border-bottom: 1px solid var(--border); flex-shrink: 0; background: var(--bg-surface); }
+  .toolbar-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+  .toolbar-spacer { flex: 1; }
+  .search-box { display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-elevated); font-size: 12px; color: var(--text-muted); min-width: 220px; height: 30px; transition: border-color 0.15s; }
+  .search-box:focus-within { border-color: var(--accent-dim); }
+  .search-box svg { width: 13px; height: 13px; opacity: 0.5; flex-shrink: 0; }
+  .search-box input { background: none; border: none; outline: none; color: var(--text-primary); font-family: var(--font); font-size: 12px; flex: 1; }
+  .search-box input::placeholder { color: var(--text-muted); }
+  .toggle-group { display: flex; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-subtle); height: 30px; }
+  .toggle-btn { padding: 0 10px; font-size: 11px; color: var(--text-muted); cursor: pointer; background: var(--bg-elevated); border: none; font-family: var(--font); transition: all 0.1s; display: flex; align-items: center; gap: 4px; }
+  .toggle-btn:hover { color: var(--text-secondary); }
+  .toggle-btn.active { background: var(--accent-glow); color: var(--accent); }
+  .toggle-btn svg { width: 13px; height: 13px; }
+  .sort-select { padding: 6px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-elevated); font-size: 11px; color: var(--text-secondary); font-family: var(--font); cursor: pointer; height: 30px; appearance: none; -webkit-appearance: none; padding-right: 24px; background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23555d73' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; }
+  .sort-select:hover { border-color: rgba(255,255,255,0.1); }
+  .btn-primary { display: flex; align-items: center; gap: 5px; padding: 6px 14px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; cursor: pointer; border: none; font-family: var(--font); background: var(--accent); color: #fff; height: 30px; transition: all 0.12s; }
+  .btn-primary:hover { background: #5daaff; }
+  .btn-primary svg { width: 13px; height: 13px; }
+  .btn-secondary { display: flex; align-items: center; gap: 5px; padding: 6px 14px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; cursor: pointer; border: 1px solid var(--border-subtle); font-family: var(--font); background: var(--bg-elevated); color: var(--text-secondary); height: 30px; transition: all 0.12s; }
+  .btn-secondary:hover { background: var(--bg-hover); border-color: rgba(255,255,255,0.1); }
+
+  /* ===== TYPE FILTER PILLS ===== */
+  .type-filters { display: flex; gap: 6px; padding: 0 24px 12px; background: var(--bg-surface); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+  .type-pill { display: flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: var(--radius-sm); font-size: 11px; color: var(--text-secondary); cursor: pointer; border: 1px solid var(--border-subtle); background: var(--bg-elevated); transition: all 0.12s; font-family: var(--font); }
+  .type-pill:hover { border-color: rgba(255,255,255,0.1); color: var(--text-primary); }
+  .type-pill.active { border-color: var(--accent-dim); color: var(--accent); background: var(--accent-glow); }
+  .type-pill svg { width: 12px; height: 12px; }
+  .type-pill .pill-count { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); }
+
+  /* ===== SKILL GRID ===== */
+  .skills-scroll { flex: 1; overflow-y: auto; padding: 24px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .skills-list { display: none; flex-direction: column; gap: 2px; }
+
+  /* ===== SKILL CARD ===== */
+  .skill-card { background: var(--bg-surface); border-radius: var(--radius-lg); box-shadow: var(--card-shadow); cursor: pointer; transition: box-shadow 0.15s, transform 0.15s; overflow: hidden; display: flex; flex-direction: column; }
+  .skill-card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-1px); }
+  .skill-card-body { padding: 14px 16px 10px; flex: 1; display: flex; flex-direction: column; }
+  .skill-card-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+  .skill-type-icon { width: 28px; height: 28px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .skill-type-icon svg { width: 14px; height: 14px; }
+  .skill-type-icon.knowledge { background: var(--blue-dim); color: var(--blue); }
+  .skill-type-icon.tool { background: var(--green-dim); color: var(--green); }
+  .skill-type-icon.workflow { background: var(--purple-dim); color: var(--purple); }
+  .skill-type-icon.integration { background: var(--orange-dim); color: var(--orange); }
+  .skill-card-info { flex: 1; min-width: 0; }
+  .skill-card-name { font-size: 13px; font-weight: 600; line-height: 1.3; margin-bottom: 2px; }
+  .skill-card-type { font-size: 10px; color: var(--text-muted); }
+  .skill-card-desc { font-size: 11px; color: var(--text-muted); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 8px; flex: 1; }
+  .skill-card-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 10px; }
+  .skill-tag { font-size: 10px; padding: 2px 7px; border-radius: 3px; background: rgba(255,255,255,0.04); color: var(--text-muted); }
+  .skill-card-footer { display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-top: 1px solid rgba(255,255,255,0.04); }
+  .skill-usage { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); }
+  .skill-footer-spacer { flex: 1; }
+  .skill-star { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); cursor: pointer; color: var(--text-muted); transition: all 0.12s; }
+  .skill-star:hover { color: var(--yellow); background: var(--yellow-dim); }
+  .skill-star.favorited { color: var(--yellow); }
+  .skill-star svg { width: 13px; height: 13px; }
+  .skill-inject { display: flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 10px; font-weight: 500; color: var(--accent); background: var(--accent-glow); border: none; cursor: pointer; font-family: var(--font); transition: all 0.12s; }
+  .skill-inject:hover { background: rgba(79,160,255,0.18); }
+  .skill-inject svg { width: 11px; height: 11px; }
+
+  /* ===== LIST VIEW ITEMS ===== */
+  .skill-list-item { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-radius: var(--radius-sm); cursor: pointer; transition: background 0.1s; }
+  .skill-list-item:hover { background: var(--bg-hover); }
+  .skill-list-item .skill-type-icon { width: 24px; height: 24px; }
+  .skill-list-item .skill-type-icon svg { width: 12px; height: 12px; }
+  .skill-list-info { flex: 1; min-width: 0; }
+  .skill-list-name { font-size: 13px; font-weight: 500; }
+  .skill-list-desc { font-size: 11px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .skill-list-type { font-size: 10px; color: var(--text-muted); width: 80px; flex-shrink: 0; }
+  .skill-list-usage { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); width: 60px; flex-shrink: 0; text-align: right; }
+
+  /* ===== RIGHT DETAIL PANEL ===== */
+  .detail-panel { width: 340px; background: var(--bg-surface); border-left: 1px solid var(--border); flex-shrink: 0; overflow-y: auto; display: none; }
+  .detail-panel.open { display: flex; flex-direction: column; }
+  .detail-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 12px; }
+  .detail-type-badge { display: flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 11px; font-weight: 500; }
+  .detail-type-badge.knowledge { background: var(--blue-dim); color: var(--blue); }
+  .detail-type-badge.tool { background: var(--green-dim); color: var(--green); }
+  .detail-type-badge.workflow { background: var(--purple-dim); color: var(--purple); }
+  .detail-type-badge.integration { background: var(--orange-dim); color: var(--orange); }
+  .detail-type-badge svg { width: 12px; height: 12px; }
+  .detail-title-area { flex: 1; }
+  .detail-name { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 4px; }
+  .detail-meta { font-size: 10px; color: var(--text-muted); line-height: 1.5; }
+  .detail-actions-top { display: flex; gap: 6px; flex-shrink: 0; margin-top: 2px; }
+  .detail-body { flex: 1; padding: 16px 20px; overflow-y: auto; }
+  .detail-section { margin-bottom: 20px; }
+  .detail-section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+  .detail-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+  .detail-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+  .detail-tag { font-size: 10px; padding: 3px 8px; border-radius: 3px; background: rgba(255,255,255,0.04); color: var(--text-muted); }
+  .detail-tools { display: flex; gap: 6px; flex-wrap: wrap; }
+  .detail-tool-pill { display: flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 11px; font-family: var(--font-mono); background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border-subtle); }
+  .detail-tool-pill svg { width: 11px; height: 11px; opacity: 0.5; }
+  .detail-mode { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 11px; background: var(--purple-dim); color: var(--purple); font-family: var(--font-mono); }
+  .detail-var { display: flex; align-items: flex-start; gap: 10px; padding: 8px 10px; background: var(--bg-elevated); border-radius: var(--radius-sm); margin-bottom: 6px; border: 1px solid var(--border-subtle); }
+  .detail-var-name { font-size: 12px; font-family: var(--font-mono); color: var(--accent); font-weight: 500; min-width: 100px; }
+  .detail-var-info { flex: 1; }
+  .detail-var-desc { font-size: 11px; color: var(--text-secondary); }
+  .detail-var-meta { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+  .detail-gov { display: flex; flex-direction: column; gap: 6px; }
+  .detail-gov-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 10px; background: var(--bg-elevated); border-radius: var(--radius-sm); font-size: 11px; border: 1px solid var(--border-subtle); }
+  .detail-gov-label { color: var(--text-secondary); }
+  .detail-gov-value { font-family: var(--font-mono); font-size: 10px; }
+  .detail-gov-value.off { color: var(--text-muted); }
+  .detail-gov-value.on { color: var(--green); }
+  .detail-gov-value.warn { color: var(--yellow); }
+  .detail-footer { padding: 16px 20px; border-top: 1px solid var(--border); display: flex; gap: 8px; flex-shrink: 0; }
+  .detail-close { position: absolute; top: 16px; right: 16px; width: 24px; height: 24px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); transition: all 0.12s; }
+  .detail-close:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+  /* ===== EDITOR OVERLAY ===== */
+  .editor-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 1000; display: none; align-items: center; justify-content: center; }
+  .editor-overlay.open { display: flex; }
+  .editor-panel { width: 680px; max-height: 85vh; background: var(--bg-surface); border-radius: var(--radius-lg); box-shadow: 0 16px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06); display: flex; flex-direction: column; overflow: hidden; }
+  .editor-header { display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+  .editor-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; flex: 1; }
+  .editor-close { width: 28px; height: 28px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); transition: all 0.12s; }
+  .editor-close:hover { background: var(--bg-hover); color: var(--text-primary); }
+  .editor-body { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+  .editor-field { display: flex; flex-direction: column; gap: 6px; }
+  .editor-label { font-size: 11px; font-weight: 600; color: var(--text-secondary); letter-spacing: 0.02em; }
+  .editor-input { padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-elevated); font-size: 13px; color: var(--text-primary); font-family: var(--font); outline: none; transition: border-color 0.15s; }
+  .editor-input:focus { border-color: var(--accent-dim); }
+  .editor-textarea { padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-elevated); font-size: 12px; color: var(--text-primary); font-family: var(--font); outline: none; resize: vertical; min-height: 60px; line-height: 1.5; transition: border-color 0.15s; }
+  .editor-textarea:focus { border-color: var(--accent-dim); }
+  .editor-textarea.mono { font-family: var(--font-mono); font-size: 11px; min-height: 180px; line-height: 1.6; }
+  .editor-type-selector { display: flex; gap: 6px; }
+  .editor-type-option { display: flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: var(--radius-sm); font-size: 12px; cursor: pointer; border: 1px solid var(--border-subtle); background: var(--bg-elevated); color: var(--text-secondary); transition: all 0.12s; }
+  .editor-type-option:hover { border-color: rgba(255,255,255,0.1); }
+  .editor-type-option.selected { border-color: var(--accent-dim); background: var(--accent-glow); color: var(--accent); }
+  .editor-type-option svg { width: 14px; height: 14px; }
+  .editor-vars { display: flex; flex-direction: column; gap: 6px; }
+  .editor-var-row { display: flex; gap: 8px; align-items: center; }
+  .editor-var-row input { flex: 1; padding: 6px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-elevated); font-size: 11px; color: var(--text-primary); font-family: var(--font-mono); outline: none; }
+  .editor-var-row input:focus { border-color: var(--accent-dim); }
+  .editor-var-remove { width: 24px; height: 24px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); transition: all 0.12s; flex-shrink: 0; }
+  .editor-var-remove:hover { color: var(--red); background: var(--red-dim); }
+  .editor-add-var { display: flex; align-items: center; gap: 4px; padding: 6px 10px; border-radius: var(--radius-sm); font-size: 11px; color: var(--text-muted); cursor: pointer; border: 1px dashed rgba(255,255,255,0.06); background: transparent; font-family: var(--font); transition: all 0.12s; width: fit-content; }
+  .editor-add-var:hover { color: var(--text-secondary); border-color: rgba(255,255,255,0.12); }
+  .editor-gov-toggles { display: flex; flex-direction: column; gap: 6px; }
+  .editor-gov-toggle { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-elevated); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); }
+  .editor-gov-toggle-label { font-size: 12px; color: var(--text-secondary); }
+  .editor-switch { width: 32px; height: 16px; border-radius: 8px; background: rgba(255,255,255,0.08); cursor: pointer; position: relative; transition: background 0.15s; }
+  .editor-switch::after { content: ''; width: 12px; height: 12px; border-radius: 50%; background: var(--text-muted); position: absolute; top: 2px; left: 2px; transition: all 0.15s; }
+  .editor-switch.on { background: var(--accent-dim); }
+  .editor-switch.on::after { background: var(--accent); left: 18px; }
+  .editor-footer { display: flex; justify-content: flex-end; gap: 8px; padding: 16px 20px; border-top: 1px solid var(--border); flex-shrink: 0; }
+
+  /* ===== SUGGESTION BAR ===== */
+  .suggestion-bar { height: 40px; background: var(--bg-surface); border-top: 1px solid var(--border); display: flex; align-items: center; padding: 0 24px; gap: 10px; flex-shrink: 0; }
+  .suggestion-label { font-size: 10px; color: var(--text-muted); white-space: nowrap; flex-shrink: 0; }
+  .suggestion-pills { display: flex; gap: 6px; flex: 1; overflow-x: auto; }
+  .suggestion-pill { display: flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: var(--radius-sm); font-size: 11px; color: var(--text-secondary); border: 1px solid var(--border-subtle); background: var(--bg-elevated); cursor: pointer; transition: all 0.12s; white-space: nowrap; flex-shrink: 0; }
+  .suggestion-pill:hover { border-color: var(--accent-dim); color: var(--accent); background: var(--accent-glow); }
+  .suggestion-pill svg { width: 11px; height: 11px; opacity: 0.6; }
+  .suggestion-all { display: flex; align-items: center; gap: 4px; padding: 4px 12px; border-radius: var(--radius-sm); font-size: 11px; color: var(--accent); cursor: pointer; transition: all 0.12s; white-space: nowrap; flex-shrink: 0; background: transparent; border: none; font-family: var(--font); }
+  .suggestion-all:hover { background: var(--accent-glow); }
+  .suggestion-all svg { width: 12px; height: 12px; }
+</style>
+
+<style id="ping-marketing-styles">
+/* ===== TOOLTIP SYSTEM ===== */
+[data-tooltip] { position: relative; }
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: fixed; left: var(--tip-x, 0); top: var(--tip-y, 0);
+  transform: translateX(-50%) translateY(-100%) translateY(-8px);
+  background: #1a1e28; color: #e2e4ea; font-size: 11px; font-weight: 400;
+  padding: 6px 10px; border-radius: 6px; max-width: 280px; width: max-content;
+  white-space: normal; text-align: center; pointer-events: none;
+  opacity: 0; z-index: 10010; line-height: 1.4;
+  transition: opacity 0.18s ease 0.35s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 0 1px rgba(79,160,255,0.15);
+  border: 1px solid rgba(79,160,255,0.2);
+}
+[data-tooltip]:hover::after { opacity: 1; }
+/* Override any page-native tooltip CSS that conflicts with our injected system */
+.panel-toggle[data-tooltip]:hover::after { content: attr(data-tooltip) !important; position: fixed !important; left: var(--tip-x, 0) !important; top: var(--tip-y, 0) !important; bottom: auto !important; transform: translateX(-50%) translateY(-100%) translateY(-8px) !important; background: #1a1e28 !important; color: #e2e4ea !important; font-size: 11px !important; padding: 6px 10px !important; border-radius: 6px !important; max-width: 280px !important; width: max-content !important; border: 1px solid rgba(79,160,255,0.2) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 0 1px rgba(79,160,255,0.15) !important; z-index: 10010 !important; }
+/* When tooltip is showing, suppress guide card on same element */
+[data-tooltip].tooltip-active[data-guide] { pointer-events: auto; }
+
+/* ===== GUIDE CARD ===== */
+.ping-guide-card {
+  position: fixed; z-index: 10002; width: 340px; max-width: calc(100vw - 24px);
+  pointer-events: auto;
+  background: linear-gradient(145deg, #1e2235 0%, #151829 100%);
+  border: 1px solid rgba(79,160,255,0.25); border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 80px rgba(79,160,255,0.06), inset 0 1px 0 rgba(255,255,255,0.04);
+  overflow: hidden; opacity: 0; transform: translateY(8px) scale(0.97);
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.ping-guide-card.visible { opacity: 1; transform: translateY(0) scale(1); }
+.ping-guide-accent {
+  height: 3px;
+  background: linear-gradient(90deg, #4fa0ff 0%, #a78bfa 50%, #4fa0ff 100%);
+  background-size: 200% 100%;
+  animation: guideShimmer 3s ease infinite;
+}
+@keyframes guideShimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+/* KAT position layouts */
+.ping-guide-inner { padding: 16px; display: flex; gap: 14px; align-items: flex-start; }
+.ping-guide-inner.kat-pos-tr, .ping-guide-inner.kat-pos-mr, .ping-guide-inner.kat-pos-br {
+  flex-direction: row-reverse;
+}
+.ping-guide-inner.kat-pos-bl, .ping-guide-inner.kat-pos-br {
+  align-items: flex-end;
+}
+.ping-guide-inner.kat-pos-tl, .ping-guide-inner.kat-pos-tr {
+  align-items: flex-start;
+}
+.ping-guide-inner.kat-pos-ml, .ping-guide-inner.kat-pos-mr {
+  align-items: center;
+}
+
+.ping-guide-kat-wrap {
+  width: 64px; height: 54px; flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(79,160,255,0.3));
+}
+.ping-guide-kat-wrap .kat-mascot { width: 64px; height: 54px; }
+.ping-guide-text { flex: 1; min-width: 0; }
+.ping-guide-tag {
+  display: inline-block; font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.8px; padding: 2px 7px; border-radius: 4px; margin-bottom: 6px;
+  background: rgba(79,160,255,0.15); color: #4fa0ff;
+}
+.ping-guide-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3; }
+.ping-guide-body { font-size: 12px; color: #a0a4b8; line-height: 1.55; }
+.ping-guide-body em { color: #4fa0ff; font-style: normal; font-weight: 500; }
+
+[data-guide].guide-active {
+  box-shadow: 0 0 0 2px rgba(79,160,255,0.35), 0 0 24px rgba(79,160,255,0.08) !important;
+  transition: box-shadow 0.3s ease;
+}
+
+/* ===== ANIMATED KAT (original logo style, 64x64 viewBox) ===== */
+.kat-mascot .kat-body { animation: katBreathe 3s ease-in-out infinite; }
+@keyframes katBreathe { 0%,100% { ry: 10; } 50% { ry: 10.8; } }
+
+.kat-mascot .kat-tail { animation: tailWag 2.5s ease-in-out infinite; transform-origin: 12px 42px; }
+@keyframes tailWag { 0%,100% { d: path("M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30"); } 50% { d: path("M12 42 C4 36, 2 26, 8 22 C12 19, 14 24, 12 28"); } }
+
+.kat-mascot .kat-pupil-l, .kat-mascot .kat-pupil-r { animation: pupilLook 5s ease-in-out infinite; }
+@keyframes pupilLook { 0%,100% { cx: 33; } 25% { cx: 34; } 75% { cx: 32; } }
+
+.kat-mascot .kat-whiskers { animation: whiskerTwitch 3.5s ease-in-out infinite; transform-origin: 38px 28px; }
+@keyframes whiskerTwitch { 0%,100% { transform: rotate(0); } 50% { transform: rotate(1.5deg); } }
+
+/* === KAT STATES === */
+
+/* Excited: fast tail, ear twitching */
+.kat-excited .kat-tail { animation: tailFast 0.6s ease-in-out infinite !important; }
+@keyframes tailFast { 0%,100% { d: path("M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30"); } 50% { d: path("M12 42 C2 36, 0 24, 6 20 C10 17, 12 22, 10 26"); } }
+.kat-excited .kat-ear-l { animation: earTwitchL 0.8s ease-in-out infinite; transform-origin: 30px 12px; }
+.kat-excited .kat-ear-r { animation: earTwitchR 0.8s ease-in-out infinite; transform-origin: 46px 10px; }
+@keyframes earTwitchL { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-8deg); } }
+@keyframes earTwitchR { 0%,100% { transform: rotate(0); } 50% { transform: rotate(8deg); } }
+
+/* Happy: big smile, slow tail */
+.kat-happy .kat-mouth { d: path("M33 31 Q38 35, 43 31") !important; stroke-width: 1.8 !important; }
+.kat-happy .kat-tail { animation: tailSlow 1.5s ease-in-out infinite !important; }
+@keyframes tailSlow { 0%,100% { d: path("M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30"); } 50% { d: path("M12 42 C4 36, 2 26, 8 22 C12 19, 14 24, 12 28"); } }
+
+/* Wave: paw bouncing */
+.kat-wave .kat-paw-r { animation: pawWave 0.7s ease-in-out infinite; transform-origin: 25px 50px; }
+@keyframes pawWave { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-15deg); } }
+
+/* Flip: head facing opposite direction */
+.kat-flip .kat-head { transform: scaleX(-1); transform-origin: 38px 26px; }
+
+/* Think: pupils looking up */
+.kat-think .kat-pupil-l, .kat-think .kat-pupil-r { animation: pupilUp 2s ease-in-out infinite !important; }
+@keyframes pupilUp { 0%,100% { cy: 25; } 50% { cy: 23; } }
+
+/* Lick: mouth wiggle */
+.kat-lick .kat-mouth { animation: katLickMouth 1.2s ease-in-out infinite; }
+@keyframes katLickMouth { 0%,100% { d: path("M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5"); } 50% { d: path("M35 31 Q38 34, 38 31 Q38 34, 41 31"); } }
+.kat-lick .kat-paw-l { animation: lickPaw 1.2s ease-in-out infinite; transform-origin: 18px 52px; }
+@keyframes lickPaw { 0%,100% { transform: rotate(0); } 50% { transform: rotate(8deg); } }
+
+/* Yawn: mouth wide, body stretch */
+.kat-yawn .kat-mouth { d: path("M34 30 Q38 37 42 30") !important; stroke-width: 1.8 !important; }
+.kat-yawn .kat-body { animation: yawnStretch 3s ease-in-out infinite !important; }
+@keyframes yawnStretch { 0%,100% { ry: 10; } 40%,60% { ry: 11.5; } }
+
+/* Yarn: pupils tracking, tail wagging fast */
+.kat-yarn-play .kat-pupil-l { animation: pupilTrackYarn 1.5s ease-in-out infinite !important; }
+.kat-yarn-play .kat-pupil-r { animation: pupilTrackYarnR 1.5s ease-in-out infinite !important; }
+@keyframes pupilTrackYarn { 0%,100% { cx: 34; cy: 25; } 50% { cx: 35; cy: 24; } }
+@keyframes pupilTrackYarnR { 0%,100% { cx: 44; cy: 24; } 50% { cx: 45; cy: 23; } }
+.kat-yarn-play .kat-tail { animation: tailFast 0.6s ease-in-out infinite !important; }
+
+/* Head lean left */
+.kat-lean-left .kat-head { animation: headLeanL 2.5s ease-in-out infinite; transform-origin: 38px 36px; }
+@keyframes headLeanL { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-12deg); } }
+
+/* Head lean right */
+.kat-lean-right .kat-head { animation: headLeanR 2.5s ease-in-out infinite; transform-origin: 38px 36px; }
+@keyframes headLeanR { 0%,100% { transform: rotate(0); } 50% { transform: rotate(12deg); } }
+
+/* Ear perk: both ears forward */
+.kat-perk .kat-ear-l { animation: earPerkL 1.5s ease-in-out infinite; transform-origin: 30px 12px; }
+.kat-perk .kat-ear-r { animation: earPerkR 1.5s ease-in-out infinite; transform-origin: 46px 10px; }
+@keyframes earPerkL { 0%,100% { transform: rotate(0); } 50% { transform: rotate(5deg); } }
+@keyframes earPerkR { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-5deg); } }
+.kat-perk .kat-pupil-l, .kat-perk .kat-pupil-r { animation: none !important; }
+</style>
+
+</head>
+<body>
+<a href="../index.html" style="position:fixed;top:12px;left:12px;z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
+
+<!-- ===== TITLE BAR ===== -->
+<div class="title-bar">
+  <div class="traffic-lights">
+    <div class="tl tl-c"></div>
+    <div class="tl tl-m"></div>
+    <div class="tl tl-x"></div>
+  </div>
+  <div class="title-nav">
+    <a href="home-v2.html">Home</a>
+    <span class="sep">/</span>
+    <a href="project-unified-v2.html">PiNG!</a>
+    <span class="sep">/</span>
+    <span class="current">Skills</span>
+  </div>
+  <div class="title-spacer"></div>
+</div>
+
+<!-- ===== MAIN LAYOUT ===== -->
+<div class="main">
+
+  <!-- ===== LEFT SIDEBAR ===== -->
+  <div class="sidebar" data-guide="{&quot;title&quot;: &quot;Skills Navigator&quot;, &quot;tag&quot;: &quot;Navigation&quot;, &quot;body&quot;: &quot;Browse by category &amp;mdash; &lt;em&gt;All, Favorites, Recent, Analytics&lt;/em&gt;. Organized folders for every skill type. The command center for your AI superpowers.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+    <div class="sb-brand">
+      <svg class="sb-brand-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4fa0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="38" cy="26" r="12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M30 16 L27 4 L35 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M44 14 L48 2 L50 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <ellipse cx="33" cy="25" rx="2.5" ry="3" fill="#4fa0ff"/>
+        <ellipse cx="43" cy="24" rx="2.5" ry="3" fill="#4fa0ff"/>
+        <ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0d0f14"/>
+        <ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0d0f14"/>
+        <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#a78bfa"/>
+        <path d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="sb-brand-label">Skills</span>
+    </div>
+
+    <!-- Navigation -->
+    <div class="sb-nav">
+      <div class="sb-nav-item active" onclick="switchTab('browse')" data-tooltip="Browse all available skills — discover new AI superpowers">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Browse
+      </div>
+      <div class="sb-nav-item" onclick="switchTab('favorites')" data-tooltip="Your starred skills — quick access to the ones you use most">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Favorites
+        <span class="sb-nav-badge">5</span>
+      </div>
+      <div class="sb-nav-item" onclick="switchTab('recent')" data-tooltip="Recently used skills — jump back to what worked last time">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Recently Used
+      </div>
+      <div class="sb-nav-item" onclick="switchTab('analytics')" data-tooltip="Skill analytics — see which skills save you the most time">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Analytics
+      </div>
+      <div class="sb-nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Import / Export
+      </div>
+    </div>
+
+    <div class="sb-separator"></div>
+
+    <!-- Categories -->
+    <div class="sb-section-label">Categories</div>
+    <div class="sb-categories">
+      <!-- Code Quality -->
+      <div class="sb-cat" onclick="toggleCategory(this)">
+        <span class="sb-cat-arrow">&#9654;</span>
+        <div class="sb-cat-icon" style="background: var(--blue-dim); color: var(--blue);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <span class="sb-cat-name">Code Quality</span>
+        <span class="sb-cat-count">14</span>
+      </div>
+      <div class="sb-subcats">
+        <div class="sb-subcat">Review</div>
+        <div class="sb-subcat">Testing</div>
+        <div class="sb-subcat">Security</div>
+      </div>
+
+      <!-- Productivity -->
+      <div class="sb-cat" onclick="toggleCategory(this)">
+        <span class="sb-cat-arrow">&#9654;</span>
+        <div class="sb-cat-icon" style="background: var(--green-dim); color: var(--green);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <span class="sb-cat-name">Productivity</span>
+        <span class="sb-cat-count">11</span>
+      </div>
+      <div class="sb-subcats">
+        <div class="sb-subcat">Analysis</div>
+        <div class="sb-subcat">Writing</div>
+        <div class="sb-subcat">Templates</div>
+      </div>
+
+      <!-- AI & Models -->
+      <div class="sb-cat" onclick="toggleCategory(this)">
+        <span class="sb-cat-arrow">&#9654;</span>
+        <div class="sb-cat-icon" style="background: var(--purple-dim); color: var(--purple);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><path d="M8.56 6.22A4 4 0 0116 6"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/><path d="M8 22h8"/></svg>
+        </div>
+        <span class="sb-cat-name">AI & Models</span>
+        <span class="sb-cat-count">8</span>
+      </div>
+      <div class="sb-subcats">
+        <div class="sb-subcat">Prompts</div>
+        <div class="sb-subcat">Fine-tuning</div>
+      </div>
+
+      <!-- DevOps -->
+      <div class="sb-cat" onclick="toggleCategory(this)">
+        <span class="sb-cat-arrow">&#9654;</span>
+        <div class="sb-cat-icon" style="background: var(--orange-dim); color: var(--orange);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        </div>
+        <span class="sb-cat-name">DevOps</span>
+        <span class="sb-cat-count">9</span>
+      </div>
+      <div class="sb-subcats">
+        <div class="sb-subcat">CI/CD</div>
+        <div class="sb-subcat">Monitoring</div>
+      </div>
+
+      <!-- Custom -->
+      <div class="sb-cat" onclick="toggleCategory(this)">
+        <span class="sb-cat-arrow">&#9654;</span>
+        <div class="sb-cat-icon" style="background: var(--cyan-dim); color: var(--cyan);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <span class="sb-cat-name">Custom</span>
+        <span class="sb-cat-count">5</span>
+      </div>
+      <div class="sb-subcats">
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="sb-footer">
+      <button class="sb-new-cat" data-tooltip="Create a new category to organize your growing skill collection">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        New Category
+      </button>
+      <div class="sb-skill-count" data-tooltip="Total skills in your library — growing as you create and import">47 skills</div>
+    </div>
+  </div>
+
+  <!-- ===== CONTENT ===== -->
+  <div class="content">
+    <!-- Toolbar -->
+    <div class="toolbar" data-guide="{&quot;title&quot;: &quot;Skills Library Toolbar&quot;, &quot;tag&quot;: &quot;CatSkills&quot;, &quot;body&quot;: &quot;Search, filter, and organize your &lt;em&gt;entire CatSkills library&lt;/em&gt;. Grid or list view, type filters, and one-click skill creation. Your AI toolkit, beautifully organized.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+      <div class="toolbar-title">Skills Library</div>
+      <div class="toolbar-spacer"></div>
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search skills..." / data-tooltip="Search by name, tag, or description — find the right skill in seconds">
+      </div>
+      <div class="toggle-group" id="view-toggle">
+        <button class="toggle-btn active" onclick="setViewMode('grid')" data-tooltip="View skills as visual cards — see descriptions, tags, and usage at a glance">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </button>
+        <button class="toggle-btn" onclick="setViewMode('list')" data-tooltip="Compact list view — scan through skills faster when you know what you want">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </button>
+      </div>
+      <select class="sort-select">
+        <option>Most Used</option>
+        <option>Recently Used</option>
+        <option>Alphabetical</option>
+        <option>Newest First</option>
+      </select>
+      <button class="btn-primary" onclick="openEditor()" data-tooltip="Create a brand new CatSkill — define prompts, tool chains, or automation workflows">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        New Skill
+      </button>
+    </div>
+
+    <!-- Type Filters -->
+    <div class="type-filters" data-guide="{&quot;title&quot;: &quot;Type Filters&quot;, &quot;tag&quot;: &quot;Organization&quot;, &quot;body&quot;: &quot;Filter skills by type: &lt;em&gt;Knowledge, Tool, Workflow, Integration&lt;/em&gt;. Each type serves a different purpose &amp;mdash; from prompt templates to full automation chains.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">
+      <div class="type-pill active" data-type="all" onclick="filterType(this)">All <span class="pill-count">47</span></div>
+      <div class="type-pill" data-type="knowledge" onclick="filterType(this)" data-tooltip="Knowledge skills — feed specialized context to make AI smarter about your domain">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
+        Knowledge <span class="pill-count">14</span>
+      </div>
+      <div class="type-pill" data-type="tool" onclick="filterType(this)" data-tooltip="Tool skills — give AI new capabilities like code execution and file manipulation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        Tool <span class="pill-count">12</span>
+      </div>
+      <div class="type-pill" data-type="workflow" onclick="filterType(this)" data-tooltip="Workflow skills — multi-step automation chains that run complex tasks end-to-end">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
+        Workflow <span class="pill-count">10</span>
+      </div>
+      <div class="type-pill" data-type="integration" onclick="filterType(this)" data-tooltip="Integration skills — connect AI to external services like GitHub, Slack, and APIs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        Integration <span class="pill-count">11</span>
+      </div>
+    </div>
+
+    <!-- Skills Scrollable Area -->
+    <div class="skills-scroll">
+
+      <!-- GRID VIEW -->
+      <div class="skills-grid" id="skills-grid" data-guide="{&quot;title&quot;: &quot;Skills Grid&quot;, &quot;tag&quot;: &quot;Library&quot;, &quot;body&quot;: &quot;Every CatSkill at your fingertips &amp;mdash; &lt;em&gt;Knowledge, Tools, Workflows, and Integrations&lt;/em&gt;. Click to view details, star your favorites, or inject directly into chat. 47 skills and growing.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
+
+        <!-- Card 1: Code Review -->
+        <div class="skill-card" data-type="knowledge" data-skill="code-review" onclick="showDetail('code-review')" data-tooltip="Code Review — structured feedback with severity levels and fix suggestions">
+          <div class="skill-card-body">
+            <div class="skill-card-top">
+              <div class="skill-type-icon knowledge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
+              </div>
+              <div class="skill-card-info">
+                <div class="skill-card-name">Code Review</div>
+                <div class="skill-card-type">Knowledge</div>
+              </div>
+            </div>
+            <div class="skill-card-desc">Structured code review with severity-tiered findings and actionable feedback</div>
+            <div class="skill-card-tags">
+              <span class="skill-tag">review</span>
+              <span class="skill-tag">quality</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="skill-usage">Used 24x</span>
+            <div class="skill-footer-spacer"></div>
+            <div class="skill-star favorited" onclick="event.stopPropagation()" data-tooltip="Favorited — this skill appears in your quick-access panel">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <button class="skill-inject" onclick="event.stopPropagation()" data-tooltip="Inject this skill directly into your active chat — instant AI superpower">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+              Inject
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2: Test Generator -->
+        <div class="skill-card" data-type="tool" onclick="showDetail('test-gen')" data-tooltip="Test Generator — auto-generate test suites from your source code with full coverage">
+          <div class="skill-card-body">
+            <div class="skill-card-top">
+              <div class="skill-type-icon tool">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <div class="skill-card-info">
+                <div class="skill-card-name">Test Generator</div>
+                <div class="skill-card-type">Tool</div>
+              </div>
+            </div>
+            <div class="skill-card-desc">Generates comprehensive test suites with edge cases and coverage targets</div>
+            <div class="skill-card-tags">
+              <span class="skill-tag">testing</span>
+              <span class="skill-tag">vitest</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="skill-usage">Used 18x</span>
+            <div class="skill-footer-spacer"></div>
+            <div class="skill-star" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <button class="skill-inject" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+              Inject
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3: Think Deeper -->
+        <div class="skill-card" data-type="knowledge" onclick="showDetail('think-deeper')" data-tooltip="Think Deeper — force extended reasoning for complex architectural decisions">
+          <div class="skill-card-body">
+            <div class="skill-card-top">
+              <div class="skill-type-icon knowledge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
+              </div>
+              <div class="skill-card-info">
+                <div class="skill-card-name">Think Deeper</div>
+                <div class="skill-card-type">Knowledge</div>
+              </div>
+            </div>
+            <div class="skill-card-desc">Multi-phase analytical reasoning for complex problems requiring structured thinking</div>
+            <div class="skill-card-tags">
+              <span class="skill-tag">analysis</span>
+              <span class="skill-tag">reasoning</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="skill-usage">Used 31x</span>
+            <div class="skill-footer-spacer"></div>
+            <div class="skill-star favorited" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <button class="skill-inject" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+              Inject
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 4: Security Audit -->
+        <div class="skill-card" data-type="tool" onclick="showDetail('sec-audit')" data-tooltip="Security Audit — scan code for vulnerabilities, OWASP top 10, and dependency risks">
+          <div class="skill-card-body">
+            <div class="skill-card-top">
+              <div class="skill-type-icon tool">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <div class="skill-card-info">
+                <div class="skill-card-name">Security Audit</div>
+                <div class="skill-card-type">Tool</div>
+              </div>
+            </div>
+            <div class="skill-card-desc">Automated security vulnerability scanning with OWASP coverage and remediation guidance</div>
+            <div class="skill-card-tags">
+              <span class="skill-tag">security</span>
+              <span class="skill-tag">audit</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="skill-usage">Used 12x</span>
+            <div class="skill-footer-spacer"></div>
+            <div class="skill-star" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <button class="skill-inject" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+              Inject
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 5: Refactor Clean -->
+        <div class="skill-card" data-type="tool" onclick="showDetail('refactor')" data-tooltip="Refactor Clean — restructure messy code while preserving behavior and tests">
+          <div class="skill-card-body">
+            <div class="skill-card-top">
+              <div class="skill-type-icon tool">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <div class="skill-card-info">
+                <div class="skill-card-name">Refactor Clean</div>
+                <div class="skill-card-type">Tool</div>
+              </div>
+            </div>
+            <div class="skill-card-desc">Systematic code refactoring with safety checks, preserving behavior while improving structure</div>
+            <div class="skill-card-tags">
+              <span class="skill-tag">refactor</span>
+              <span class="skill-tag">clean</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="skill-usage">Used 15x</span>
+            <div class="skill-footer-spacer"></div>
+            <div class="skill-star" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <button class="skill-inject" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+              Inject
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 6: PlanPack Writer -->
+        <div class="skill-card" data-type="workflow" onclick="showDetail('planpack')" data-tooltip="PlanPack Writer — generate phased implementation plans with specs and evidence commands">
+          <div class="skill-card-body">
+            <div class="skill-card-top">
+              <div class="skill-type-icon workflow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
+              </div>
+              <div class="skill-card-info">
+                <div class="skill-card-name">PlanPack Writer</div>
+                <div class="skill-card-type">Workflow</div>
+              </div>
+            </div>
+            <div class="skill-card-desc">Generates chunked PlanPack specs from thesis documents with requirement tracing</div>
+            <div class="skill-card-tags">
+              <span class="skill-tag">planpack</span>
+              <span class="skill-tag">spec</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="skill-usage">Used 8x</span>
+            <div class="skill-footer-spacer"></div>
+            <div class="skill-star favorited" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <button class="skill-inject" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+              Inject
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 7: GitHub PR Bot -->
+        <div class="skill-card" data-type="integration" onclick="showDetail('gh-pr')" data-tooltip="GitHub PR Bot — auto-draft pull requests with descriptions, labels, and reviewer assignments">
+          <div class="skill-card-body">
+            <div class="skill-card-top">
+              <div class="skill-type-icon integration">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              </div>
+              <div class="skill-card-info">
+                <div class="skill-card-name">GitHub PR Bot</div>
+                <div class="skill-card-type">Integration</div>
+              </div>
+            </div>
+            <div class="skill-card-desc">Automated PR creation and review with conventional commits and changelog generation</div>
+            <div class="skill-card-tags">
+              <span class="skill-tag">github</span>
+              <span class="skill-tag">pr</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="skill-usage">Used 22x</span>
+            <div class="skill-footer-spacer"></div>
+            <div class="skill-star" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <button class="skill-inject" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+              Inject
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 8: Daily Standup -->
+        <div class="skill-card" data-type="workflow" onclick="showDetail('standup')" data-tooltip="Daily Standup — summarize what you did, what is next, and blockers from chat history">
+          <div class="skill-card-body">
+            <div class="skill-card-top">
+              <div class="skill-type-icon workflow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
+              </div>
+              <div class="skill-card-info">
+                <div class="skill-card-name">Daily Standup</div>
+                <div class="skill-card-type">Workflow</div>
+              </div>
+            </div>
+            <div class="skill-card-desc">Generates standup reports from recent commits, PRs, and task progress</div>
+            <div class="skill-card-tags">
+              <span class="skill-tag">standup</span>
+              <span class="skill-tag">report</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="skill-usage">Used 19x</span>
+            <div class="skill-footer-spacer"></div>
+            <div class="skill-star favorited" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <button class="skill-inject" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+              Inject
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 9: Memory Extractor -->
+        <div class="skill-card" data-type="knowledge" onclick="showDetail('memory')" data-tooltip="Memory Extractor — distill key decisions and context from conversations into persistent memory">
+          <div class="skill-card-body">
+            <div class="skill-card-top">
+              <div class="skill-type-icon knowledge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
+              </div>
+              <div class="skill-card-info">
+                <div class="skill-card-name">Memory Extractor</div>
+                <div class="skill-card-type">Knowledge</div>
+              </div>
+            </div>
+            <div class="skill-card-desc">Extracts and categorizes learnings from chat sessions into structured memory entries</div>
+            <div class="skill-card-tags">
+              <span class="skill-tag">memory</span>
+              <span class="skill-tag">learning</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="skill-usage">Used 11x</span>
+            <div class="skill-footer-spacer"></div>
+            <div class="skill-star" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <button class="skill-inject" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+              Inject
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 10: Deploy Checker -->
+        <div class="skill-card" data-type="integration" onclick="showDetail('deploy')" data-tooltip="Deploy Checker — pre-flight checks before deploy: tests, types, lint, and dependency audit">
+          <div class="skill-card-body">
+            <div class="skill-card-top">
+              <div class="skill-type-icon integration">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              </div>
+              <div class="skill-card-info">
+                <div class="skill-card-name">Deploy Checker</div>
+                <div class="skill-card-type">Integration</div>
+              </div>
+            </div>
+            <div class="skill-card-desc">Validates deployment readiness across CI pipelines, tests, and environment configs</div>
+            <div class="skill-card-tags">
+              <span class="skill-tag">deploy</span>
+              <span class="skill-tag">ci</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="skill-usage">Used 7x</span>
+            <div class="skill-footer-spacer"></div>
+            <div class="skill-star favorited" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <button class="skill-inject" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+              Inject
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- LIST VIEW (hidden by default) -->
+      <div class="skills-list" id="skills-list" data-guide="{&quot;title&quot;: &quot;List View&quot;, &quot;tag&quot;: &quot;Compact&quot;, &quot;body&quot;: &quot;Scan your entire library at a glance &amp;mdash; &lt;em&gt;skill name, type, description, and usage count&lt;/em&gt; in dense rows. Perfect for power users who know exactly what they need.&quot;, &quot;cat&quot;: &quot;kat-yawn&quot;}">
+        <div class="skill-list-item" data-type="knowledge" onclick="showDetail('code-review')">
+          <div class="skill-type-icon knowledge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg></div>
+          <div class="skill-list-info"><div class="skill-list-name">Code Review</div><div class="skill-list-desc">Structured code review with severity-tiered findings</div></div>
+          <div class="skill-list-type">Knowledge</div>
+          <div class="skill-list-usage">24x</div>
+        </div>
+        <div class="skill-list-item" data-type="tool" onclick="showDetail('test-gen')">
+          <div class="skill-type-icon tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+          <div class="skill-list-info"><div class="skill-list-name">Test Generator</div><div class="skill-list-desc">Generates comprehensive test suites with edge cases</div></div>
+          <div class="skill-list-type">Tool</div>
+          <div class="skill-list-usage">18x</div>
+        </div>
+        <div class="skill-list-item" data-type="knowledge" onclick="showDetail('think-deeper')">
+          <div class="skill-type-icon knowledge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg></div>
+          <div class="skill-list-info"><div class="skill-list-name">Think Deeper</div><div class="skill-list-desc">Multi-phase analytical reasoning for complex problems</div></div>
+          <div class="skill-list-type">Knowledge</div>
+          <div class="skill-list-usage">31x</div>
+        </div>
+        <div class="skill-list-item" data-type="tool" onclick="showDetail('sec-audit')">
+          <div class="skill-type-icon tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+          <div class="skill-list-info"><div class="skill-list-name">Security Audit</div><div class="skill-list-desc">Automated security vulnerability scanning</div></div>
+          <div class="skill-list-type">Tool</div>
+          <div class="skill-list-usage">12x</div>
+        </div>
+        <div class="skill-list-item" data-type="tool" onclick="showDetail('refactor')">
+          <div class="skill-type-icon tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+          <div class="skill-list-info"><div class="skill-list-name">Refactor Clean</div><div class="skill-list-desc">Systematic code refactoring with safety checks</div></div>
+          <div class="skill-list-type">Tool</div>
+          <div class="skill-list-usage">15x</div>
+        </div>
+        <div class="skill-list-item" data-type="workflow" onclick="showDetail('planpack')">
+          <div class="skill-type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg></div>
+          <div class="skill-list-info"><div class="skill-list-name">PlanPack Writer</div><div class="skill-list-desc">Generates chunked PlanPack specs from thesis</div></div>
+          <div class="skill-list-type">Workflow</div>
+          <div class="skill-list-usage">8x</div>
+        </div>
+        <div class="skill-list-item" data-type="integration" onclick="showDetail('gh-pr')">
+          <div class="skill-type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+          <div class="skill-list-info"><div class="skill-list-name">GitHub PR Bot</div><div class="skill-list-desc">Automated PR creation and review</div></div>
+          <div class="skill-list-type">Integration</div>
+          <div class="skill-list-usage">22x</div>
+        </div>
+        <div class="skill-list-item" data-type="workflow" onclick="showDetail('standup')">
+          <div class="skill-type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg></div>
+          <div class="skill-list-info"><div class="skill-list-name">Daily Standup</div><div class="skill-list-desc">Generates standup reports from recent commits</div></div>
+          <div class="skill-list-type">Workflow</div>
+          <div class="skill-list-usage">19x</div>
+        </div>
+        <div class="skill-list-item" data-type="knowledge" onclick="showDetail('memory')">
+          <div class="skill-type-icon knowledge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg></div>
+          <div class="skill-list-info"><div class="skill-list-name">Memory Extractor</div><div class="skill-list-desc">Extracts and categorizes learnings from chat</div></div>
+          <div class="skill-list-type">Knowledge</div>
+          <div class="skill-list-usage">11x</div>
+        </div>
+        <div class="skill-list-item" data-type="integration" onclick="showDetail('deploy')">
+          <div class="skill-type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+          <div class="skill-list-info"><div class="skill-list-name">Deploy Checker</div><div class="skill-list-desc">Validates deployment readiness</div></div>
+          <div class="skill-list-type">Integration</div>
+          <div class="skill-list-usage">7x</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Suggestion Bar -->
+    <div class="suggestion-bar" data-guide="{&quot;title&quot;: &quot;Smart Suggestions&quot;, &quot;tag&quot;: &quot;AI Context&quot;, &quot;body&quot;: &quot;PiNG analyzes your current conversation and &lt;em&gt;recommends skills that match your context&lt;/em&gt;. One click to inject. The AI learns which suggestions you accept over time.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
+      <span class="suggestion-label">Suggested for this conversation</span>
+      <div class="suggestion-pills">
+        <div class="suggestion-pill" data-tooltip="Click to inject this suggested skill into your current conversation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
+          Code Review
+        </div>
+        <div class="suggestion-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
+          Think Deeper
+        </div>
+        <div class="suggestion-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          Test Generator
+        </div>
+        <div class="suggestion-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
+          PlanPack Writer
+        </div>
+      </div>
+      <button class="suggestion-all" data-tooltip="Browse the full skills library — 47 skills available">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        All Skills
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== RIGHT DETAIL PANEL ===== -->
+  <div class="detail-panel" id="detail-panel" data-guide="{&quot;title&quot;: &quot;Skill Detail Panel&quot;, &quot;tag&quot;: &quot;Deep Dive&quot;, &quot;body&quot;: &quot;Everything about a skill in one place &amp;mdash; &lt;em&gt;description, allowed tools, variables, and governance rules&lt;/em&gt;. Edit inline, inject to chat, or run directly. Full transparency into what each skill does.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">
+    <div class="detail-header">
+      <div class="detail-title-area">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+          <div class="detail-type-badge knowledge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
+            Knowledge
+          </div>
+          <div class="skill-star favorited" style="margin-left:auto" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+        </div>
+        <div class="detail-name">Code Review</div>
+        <div class="detail-meta">
+          Version 1.0.0 &nbsp;&middot;&nbsp; Created Mar 5, 2026 &nbsp;&middot;&nbsp; Last used 2h ago
+        </div>
+      </div>
+      <div class="detail-actions-top">
+        <button class="btn-secondary" onclick="openEditor()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Edit
+        </button>
+        <div class="detail-close" onclick="closeDetail()" style="position:static" data-tooltip="Close this detail panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-body">
+      <!-- Description -->
+      <div class="detail-section">
+        <div class="detail-section-label">Description</div>
+        <div class="detail-desc">Performs a structured code review with severity-tiered findings (critical, warning, suggestion). Analyzes code quality, patterns, potential bugs, and architectural concerns. Provides actionable feedback with specific line references.</div>
+      </div>
+
+      <!-- Tags -->
+      <div class="detail-section">
+        <div class="detail-section-label">Tags</div>
+        <div class="detail-tags">
+          <span class="detail-tag">review</span>
+          <span class="detail-tag">quality</span>
+          <span class="detail-tag">code-analysis</span>
+          <span class="detail-tag">best-practices</span>
+        </div>
+      </div>
+
+      <!-- Allowed Tools -->
+      <div class="detail-section">
+        <div class="detail-section-label">Allowed Tools</div>
+        <div class="detail-tools" data-guide="{&quot;title&quot;: &quot;Allowed Tools&quot;, &quot;tag&quot;: &quot;Permissions&quot;, &quot;body&quot;: &quot;Exactly which tools this skill can access &amp;mdash; &lt;em&gt;Read, Grep, Glob, and more&lt;/em&gt;. Skills only get the capabilities they need. Least-privilege by design.&quot;, &quot;cat&quot;: &quot;kat-flip&quot;}">
+          <div class="detail-tool-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Read
+          </div>
+          <div class="detail-tool-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Grep
+          </div>
+          <div class="detail-tool-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            Glob
+          </div>
+        </div>
+      </div>
+
+      <!-- Context Mode -->
+      <div class="detail-section">
+        <div class="detail-section-label">Context Mode</div>
+        <div class="detail-mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
+          fork
+        </div>
+      </div>
+
+      <!-- Variables -->
+      <div class="detail-section">
+        <div class="detail-section-label">Variables</div>
+        <div class="detail-var">
+          <div class="detail-var-name">{{language}}</div>
+          <div class="detail-var-info">
+            <div class="detail-var-desc">Target language</div>
+            <div class="detail-var-meta">text, optional</div>
+          </div>
+        </div>
+        <div class="detail-var">
+          <div class="detail-var-name">{{focusArea}}</div>
+          <div class="detail-var-info">
+            <div class="detail-var-desc">Review focus area</div>
+            <div class="detail-var-meta">text, optional</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Governance -->
+      <div class="detail-section">
+        <div class="detail-section-label">Governance</div>
+        <div class="detail-gov">
+          <div class="detail-gov-row">
+            <span class="detail-gov-label">Require Approval</span>
+            <span class="detail-gov-value off">off</span>
+          </div>
+          <div class="detail-gov-row">
+            <span class="detail-gov-label">Destructive</span>
+            <span class="detail-gov-value off">no</span>
+          </div>
+          <div class="detail-gov-row">
+            <span class="detail-gov-label">Max Execution Time</span>
+            <span class="detail-gov-value warn">120s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detail Footer -->
+    <div class="detail-footer">
+      <button class="btn-primary" style="flex:1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+        Inject to Chat
+      </button>
+      <button class="btn-secondary" style="flex:1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Run Skill
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== EDITOR OVERLAY ===== -->
+<div class="editor-overlay" id="editor-overlay" onclick="if(event.target===this)closeEditor()" data-guide="{&quot;title&quot;: &quot;Skill Editor&quot;, &quot;tag&quot;: &quot;Create &amp; Edit&quot;, &quot;body&quot;: &quot;Build skills visually &amp;mdash; &lt;em&gt;name, type, SKILL.md content, variables, tags, and governance&lt;/em&gt;. Toggle approval requirements, mark destructive operations, and set auto-injection rules. No YAML wrestling required.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+  <div class="editor-panel">
+    <div class="editor-header">
+      <div class="editor-title" id="editor-title">New Skill</div>
+      <div class="editor-close" onclick="closeEditor()" data-tooltip="Close the skill editor without saving">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+    </div>
+    <div class="editor-body">
+      <!-- Name -->
+      <div class="editor-field">
+        <label class="editor-label">Name</label>
+        <input class="editor-input" type="text" placeholder="Skill name..." value="Code Review" />
+      </div>
+
+      <!-- Description -->
+      <div class="editor-field">
+        <label class="editor-label">Description</label>
+        <textarea class="editor-textarea" placeholder="What does this skill do?">Structured code review with severity-tiered findings and actionable feedback</textarea>
+      </div>
+
+      <!-- Type -->
+      <div class="editor-field">
+        <label class="editor-label">Type</label>
+        <div class="editor-type-selector" data-guide="{&quot;title&quot;: &quot;Skill Type Picker&quot;, &quot;tag&quot;: &quot;Architecture&quot;, &quot;body&quot;: &quot;Choose your skill type: &lt;em&gt;Knowledge feeds context, Tools run actions, Workflows chain steps, Integrations connect APIs&lt;/em&gt;. Each type unlocks different editor fields tailored to that pattern.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+          <div class="editor-type-option selected" onclick="selectEditorType(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
+            Knowledge
+          </div>
+          <div class="editor-type-option" onclick="selectEditorType(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            Tool
+          </div>
+          <div class="editor-type-option" onclick="selectEditorType(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
+            Workflow
+          </div>
+          <div class="editor-type-option" onclick="selectEditorType(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            Integration
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="editor-field">
+        <label class="editor-label">Skill Content (SKILL.md)</label>
+        <textarea class="editor-textarea mono">---
+name: Code Review
+version: 1.0.0
+type: knowledge
+description: Structured code review with severity-tiered findings
+tags: [review, quality, code-analysis]
+allowedTools: [Read, Grep, Glob]
+contextMode: fork
+variables:
+  - name: language
+    description: Target language
+    type: text
+    required: false
+  - name: focusArea
+    description: Review focus area
+    type: text
+    required: false
+governance:
+  requireApproval: false
+  destructive: false
+  maxExecutionTime: 120
+---
+
+# Code Review
+
+You are performing a structured code review.
+
+## Process
+1. Read the target file(s)
+2. Analyze for issues across categories
+3. Rate severity: critical / warning / suggestion
+4. Provide actionable feedback with line refs
+
+## Output Format
+For each finding:
+- **[SEVERITY]** Brief title
+- File: path:line
+- Issue: description
+- Fix: suggested resolution</textarea>
+      </div>
+
+      <!-- Variables -->
+      <div class="editor-field">
+        <label class="editor-label">Variables</label>
+        <div class="editor-vars" data-guide="{&quot;title&quot;: &quot;Skill Variables&quot;, &quot;tag&quot;: &quot;Customization&quot;, &quot;body&quot;: &quot;Define &lt;em&gt;input variables with names, descriptions, and defaults&lt;/em&gt;. Variables make skills reusable across projects &amp;mdash; same skill, different context. Users fill them in at runtime.&quot;, &quot;cat&quot;: &quot;kat-lick&quot;}">
+          <div class="editor-var-row">
+            <input type="text" value="language" placeholder="Name" />
+            <input type="text" value="Target language" placeholder="Description" />
+            <div class="editor-var-remove" data-tooltip="Remove this variable from the skill definition">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+          </div>
+          <div class="editor-var-row">
+            <input type="text" value="focusArea" placeholder="Name" />
+            <input type="text" value="Review focus area" placeholder="Description" />
+            <div class="editor-var-remove">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+          </div>
+        </div>
+        <button class="editor-add-var" data-tooltip="Add a new variable — make this skill customizable for different contexts">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Variable
+        </button>
+      </div>
+
+      <!-- Tags -->
+      <div class="editor-field">
+        <label class="editor-label">Tags</label>
+        <input class="editor-input" type="text" placeholder="Comma-separated tags" value="review, quality, code-analysis, best-practices" />
+      </div>
+
+      <!-- Governance -->
+      <div class="editor-field">
+        <label class="editor-label">Governance</label>
+        <div class="editor-gov-toggles" data-guide="{&quot;title&quot;: &quot;Governance Controls&quot;, &quot;tag&quot;: &quot;Safety&quot;, &quot;body&quot;: &quot;Fine-grained safety for every skill &amp;mdash; &lt;em&gt;require human approval before execution, flag destructive operations, or auto-inject on context match&lt;/em&gt;. You control how much autonomy AI gets.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">
+          <div class="editor-gov-toggle">
+            <span class="editor-gov-toggle-label">Require Approval</span>
+            <div class="editor-switch" onclick="this.classList.toggle('on')" data-tooltip="Toggle off — this governance rule is inactive"></div>
+          </div>
+          <div class="editor-gov-toggle">
+            <span class="editor-gov-toggle-label">Destructive</span>
+            <div class="editor-switch" onclick="this.classList.toggle('on')"></div>
+          </div>
+          <div class="editor-gov-toggle">
+            <span class="editor-gov-toggle-label">Auto-inject on match</span>
+            <div class="editor-switch on" onclick="this.classList.toggle('on')" data-tooltip="Toggle on — this governance rule is active"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="editor-footer">
+      <button class="btn-secondary" onclick="closeEditor()">Cancel</button>
+      <button class="btn-primary" onclick="closeEditor()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Save Skill
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ===== VIEW MODE TOGGLE =====
+  function setViewMode(mode) {
+    const grid = document.getElementById('skills-grid');
+    const list = document.getElementById('skills-list');
+    const toggles = document.querySelectorAll('#view-toggle .toggle-btn');
+    if (mode === 'grid') {
+      grid.style.display = 'grid';
+      list.style.display = 'none';
+      toggles[0].classList.add('active');
+      toggles[1].classList.remove('active');
+    } else {
+      grid.style.display = 'none';
+      list.style.display = 'flex';
+      toggles[0].classList.remove('active');
+      toggles[1].classList.add('active');
+    }
+  }
+
+  // ===== TYPE FILTER =====
+  function filterType(pill) {
+    document.querySelectorAll('.type-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    const type = pill.dataset.type;
+    // Filter grid cards
+    document.querySelectorAll('.skill-card').forEach(card => {
+      if (type === 'all' || card.dataset.type === type) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    // Filter list items
+    document.querySelectorAll('.skill-list-item').forEach(item => {
+      if (type === 'all' || item.dataset.type === type) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // ===== CATEGORY EXPAND/COLLAPSE =====
+  function toggleCategory(catEl) {
+    const arrow = catEl.querySelector('.sb-cat-arrow');
+    const subcats = catEl.nextElementSibling;
+    if (arrow && subcats && subcats.classList.contains('sb-subcats')) {
+      arrow.classList.toggle('open');
+      subcats.classList.toggle('open');
+    }
+  }
+
+  // ===== DETAIL PANEL =====
+  function showDetail(skillId) {
+    const panel = document.getElementById('detail-panel');
+    panel.classList.add('open');
+  }
+  function closeDetail() {
+    const panel = document.getElementById('detail-panel');
+    panel.classList.remove('open');
+  }
+
+  // ===== EDITOR OVERLAY =====
+  function openEditor() {
+    document.getElementById('editor-overlay').classList.add('open');
+  }
+  function closeEditor() {
+    document.getElementById('editor-overlay').classList.remove('open');
+  }
+
+  // ===== EDITOR TYPE SELECTOR =====
+  function selectEditorType(el) {
+    document.querySelectorAll('.editor-type-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+
+  // ===== TAB SWITCHING =====
+  function switchTab(tab) {
+    document.querySelectorAll('.sb-nav-item').forEach(item => item.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+
+  // ===== CLOSE DETAIL ON OUTSIDE CLICK =====
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeEditor();
+      closeDetail();
+    }
+  });
+</script>
+
+
+<script id="ping-guide-system">
+(function() {
+  /* ===== KAT POSITIONS & ANIMATIONS: fully randomized per guide ===== */
+  const katPositions = ['kat-pos-tl','kat-pos-tr','kat-pos-bl','kat-pos-br','kat-pos-ml','kat-pos-mr'];
+  const katAnimations = ['kat-excited','kat-happy','kat-wave','kat-think','kat-flip','kat-lick','kat-yawn','kat-yarn-play','kat-lean-left','kat-lean-right','kat-perk'];
+  let lastPos = -1;
+  let lastAnim = -1;
+  function randExclude(arr, exclude) { let i; do { i = Math.floor(Math.random() * arr.length); } while (i === exclude && arr.length > 1); return i; }
+
+  /* ===== GUIDE CARD ELEMENT ===== */
+  const card = document.createElement('div');
+  card.className = 'ping-guide-card';
+  card.innerHTML = `
+    <div class="ping-guide-accent"></div>
+    <div class="ping-guide-inner" id="guide-inner">
+      <div class="ping-guide-kat-wrap" id="guide-kat"></div>
+      <div class="ping-guide-text">
+        <div class="ping-guide-tag" id="guide-tag"></div>
+        <div class="ping-guide-title" id="guide-title"></div>
+        <div class="ping-guide-body" id="guide-body"></div>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(card);
+
+  // Inject KAT SVG
+  document.getElementById('guide-kat').innerHTML = `<svg class="kat-mascot" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">  <!-- Body -->  <ellipse class="kat-body" cx="28" cy="44" rx="14" ry="10" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Tail -->  <path class="kat-tail" d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4fa0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Head -->  <g class="kat-head">    <circle cx="38" cy="26" r="12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Left ear -->    <path class="kat-ear-l" d="M30 16 L27 4 L35 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M31 14 L29 7 L34 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Right ear -->    <path class="kat-ear-r" d="M44 14 L48 2 L50 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M45 13 L47.5 5 L49 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Eyes -->    <g class="kat-eyes">      <ellipse class="kat-eye-l" cx="33" cy="25" rx="2.5" ry="3" fill="#4fa0ff"/>      <ellipse class="kat-eye-r" cx="43" cy="24" rx="2.5" ry="3" fill="#4fa0ff"/>      <ellipse class="kat-pupil-l" cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0d0f14"/>      <ellipse class="kat-pupil-r" cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0d0f14"/>      <circle cx="34" cy="24" r="0.8" fill="#151820"/>      <circle cx="44" cy="23" r="0.8" fill="#151820"/>    </g>    <!-- Nose -->    <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#a78bfa"/>    <!-- Mouth -->    <path class="kat-mouth" d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Whiskers -->    <g class="kat-whiskers">      <line x1="28" y1="27" x2="20" y2="25" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="29" x2="19" y2="29" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="31" x2="20" y2="33" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="26" x2="56" y2="24" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="28" x2="57" y2="28" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="30" x2="56" y2="32" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>    </g>  </g>  <!-- Back leg / tail extension -->  <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <path d="M50 39 L50 40.5" stroke="#4fa0ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <path d="M52 38.5 L52 40" stroke="#4fa0ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <!-- Paws -->  <path class="kat-paw-r" d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <path class="kat-paw-l" d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Chest fur lines -->  <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#4fa0ff" stroke-width="1" opacity="0.3" stroke-linecap="round"/>  <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#4fa0ff" stroke-width="1" opacity="0.2" stroke-linecap="round"/></svg>`;
+
+  let activeEl = null;
+  let hideTimeout = null;
+  let tooltipActive = false;
+  const katEl = document.querySelector('.ping-guide-card .kat-mascot');
+  const innerEl = document.getElementById('guide-inner');
+
+  function showGuide(el) {
+    // Don't show guide card if tooltip is active (either on this element or a child)
+    if (tooltipActive) return;
+    if (el.hasAttribute('data-tooltip')) return;
+
+    clearTimeout(hideTimeout);
+    const data = JSON.parse(el.getAttribute('data-guide'));
+    document.getElementById('guide-tag').textContent = data.tag || 'Feature';
+    document.getElementById('guide-title').textContent = data.title;
+    document.getElementById('guide-body').innerHTML = data.body;
+
+    // Randomize KAT animation (never repeat the same one twice in a row)
+    if (katEl) {
+      lastAnim = randExclude(katAnimations, lastAnim);
+      katEl.setAttribute('class', 'kat-mascot ' + katAnimations[lastAnim]);
+    }
+
+    // Randomize KAT position (never repeat the same corner twice in a row)
+    lastPos = randExclude(katPositions, lastPos);
+    const pos = katPositions[lastPos];
+    innerEl.className = 'ping-guide-inner ' + pos;
+
+    // Highlight source element
+    if (activeEl) activeEl.classList.remove('guide-active');
+    el.classList.add('guide-active');
+    activeEl = el;
+
+    // Position the card smartly (viewport-aware)
+    const r = el.getBoundingClientRect();
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const cw = Math.min(340, vw - 24);
+    card.style.width = cw + 'px';
+    const ch = card.offsetHeight || 260;
+    let x, y;
+
+    // Try right side
+    if (r.right + 16 + cw < vw) {
+      x = r.right + 16;
+      y = Math.max(12, Math.min(r.top, vh - ch - 12));
+    }
+    // Try left side
+    else if (r.left - 16 - cw > 0) {
+      x = r.left - 16 - cw;
+      y = Math.max(12, Math.min(r.top, vh - ch - 12));
+    }
+    // Below
+    else {
+      x = Math.max(12, Math.min(r.left, vw - cw - 12));
+      y = r.bottom + 12;
+      if (y + ch > vh) y = Math.max(12, r.top - ch - 12);
+    }
+
+    card.style.left = x + 'px';
+    card.style.top = y + 'px';
+    card.classList.add('visible');
+  }
+
+  function hideGuide() {
+    hideTimeout = setTimeout(() => {
+      card.classList.remove('visible');
+      if (activeEl) { activeEl.classList.remove('guide-active'); activeEl = null; }
+    }, 200);
+  }
+
+  // Promote data-guide from inner children up to parent containers
+  // so the guide triggers when hovering ANYWHERE on the widget, not just the title bar
+  const containerSelectors = ['.card', '.stat-card', '.kanban-col'];
+  containerSelectors.forEach(sel => {
+    document.querySelectorAll(sel + ' [data-guide]').forEach(child => {
+      const parent = child.closest(sel);
+      if (parent && !parent.hasAttribute('data-guide')) {
+        parent.setAttribute('data-guide', child.getAttribute('data-guide'));
+        child.removeAttribute('data-guide');
+      }
+    });
+  });
+
+  // Attach to all data-guide elements
+  document.querySelectorAll('[data-guide]').forEach(el => {
+    el.addEventListener('mouseenter', () => showGuide(el));
+    el.addEventListener('mouseleave', hideGuide);
+  });
+
+  // Keep card visible when hovering over it
+  card.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+  card.addEventListener('mouseleave', hideGuide);
+
+  /* ===== VIEWPORT-AWARE TOOLTIPS ===== */
+  document.querySelectorAll('[data-tooltip]').forEach(el => {
+    el.addEventListener('mouseenter', function() {
+      tooltipActive = true;
+      // Hide guide card if showing
+      card.classList.remove('visible');
+      if (activeEl) { activeEl.classList.remove('guide-active'); activeEl = null; }
+
+      const r = el.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      let ty = r.top;
+
+      // Clamp horizontal position to viewport
+      const tipX = Math.max(140, Math.min(cx, window.innerWidth - 140));
+      // If too close to top, show below instead
+      if (r.top < 60) {
+        ty = r.bottom + 8;
+        el.style.setProperty('--tip-x', tipX + 'px');
+        el.style.setProperty('--tip-y', (ty + 40) + 'px');
+      } else {
+        el.style.setProperty('--tip-x', tipX + 'px');
+        el.style.setProperty('--tip-y', ty + 'px');
+      }
+    });
+    el.addEventListener('mouseleave', function() {
+      tooltipActive = false;
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

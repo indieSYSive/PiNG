@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PiNG! — The Supercharged AI Workspace</title>
+  <meta name="description" content="PiNG! is the desktop AI workspace that puts you in control. Claude, GPT, Gemini, local models, 100+ agent tools, perfect memory — one app for everyone who thinks with AI.">
+  <meta name="keywords" content="AI desktop app, supercharged AI workspace, multi-LLM, bring your own AI, local AI, vibe coding, AI agent tools, CatSkills">
+  <meta property="og:title" content="PiNG! — The Supercharged AI Workspace">
+  <meta property="og:description" content="Claude. GPT. Gemini. Local models. 100+ agent tools. Perfect memory. One desktop app that replaces everything.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PiNG! — The Supercharged AI Workspace">
+  <meta name="twitter:description" content="Stop juggling AI subscriptions. One supercharged desktop workspace for every AI model.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════
+   PiNG! Landing Page — Supercharged AI Workspace
+   Design System + All Styles (single file)
+   ═══════════════════════════════════════════════════════ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-primary: #0a0f1a;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1a2236;
+  --bg-card: #141b2d;
+  --bg-card-hover: #1a2440;
+  --bg-elevated: #1e2a3a;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent: #4a9cff;
+  --accent-secondary: #818cf8;
+  --accent-gradient: linear-gradient(135deg, #4a9cff 0%, #818cf8 50%, #a78bfa 100%);
+  --accent-glow: rgba(74, 156, 255, 0.15);
+  --claude-color: #d4a574;
+  --gpt-color: #74aa9c;
+  --gemini-color: #4285f4;
+  --local-color: #a78bfa;
+  --border: rgba(148, 163, 184, 0.1);
+  --border-hover: rgba(74, 156, 255, 0.3);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 40px var(--accent-glow);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --container-max: 1200px;
+  --container-pad: 24px;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: var(--accent); text-decoration: none; }
+.container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); }
+.gradient-text { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* ═══ NAV ═══ */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 15, 26, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: all 0.3s; }
+.nav.scrolled { background: rgba(10, 15, 26, 0.95); }
+.nav-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; color: var(--text-primary); }
+.nav-logo svg { flex-shrink: 0; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text-primary); }
+.nav-cta { background: var(--accent); color: #fff !important; padding: 8px 20px; border-radius: var(--radius-sm); font-weight: 600; transition: all 0.2s; }
+.nav-cta:hover { background: #5aabff; box-shadow: 0 0 20px var(--accent-glow); }
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav-mobile-toggle span { display: block; width: 20px; height: 2px; background: var(--text-secondary); margin: 4px 0; transition: 0.3s; }
+
+/* ═══ HERO ═══ */
+.hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120px 24px 60px; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-gradient { position: absolute; top: -40%; left: 50%; transform: translateX(-50%); width: 140%; height: 100%; background: radial-gradient(ellipse at center, rgba(74,156,255,0.08) 0%, rgba(129,140,248,0.04) 40%, transparent 70%); }
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(74,156,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(74,156,255,0.03) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%); }
+.hero-content { position: relative; z-index: 1; text-align: center; max-width: 800px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 100px; background: rgba(74,156,255,0.1); border: 1px solid rgba(74,156,255,0.2); font-size: 13px; font-weight: 500; color: var(--accent); margin-bottom: 24px; }
+.badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; animation: pulse-dot 2s infinite; }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero-title { font-size: clamp(42px, 6vw, 72px); font-weight: 900; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 20px; }
+.hero-subtitle { font-size: clamp(16px, 2vw, 20px); color: var(--text-secondary); max-width: 640px; margin: 0 auto 32px; line-height: 1.7; }
+.hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: var(--radius-md); font-weight: 600; font-size: 15px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #5aabff; box-shadow: 0 0 30px var(--accent-glow), 0 4px 12px rgba(0,0,0,0.3); transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: var(--text-primary); border: 1px solid var(--border); }
+.btn-ghost:hover { border-color: var(--border-hover); background: rgba(74,156,255,0.05); }
+.btn-lg { padding: 16px 32px; font-size: 16px; }
+
+/* Hero Stats */
+.hero-stats { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-value { display: block; font-size: 28px; font-weight: 800; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 500; }
+.stat-divider { width: 1px; height: 40px; background: var(--border); }
+
+/* Hero App Preview */
+.hero-preview { position: relative; z-index: 1; max-width: 960px; margin: 60px auto 0; }
+.preview-window { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg), 0 0 80px rgba(74,156,255,0.06); }
+.preview-titlebar { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--bg-tertiary); border-bottom: 1px solid var(--border); }
+.titlebar-dots { display: flex; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.red { background: #ff5f57; }
+.dot.yellow { background: #febc2e; }
+.dot.green { background: #28c840; }
+.titlebar-title { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.preview-body { display: flex; height: 380px; }
+.preview-sidebar { width: 200px; border-right: 1px solid var(--border); padding: 12px; flex-shrink: 0; }
+.sidebar-section { margin-bottom: 16px; }
+.sidebar-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; padding: 4px 8px; margin-bottom: 4px; }
+.sidebar-item { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: var(--radius-sm); font-size: 12px; color: var(--text-secondary); cursor: default; transition: background 0.15s; }
+.sidebar-item.active { background: rgba(74,156,255,0.1); color: var(--accent); }
+.sidebar-icon { font-size: 14px; }
+.preview-chat { flex: 1; display: flex; flex-direction: column; }
+.chat-messages { flex: 1; padding: 16px; overflow: hidden; }
+.chat-msg { margin-bottom: 16px; }
+.msg-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.msg-name { font-size: 12px; font-weight: 600; }
+.msg-model { font-size: 11px; color: var(--text-muted); }
+.msg-badge { font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
+.msg-badge.claude { background: rgba(212,165,116,0.15); color: var(--claude-color); }
+.msg-body { font-size: 13px; color: var(--text-secondary); line-height: 1.6; padding-left: 0; }
+.msg-artifact { margin-top: 8px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+.artifact-header { padding: 6px 10px; background: var(--bg-tertiary); font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+.artifact-icon { font-size: 14px; }
+.artifact-body { padding: 8px 10px; font-family: var(--font-mono); font-size: 11px; }
+.code-line { display: block; padding: 1px 0; color: var(--text-secondary); }
+.code-num { color: var(--text-muted); margin-right: 8px; min-width: 16px; display: inline-block; }
+.code-key { color: var(--accent); }
+.chat-input-bar { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-top: 1px solid var(--border); background: var(--bg-tertiary); }
+.model-selector { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-secondary); padding: 4px 8px; background: var(--bg-primary); border-radius: 4px; }
+.model-dot { width: 6px; height: 6px; border-radius: 50%; }
+.model-dot.claude { background: var(--claude-color); }
+.chat-input-placeholder { flex: 1; font-size: 13px; color: var(--text-muted); }
+
+/* ═══ SECTIONS ═══ */
+.section { padding: 100px 0; }
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-badge { display: inline-block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); padding: 6px 14px; border-radius: 100px; background: rgba(74,156,255,0.1); border: 1px solid rgba(74,156,255,0.15); margin-bottom: 16px; }
+.section-title { font-size: clamp(30px, 4vw, 44px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
+.section-subtitle { font-size: 17px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+/* ═══ AUDIENCE SECTION ═══ */
+.audience-section { background: var(--bg-secondary); }
+.audience-intro { font-size: 19px; color: var(--text-secondary); text-align: center; max-width: 700px; margin: 0 auto 48px; line-height: 1.7; }
+.audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.audience-card { padding: 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: all 0.3s; }
+.audience-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+.audience-icon { font-size: 32px; margin-bottom: 12px; }
+.audience-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.audience-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+/* ═══ PAIN POINTS ═══ */
+.pain-section { background: var(--bg-primary); }
+.pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.pain-card { padding: 32px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: all 0.3s; }
+.pain-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+.pain-icon { font-size: 32px; margin-bottom: 16px; }
+.pain-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.pain-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+/* ═══ FEATURE SHOWCASES ═══ */
+.feature-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-bottom: 100px; }
+.feature-showcase:last-child { margin-bottom: 0; }
+.feature-showcase.reverse { direction: rtl; }
+.feature-showcase.reverse > * { direction: ltr; }
+.feature-badge { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); padding: 4px 10px; border-radius: 4px; background: rgba(74,156,255,0.1); margin-bottom: 12px; }
+.feature-text h3 { font-size: 28px; font-weight: 800; margin-bottom: 12px; line-height: 1.2; }
+.feature-text p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+.feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.feature-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); }
+.feature-list li svg { flex-shrink: 0; margin-top: 2px; }
+
+/* Feature visuals */
+.model-cards { display: flex; flex-direction: column; gap: 10px; }
+.model-card { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); transition: all 0.3s; animation: slideInRight 0.5s ease-out both; animation-delay: var(--delay, 0s); }
+.model-card:hover { border-color: var(--border-hover); }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+.model-card-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; color: #fff; flex-shrink: 0; }
+.claude-bg { background: linear-gradient(135deg, #d4a574, #b8895a); }
+.gpt-bg { background: linear-gradient(135deg, #74aa9c, #5a9080); }
+.gemini-bg { background: linear-gradient(135deg, #4285f4, #2b6de0); }
+.local-bg { background: linear-gradient(135deg, #a78bfa, #8b6fe0); }
+.model-card-info { flex: 1; }
+.model-card-name { display: block; font-size: 14px; font-weight: 600; }
+.model-card-desc { font-size: 12px; color: var(--text-muted); }
+.model-card-status { font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 100px; }
+.model-card-status.connected { background: rgba(34,197,94,0.1); color: #22c55e; }
+.model-card-status.local { background: rgba(167,139,250,0.1); color: var(--local-color); }
+
+/* Terminal demo */
+.terminal-demo { background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+.terminal-header { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--bg-tertiary); border-bottom: 1px solid var(--border); }
+.terminal-dots { display: flex; gap: 5px; }
+.terminal-dots .dot { width: 8px; height: 8px; }
+.terminal-title { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); }
+.terminal-body { padding: 14px; font-family: var(--font-mono); font-size: 12px; }
+.terminal-line { padding: 3px 0; display: flex; align-items: center; gap: 8px; }
+.t-prompt { color: var(--accent); }
+.t-tool { color: #22c55e; font-weight: 600; }
+.t-path { color: var(--text-secondary); }
+.t-status { font-weight: 700; }
+.t-ok { color: #22c55e; }
+.t-warn { color: #f59e0b; }
+.t-output { color: var(--text-muted); }
+.terminal-line.permission { background: rgba(245,158,11,0.08); padding: 6px 8px; border-radius: 4px; margin: 2px 0; }
+.t-permission { color: #f59e0b; font-size: 11px; }
+.t-prompt-user { color: var(--accent-secondary); font-weight: 600; }
+.t-user-input { color: #22c55e; }
+
+/* Memory visual */
+.memory-visual { display: flex; flex-direction: column; gap: 12px; }
+.memory-layer { padding: 16px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-card); }
+.memory-layer.global { border-left: 3px solid var(--accent); }
+.memory-layer.project { border-left: 3px solid var(--accent-secondary); }
+.memory-layer.context { border-left: 3px solid #22c55e; }
+.memory-layer-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 8px; }
+.memory-items { display: flex; flex-wrap: wrap; gap: 6px; }
+.memory-item { font-size: 12px; padding: 4px 10px; background: rgba(74,156,255,0.08); border: 1px solid rgba(74,156,255,0.15); border-radius: 100px; color: var(--text-secondary); }
+.memory-bar { display: flex; height: 24px; border-radius: 6px; overflow: hidden; gap: 2px; margin-bottom: 8px; }
+.memory-bar-segment { display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; color: #fff; }
+.memory-bar-segment.messages { background: var(--accent); }
+.memory-bar-segment.notes { background: var(--accent-secondary); }
+.memory-bar-segment.memory { background: #22c55e; }
+.memory-bar-segment.system { background: var(--text-muted); }
+.memory-tokens { display: flex; justify-content: space-between; }
+.token-count { font-size: 12px; color: var(--text-secondary); font-family: var(--font-mono); }
+.token-cost { font-size: 12px; color: var(--text-muted); }
+
+/* Skills visual */
+.skills-visual { display: flex; flex-direction: column; gap: 10px; }
+.skill-chain { display: flex; align-items: center; gap: 8px; padding: 12px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); }
+.skill-step { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); padding: 4px 10px; background: var(--bg-tertiary); border-radius: 4px; white-space: nowrap; }
+.skill-step.active { background: rgba(74,156,255,0.15); color: var(--accent); border: 1px solid rgba(74,156,255,0.3); }
+.skill-arrow { color: var(--text-muted); font-size: 14px; }
+.skill-card { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); }
+.skill-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--accent-gradient); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.skill-info { flex: 1; }
+.skill-name { font-size: 13px; font-weight: 600; display: block; }
+.skill-desc { font-size: 11px; color: var(--text-muted); }
+.skill-runs { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); }
+
+/* ═══ EXTRAS GRID ═══ */
+.extras-section { background: var(--bg-secondary); }
+.extras-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.extra-card { padding: 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); transition: all 0.3s; }
+.extra-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.extra-icon { color: var(--accent); margin-bottom: 12px; }
+.extra-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.extra-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+/* ═══ GOVERNANCE SECTION ═══ */
+.governance-section { background: var(--bg-primary); position: relative; overflow: hidden; }
+.governance-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(129,140,248,0.05) 0%, transparent 70%); }
+.governance-intro { font-size: 19px; color: var(--text-secondary); text-align: center; max-width: 700px; margin: 0 auto 48px; line-height: 1.7; }
+.governance-pipeline { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+.pipeline-card { padding: 24px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); text-align: center; min-width: 200px; flex: 1; max-width: 280px; transition: all 0.3s; }
+.pipeline-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.pipeline-icon { font-size: 36px; margin-bottom: 12px; }
+.pipeline-role { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 4px; }
+.pipeline-name { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.pipeline-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.pipeline-arrow { font-size: 24px; color: var(--text-muted); flex-shrink: 0; }
+.governance-stats { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 40px; }
+.gov-stat { text-align: center; }
+.gov-stat-value { display: block; font-size: 32px; font-weight: 800; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.gov-stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; }
+.governance-quote { text-align: center; font-size: 17px; color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px; font-style: italic; line-height: 1.7; }
+.governance-planpacks { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 900px; margin: 0 auto; }
+.planpack-tag { font-size: 12px; padding: 6px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; color: var(--text-secondary); font-family: var(--font-mono); transition: all 0.2s; }
+.planpack-tag:hover { border-color: var(--border-hover); color: var(--accent); }
+
+/* ═══ HARNESS GRID ═══ */
+.harness-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-bottom: 56px; }
+.harness-domain { padding: 24px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: all 0.3s; position: relative; overflow: hidden; }
+.harness-domain:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(74,156,255,0.08); }
+.harness-domain-icon { font-size: 32px; margin-bottom: 12px; }
+.harness-domain h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.harness-count { display: inline-block; font-size: 11px; font-weight: 600; color: var(--accent); background: rgba(74,156,255,0.1); padding: 2px 10px; border-radius: 100px; margin-bottom: 10px; font-family: var(--font-mono); }
+.harness-domain p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+.harness-special { margin-bottom: 56px; }
+.harness-special-title { font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 32px; }
+.harness-special-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.harness-special-card { padding: 28px 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: all 0.3s; }
+.harness-special-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.harness-special-icon { margin-bottom: 16px; }
+.harness-special-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.harness-special-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.harness-special-card code { font-family: var(--font-mono); font-size: 12px; background: rgba(74,156,255,0.1); padding: 1px 5px; border-radius: 3px; color: var(--accent); }
+
+/* ═══ DEMO SECTION ═══ */
+.demo-section { background: var(--bg-secondary); position: relative; overflow: hidden; }
+.demo-section::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 200%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+.demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
+.demo-card { position: relative; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+.demo-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(74,156,255,0.12); }
+.demo-card-preview { height: 140px; background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center; font-size: 48px; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+.demo-card-preview::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, var(--bg-card)); }
+.demo-card-body { padding: 16px; }
+.demo-card-body h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.demo-card-body p { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5; }
+.demo-link { font-size: 12px; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 4px; }
+.demo-link svg { transition: transform 0.2s; }
+.demo-card:hover .demo-link svg { transform: translateX(3px); }
+.demo-kat-hint { text-align: center; padding: 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; gap: 16px; }
+.demo-kat-svg { width: 48px; height: 48px; flex-shrink: 0; }
+.demo-kat-text { font-size: 15px; color: var(--text-secondary); text-align: left; }
+.demo-kat-text strong { color: var(--text-primary); }
+
+/* ═══ PRICING ═══ */
+.pricing-section { background: var(--bg-primary); }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px; }
+.pricing-card { padding: 32px 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: all 0.3s; position: relative; display: flex; flex-direction: column; }
+.pricing-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.pricing-card.popular { border-color: var(--accent); box-shadow: 0 0 40px rgba(74,156,255,0.1); }
+.pricing-tag { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; padding: 4px 12px; border-radius: 100px; margin-bottom: 16px; width: fit-content; }
+.pricing-tag.free { background: rgba(34,197,94,0.1); color: #22c55e; }
+.pricing-tag.popular { background: rgba(74,156,255,0.15); color: var(--accent); }
+.pricing-tag.builder { background: rgba(167,139,250,0.1); color: var(--local-color); }
+.pricing-tag.enterprise { background: rgba(245,158,11,0.1); color: #f59e0b; }
+.pricing-name { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+.pricing-price { font-size: 36px; font-weight: 800; margin-bottom: 4px; }
+.pricing-price span { font-size: 15px; font-weight: 400; color: var(--text-muted); }
+.pricing-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; flex: 1; }
+.pricing-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.pricing-features li svg { flex-shrink: 0; margin-top: 2px; }
+.pricing-features li.missing { color: var(--text-muted); }
+.pricing-features li.missing svg { stroke: var(--text-muted); }
+.pricing-cta { display: block; text-align: center; padding: 12px 20px; border-radius: var(--radius-sm); font-weight: 600; font-size: 14px; transition: all 0.2s; }
+.pricing-cta.primary { background: var(--accent); color: #fff; }
+.pricing-cta.primary:hover { background: #5aabff; box-shadow: 0 0 20px var(--accent-glow); }
+.pricing-cta.ghost { background: transparent; color: var(--text-primary); border: 1px solid var(--border); }
+.pricing-cta.ghost:hover { border-color: var(--border-hover); background: rgba(74,156,255,0.05); }
+.pricing-note { text-align: center; font-size: 14px; color: var(--text-secondary); margin-top: 16px; }
+.pricing-note strong { color: var(--text-primary); }
+
+/* Savings card (reused from providers) */
+.savings-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; text-align: center; }
+.savings-comparison { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 16px; }
+.savings-label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.savings-price { font-size: 28px; font-weight: 800; }
+.savings-price.strikethrough { text-decoration: line-through; color: var(--text-muted); }
+.savings-price.highlight { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.savings-note { font-size: 13px; font-weight: 400; }
+.savings-arrow { color: var(--text-muted); }
+.savings-footer { font-size: 14px; color: var(--text-secondary); }
+
+/* ═══ PRIVACY ═══ */
+.privacy-section { background: var(--bg-secondary); }
+.privacy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.privacy-card { padding: 28px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: all 0.3s; }
+.privacy-card:hover { border-color: var(--border-hover); }
+.privacy-icon { margin-bottom: 16px; }
+.privacy-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.privacy-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+/* ═══ COMPARISON TABLE ═══ */
+.comparison-section { background: var(--bg-primary); }
+.comparison-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.comparison-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 700px; }
+.comparison-table th, .comparison-table td { padding: 12px 16px; text-align: center; border-bottom: 1px solid var(--border); }
+.comparison-table th { background: var(--bg-tertiary); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); position: sticky; top: 64px; }
+.comparison-table th:first-child, .comparison-table td:first-child { text-align: left; min-width: 200px; }
+.highlight-col { background: rgba(74,156,255,0.05) !important; }
+.comparison-table th.highlight-col { color: var(--accent); }
+.check { color: #22c55e; font-size: 16px; font-weight: 700; }
+.cross { color: #ef4444; font-size: 14px; }
+.partial { color: #f59e0b; font-weight: 600; }
+
+/* ═══ BETA CTA ═══ */
+.beta-section { background: var(--bg-secondary); position: relative; overflow: hidden; }
+.beta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(74,156,255,0.06) 0%, transparent 70%); }
+.beta-card { position: relative; max-width: 640px; margin: 0 auto; text-align: center; padding: 48px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); }
+.beta-card h2 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+.beta-card .beta-joke { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; font-style: italic; }
+.beta-card .beta-building { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7; max-width: 500px; margin-left: auto; margin-right: auto; }
+.countdown { display: flex; gap: 16px; justify-content: center; margin-bottom: 28px; }
+.countdown-unit { text-align: center; }
+.countdown-value { display: block; font-size: 36px; font-weight: 800; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; font-family: var(--font-mono); }
+.countdown-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.beta-form { display: flex; gap: 8px; max-width: 400px; margin: 0 auto 16px; }
+.beta-input { flex: 1; padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); color: var(--text-primary); font-size: 14px; font-family: var(--font-sans); outline: none; transition: border-color 0.2s; }
+.beta-input:focus { border-color: var(--accent); }
+.beta-input::placeholder { color: var(--text-muted); }
+.beta-note { font-size: 12px; color: var(--text-muted); }
+
+/* ═══ FOOTER ═══ */
+.footer { padding: 40px 0; border-top: 1px solid var(--border); }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.footer-brand { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-muted); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 13px; color: var(--text-muted); transition: color 0.2s; }
+.footer-links a:hover { color: var(--text-primary); }
+
+/* ═══ ANIMATIONS ═══ */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══ KAT MASCOT ═══ */
+.kat-inline { display: inline-block; vertical-align: middle; }
+@keyframes kat-blink { 0%, 90%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+.kat-eyes { animation: kat-blink 4s infinite; transform-origin: center; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; background: rgba(10,15,26,0.98); padding: 16px 24px; gap: 16px; border-bottom: 1px solid var(--border); }
+  .nav-links.open { display: flex; }
+  .nav-mobile-toggle { display: block; }
+  .hero { min-height: auto; padding: 100px 16px 40px; }
+  .hero-stats { gap: 16px; }
+  .stat-divider { display: none; }
+  .preview-sidebar { display: none; }
+  .preview-body { height: 280px; }
+  .feature-showcase, .feature-showcase.reverse { grid-template-columns: 1fr; gap: 32px; direction: ltr; }
+  .section { padding: 60px 0; }
+  .demo-grid { grid-template-columns: 1fr 1fr; }
+  .comparison-table { font-size: 11px; }
+  .countdown-value { font-size: 28px; }
+  .beta-form { flex-direction: column; }
+  .savings-comparison { flex-direction: column; gap: 16px; }
+  .savings-arrow { transform: rotate(90deg); }
+  .governance-pipeline { flex-direction: column; }
+  .pipeline-arrow { transform: rotate(90deg); }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 480px) {
+  .demo-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(74,156,255,0.1)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4a9cff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="38" cy="26" r="12" fill="rgba(74,156,255,0.1)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M30 16 L27 4 L35 12" fill="rgba(74,156,255,0.1)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M44 14 L48 2 L50 12" fill="rgba(74,156,255,0.1)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <ellipse cx="33" cy="25" rx="2.5" ry="3" fill="#4a9cff"/>
+          <ellipse cx="43" cy="24" rx="2.5" ry="3" fill="#4a9cff"/>
+          <ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0a0f1a"/>
+          <ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0a0f1a"/>
+          <path d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#4a9cff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>PiNG!</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#demo">Live Demo</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#beta" class="nav-cta">Join the Beta</a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-gradient"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Beta launches April 1, 2026
+      </div>
+      <h1 class="hero-title">
+        The Supercharged<br>
+        <span class="gradient-text">AI Workspace.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Claude. GPT. Gemini. Local models. 100+ agent tools. Perfect memory.
+        One desktop app that replaces your entire AI stack &mdash; and costs you nothing.
+      </p>
+      <div class="hero-actions">
+        <a href="#beta" class="btn btn-primary btn-lg">
+          <span>Get Early Access</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#demo" class="btn btn-ghost btn-lg">Explore the Demo</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value">4+</span>
+          <span class="stat-label">AI Providers</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">100+</span>
+          <span class="stat-label">Agent Tools</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">Local Storage</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">$0</span>
+          <span class="stat-label">Monthly Fee</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- App Preview -->
+    <div class="hero-preview fade-in">
+      <div class="preview-window">
+        <div class="preview-titlebar">
+          <div class="titlebar-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+          <span class="titlebar-title">PiNG! &mdash; Project: My Startup</span>
+        </div>
+        <div class="preview-body">
+          <div class="preview-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-label">Projects</div>
+              <div class="sidebar-item active"><span class="sidebar-icon">&#128193;</span> My Startup</div>
+              <div class="sidebar-item"><span class="sidebar-icon">&#128193;</span> Research Notes</div>
+              <div class="sidebar-item"><span class="sidebar-icon">&#128193;</span> Side Project</div>
+            </div>
+            <div class="sidebar-section">
+              <div class="sidebar-label">Recent Chats</div>
+              <div class="sidebar-item"><span class="sidebar-icon">&#128172;</span> API design (Claude)</div>
+              <div class="sidebar-item"><span class="sidebar-icon">&#128172;</span> Data pipeline (GPT-4o)</div>
+              <div class="sidebar-item"><span class="sidebar-icon">&#128172;</span> Brainstorm (Llama)</div>
+            </div>
+          </div>
+          <div class="preview-chat">
+            <div class="chat-messages">
+              <div class="chat-msg user">
+                <div class="msg-header"><span class="msg-name">You</span><span class="msg-model">to Claude Opus</span></div>
+                <div class="msg-body">Refactor the auth module to use JWT. Read the current code first.</div>
+              </div>
+              <div class="chat-msg assistant">
+                <div class="msg-header"><span class="msg-name">Claude Opus</span><span class="msg-badge claude">Claude</span></div>
+                <div class="msg-body">
+                  I'll analyze the auth module and implement JWT. Let me start by reading the codebase.
+                  <div class="msg-artifact">
+                    <div class="artifact-header"><span class="artifact-icon">&#9881;</span> Agent Actions</div>
+                    <div class="artifact-body">
+                      <span class="code-line"><span class="code-num">1</span> <span class="code-key">fs.read</span> src/auth/handler.ts <span style="color:#22c55e">&#10003; 89 lines</span></span>
+                      <span class="code-line"><span class="code-num">2</span> <span class="code-key">code.analyze</span> Finding auth patterns...</span>
+                      <span class="code-line"><span class="code-num">3</span> <span class="code-key">fs.write</span> src/auth/jwt.ts <span style="color:#f59e0b">&#9888; Awaiting approval</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chat-input-bar">
+              <div class="model-selector"><span class="model-dot claude"></span> Claude Opus <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+              <div class="chat-input-placeholder">Message Claude Opus...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BUILT FOR EVERYONE ═══ -->
+  <section class="section audience-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">For Everyone</div>
+        <h2 class="section-title">Built for Everyone Who <span class="gradient-text">Thinks with AI</span></h2>
+      </div>
+      <p class="audience-intro fade-in">PiNG! isn't just for vibe coders &mdash; it's for anyone who wants AI to actually work for them.</p>
+      <div class="audience-grid fade-in">
+        <div class="audience-card">
+          <div class="audience-icon">&#127891;</div>
+          <h3>Students &amp; Researchers</h3>
+          <p>Organize research across multiple AI models. Never lose a citation.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128104;&#8205;&#127979;</div>
+          <h3>Educators</h3>
+          <p>Create curriculum, quizzes, and lesson plans with AI that remembers your teaching style.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128640;</div>
+          <h3>Entrepreneurs &amp; Founders</h3>
+          <p>From pitch decks to product specs. Your AI co-founder that never sleeps.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128187;</div>
+          <h3>Developers &amp; Vibe Coders</h3>
+          <p>44+ agent tools. Git, bash, filesystem, code analysis. Ship faster.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128202;</div>
+          <h3>Analysts &amp; Consultants</h3>
+          <p>Data tools, document generation, and presentation-ready outputs.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#9997;&#65039;</div>
+          <h3>Writers &amp; Creators</h3>
+          <p>Multi-model brainstorming. Memory that tracks your style and voice.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128203;</div>
+          <h3>Project Managers</h3>
+          <p>Kanban boards, calendars, task extraction. AI-powered project tracking.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#127970;</div>
+          <h3>Enterprise Teams</h3>
+          <p>30 vertical knowledge packs. Compliance-grade outputs. Lattice integration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PAIN POINTS ═══ -->
+  <section class="section pain-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">Sound Familiar?</h2>
+        <p class="section-subtitle">The AI tool sprawl is real. You're spending more time switching tools than actually building.</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card fade-in">
+          <div class="pain-icon">&#128184;</div>
+          <h3>Subscription Overload</h3>
+          <p>ChatGPT Plus + Claude Pro + Gemini Advanced = $60+/month. And you're still not using each one to its full potential.</p>
+        </div>
+        <div class="pain-card fade-in">
+          <div class="pain-icon">&#128256;</div>
+          <h3>Constant Context-Switching</h3>
+          <p>Claude for writing, GPT for code, Gemini for research. Three tabs, three logins, three lost trains of thought.</p>
+        </div>
+        <div class="pain-card fade-in">
+          <div class="pain-icon">&#128274;</div>
+          <h3>Your Data, Their Cloud</h3>
+          <p>Every message, every idea, every document &mdash; stored on someone else's servers. No export. No control. No thanks.</p>
+        </div>
+        <div class="pain-card fade-in">
+          <div class="pain-icon">&#129504;</div>
+          <h3>AI Amnesia</h3>
+          <p>You spent 30 minutes giving Claude context. Next session? Gone. Start over. Every. Single. Time. It's infuriating.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURES ═══ -->
+  <section class="section features-section" id="features">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Features</div>
+        <h2 class="section-title">One App. <span class="gradient-text">Every AI. Zero Limits.</span></h2>
+        <p class="section-subtitle">PiNG! isn't another web wrapper. It's a native desktop powerhouse built for people who ship with AI.</p>
+      </div>
+
+      <!-- Multi-Model -->
+      <div class="feature-showcase fade-in">
+        <div class="feature-text">
+          <div class="feature-badge">Multi-Model</div>
+          <h3>Every Model, One Interface</h3>
+          <p>Switch between Claude, GPT-4o, Gemini, and local models mid-conversation. Compare outputs side-by-side. Use the right brain for the right job &mdash; without leaving your workspace.</p>
+          <ul class="feature-list">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Bring your own API keys &mdash; pay only for tokens used</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Run local models 100% offline via built-in Llama engine</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Split-pane views for parallel AI conversations</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="model-cards">
+            <div class="model-card" style="--delay:0s"><div class="model-card-icon claude-bg">C</div><div class="model-card-info"><span class="model-card-name">Claude Opus</span><span class="model-card-desc">Deep analysis &amp; creative writing</span></div><span class="model-card-status connected">Connected</span></div>
+            <div class="model-card" style="--delay:0.1s"><div class="model-card-icon gpt-bg">G</div><div class="model-card-info"><span class="model-card-name">GPT-4o</span><span class="model-card-desc">Code generation &amp; multimodal</span></div><span class="model-card-status connected">Connected</span></div>
+            <div class="model-card" style="--delay:0.2s"><div class="model-card-icon gemini-bg">G</div><div class="model-card-info"><span class="model-card-name">Gemini Pro</span><span class="model-card-desc">Research &amp; reasoning</span></div><span class="model-card-status connected">Connected</span></div>
+            <div class="model-card" style="--delay:0.3s"><div class="model-card-icon local-bg">L</div><div class="model-card-info"><span class="model-card-name">Llama 4 (Local)</span><span class="model-card-desc">Offline &amp; fully private</span></div><span class="model-card-status local">On Device</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agent Tools -->
+      <div class="feature-showcase reverse fade-in">
+        <div class="feature-text">
+          <div class="feature-badge">Agent Tools</div>
+          <h3>AI That Actually Ships</h3>
+          <p>Your AI doesn't just talk &mdash; it builds. Give it access to your filesystem, terminal, git repos, and browser. With permission gates at every step, you stay in control while AI handles the heavy lifting.</p>
+          <ul class="feature-list">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 100+ tools planned across 6 expansion waves: files, git, bash, code, data, web</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Permission prompts before any destructive action</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Sandboxed code execution (Deno + Python)</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> MCP server support for custom integrations</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Governed by PlanPack protocol &mdash; every tool is spec'd, reviewed, and tested before shipping</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 12-point safety wiring: path containment, SSRF defense, subprocess routing, permission gates</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="terminal-demo">
+            <div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">Agent Harness</span></div>
+            <div class="terminal-body">
+              <div class="terminal-line"><span class="t-prompt">&#9658;</span><span class="t-tool">filesystem.read</span><span class="t-path">src/auth/handler.ts</span></div>
+              <div class="terminal-line"><span class="t-status t-ok">&#10003;</span><span class="t-output">Read 89 lines</span></div>
+              <div class="terminal-line"><span class="t-prompt">&#9658;</span><span class="t-tool">code.analyze</span><span class="t-path">Detecting auth patterns...</span></div>
+              <div class="terminal-line"><span class="t-status t-ok">&#10003;</span><span class="t-output">Found 3 security issues</span></div>
+              <div class="terminal-line"><span class="t-prompt">&#9658;</span><span class="t-tool">bash.run</span><span class="t-path">npm test -- auth</span></div>
+              <div class="terminal-line"><span class="t-status t-ok">&#10003;</span><span class="t-output">12 tests passed</span></div>
+              <div class="terminal-line"><span class="t-prompt">&#9658;</span><span class="t-tool">git.commit</span><span class="t-path">"Fix auth vulnerabilities"</span></div>
+              <div class="terminal-line permission"><span class="t-status t-warn">&#9888;</span><span class="t-permission">Permission required &mdash; Allow git commit?</span></div>
+              <div class="terminal-line"><span class="t-prompt-user">You:</span><span class="t-user-input">Approved &#10003;</span></div>
+              <div class="terminal-line"><span class="t-status t-ok">&#10003;</span><span class="t-output">Committed: a3f8c21</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Memory -->
+      <div class="feature-showcase fade-in">
+        <div class="feature-text">
+          <div class="feature-badge">Memory System</div>
+          <h3>Context That Never Dies</h3>
+          <p>Your AI actually remembers. Project decisions, coding preferences, past conversations &mdash; everything persists across sessions. The more you use PiNG!, the smarter it gets.</p>
+          <ul class="feature-list">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Global + project-scoped memory layers</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> RAG-powered retrieval &mdash; relevant context surfaces automatically</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Hybrid vector + full-text search across all conversations</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Exact token counting &mdash; see what's in context and what it costs</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="memory-visual">
+            <div class="memory-layer global"><div class="memory-layer-label">Global Memory</div><div class="memory-items"><span class="memory-item">Prefers TypeScript</span><span class="memory-item">Uses Tailwind CSS</span><span class="memory-item">Manila timezone</span></div></div>
+            <div class="memory-layer project"><div class="memory-layer-label">Project Memory</div><div class="memory-items"><span class="memory-item">React 18 + Zustand</span><span class="memory-item">SQLite backend</span><span class="memory-item">Max 300 lines/file</span></div></div>
+            <div class="memory-layer context"><div class="memory-layer-label">Active Context</div><div class="memory-bar"><div class="memory-bar-segment messages" style="width:45%"><span>Messages 45%</span></div><div class="memory-bar-segment notes" style="width:25%"><span>Notes 25%</span></div><div class="memory-bar-segment memory" style="width:20%"><span>Memory 20%</span></div><div class="memory-bar-segment system" style="width:10%"><span>Sys 10%</span></div></div><div class="memory-tokens"><span class="token-count">47,231 / 200,000 tokens</span><span class="token-cost">~$0.14 per message</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CatSkills -->
+      <div class="feature-showcase reverse fade-in">
+        <div class="feature-text">
+          <div class="feature-badge">CatSkills</div>
+          <h3>Teach Your AI New Tricks</h3>
+          <p>Build reusable AI workflows that chain multiple steps together. Create a skill once, run it forever. Your AI learns your patterns and gets better every time.</p>
+          <ul class="feature-list">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Chain LLM + code + tool steps into powerful workflows</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Governance &amp; approval workflows for safety</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Analytics &mdash; see which skills save you the most time</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Share skills with your team or the community</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="skills-visual">
+            <div class="skill-chain">
+              <span class="skill-step active">&#128269; Analyze Code</span>
+              <span class="skill-arrow">&#8594;</span>
+              <span class="skill-step active">&#128295; Fix Issues</span>
+              <span class="skill-arrow">&#8594;</span>
+              <span class="skill-step active">&#9989; Run Tests</span>
+              <span class="skill-arrow">&#8594;</span>
+              <span class="skill-step active">&#128640; Deploy</span>
+            </div>
+            <div class="skill-card"><div class="skill-icon">&#128640;</div><div class="skill-info"><span class="skill-name">Code Review &amp; Ship</span><span class="skill-desc">Analyze, fix, test, and deploy in one command</span></div><span class="skill-runs">847 runs</span></div>
+            <div class="skill-card"><div class="skill-icon">&#128221;</div><div class="skill-info"><span class="skill-name">Blog Post Pipeline</span><span class="skill-desc">Research, outline, draft, edit, publish</span></div><span class="skill-runs">312 runs</span></div>
+            <div class="skill-card"><div class="skill-icon">&#128202;</div><div class="skill-info"><span class="skill-name">Data Analysis Suite</span><span class="skill-desc">Import CSV, clean data, visualize, report</span></div><span class="skill-runs">156 runs</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BUILT FOR POWER USERS ═══ -->
+  <section class="section extras-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">And More</div>
+        <h2 class="section-title">Built for <span class="gradient-text">Power Users</span></h2>
+      </div>
+      <div class="extras-grid fade-in">
+        <div class="extra-card"><div class="extra-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3>Split Panes</h3><p>Run parallel conversations side-by-side. Compare outputs from different models in real time.</p></div>
+        <div class="extra-card"><div class="extra-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Built-in Browser</h3><p>Browse the web without leaving PiNG! Extract content, pull YouTube transcripts, scrape data. Privacy shields included.</p></div>
+        <div class="extra-card"><div class="extra-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div><h3>Omnibox</h3><p>Command palette for everything. Search chats, notes, files, memories. Navigate anywhere with one keystroke.</p></div>
+        <div class="extra-card"><div class="extra-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><h3>Smart Notes</h3><p>Rich project notes with typed categories: decisions, facts, requirements, blockers. RAG-retrieved into AI context automatically.</p></div>
+        <div class="extra-card"><div class="extra-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><h3>Kanban Board</h3><p>Track tasks across Overdue, To Do, In Progress, and Done. AI-suggested tasks extracted directly from your conversations.</p></div>
+        <div class="extra-card"><div class="extra-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h3>Calendar</h3><p>Per-project and global calendar views. Schedule deadlines, track milestones. AI can execute actions on a scheduled day and time &mdash; automatic reports, reminders, and maintenance.</p></div>
+        <div class="extra-card"><div class="extra-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg></div><h3>Model Store</h3><p>Browse and download local models from Hugging Face. One-click setup for offline inference with GPU acceleration.</p></div>
+        <div class="extra-card"><div class="extra-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></div><h3>Knowledge Base</h3><p>Index your project docs, PDFs, and codebases. AI retrieves relevant knowledge automatically via RAG.</p></div>
+        <div class="extra-card"><div class="extra-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg></div><h3>Artifact System</h3><p>AI-generated code, documents, and data rendered inline with syntax highlighting, versioning, and one-click copy.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ THE TOOL HARNESS ═══ -->
+  <section class="section governance-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">The Harness</div>
+        <h2 class="section-title">100+ Tools. 10 Domains. <span class="gradient-text">One Supercharged AI.</span></h2>
+      </div>
+      <p class="governance-intro fade-in">Other AI apps give you a chatbox and wish you luck. PiNG! gives your AI <strong style="color:var(--text-primary)">hands</strong>. The Tool Harness is the engine under the hood &mdash; a carefully engineered system of 100+ agent tools spanning every domain you actually work in. Your AI doesn't just talk about doing things. It <em>does</em> them.</p>
+
+      <!-- Tool Domain Grid -->
+      <div class="harness-grid fade-in">
+        <div class="harness-domain">
+          <div class="harness-domain-icon">&#128193;</div>
+          <h4>Filesystem</h4>
+          <span class="harness-count">14 tools</span>
+          <p>Read, write, search, batch rename, move, copy, watch for changes. Binary detection. Glob patterns. All sandboxed to your project root &mdash; no path escapes, ever.</p>
+        </div>
+        <div class="harness-domain">
+          <div class="harness-domain-icon">&#128187;</div>
+          <h4>Code Analysis</h4>
+          <span class="harness-count">8 tools</span>
+          <p>AST parsing, dependency graphs, symbol lookup, import tracing, dead code detection. Your AI reads code the way a senior engineer does.</p>
+        </div>
+        <div class="harness-domain">
+          <div class="harness-domain-icon">&#128268;</div>
+          <h4>Git Operations</h4>
+          <span class="harness-count">10 tools</span>
+          <p>Stage, commit, branch, diff, log, blame, stash, merge. Full version control without leaving the chat. Conflict resolution included.</p>
+        </div>
+        <div class="harness-domain">
+          <div class="harness-domain-icon">&#9000;</div>
+          <h4>Shell &amp; Bash</h4>
+          <span class="harness-count">6 tools</span>
+          <p>Run commands, pipe outputs, manage processes. Timeout-protected with configurable limits. Your AI becomes a terminal wizard.</p>
+        </div>
+        <div class="harness-domain">
+          <div class="harness-domain-icon">&#128202;</div>
+          <h4>Data &amp; Query</h4>
+          <span class="harness-count">8 tools</span>
+          <p>CSV, JSON, SQLite queries, data transforms, aggregation, filtering. Turn raw data into insights without writing a single script.</p>
+        </div>
+        <div class="harness-domain">
+          <div class="harness-domain-icon">&#127760;</div>
+          <h4>Web &amp; Browser</h4>
+          <span class="harness-count">12 tools</span>
+          <p>Fetch pages, scrape data, take screenshots, fill forms, navigate. SSRF-protected with IP validation and redirect controls.</p>
+        </div>
+        <div class="harness-domain">
+          <div class="harness-domain-icon">&#128196;</div>
+          <h4>Document Tools</h4>
+          <span class="harness-count">10 tools</span>
+          <p>PDF, DOCX, Markdown, HTML. Convert between formats, extract text, merge documents, generate reports. All from a single chat.</p>
+        </div>
+        <div class="harness-domain">
+          <div class="harness-domain-icon">&#128451;</div>
+          <h4>Database</h4>
+          <span class="harness-count">8 tools</span>
+          <p>Schema inspection, query execution, migration generation, FTS5 full-text search, vector embeddings. Your data, your AI, your rules.</p>
+        </div>
+        <div class="harness-domain">
+          <div class="harness-domain-icon">&#127912;</div>
+          <h4>Image Processing</h4>
+          <span class="harness-count">6 tools</span>
+          <p>Resize, crop, convert, optimize, extract metadata, generate thumbnails. Handle images without leaving the conversation.</p>
+        </div>
+        <div class="harness-domain">
+          <div class="harness-domain-icon">&#128230;</div>
+          <h4>Archive &amp; Compress</h4>
+          <span class="harness-count">6 tools</span>
+          <p>Zip, tar, gzip, extract, list contents, compress directories. Pack and ship your work with a single command.</p>
+        </div>
+      </div>
+
+      <!-- What Makes It Special -->
+      <div class="harness-special fade-in">
+        <h3 class="harness-special-title">What makes the Harness <span class="gradient-text">different?</span></h3>
+        <div class="harness-special-grid">
+          <div class="harness-special-card">
+            <div class="harness-special-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <h4>Permission-Gated</h4>
+            <p>Every tool requires explicit permission before execution. Read-only tools run freely. Write operations ask first. Destructive actions demand confirmation. You stay in control.</p>
+          </div>
+          <div class="harness-special-card">
+            <div class="harness-special-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></svg></div>
+            <h4>Path-Contained</h4>
+            <p>Filesystem tools can't escape your project root. No symlink tricks, no path traversal, no sneaky <code>../../</code> attacks. Centralized containment &mdash; not patchwork guards.</p>
+          </div>
+          <div class="harness-special-card">
+            <div class="harness-special-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+            <h4>Battle-Tested</h4>
+            <p>Every tool passes a 12-point hardening protocol: path containment, SSRF defense, subprocess sandboxing, input validation, schema enforcement, and hostile security review.</p>
+          </div>
+          <div class="harness-special-card">
+            <div class="harness-special-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <h4>Wired, Not Glued</h4>
+            <p>Tools aren't bolted on as afterthoughts. Each one is registered through a unified wiring system with typed schemas, access gates, and structured error handling. No duct tape.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="governance-stats fade-in">
+        <div class="gov-stat">
+          <span class="gov-stat-value">100+</span>
+          <span class="gov-stat-label">Agent Tools</span>
+        </div>
+        <div class="gov-stat">
+          <span class="gov-stat-value">10</span>
+          <span class="gov-stat-label">Domains</span>
+        </div>
+        <div class="gov-stat">
+          <span class="gov-stat-value">12-Point</span>
+          <span class="gov-stat-label">Hardening Protocol</span>
+        </div>
+        <div class="gov-stat">
+          <span class="gov-stat-value">6 Waves</span>
+          <span class="gov-stat-label">Of Expansion</span>
+        </div>
+      </div>
+
+      <p class="governance-quote fade-in" style="font-style:normal; font-size:15px; color:var(--text-muted)">From reading a file to querying a database to deploying a full-stack app &mdash; your AI has the tools. And every single one is locked down tight.</p>
+    </div>
+  </section>
+
+  <!-- ═══ INTERACTIVE DEMO ═══ -->
+  <section class="section demo-section" id="demo">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Live Demo</div>
+        <h2 class="section-title">See What We've Been <span class="gradient-text">Building</span></h2>
+        <p class="section-subtitle">PiNG! is a work in progress &mdash; and we're proud of every pixel. Explore interactive mockups of every screen. Hover over anything &mdash; KAT will explain it.</p>
+      </div>
+      <div class="demo-grid fade-in">
+        <a href="marketing-mockups/home-v2.html" class="demo-card" target="_blank">
+          <div class="demo-card-preview">&#127968;</div>
+          <div class="demo-card-body">
+            <h3>Home Dashboard</h3>
+            <p>Your command center. Activity feed, quick stats, recent projects &mdash; everything at a glance.</p>
+            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+        </a>
+        <a href="marketing-mockups/chat-pane-v3.html" class="demo-card" target="_blank">
+          <div class="demo-card-preview">&#128172;</div>
+          <div class="demo-card-body">
+            <h3>AI Chat Interface</h3>
+            <p>Multi-model chat with artifacts, split panes, and inline agent actions.</p>
+            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+        </a>
+        <a href="marketing-mockups/project-unified-v2.html" class="demo-card" target="_blank">
+          <div class="demo-card-preview">&#128202;</div>
+          <div class="demo-card-body">
+            <h3>Project Command Center</h3>
+            <p>Kanban boards, knowledge base, analytics, calendar &mdash; your entire project in one view.</p>
+            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+        </a>
+        <a href="marketing-mockups/skills-v1.html" class="demo-card" target="_blank">
+          <div class="demo-card-preview">&#9889;</div>
+          <div class="demo-card-body">
+            <h3>CatSkills Library</h3>
+            <p>Browse, create, and manage reusable AI workflows. Your skill arsenal.</p>
+            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+        </a>
+        <a href="marketing-mockups/skills-v2.html" class="demo-card" target="_blank">
+          <div class="demo-card-preview">&#127919;</div>
+          <div class="demo-card-body">
+            <h3>Skills Studio</h3>
+            <p>Deep-dive into skill configuration. Edit steps, set variables, chain tools.</p>
+            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+        </a>
+      </div>
+      <div class="demo-kat-hint fade-in">
+        <svg class="demo-kat-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(74,156,255,0.1)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4a9cff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="38" cy="26" r="12" fill="rgba(74,156,255,0.1)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M30 16 L27 4 L35 12" fill="rgba(74,156,255,0.1)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M44 14 L48 2 L50 12" fill="rgba(74,156,255,0.1)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <ellipse class="kat-eyes" cx="33" cy="25" rx="2.5" ry="3" fill="#4a9cff"/>
+          <ellipse class="kat-eyes" cx="43" cy="24" rx="2.5" ry="3" fill="#4a9cff"/>
+          <ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0a0f1a"/>
+          <ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0a0f1a"/>
+          <path d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#4a9cff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="demo-kat-text">
+          <strong>Meet KAT, your guide.</strong> Hover over any button, widget, or section in the demos &mdash; KAT will pop up and explain exactly what it does. Try it!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRICING ═══ -->
+  <section class="section pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Pricing</div>
+        <h2 class="section-title">Choose Your <span class="gradient-text">Power Level</span></h2>
+        <p class="section-subtitle">All tiers use your own API keys. You pay providers directly for tokens used.</p>
+      </div>
+      <div class="pricing-grid fade-in">
+
+        <!-- CURIOUS (Free) -->
+        <div class="pricing-card">
+          <span class="pricing-tag free">Free Forever</span>
+          <div class="pricing-name">PiNG! CURIOUS</div>
+          <div class="pricing-price">$0 <span>/mo</span></div>
+          <div class="pricing-desc">Everything you need to start thinking with AI.</div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Multi-LLM chat (Claude, GPT, Gemini, Local)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> RAG-powered knowledge retrieval</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Project files &amp; notes</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Global + project memory</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 8 premium themes</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Token transparency</li>
+            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No built-in browser</li>
+            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No agent tools</li>
+            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No CatSkills</li>
+          </ul>
+          <div class="pricing-cta ghost" style="opacity:0.5;pointer-events:none;cursor:default">Coming in Beta</div>
+        </div>
+
+        <!-- BASIC ($9/mo) -->
+        <div class="pricing-card popular">
+          <span class="pricing-tag popular">Most Popular</span>
+          <div class="pricing-name">PiNG! BASIC</div>
+          <div class="pricing-price">$9 <span>/mo</span></div>
+          <div class="pricing-desc">For power users who want the full AI experience.</div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Everything in Curious +</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Agentic browser with privacy shields</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Advanced LLM controls (temperature, top-p, thinking modes)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Limited CatSkills (10 custom workflows)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Limited Harness tools (search, clipboard, notifications)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Session replay &amp; restore</li>
+            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No coding tools</li>
+            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No sandbox</li>
+          </ul>
+          <div class="pricing-cta ghost" style="opacity:0.5;pointer-events:none;cursor:default">Coming in Beta</div>
+        </div>
+
+        <!-- CODER ($19/mo) -->
+        <div class="pricing-card">
+          <span class="pricing-tag builder">For Builders</span>
+          <div class="pricing-name">PiNG! CODER</div>
+          <div class="pricing-price">$19 <span>/mo</span></div>
+          <div class="pricing-desc">The complete developer toolkit. Ship faster with AI.</div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Everything in Basic +</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Complete CatSkills (unlimited workflows)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 100+ Harness tools (fs, git, bash, code, data, web)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Sandboxed execution (Deno + Python VM)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> MCP server support</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Full terminal integration</li>
+            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No Lattice enterprise schemas</li>
+          </ul>
+          <div class="pricing-cta ghost" style="opacity:0.5;pointer-events:none;cursor:default">Coming in Beta</div>
+        </div>
+
+        <!-- ENTERPRISE ($49/mo) -->
+        <div class="pricing-card">
+          <span class="pricing-tag enterprise">The Full Stack</span>
+          <div class="pricing-name">PiNG! ENTERPRISE</div>
+          <div class="pricing-price">TBA</div>
+          <div class="pricing-desc">Enterprise-grade AI for teams that demand quality.</div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Everything in Coder +</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Lattice enterprise schema builder</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 30 vertical knowledge packs (Fintech, Healthcare, Insurance, Accounting, Legal, Education, Retail, etc.)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Compliance-grade database generation</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> SVQC-validated outputs</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Priority support</li>
+          </ul>
+          <div class="pricing-cta ghost" style="opacity:0.5;pointer-events:none;cursor:default">Coming in Beta</div>
+        </div>
+      </div>
+
+      <div class="savings-card fade-in">
+        <div class="savings-comparison">
+          <div><span class="savings-label">Typical monthly cost</span><span class="savings-price strikethrough">$60 <span class="savings-note">/mo (3 subscriptions)</span></span></div>
+          <div class="savings-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+          <div><span class="savings-label">With PiNG!</span><span class="savings-price highlight">$0&ndash;49 <span class="savings-note">/mo with PiNG!</span></span></div>
+        </div>
+        <p class="savings-footer">All tiers use your own API keys. You pay providers directly for tokens used.</p>
+      </div>
+      <p class="pricing-note fade-in" style="margin-top:24px"><strong>Bring Your Own AI keys</strong> &mdash; PiNG! never touches your tokens. You pay providers directly for usage.</p>
+    </div>
+  </section>
+
+  <!-- ═══ PRIVACY ═══ -->
+  <section class="section privacy-section" id="privacy">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Privacy</div>
+        <h2 class="section-title">Your Data Never Leaves <span class="gradient-text">Your Machine</span></h2>
+        <p class="section-subtitle">No cloud sync. No telemetry. No account required. Everything lives in a local SQLite database on your computer.</p>
+      </div>
+      <div class="privacy-grid fade-in">
+        <div class="privacy-card"><div class="privacy-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Local-First Architecture</h3><p>SQLite database stored on your machine. Your conversations, notes, and memories never touch our servers. Because we don't have servers.</p></div>
+        <div class="privacy-card"><div class="privacy-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3>Your Keys, Your Control</h3><p>API keys are encrypted and stored locally. Messages go directly from your machine to the AI provider. No middleman reading your data.</p></div>
+        <div class="privacy-card"><div class="privacy-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><h3>Full Token Transparency</h3><p>See exactly how many tokens each message uses, what's in your context window, and what it costs. Down to the cent. No hidden fees.</p></div>
+        <div class="privacy-card"><div class="privacy-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><h3>Offline Capable</h3><p>Run local models without internet. Your data, your hardware, your rules. Perfect for air-gapped environments and privacy-first workflows.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMPARISON ═══ -->
+  <section class="section comparison-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">How PiNG! <span class="gradient-text">Compares</span></h2>
+        <p class="section-subtitle">Not all AI tools are created equal. Here's where PiNG! stands.</p>
+      </div>
+      <div class="comparison-table-wrapper fade-in">
+        <table class="comparison-table">
+          <thead><tr><th>Feature</th><th class="highlight-col">PiNG!</th><th>Claude Code</th><th>Cursor</th><th>ChatGPT</th><th>TypingMind</th><th>Jan.ai</th></tr></thead>
+          <tbody>
+            <tr><td>Multi-LLM (Claude + GPT + Gemini)</td><td class="highlight-col"><span class="check">&#10003;</span></td><td><span class="cross">&#10007;</span></td><td><span class="partial">~</span></td><td><span class="cross">&#10007;</span></td><td><span class="check">&#10003;</span></td><td><span class="partial">~</span></td></tr>
+            <tr><td>Local model support (offline)</td><td class="highlight-col"><span class="check">&#10003;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td><td><span class="check">&#10003;</span></td></tr>
+            <tr><td>100+ agent tools (fs, git, bash, code)</td><td class="highlight-col"><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td></tr>
+            <tr><td>Built-in browser with privacy shields</td><td class="highlight-col"><span class="check">&#10003;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td></tr>
+            <tr><td>GUI chat interface</td><td class="highlight-col"><span class="check">&#10003;</span></td><td><span class="cross">&#10007; <small>CLI</small></span></td><td><span class="partial">~ <small>IDE</small></span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+            <tr><td>Project-scoped memory + RAG</td><td class="highlight-col"><span class="check">&#10003;</span></td><td><span class="partial">~</span></td><td><span class="partial">~</span></td><td><span class="partial">~</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td></tr>
+            <tr><td>CatSkills (reusable AI workflows)</td><td class="highlight-col"><span class="check">&#10003;</span></td><td><span class="partial">~</span></td><td><span class="cross">&#10007;</span></td><td><span class="partial">~</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td></tr>
+            <tr><td>Kanban board + calendar</td><td class="highlight-col"><span class="check">&#10003;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td></tr>
+            <tr><td>Token transparency &amp; cost tracking</td><td class="highlight-col"><span class="check">&#10003;</span></td><td><span class="partial">~</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td><td><span class="check">&#10003;</span></td><td><span class="partial">~</span></td></tr>
+            <tr><td>100% local data storage</td><td class="highlight-col"><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td><td><span class="partial">~</span></td><td><span class="check">&#10003;</span></td></tr>
+            <tr><td>Sandboxed code execution</td><td class="highlight-col"><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="cross">&#10007;</span></td><td><span class="check">&#10003;</span></td><td><span class="cross">&#10007;</span></td><td><span class="cross">&#10007;</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BETA CTA ═══ -->
+  <section class="section beta-section" id="beta">
+    <div class="container">
+      <div class="beta-card fade-in">
+        <h2>April 1st. <span class="gradient-text">No Joke.</span></h2>
+        <p class="beta-joke">Launching on April Fools because we're crazy enough to give this away for free.</p>
+        <p class="beta-building">PiNG! is actively being built by a team of humans and AIs working together. Join the beta to experience what's coming.</p>
+        <div class="countdown" id="countdown">
+          <div class="countdown-unit"><span class="countdown-value" id="cd-days">--</span><span class="countdown-label">Days</span></div>
+          <div class="countdown-unit"><span class="countdown-value" id="cd-hours">--</span><span class="countdown-label">Hours</span></div>
+          <div class="countdown-unit"><span class="countdown-value" id="cd-mins">--</span><span class="countdown-label">Minutes</span></div>
+          <div class="countdown-unit"><span class="countdown-value" id="cd-secs">--</span><span class="countdown-label">Seconds</span></div>
+        </div>
+        <div class="beta-form">
+          <input type="email" class="beta-input" placeholder="your@email.com" aria-label="Email address">
+          <button class="btn btn-primary">Get Early Access</button>
+        </div>
+        <p class="beta-note">No spam. Just a heads-up when PiNG! is ready. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <svg width="20" height="20" viewBox="0 0 64 64" fill="none"><circle cx="38" cy="26" r="12" fill="rgba(74,156,255,0.1)" stroke="#4a9cff" stroke-width="2"/><path d="M30 16 L27 4 L35 12" fill="rgba(74,156,255,0.1)" stroke="#4a9cff" stroke-width="2"/><path d="M44 14 L48 2 L50 12" fill="rgba(74,156,255,0.1)" stroke="#4a9cff" stroke-width="2"/><ellipse cx="33" cy="25" rx="2.5" ry="3" fill="#4a9cff"/><ellipse cx="43" cy="24" rx="2.5" ry="3" fill="#4a9cff"/></svg>
+          <span>&copy; 2026 Jini And Jacko</span>
+        </div>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#demo">Demo</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#beta">Beta</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+/* ═══ NAV SCROLL ═══ */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* ═══ MOBILE MENU ═══ */
+document.getElementById('mobileToggle').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+/* ═══ FADE-IN ON SCROLL ═══ */
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+fadeEls.forEach(el => observer.observe(el));
+
+/* ═══ COUNTDOWN TIMER ═══ */
+function updateCountdown() {
+  // April 1, 2026 00:00:00 PHT (UTC+8)
+  const target = new Date('2026-04-01T00:00:00+08:00').getTime();
+  const now = Date.now();
+  const diff = Math.max(0, target - now);
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((diff % (1000 * 60)) / 1000);
+  document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ═══ SMOOTH SCROLL ═══ */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('navLinks').classList.remove('open');
+    }
+  });
+});
+</script>
+</body>
+</html>

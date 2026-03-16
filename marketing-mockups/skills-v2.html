@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PiNG! — CatSkills v2</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-deep: #0d0f14; --bg-surface: #14171f; --bg-elevated: #1a1e28;
+    --bg-hover: #252a36; --bg-active: #2d3344;
+    --border: #2a2f3d; --border-subtle: #1f2430;
+    --text-primary: #e2e4ea; --text-secondary: #8890a4; --text-muted: #555d73;
+    --accent: #4fa0ff; --accent-dim: #2d6abf; --accent-glow: rgba(79,160,255,0.12);
+    --warm-accent: #e8a87c; --warm-accent-dim: rgba(232,168,124,0.12);
+    --green: #3ddc84; --green-dim: rgba(61,220,132,0.15);
+    --orange: #f5a623; --orange-dim: rgba(245,166,35,0.12);
+    --red: #ff5c5c; --red-dim: rgba(255,92,92,0.12);
+    --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+    --cyan: #22d3ee; --cyan-dim: rgba(34,211,238,0.10);
+    --yellow: #eab308; --yellow-dim: rgba(234,179,8,0.12);
+    --pink: #f472b6; --pink-dim: rgba(244,114,182,0.12);
+    --blue: #3b82f6; --blue-dim: rgba(59,130,246,0.12);
+    --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
+    --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
+    --radius: 8px; --radius-sm: 6px; --radius-lg: 12px;
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.03);
+    --card-shadow-hover: 0 4px 16px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  body { font-family: var(--font); background: var(--bg-deep); color: var(--text-primary); font-size: 13px; -webkit-font-smoothing: antialiased; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+  ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: var(--bg-active); border-radius: 3px; }
+
+  /* ===== TITLE BAR ===== */
+  .title-bar { height: 38px; background: var(--bg-surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 12px; flex-shrink: 0; -webkit-app-region: drag; }
+  .traffic-lights { display: flex; gap: 8px; margin-right: 16px; -webkit-app-region: no-drag; }
+  .tl { width: 12px; height: 12px; border-radius: 50%; }
+  .tl-c { background: #ff5f57; } .tl-m { background: #febc2e; } .tl-x { background: #28c840; }
+  .title-nav { display: flex; align-items: center; gap: 4px; font-size: 12px; -webkit-app-region: no-drag; }
+  .title-nav a { color: var(--text-muted); text-decoration: none; cursor: pointer; padding: 3px 8px; border-radius: 4px; transition: all 0.12s; }
+  .title-nav a:hover { color: var(--text-secondary); background: var(--bg-hover); }
+  .title-nav .current { color: var(--text-primary); font-weight: 500; }
+  .title-nav .sep { color: var(--text-muted); font-size: 11px; margin: 0 2px; }
+
+  /* ===== MAIN LAYOUT ===== */
+  .main { display: flex; flex: 1; overflow: hidden; }
+
+  /* ===== LEFT SIDEBAR ===== */
+  .sidebar { width: 220px; background: var(--bg-surface); border-right: 1px solid var(--border-subtle); display: flex; flex-direction: column; flex-shrink: 0; }
+  .sb-brand { padding: 14px 12px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-subtle); }
+  .sb-brand svg { width: 28px; height: 28px; flex-shrink: 0; }
+  .sb-brand-label { font-size: 13px; font-weight: 700; letter-spacing: -0.01em; }
+  .sb-nav { padding: 6px 6px 0; display: flex; flex-direction: column; gap: 1px; }
+  .sb-nav-item { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: var(--radius-sm); font-size: 12px; color: var(--text-secondary); cursor: pointer; transition: all 0.1s; }
+  .sb-nav-item:hover { background: var(--bg-hover); color: var(--text-primary); }
+  .sb-nav-item.active { background: var(--accent-glow); color: var(--accent); }
+  .sb-nav-item svg { width: 14px; height: 14px; flex-shrink: 0; opacity: 0.7; }
+  .sb-nav-item.active svg { opacity: 1; }
+  .sb-badge { margin-left: auto; font-size: 10px; font-weight: 600; min-width: 16px; height: 16px; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 0 4px; background: var(--border); color: var(--text-muted); }
+  .sb-sep { height: 1px; background: var(--border-subtle); margin: 6px 12px; }
+  .sb-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); padding: 8px 12px 4px; }
+  .sb-cats { flex: 1; overflow-y: auto; padding: 0 6px; }
+  .sb-cat { display: flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: var(--radius-sm); font-size: 12px; color: var(--text-secondary); cursor: pointer; transition: all 0.1s; }
+  .sb-cat:hover { background: var(--bg-hover); color: var(--text-primary); }
+  .sb-cat-arrow { font-size: 8px; width: 10px; text-align: center; transition: transform 0.15s; color: var(--text-muted); }
+  .sb-cat-arrow.open { transform: rotate(90deg); }
+  .sb-cat-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+  .sb-cat-name { flex: 1; }
+  .sb-cat-n { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); }
+  .sb-subcats { display: none; padding-left: 18px; }
+  .sb-subcats.open { display: block; }
+  .sb-subcat { padding: 3px 10px; font-size: 11px; color: var(--text-muted); cursor: pointer; border-radius: var(--radius-sm); transition: all 0.1s; }
+  .sb-subcat:hover { color: var(--text-secondary); background: var(--bg-hover); }
+  .sb-footer { border-top: 1px solid var(--border-subtle); padding: 8px 6px; }
+  .sb-new-cat { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 5px; border-radius: var(--radius-sm); font-size: 10px; color: var(--text-muted); cursor: pointer; border: 1px dashed var(--border); background: transparent; font-family: var(--font); width: 100%; transition: all 0.12s; }
+  .sb-new-cat:hover { color: var(--text-secondary); border-color: var(--bg-active); }
+  .sb-count { font-size: 10px; color: var(--text-muted); text-align: center; padding: 4px 0; }
+
+  /* ===== CONTENT AREA ===== */
+  .content { flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative; }
+
+  /* ===== TOOLBAR ===== */
+  .toolbar { display: flex; align-items: center; gap: 10px; padding: 10px 20px; border-bottom: 1px solid var(--border); flex-shrink: 0; background: var(--bg-surface); }
+  .toolbar-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+  .toolbar-spacer { flex: 1; }
+  .search-box { display: flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-elevated); min-width: 200px; height: 28px; transition: border-color 0.15s; }
+  .search-box:focus-within { border-color: var(--accent-dim); }
+  .search-box svg { width: 12px; height: 12px; opacity: 0.4; flex-shrink: 0; }
+  .search-box input { background: none; border: none; outline: none; color: var(--text-primary); font-family: var(--font); font-size: 11px; flex: 1; }
+  .search-box input::placeholder { color: var(--text-muted); }
+  .toggle-group { display: flex; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-subtle); height: 28px; }
+  .toggle-btn { padding: 0 8px; font-size: 10px; color: var(--text-muted); cursor: pointer; background: var(--bg-elevated); border: none; font-family: var(--font); transition: all 0.1s; display: flex; align-items: center; }
+  .toggle-btn:hover { color: var(--text-secondary); }
+  .toggle-btn.active { background: var(--accent-glow); color: var(--accent); }
+  .toggle-btn svg { width: 12px; height: 12px; }
+  .sort-select { padding: 5px 22px 5px 8px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-elevated); font-size: 10px; color: var(--text-secondary); font-family: var(--font); cursor: pointer; height: 28px; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='8' height='5' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23555d73' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 6px center; }
+  .btn-primary { display: flex; align-items: center; gap: 4px; padding: 5px 12px; border-radius: var(--radius-sm); font-size: 11px; font-weight: 500; cursor: pointer; border: none; font-family: var(--font); background: var(--accent); color: #fff; height: 28px; transition: all 0.12s; }
+  .btn-primary:hover { background: #5daaff; }
+  .btn-primary svg { width: 12px; height: 12px; }
+  .btn-ghost { display: flex; align-items: center; gap: 4px; padding: 5px 10px; border-radius: var(--radius-sm); font-size: 11px; cursor: pointer; border: 1px solid var(--border-subtle); font-family: var(--font); background: var(--bg-elevated); color: var(--text-secondary); height: 28px; transition: all 0.12s; }
+  .btn-ghost:hover { border-color: var(--border); color: var(--text-primary); }
+
+  /* ===== TYPE FILTER PILLS ===== */
+  .type-filters { display: flex; gap: 6px; padding: 8px 20px 10px; background: var(--bg-surface); border-bottom: 1px solid var(--border); flex-shrink: 0; overflow-x: auto; }
+  .type-pill { display: flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 10px; color: var(--text-secondary); cursor: pointer; border: 1px solid var(--border-subtle); background: var(--bg-elevated); transition: all 0.12s; font-family: var(--font); white-space: nowrap; flex-shrink: 0; }
+  .type-pill:hover { border-color: var(--border); color: var(--text-primary); }
+  .type-pill.active { border-color: var(--accent-dim); color: var(--accent); background: var(--accent-glow); }
+  .type-pill .pill-n { font-family: var(--font-mono); font-size: 10px; opacity: 0.6; }
+  .type-pill svg { width: 10px; height: 10px; }
+
+  /* ===== SKILL GRID ===== */
+  .skills-scroll { flex: 1; overflow-y: auto; padding: 16px 20px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+
+  /* ===== SKILL CARD ===== */
+  .skill-card { background: var(--bg-surface); border-radius: var(--radius-lg); box-shadow: var(--card-shadow); cursor: pointer; transition: box-shadow 0.15s, transform 0.15s; overflow: hidden; display: flex; flex-direction: column; }
+  .skill-card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-1px); }
+  .skill-card-body { padding: 12px 14px 8px; flex: 1; display: flex; flex-direction: column; }
+  .skill-card-top { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
+  .type-icon { width: 26px; height: 26px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .type-icon svg { width: 13px; height: 13px; }
+  .type-icon.prompt { background: var(--blue-dim); color: var(--blue); }
+  .type-icon.integration { background: var(--orange-dim); color: var(--orange); }
+  .type-icon.workflow { background: var(--purple-dim); color: var(--purple); }
+  .skill-card-info { flex: 1; min-width: 0; }
+  .skill-card-name { font-size: 13px; font-weight: 600; line-height: 1.3; margin-bottom: 1px; }
+  .skill-card-type { font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 500; }
+  .skill-card-type.prompt { color: var(--blue); }
+  .skill-card-type.integration { color: var(--orange); }
+  .skill-card-type.workflow { color: var(--purple); }
+  .skill-card-desc { font-size: 11px; color: var(--text-secondary); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 6px; flex: 1; }
+  .skill-card-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 8px; }
+  .skill-tag { font-size: 9px; padding: 1px 6px; border-radius: 3px; background: var(--border-subtle); color: var(--text-muted); }
+  .skill-card-footer { display: flex; align-items: center; gap: 6px; padding: 7px 14px; border-top: 1px solid var(--border-subtle); }
+  .skill-usage { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); }
+  .skill-footer-spacer { flex: 1; }
+  .skill-star { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); cursor: pointer; color: var(--text-muted); transition: all 0.12s; }
+  .skill-star:hover { color: var(--yellow); background: var(--yellow-dim); }
+  .skill-star.fav { color: var(--yellow); }
+  .skill-star svg { width: 12px; height: 12px; }
+  .skill-run { display: flex; align-items: center; gap: 3px; padding: 3px 8px; border-radius: var(--radius-sm); font-size: 10px; font-weight: 500; border: none; cursor: pointer; font-family: var(--font); transition: all 0.12s; }
+  .skill-run.prompt { color: var(--blue); background: var(--blue-dim); }
+  .skill-run.prompt:hover { background: rgba(59,130,246,0.2); }
+  .skill-run.integration { color: var(--orange); background: var(--orange-dim); }
+  .skill-run.integration:hover { background: rgba(245,166,35,0.2); }
+  .skill-run.workflow { color: var(--purple); background: var(--purple-dim); }
+  .skill-run.workflow:hover { background: rgba(167,139,250,0.2); }
+  .skill-run svg { width: 10px; height: 10px; }
+
+  /* ===== RIGHT DETAIL PANEL ===== */
+  .detail-panel { width: 340px; background: var(--bg-surface); border-left: 1px solid var(--border); flex-shrink: 0; overflow-y: auto; display: none; position: relative; }
+  .detail-panel.open { display: flex; flex-direction: column; }
+  .dp-header { padding: 14px 16px; border-bottom: 1px solid var(--border); }
+  .dp-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: var(--radius-sm); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .dp-badge.prompt { background: var(--blue-dim); color: var(--blue); }
+  .dp-badge.integration { background: var(--orange-dim); color: var(--orange); }
+  .dp-badge.workflow { background: var(--purple-dim); color: var(--purple); }
+  .dp-badge svg { width: 11px; height: 11px; }
+  .dp-name { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 4px; }
+  .dp-meta { font-size: 10px; color: var(--text-muted); line-height: 1.5; }
+  .dp-close { position: absolute; top: 14px; right: 14px; width: 22px; height: 22px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); transition: all 0.12s; background: none; border: none; }
+  .dp-close:hover { background: var(--bg-hover); color: var(--text-primary); }
+  .dp-tabs { display: flex; border-bottom: 1px solid var(--border); padding: 0 16px; }
+  .dp-tab { padding: 8px 12px; font-size: 11px; font-weight: 500; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.12s; }
+  .dp-tab:hover { color: var(--text-secondary); }
+  .dp-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .dp-body { flex: 1; padding: 14px 16px; overflow-y: auto; }
+  .dp-section { margin-bottom: 16px; }
+  .dp-section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+  .dp-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+  .dp-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .dp-tag { font-size: 10px; padding: 2px 7px; border-radius: 3px; background: var(--border-subtle); color: var(--text-muted); }
+  .dp-tools { display: flex; gap: 5px; flex-wrap: wrap; }
+  .dp-tool { display: flex; align-items: center; gap: 3px; padding: 3px 8px; border-radius: var(--radius-sm); font-size: 10px; font-family: var(--font-mono); background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border-subtle); }
+  .dp-tool svg { width: 10px; height: 10px; opacity: 0.5; }
+  .dp-mode { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: var(--radius-sm); font-size: 10px; font-family: var(--font-mono); }
+  .dp-var { display: flex; align-items: flex-start; gap: 8px; padding: 7px 10px; background: var(--bg-elevated); border-radius: var(--radius-sm); margin-bottom: 4px; border: 1px solid var(--border-subtle); }
+  .dp-var-name { font-size: 11px; font-family: var(--font-mono); color: var(--accent); font-weight: 500; min-width: 90px; flex-shrink: 0; }
+  .dp-var-desc { font-size: 10px; color: var(--text-secondary); }
+  .dp-var-meta { font-size: 9px; color: var(--text-muted); margin-top: 1px; }
+  .dp-gov { display: flex; flex-direction: column; gap: 4px; }
+  .dp-gov-row { display: flex; align-items: center; justify-content: space-between; padding: 5px 10px; background: var(--bg-elevated); border-radius: var(--radius-sm); font-size: 10px; border: 1px solid var(--border-subtle); }
+  .dp-gov-label { color: var(--text-secondary); }
+  .dp-gov-val { font-family: var(--font-mono); font-size: 10px; }
+  .dp-gov-val.off { color: var(--text-muted); }
+  .dp-gov-val.on { color: var(--green); }
+  .dp-gov-val.warn { color: var(--yellow); }
+  .dp-footer { padding: 12px 16px; border-top: 1px solid var(--border); display: flex; gap: 6px; flex-shrink: 0; }
+  .dp-footer .btn-primary { flex: 1; justify-content: center; }
+  .dp-footer .btn-ghost { flex: 1; justify-content: center; }
+
+  /* ===== DETAIL PANEL: RUNNER VIEW ===== */
+  .runner-view { display: none; }
+  .runner-view.active { display: flex; flex-direction: column; flex: 1; }
+  .runner-status { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+  .runner-status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 1.5s ease infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .runner-status-text { font-size: 11px; color: var(--green); font-weight: 500; }
+  .runner-progress { margin-bottom: 12px; }
+  .runner-progress-bar { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; margin-bottom: 4px; }
+  .runner-progress-fill { height: 100%; border-radius: 2px; transition: width 0.3s ease; }
+  .runner-progress-fill.prompt { background: var(--blue); }
+  .runner-progress-fill.integration { background: var(--orange); }
+  .runner-progress-fill.workflow { background: var(--purple); }
+  .runner-progress-label { font-size: 10px; color: var(--text-muted); display: flex; justify-content: space-between; }
+  .runner-output { flex: 1; background: var(--bg-elevated); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); padding: 10px 12px; font-size: 11px; font-family: var(--font-mono); color: var(--text-secondary); line-height: 1.6; overflow-y: auto; margin-bottom: 10px; max-height: 220px; white-space: pre-wrap; }
+  .runner-output .chunk { color: var(--text-primary); }
+  .runner-output .chunk .md-h2 { font-family: var(--font); font-weight: 700; font-size: 12px; color: var(--text-primary); letter-spacing: -0.01em; display: block; margin-top: 6px; }
+  .runner-output .chunk .md-h3 { font-family: var(--font); font-weight: 600; font-size: 11px; color: var(--text-primary); display: block; margin-top: 4px; }
+  .runner-output .chunk .md-bold { font-weight: 600; color: var(--text-primary); }
+  .runner-output .chunk .md-trow { display: block; border-bottom: 1px solid var(--border-subtle); padding: 1px 0; }
+  .runner-output .chunk .md-th { font-weight: 600; color: var(--text-secondary); }
+  .runner-output .event { color: var(--text-muted); font-size: 10px; }
+  .runner-vardebug { margin-bottom: 10px; }
+  .runner-vardebug-title { font-size: 10px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+  .runner-vardebug-title:hover { color: var(--text-secondary); }
+  .runner-var-table { width: 100%; border-collapse: collapse; }
+  .runner-var-table th { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--border); }
+  .runner-var-table td { font-size: 10px; padding: 4px 8px; border-bottom: 1px solid var(--border-subtle); }
+  .runner-var-table .var-name { font-family: var(--font-mono); color: var(--accent); }
+  .runner-var-table .var-val { color: var(--text-primary); font-family: var(--font-mono); }
+  .runner-var-table .var-src { color: var(--text-muted); font-size: 9px; padding: 2px 6px; border-radius: 3px; background: var(--border-subtle); }
+  .runner-cancel { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 6px; border-radius: var(--radius-sm); font-size: 11px; color: var(--red); background: var(--red-dim); border: none; cursor: pointer; font-family: var(--font); width: 100%; transition: all 0.12s; }
+  .runner-cancel:hover { background: rgba(248,113,113,0.2); }
+
+  /* ===== DETAIL PANEL: WORKFLOW STEPS (for workflow skills) ===== */
+  .dp-steps { display: flex; flex-direction: column; gap: 2px; }
+  .dp-step { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--bg-elevated); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); position: relative; }
+  .dp-step-num { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; background: var(--purple-dim); color: var(--purple); flex-shrink: 0; }
+  .dp-step-info { flex: 1; min-width: 0; }
+  .dp-step-name { font-size: 11px; font-weight: 500; }
+  .dp-step-mapping { font-size: 9px; color: var(--text-muted); font-family: var(--font-mono); margin-top: 1px; }
+  .dp-step-arrow { position: absolute; left: 18px; top: -3px; width: 2px; height: 5px; background: var(--purple-dim); }
+  .dp-step:first-child .dp-step-arrow { display: none; }
+
+  /* ===== DETAIL PANEL: ACTIONS (for integration skills) ===== */
+  .dp-actions-group { margin-bottom: 10px; }
+  .dp-actions-group-label { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 4px; }
+  .dp-action { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: var(--bg-elevated); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 3px; }
+  .dp-action-type { font-size: 9px; font-weight: 600; text-transform: uppercase; padding: 2px 5px; border-radius: 3px; }
+  .dp-action-type.api { background: var(--blue-dim); color: var(--blue); }
+  .dp-action-type.webhook { background: var(--orange-dim); color: var(--orange); }
+  .dp-action-detail { flex: 1; font-size: 10px; color: var(--text-secondary); font-family: var(--font-mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .dp-action-method { font-size: 9px; font-weight: 600; color: var(--green); margin-right: 4px; }
+
+  /* ===== EDITOR OVERLAY ===== */
+  .editor-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 1000; display: none; align-items: center; justify-content: center; }
+  .editor-overlay.open { display: flex; }
+  .editor-panel { width: 720px; max-height: 88vh; background: var(--bg-surface); border-radius: var(--radius-lg); box-shadow: 0 16px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06); display: flex; flex-direction: column; overflow: hidden; }
+  .ed-header { display: flex; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+  .ed-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; flex: 1; }
+  .ed-close { width: 26px; height: 26px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); transition: all 0.12s; background: none; border: none; }
+  .ed-close:hover { background: var(--bg-hover); color: var(--text-primary); }
+  .ed-body { flex: 1; overflow-y: auto; padding: 16px 18px; display: flex; flex-direction: column; gap: 14px; }
+  .ed-field { display: flex; flex-direction: column; gap: 4px; }
+  .ed-label { font-size: 10px; font-weight: 600; color: var(--text-secondary); letter-spacing: 0.02em; }
+  .ed-input { padding: 7px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-elevated); font-size: 12px; color: var(--text-primary); font-family: var(--font); outline: none; transition: border-color 0.15s; }
+  .ed-input:focus { border-color: var(--accent-dim); }
+  .ed-textarea { padding: 8px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-elevated); font-size: 11px; color: var(--text-primary); font-family: var(--font); outline: none; resize: vertical; min-height: 50px; line-height: 1.5; transition: border-color 0.15s; }
+  .ed-textarea:focus { border-color: var(--accent-dim); }
+  .ed-textarea.mono { font-family: var(--font-mono); min-height: 160px; line-height: 1.6; }
+  .ed-type-selector { display: flex; gap: 6px; }
+  .ed-type-opt { display: flex; align-items: center; gap: 5px; padding: 7px 12px; border-radius: var(--radius-sm); font-size: 11px; cursor: pointer; border: 1px solid var(--border-subtle); background: var(--bg-elevated); color: var(--text-secondary); transition: all 0.12s; font-weight: 500; }
+  .ed-type-opt:hover { border-color: var(--border); }
+  .ed-type-opt.selected { border-color: var(--accent-dim); background: var(--accent-glow); color: var(--accent); }
+  .ed-type-opt svg { width: 13px; height: 13px; }
+  .ed-type-editor { display: none; }
+  .ed-type-editor.active { display: flex; flex-direction: column; gap: 14px; }
+  .ed-sep { height: 1px; background: var(--border); margin: 2px 0; }
+
+  /* Editor: variable rows */
+  .ed-vars { display: flex; flex-direction: column; gap: 4px; }
+  .ed-var-row { display: flex; gap: 6px; align-items: center; }
+  .ed-var-row input { flex: 1; padding: 5px 8px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-elevated); font-size: 10px; color: var(--text-primary); font-family: var(--font-mono); outline: none; }
+  .ed-var-row input:focus { border-color: var(--accent-dim); }
+  .ed-var-rm { width: 22px; height: 22px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); transition: all 0.12s; background: none; border: none; flex-shrink: 0; }
+  .ed-var-rm:hover { color: var(--red); background: var(--red-dim); }
+  .ed-add-btn { display: flex; align-items: center; gap: 3px; padding: 5px 8px; border-radius: var(--radius-sm); font-size: 10px; color: var(--text-muted); cursor: pointer; border: 1px dashed var(--border); background: transparent; font-family: var(--font); transition: all 0.12s; width: fit-content; }
+  .ed-add-btn:hover { color: var(--text-secondary); border-color: var(--bg-active); }
+
+  /* Editor: action config (integration) */
+  .ed-action-card { background: var(--bg-elevated); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); overflow: hidden; margin-bottom: 6px; }
+  .ed-action-header { display: flex; align-items: center; gap: 8px; padding: 8px 10px; cursor: pointer; }
+  .ed-action-header:hover { background: var(--bg-hover); }
+  .ed-action-badge { font-size: 9px; font-weight: 600; text-transform: uppercase; padding: 2px 5px; border-radius: 3px; }
+  .ed-action-badge.pre { background: var(--blue-dim); color: var(--blue); }
+  .ed-action-badge.post { background: var(--orange-dim); color: var(--orange); }
+  .ed-action-name { font-size: 11px; font-weight: 500; flex: 1; }
+  .ed-action-type-tag { font-size: 9px; color: var(--text-muted); font-family: var(--font-mono); }
+  .ed-action-body { padding: 8px 10px; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 8px; }
+  .ed-action-row { display: flex; gap: 6px; align-items: center; }
+  .ed-action-row label { font-size: 9px; font-weight: 600; color: var(--text-muted); width: 50px; flex-shrink: 0; text-transform: uppercase; letter-spacing: 0.04em; }
+  .ed-action-row input, .ed-action-row select { flex: 1; padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-subtle); background: var(--bg-deep); font-size: 10px; color: var(--text-primary); font-family: var(--font-mono); outline: none; }
+  .ed-action-row select { font-family: var(--font); cursor: pointer; }
+
+  /* Editor: workflow steps */
+  .ed-step-list { display: flex; flex-direction: column; gap: 6px; }
+  .ed-step { display: flex; align-items: flex-start; gap: 8px; padding: 10px; background: var(--bg-elevated); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); position: relative; }
+  .ed-step-grip { display: flex; flex-direction: column; gap: 2px; padding: 2px 0; cursor: grab; flex-shrink: 0; margin-top: 2px; }
+  .ed-step-grip span { display: block; width: 10px; height: 2px; background: var(--border); border-radius: 1px; }
+  .ed-step-num { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; background: var(--purple-dim); color: var(--purple); flex-shrink: 0; }
+  .ed-step-content { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+  .ed-step-skill-select { padding: 5px 8px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-deep); font-size: 11px; color: var(--text-primary); font-family: var(--font); cursor: pointer; outline: none; }
+  .ed-step-mapping-label { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
+  .ed-step-mapping-row { display: flex; gap: 4px; align-items: center; }
+  .ed-step-mapping-row input { flex: 1; padding: 3px 6px; border-radius: 4px; border: 1px solid var(--border-subtle); background: var(--bg-deep); font-size: 10px; color: var(--text-primary); font-family: var(--font-mono); outline: none; }
+  .ed-step-mapping-arrow { color: var(--text-muted); font-size: 10px; flex-shrink: 0; }
+
+  /* Editor: advanced section */
+  .ed-advanced { border-top: 1px solid var(--border); padding-top: 10px; }
+  .ed-advanced-toggle { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--text-muted); cursor: pointer; transition: color 0.12s; background: none; border: none; font-family: var(--font); padding: 0; }
+  .ed-advanced-toggle:hover { color: var(--text-secondary); }
+  .ed-advanced-toggle svg { width: 10px; height: 10px; transition: transform 0.15s; }
+  .ed-advanced-toggle.open svg { transform: rotate(90deg); }
+  .ed-advanced-body { display: none; padding-top: 10px; flex-direction: column; gap: 8px; }
+  .ed-advanced-body.open { display: flex; }
+  .ed-gov-row { display: flex; align-items: center; justify-content: space-between; padding: 7px 10px; background: var(--bg-elevated); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); }
+  .ed-gov-label { font-size: 11px; color: var(--text-secondary); }
+  .ed-switch { width: 30px; height: 15px; border-radius: 8px; background: var(--bg-active); cursor: pointer; position: relative; transition: background 0.15s; flex-shrink: 0; }
+  .ed-switch::after { content: ''; width: 11px; height: 11px; border-radius: 50%; background: var(--text-muted); position: absolute; top: 2px; left: 2px; transition: all 0.15s; }
+  .ed-switch.on { background: var(--accent-dim); }
+  .ed-switch.on::after { background: var(--accent); left: 17px; }
+  .ed-footer { display: flex; justify-content: flex-end; gap: 6px; padding: 12px 18px; border-top: 1px solid var(--border); flex-shrink: 0; }
+
+  /* ===== APPROVAL TOAST ===== */
+  .approval-toast { position: fixed; bottom: 24px; right: 24px; width: 360px; background: var(--bg-elevated); border-radius: var(--radius-lg); box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06); z-index: 1100; overflow: hidden; display: none; }
+  .approval-toast.show { display: block; animation: slideUp 0.2s ease; }
+  @keyframes slideUp { from { transform: translateY(12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .at-timer { height: 3px; background: var(--border-subtle); }
+  .at-timer-fill { height: 100%; background: var(--orange); border-radius: 0 2px 2px 0; transition: width 1s linear; }
+  .at-body { padding: 14px 16px; }
+  .at-title { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  .at-title span { color: var(--accent); }
+  .at-info { font-size: 11px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 4px; }
+  .at-domains { font-family: var(--font-mono); font-size: 10px; color: var(--orange); }
+  .at-actions-summary { font-size: 10px; color: var(--text-muted); }
+  .at-reason { font-size: 10px; color: var(--text-muted); margin-top: 2px; padding: 3px 6px; background: var(--border-subtle); border-radius: 3px; display: inline-block; }
+  .at-buttons { display: flex; gap: 6px; padding: 10px 16px; border-top: 1px solid var(--border); }
+  .at-btn { flex: 1; padding: 6px; border-radius: var(--radius-sm); font-size: 11px; font-weight: 500; cursor: pointer; border: none; font-family: var(--font); text-align: center; transition: all 0.12s; }
+  .at-btn.allow { background: var(--green-dim); color: var(--green); }
+  .at-btn.allow:hover { background: rgba(52,211,153,0.2); }
+  .at-btn.always { background: var(--blue-dim); color: var(--blue); }
+  .at-btn.always:hover { background: rgba(59,130,246,0.2); }
+  .at-btn.deny { background: var(--red-dim); color: var(--red); }
+  .at-btn.deny:hover { background: rgba(248,113,113,0.2); }
+  .at-countdown { font-size: 10px; color: var(--text-muted); text-align: center; padding: 0 16px 10px; font-family: var(--font-mono); }
+
+  /* ===== SUGGESTION BAR ===== */
+  .suggestion-bar { height: 36px; background: rgba(20,23,31,0.85); backdrop-filter: blur(12px); border-top: 1px solid var(--border); display: flex; align-items: center; padding: 0 20px; gap: 8px; flex-shrink: 0; }
+  .sg-label { font-size: 10px; color: var(--text-muted); white-space: nowrap; flex-shrink: 0; }
+  .sg-pills { display: flex; gap: 5px; flex: 1; overflow-x: auto; }
+  .sg-pill { display: flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: var(--radius-sm); font-size: 10px; color: var(--text-secondary); border: 1px solid var(--border-subtle); background: var(--bg-elevated); cursor: pointer; transition: all 0.12s; white-space: nowrap; flex-shrink: 0; }
+  .sg-pill:hover { border-color: var(--accent-dim); color: var(--accent); background: var(--accent-glow); }
+  .sg-pill svg { width: 10px; height: 10px; opacity: 0.5; }
+  .sg-all { font-size: 10px; color: var(--accent); cursor: pointer; background: none; border: none; font-family: var(--font); white-space: nowrap; }
+  .sg-all:hover { text-decoration: underline; }
+</style>
+
+<style id="ping-marketing-styles">
+/* ===== TOOLTIP SYSTEM ===== */
+[data-tooltip] { position: relative; }
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: fixed; left: var(--tip-x, 0); top: var(--tip-y, 0);
+  transform: translateX(-50%) translateY(-100%) translateY(-8px);
+  background: #1a1e28; color: #e2e4ea; font-size: 11px; font-weight: 400;
+  padding: 6px 10px; border-radius: 6px; max-width: 280px; width: max-content;
+  white-space: normal; text-align: center; pointer-events: none;
+  opacity: 0; z-index: 10010; line-height: 1.4;
+  transition: opacity 0.18s ease 0.35s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 0 1px rgba(79,160,255,0.15);
+  border: 1px solid rgba(79,160,255,0.2);
+}
+[data-tooltip]:hover::after { opacity: 1; }
+/* Override any page-native tooltip CSS that conflicts with our injected system */
+.panel-toggle[data-tooltip]:hover::after { content: attr(data-tooltip) !important; position: fixed !important; left: var(--tip-x, 0) !important; top: var(--tip-y, 0) !important; bottom: auto !important; transform: translateX(-50%) translateY(-100%) translateY(-8px) !important; background: #1a1e28 !important; color: #e2e4ea !important; font-size: 11px !important; padding: 6px 10px !important; border-radius: 6px !important; max-width: 280px !important; width: max-content !important; border: 1px solid rgba(79,160,255,0.2) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 0 1px rgba(79,160,255,0.15) !important; z-index: 10010 !important; }
+/* When tooltip is showing, suppress guide card on same element */
+[data-tooltip].tooltip-active[data-guide] { pointer-events: auto; }
+
+/* ===== GUIDE CARD ===== */
+.ping-guide-card {
+  position: fixed; z-index: 10002; width: 340px; max-width: calc(100vw - 24px);
+  pointer-events: auto;
+  background: linear-gradient(145deg, #1e2235 0%, #151829 100%);
+  border: 1px solid rgba(79,160,255,0.25); border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 80px rgba(79,160,255,0.06), inset 0 1px 0 rgba(255,255,255,0.04);
+  overflow: hidden; opacity: 0; transform: translateY(8px) scale(0.97);
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.ping-guide-card.visible { opacity: 1; transform: translateY(0) scale(1); }
+.ping-guide-accent {
+  height: 3px;
+  background: linear-gradient(90deg, #4fa0ff 0%, #a78bfa 50%, #4fa0ff 100%);
+  background-size: 200% 100%;
+  animation: guideShimmer 3s ease infinite;
+}
+@keyframes guideShimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+/* KAT position layouts */
+.ping-guide-inner { padding: 16px; display: flex; gap: 14px; align-items: flex-start; }
+.ping-guide-inner.kat-pos-tr, .ping-guide-inner.kat-pos-mr, .ping-guide-inner.kat-pos-br {
+  flex-direction: row-reverse;
+}
+.ping-guide-inner.kat-pos-bl, .ping-guide-inner.kat-pos-br {
+  align-items: flex-end;
+}
+.ping-guide-inner.kat-pos-tl, .ping-guide-inner.kat-pos-tr {
+  align-items: flex-start;
+}
+.ping-guide-inner.kat-pos-ml, .ping-guide-inner.kat-pos-mr {
+  align-items: center;
+}
+
+.ping-guide-kat-wrap {
+  width: 64px; height: 54px; flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(79,160,255,0.3));
+}
+.ping-guide-kat-wrap .kat-mascot { width: 64px; height: 54px; }
+.ping-guide-text { flex: 1; min-width: 0; }
+.ping-guide-tag {
+  display: inline-block; font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.8px; padding: 2px 7px; border-radius: 4px; margin-bottom: 6px;
+  background: rgba(79,160,255,0.15); color: #4fa0ff;
+}
+.ping-guide-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3; }
+.ping-guide-body { font-size: 12px; color: #a0a4b8; line-height: 1.55; }
+.ping-guide-body em { color: #4fa0ff; font-style: normal; font-weight: 500; }
+
+[data-guide].guide-active {
+  box-shadow: 0 0 0 2px rgba(79,160,255,0.35), 0 0 24px rgba(79,160,255,0.08) !important;
+  transition: box-shadow 0.3s ease;
+}
+
+/* ===== ANIMATED KAT (original logo style, 64x64 viewBox) ===== */
+.kat-mascot .kat-body { animation: katBreathe 3s ease-in-out infinite; }
+@keyframes katBreathe { 0%,100% { ry: 10; } 50% { ry: 10.8; } }
+
+.kat-mascot .kat-tail { animation: tailWag 2.5s ease-in-out infinite; transform-origin: 12px 42px; }
+@keyframes tailWag { 0%,100% { d: path("M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30"); } 50% { d: path("M12 42 C4 36, 2 26, 8 22 C12 19, 14 24, 12 28"); } }
+
+.kat-mascot .kat-pupil-l, .kat-mascot .kat-pupil-r { animation: pupilLook 5s ease-in-out infinite; }
+@keyframes pupilLook { 0%,100% { cx: 33; } 25% { cx: 34; } 75% { cx: 32; } }
+
+.kat-mascot .kat-whiskers { animation: whiskerTwitch 3.5s ease-in-out infinite; transform-origin: 38px 28px; }
+@keyframes whiskerTwitch { 0%,100% { transform: rotate(0); } 50% { transform: rotate(1.5deg); } }
+
+/* === KAT STATES === */
+
+/* Excited: fast tail, ear twitching */
+.kat-excited .kat-tail { animation: tailFast 0.6s ease-in-out infinite !important; }
+@keyframes tailFast { 0%,100% { d: path("M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30"); } 50% { d: path("M12 42 C2 36, 0 24, 6 20 C10 17, 12 22, 10 26"); } }
+.kat-excited .kat-ear-l { animation: earTwitchL 0.8s ease-in-out infinite; transform-origin: 30px 12px; }
+.kat-excited .kat-ear-r { animation: earTwitchR 0.8s ease-in-out infinite; transform-origin: 46px 10px; }
+@keyframes earTwitchL { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-8deg); } }
+@keyframes earTwitchR { 0%,100% { transform: rotate(0); } 50% { transform: rotate(8deg); } }
+
+/* Happy: big smile, slow tail */
+.kat-happy .kat-mouth { d: path("M33 31 Q38 35, 43 31") !important; stroke-width: 1.8 !important; }
+.kat-happy .kat-tail { animation: tailSlow 1.5s ease-in-out infinite !important; }
+@keyframes tailSlow { 0%,100% { d: path("M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30"); } 50% { d: path("M12 42 C4 36, 2 26, 8 22 C12 19, 14 24, 12 28"); } }
+
+/* Wave: paw bouncing */
+.kat-wave .kat-paw-r { animation: pawWave 0.7s ease-in-out infinite; transform-origin: 25px 50px; }
+@keyframes pawWave { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-15deg); } }
+
+/* Flip: head facing opposite direction */
+.kat-flip .kat-head { transform: scaleX(-1); transform-origin: 38px 26px; }
+
+/* Think: pupils looking up */
+.kat-think .kat-pupil-l, .kat-think .kat-pupil-r { animation: pupilUp 2s ease-in-out infinite !important; }
+@keyframes pupilUp { 0%,100% { cy: 25; } 50% { cy: 23; } }
+
+/* Lick: mouth wiggle */
+.kat-lick .kat-mouth { animation: katLickMouth 1.2s ease-in-out infinite; }
+@keyframes katLickMouth { 0%,100% { d: path("M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5"); } 50% { d: path("M35 31 Q38 34, 38 31 Q38 34, 41 31"); } }
+.kat-lick .kat-paw-l { animation: lickPaw 1.2s ease-in-out infinite; transform-origin: 18px 52px; }
+@keyframes lickPaw { 0%,100% { transform: rotate(0); } 50% { transform: rotate(8deg); } }
+
+/* Yawn: mouth wide, body stretch */
+.kat-yawn .kat-mouth { d: path("M34 30 Q38 37 42 30") !important; stroke-width: 1.8 !important; }
+.kat-yawn .kat-body { animation: yawnStretch 3s ease-in-out infinite !important; }
+@keyframes yawnStretch { 0%,100% { ry: 10; } 40%,60% { ry: 11.5; } }
+
+/* Yarn: pupils tracking, tail wagging fast */
+.kat-yarn-play .kat-pupil-l { animation: pupilTrackYarn 1.5s ease-in-out infinite !important; }
+.kat-yarn-play .kat-pupil-r { animation: pupilTrackYarnR 1.5s ease-in-out infinite !important; }
+@keyframes pupilTrackYarn { 0%,100% { cx: 34; cy: 25; } 50% { cx: 35; cy: 24; } }
+@keyframes pupilTrackYarnR { 0%,100% { cx: 44; cy: 24; } 50% { cx: 45; cy: 23; } }
+.kat-yarn-play .kat-tail { animation: tailFast 0.6s ease-in-out infinite !important; }
+
+/* Head lean left */
+.kat-lean-left .kat-head { animation: headLeanL 2.5s ease-in-out infinite; transform-origin: 38px 36px; }
+@keyframes headLeanL { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-12deg); } }
+
+/* Head lean right */
+.kat-lean-right .kat-head { animation: headLeanR 2.5s ease-in-out infinite; transform-origin: 38px 36px; }
+@keyframes headLeanR { 0%,100% { transform: rotate(0); } 50% { transform: rotate(12deg); } }
+
+/* Ear perk: both ears forward */
+.kat-perk .kat-ear-l { animation: earPerkL 1.5s ease-in-out infinite; transform-origin: 30px 12px; }
+.kat-perk .kat-ear-r { animation: earPerkR 1.5s ease-in-out infinite; transform-origin: 46px 10px; }
+@keyframes earPerkL { 0%,100% { transform: rotate(0); } 50% { transform: rotate(5deg); } }
+@keyframes earPerkR { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-5deg); } }
+.kat-perk .kat-pupil-l, .kat-perk .kat-pupil-r { animation: none !important; }
+</style>
+
+</head>
+<body>
+<a href="../index.html" style="position:fixed;top:12px;left:12px;z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
+
+<!-- ===== TITLE BAR ===== -->
+<div class="title-bar">
+  <div class="traffic-lights"><div class="tl tl-c"></div><div class="tl tl-m"></div><div class="tl tl-x"></div></div>
+  <div class="title-nav">
+    <a href="home-v2.html">Home</a><span class="sep">/</span>
+    <a href="project-unified-v2.html">PiNG!</a><span class="sep">/</span>
+    <span class="current">CatSkills</span>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT ===== -->
+<div class="main">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="sidebar" data-guide="{&quot;title&quot;: &quot;CatSkills Navigator&quot;, &quot;tag&quot;: &quot;Navigation&quot;, &quot;body&quot;: &quot;Organized categories with &lt;em&gt;smart counts and quick navigation&lt;/em&gt;. Every skill type has its place &amp;mdash; browse by category or use search to find exactly what you need.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+    <div class="sb-brand">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="26" r="12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2"/><path d="M30 16 L27 4 L35 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 14 L48 2 L50 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="33" cy="25" rx="2.5" ry="3" fill="#4fa0ff"/><ellipse cx="43" cy="24" rx="2.5" ry="3" fill="#4fa0ff"/><ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0d0f14"/><ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0d0f14"/><path d="M35 30.5 Q38 33, 41 30.5" fill="none" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span class="sb-brand-label">CatSkills</span>
+    </div>
+    <div class="sb-nav">
+      <div class="sb-nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Browse</div>
+      <div class="sb-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Favorites<span class="sb-badge">5</span></div>
+      <div class="sb-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Recently Used</div>
+      <div class="sb-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Analytics</div>
+      <div class="sb-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Import / Export</div>
+    </div>
+    <div class="sb-sep"></div>
+    <div class="sb-label">Categories</div>
+    <div class="sb-cats">
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--blue)"></div><span class="sb-cat-name">Code Quality</span><span class="sb-cat-n">14</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Review</div><div class="sb-subcat">Testing</div><div class="sb-subcat">Security</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--green)"></div><span class="sb-cat-name">Productivity</span><span class="sb-cat-n">11</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Analysis</div><div class="sb-subcat">Writing</div><div class="sb-subcat">Templates</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--purple)"></div><span class="sb-cat-name">Workflows</span><span class="sb-cat-n">8</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Pipelines</div><div class="sb-subcat">Automation</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--orange)"></div><span class="sb-cat-name">Integrations</span><span class="sb-cat-n">9</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">APIs</div><div class="sb-subcat">Webhooks</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--cyan)"></div><span class="sb-cat-name">Custom</span><span class="sb-cat-n">5</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Personal</div></div>
+    </div>
+    <div class="sb-footer">
+      <button class="sb-new-cat" data-tooltip="Create a new category to organize your growing skill collection">+ New Category</button>
+      <div class="sb-count" data-tooltip="Total CatSkills in your library — growing as you create and import">47 catskills</div>
+    </div>
+  </div>
+
+  <!-- CONTENT AREA -->
+  <div class="content">
+    <div class="toolbar" data-guide="{&quot;title&quot;: &quot;CatSkills Toolbar&quot;, &quot;tag&quot;: &quot;CatSkills&quot;, &quot;body&quot;: &quot;Search, filter, and manage your CatSkills. &lt;em&gt;Grid or list view, type filters&lt;/em&gt;, and the big blue button to create new skills. Your AI workflow library, beautifully organized.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+      <div class="toolbar-title">CatSkills</div>
+      <div class="toolbar-spacer"></div>
+      <div class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input placeholder="Search CatSkills..." / data-tooltip="Search by name, tag, or description — find any skill in seconds"></div>
+      <div class="toggle-group">
+        <button class="toggle-btn active" onclick="setView('grid')" data-tooltip="View as visual cards — see descriptions, tags, and usage stats at a glance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
+        <button class="toggle-btn" onclick="setView('list')" data-tooltip="Compact list view — scan skills faster when you know what you need"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      </div>
+      <select class="sort-select"><option>Most Used</option><option>Recently Used</option><option>Alphabetical</option><option>Newest First</option></select>
+      <button class="btn-primary" onclick="openEditor('new')" data-tooltip="Create a brand new CatSkill from scratch — prompts, integrations, or workflows"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> New CatSkill</button>
+    </div>
+
+    <div class="type-filters" data-guide="{&quot;title&quot;: &quot;Skill Type Filters&quot;, &quot;tag&quot;: &quot;Organization&quot;, &quot;body&quot;: &quot;Filter by type: &lt;em&gt;Prompt (28), Integration (10), Workflow (9)&lt;/em&gt;. Each type powers different AI capabilities &amp;mdash; from simple prompts to full multi-step automations.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">
+      <div class="type-pill active" onclick="filterType(this,'all')" data-tooltip="Show all skill types — browse your complete library">All <span class="pill-n">47</span></div>
+      <div class="type-pill" onclick="filterType(this,'prompt')" data-tooltip="Prompt skills — reusable AI instruction templates for any task"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Prompt <span class="pill-n">28</span></div>
+      <div class="type-pill" onclick="filterType(this,'integration')" data-tooltip="Integration skills — connect AI to external APIs and services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Integration <span class="pill-n">10</span></div>
+      <div class="type-pill" onclick="filterType(this,'workflow')" data-tooltip="Workflow skills — multi-step automation pipelines"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Workflow <span class="pill-n">9</span></div>
+    </div>
+
+    <div class="skills-scroll">
+      <div class="skills-grid" id="skillsGrid" data-guide="{&quot;title&quot;: &quot;CatSkills Grid&quot;, &quot;tag&quot;: &quot;Library&quot;, &quot;body&quot;: &quot;Your collection of &lt;em&gt;reusable AI superpowers&lt;/em&gt; &amp;mdash; Prompts, Integrations, and Workflows. Click any card for details, star favorites, or hit Run to execute instantly. 47 skills and growing.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
+        <!-- 10 skill cards -->
+        <div class="skill-card" onclick="showDetail('code-review')" data-tooltip="Code Review — structured feedback with severity levels and fix suggestions">
+          <div class="skill-card-body">
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Code Review</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Structured code review with severity-tiered findings and actionable recommendations</div>
+            <div class="skill-card-tags"><span class="skill-tag">review</span><span class="skill-tag">quality</span></div>
+          </div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 24x</span><div class="skill-footer-spacer"></div><div class="skill-star fav" data-tooltip="Favorited — this skill appears in your quick-access panel"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation();showRunner('code-review')" data-tooltip="Execute this skill immediately — AI runs it with your current context"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+        </div>
+
+        <div class="skill-card" onclick="showDetail('test-gen')" data-tooltip="Test Generator — auto-generate test suites from your source code">
+          <div class="skill-card-body">
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Test Generator</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Generates comprehensive test suites with edge cases, mocking strategies, and full coverage</div>
+            <div class="skill-card-tags"><span class="skill-tag">testing</span><span class="skill-tag">vitest</span></div>
+          </div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 18x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+        </div>
+
+        <div class="skill-card" onclick="showDetail('think-deeper')" data-tooltip="Think Deeper — force extended reasoning for complex decisions">
+          <div class="skill-card-body">
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Think Deeper</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Multi-phase analytical reasoning for complex technical problems and architectural decisions</div>
+            <div class="skill-card-tags"><span class="skill-tag">analysis</span><span class="skill-tag">reasoning</span></div>
+          </div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 11x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+        </div>
+
+        <div class="skill-card" onclick="showDetail('security-audit')" data-tooltip="Security Audit — scan for vulnerabilities and dependency risks">
+          <div class="skill-card-body">
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Security Audit</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">OWASP-aligned vulnerability scanning with severity classification and remediation guidance</div>
+            <div class="skill-card-tags"><span class="skill-tag">security</span><span class="skill-tag">audit</span></div>
+          </div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 12x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+        </div>
+
+        <div class="skill-card" onclick="showDetail('refactor-clean')" data-tooltip="Refactor Clean — restructure code while preserving behavior">
+          <div class="skill-card-body">
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Refactor Clean</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">SOLID-based code refactoring with before/after analysis and regression safety checks</div>
+            <div class="skill-card-tags"><span class="skill-tag">refactor</span><span class="skill-tag">clean</span></div>
+          </div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 15x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+        </div>
+
+        <div class="skill-card" onclick="showDetail('customer-report')" data-tooltip="Customer Report — pull data from APIs and generate formatted reports">
+          <div class="skill-card-body">
+            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Customer Report</div><div class="skill-card-type integration">Integration</div></div></div>
+            <div class="skill-card-desc">Fetches customer data from CRM API and generates formatted weekly reports</div>
+            <div class="skill-card-tags"><span class="skill-tag">api</span><span class="skill-tag">reporting</span></div>
+          </div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 8x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation();showApproval()" data-tooltip="Run this integration skill — may require approval for API access"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+        </div>
+
+        <div class="skill-card" onclick="showDetail('github-pr')" data-tooltip="GitHub PR Bot — auto-draft PRs with descriptions and reviewer assignments">
+          <div class="skill-card-body">
+            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">GitHub PR Bot</div><div class="skill-card-type integration">Integration</div></div></div>
+            <div class="skill-card-desc">Automated PR creation and review with GitHub API and webhook notifications</div>
+            <div class="skill-card-tags"><span class="skill-tag">github</span><span class="skill-tag">pr</span></div>
+          </div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 22x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+        </div>
+
+        <div class="skill-card" onclick="showDetail('deploy-checker')" data-tooltip="Deploy Checker — pre-flight checks: tests, types, lint, dependencies">
+          <div class="skill-card-body">
+            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Deploy Checker</div><div class="skill-card-type integration">Integration</div></div></div>
+            <div class="skill-card-desc">Validates deployment readiness across CI pipelines, tests, and environment configs</div>
+            <div class="skill-card-tags"><span class="skill-tag">deploy</span><span class="skill-tag">ci</span></div>
+          </div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 7x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+        </div>
+
+        <div class="skill-card" onclick="showDetail('full-review')" data-tooltip="Full Review Pipeline — chain Code Review + Security Audit + Test Gen in one workflow">
+          <div class="skill-card-body">
+            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Full Review Pipeline</div><div class="skill-card-type workflow">Workflow</div></div></div>
+            <div class="skill-card-desc">Chains Code Review, Security Audit, and Test Generator into a complete review pipeline</div>
+            <div class="skill-card-tags"><span class="skill-tag">pipeline</span><span class="skill-tag">review</span></div>
+          </div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 6x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run workflow" onclick="event.stopPropagation()" data-tooltip="Execute this workflow — runs all chained steps in sequence"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+        </div>
+
+        <div class="skill-card" onclick="showDetail('daily-standup')" data-tooltip="Daily Standup — summarize progress and blockers from your chat history">
+          <div class="skill-card-body">
+            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Daily Standup</div><div class="skill-card-type workflow">Workflow</div></div></div>
+            <div class="skill-card-desc">Generates standup reports from recent commits, PRs, and task progress across projects</div>
+            <div class="skill-card-tags"><span class="skill-tag">standup</span><span class="skill-tag">report</span></div>
+          </div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 19x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run workflow" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUGGESTION BAR -->
+    <div class="suggestion-bar" data-guide="{&quot;title&quot;: &quot;Smart Suggestions&quot;, &quot;tag&quot;: &quot;AI Context&quot;, &quot;body&quot;: &quot;PiNG analyzes your current conversation and &lt;em&gt;recommends CatSkills that match your context&lt;/em&gt;. One click to inject. The AI learns which suggestions you accept over time.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
+      <span class="sg-label">Suggested for this conversation</span>
+      <div class="sg-pills">
+        <div class="sg-pill" data-tooltip="Click to inject this suggested skill into your current conversation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Code Review</div>
+        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Think Deeper</div>
+        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Test Generator</div>
+        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Full Review Pipeline</div>
+      </div>
+      <button class="sg-all" data-tooltip="Browse the full CatSkills library — 47 skills available">All CatSkills &rarr;</button>
+    </div>
+  </div>
+
+  <!-- RIGHT DETAIL PANEL -->
+  <div class="detail-panel" id="detailPanel" data-guide="{&quot;title&quot;: &quot;Skill Detail Panel&quot;, &quot;tag&quot;: &quot;Deep Dive&quot;, &quot;body&quot;: &quot;Full skill profile &amp;mdash; &lt;em&gt;description, allowed tools, variables, governance, and live runner&lt;/em&gt;. Two tabs: Info for configuration, Runner for live execution with real-time output streaming.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">
+    <button class="dp-close" onclick="closeDetail()" data-tooltip="Close this detail panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+
+    <div class="dp-header">
+      <div class="dp-badge prompt" id="dpBadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Prompt</div>
+      <div class="dp-name" id="dpName">Code Review</div>
+      <div class="dp-meta" id="dpMeta">v1.0.0 &middot; Created Mar 5, 2026 &middot; Last used 2h ago</div>
+    </div>
+
+    <div class="dp-tabs" data-guide="{&quot;title&quot;: &quot;Info &amp; Runner Tabs&quot;, &quot;tag&quot;: &quot;Dual View&quot;, &quot;body&quot;: &quot;Switch between &lt;em&gt;Info (skill configuration and metadata) and Runner (live execution)&lt;/em&gt;. Info shows what a skill does. Runner shows what it is doing right now.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+      <div class="dp-tab active" onclick="switchDpTab(this,'info')" data-tooltip="View skill configuration, tools, variables, and governance rules">Info</div>
+      <div class="dp-tab" onclick="switchDpTab(this,'runner')" data-tooltip="Switch to live execution view — watch AI run this skill in real time">Runner</div>
+    </div>
+
+    <!-- INFO VIEW -->
+    <div class="dp-body" id="dpInfo">
+      <div class="dp-section">
+        <div class="dp-section-label">Description</div>
+        <div class="dp-desc">Performs a structured code review with severity-tiered findings (critical, warning, suggestion). Analyzes code quality, patterns, potential bugs, and architectural concerns. Provides actionable feedback with specific line references.</div>
+      </div>
+      <div class="dp-section">
+        <div class="dp-section-label">Tags</div>
+        <div class="dp-tags"><span class="dp-tag">review</span><span class="dp-tag">quality</span><span class="dp-tag">code-analysis</span><span class="dp-tag">best-practices</span></div>
+      </div>
+      <div class="dp-section">
+        <div class="dp-section-label">Allowed Tools</div>
+        <div class="dp-tools">
+          <div class="dp-tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Read</div>
+          <div class="dp-tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Grep</div>
+          <div class="dp-tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Glob</div>
+        </div>
+      </div>
+      <div class="dp-section">
+        <div class="dp-section-label">Context Mode</div>
+        <div class="dp-mode" style="background:var(--purple-dim);color:var(--purple)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> fork</div>
+      </div>
+      <div class="dp-section">
+        <div class="dp-section-label">Variables</div>
+        <div class="dp-var"><div class="dp-var-name">{{language}}</div><div><div class="dp-var-desc">Programming language of code being reviewed</div><div class="dp-var-meta">optional &middot; default: TypeScript</div></div></div>
+        <div class="dp-var"><div class="dp-var-name">{{focusArea}}</div><div><div class="dp-var-desc">Specific area to focus review on</div><div class="dp-var-meta">optional</div></div></div>
+      </div>
+      <div class="dp-section">
+        <div class="dp-section-label">Governance</div>
+        <div class="dp-gov" data-guide="{&quot;title&quot;: &quot;Governance Rules&quot;, &quot;tag&quot;: &quot;Safety&quot;, &quot;body&quot;: &quot;Per-skill safety controls &amp;mdash; &lt;em&gt;require human approval, flag destructive operations, set execution timeouts&lt;/em&gt;. You decide how much autonomy each skill gets. Fine-grained trust.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">
+          <div class="dp-gov-row"><span class="dp-gov-label">Require Approval</span><span class="dp-gov-val off">off</span></div>
+          <div class="dp-gov-row"><span class="dp-gov-label">Destructive</span><span class="dp-gov-val off">off</span></div>
+          <div class="dp-gov-row"><span class="dp-gov-label">Max Execution Time</span><span class="dp-gov-val">300s</span></div>
+        </div>
+      </div>
+      <div class="dp-section">
+        <div class="dp-section-label">Skill Folder</div>
+        <div style="font-size:10px;color:var(--text-muted);font-family:var(--font-mono);background:var(--bg-elevated);padding:6px 8px;border-radius:var(--radius-sm);border:1px solid var(--border-subtle)">
+          <div>code-review/</div>
+          <div style="padding-left:12px;color:var(--text-secondary)">SKILL.md</div>
+          <div style="padding-left:12px;color:var(--text-secondary)">ping.yaml</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RUNNER VIEW (hidden by default) -->
+    <div class="dp-body runner-view" id="dpRunner">
+      <div class="runner-status" data-tooltip="Live execution status — see which phase is running right now">
+        <div class="runner-status-dot"></div>
+        <span class="runner-status-text">Running &mdash; Phase 2: Analyzing quality...</span>
+      </div>
+      <div class="runner-progress" data-guide="{&quot;title&quot;: &quot;Execution Progress&quot;, &quot;tag&quot;: &quot;Live Status&quot;, &quot;body&quot;: &quot;Real-time progress tracking &amp;mdash; &lt;em&gt;see which phase is running, percentage complete, and current operation&lt;/em&gt;. The progress bar fills as each phase completes.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+        <div class="runner-progress-bar"><div class="runner-progress-fill prompt" style="width:67%"></div></div>
+        <div class="runner-progress-label"><span>Phase 2 of 4</span><span>67%</span></div>
+      </div>
+      <div class="runner-output" data-guide="{&quot;title&quot;: &quot;Live Execution Output&quot;, &quot;tag&quot;: &quot;Runner&quot;, &quot;body&quot;: &quot;Watch your skill execute in real time &amp;mdash; &lt;em&gt;markdown-formatted output streams live as AI works&lt;/em&gt;. See analysis results, code suggestions, and structured findings appear phase by phase.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}"><span class="event">[start] execution-a7f3 &bull; code-review &bull; manual</span>
+<span class="event">[progress] 25% &mdash; Phase 1: Understanding context</span>
+<span class="chunk"><span class="md-h2">Review Summary</span>- <span class="md-bold">Scope:</span> src/services/BrowserManager.ts (322 lines)
+- <span class="md-bold">Verdict:</span> REQUEST CHANGES
+- <span class="md-bold">Risk Level:</span> MEDIUM</span>
+
+<span class="event">[progress] 50% &mdash; Phase 2: Analyzing quality</span>
+<span class="chunk"><span class="md-h2">Findings</span>
+<span class="md-h3">P0 &mdash; Must Fix</span><span class="md-trow"><span class="md-th"> #   File:Line              Finding</span></span><span class="md-trow"> 1   BrowserManager.ts:47   Missing error handling on...</span></span></div>
+      <div class="runner-vardebug" data-guide="{&quot;title&quot;: &quot;Variable Resolution Debug&quot;, &quot;tag&quot;: &quot;Transparency&quot;, &quot;body&quot;: &quot;See exactly how &lt;em&gt;variables resolved at runtime&lt;/em&gt; &amp;mdash; which values came from skill defaults, which from user input, and which from project context. Full transparency into AI behavior.&quot;, &quot;cat&quot;: &quot;kat-lean-right&quot;}">
+        <div class="runner-vardebug-title">&#9654; Variable Resolution</div>
+        <table class="runner-var-table">
+          <tr><th>Variable</th><th>Value</th><th>Source</th></tr>
+          <tr><td class="var-name">language</td><td class="var-val">TypeScript</td><td><span class="var-src">skill_default</span></td></tr>
+          <tr><td class="var-name">focusArea</td><td class="var-val">error handling</td><td><span class="var-src">input</span></td></tr>
+        </table>
+      </div>
+      <button class="runner-cancel" data-tooltip="Cancel the current execution — stops AI mid-run"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg> Cancel Execution</button>
+    </div>
+
+    <div class="dp-footer" id="dpFooter">
+      <button class="btn-primary" onclick="switchDpTab(document.querySelector('.dp-tab:nth-child(2)'),'runner')"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" width="12" height="12"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run CatSkill</button>
+      <button class="btn-ghost" onclick="openEditor('edit')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg> Edit</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== EDITOR OVERLAY ===== -->
+<div class="editor-overlay" id="editorOverlay" onclick="if(event.target===this)closeEditor()" data-guide="{&quot;title&quot;: &quot;CatSkill Editor&quot;, &quot;tag&quot;: &quot;Create &amp; Edit&quot;, &quot;body&quot;: &quot;The full skill authoring experience &amp;mdash; &lt;em&gt;three specialized editors for Prompts, Integrations, and Workflows&lt;/em&gt;. Write SKILL.md content, configure API actions, or chain workflow steps. All in one modal.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+  <div class="editor-panel">
+    <div class="ed-header">
+      <div class="ed-title" id="edTitle">New CatSkill</div>
+      <button class="ed-close" onclick="closeEditor()" data-tooltip="Close the editor without saving"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="ed-body">
+      <!-- Common fields -->
+      <div class="ed-field"><div class="ed-label">Name</div><input class="ed-input" value="Code Review" /></div>
+      <div class="ed-field"><div class="ed-label">Description</div><textarea class="ed-textarea" rows="2">Structured code review with severity-tiered findings and actionable recommendations</textarea></div>
+      <div class="ed-field">
+        <div class="ed-label">Type</div>
+        <div class="ed-type-selector" data-guide="{&quot;title&quot;: &quot;Skill Type Picker&quot;, &quot;tag&quot;: &quot;Architecture&quot;, &quot;body&quot;: &quot;Three skill architectures: &lt;em&gt;Prompt (SKILL.md templates), Integration (API action chains), Workflow (multi-step pipelines)&lt;/em&gt;. Each unlocks a specialized editor tailored to that pattern.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+          <div class="ed-type-opt selected" onclick="switchEdType(this,'prompt')" style="--c:var(--blue)" data-tooltip="Prompt type — write SKILL.md templates with variables and governance"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Prompt</div>
+          <div class="ed-type-opt" onclick="switchEdType(this,'integration')" data-tooltip="Integration type — configure API endpoints and webhook chains"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Integration</div>
+          <div class="ed-type-opt" onclick="switchEdType(this,'workflow')" data-tooltip="Workflow type — chain multiple skills into an automation pipeline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Workflow</div>
+        </div>
+      </div>
+
+      <div class="ed-sep"></div>
+
+      <!-- PROMPT EDITOR -->
+      <div class="ed-type-editor active" id="edPrompt">
+        <div class="ed-field">
+          <div class="ed-label">Skill Content (SKILL.md)</div>
+          <textarea class="ed-textarea mono" rows="8">---
+name: code-review
+description: Structured code review with severity-tiered findings
+tags: [review, quality, pr, code-review]
+version: 1.0.0
+allowed-tools: Read, Grep, Glob
+context: fork
+---
+
+# Code Review
+
+You are a senior staff engineer conducting a thorough code review. Analyze the provided code with a focus on correctness, maintainability, and production readiness.
+
+## Review Process
+
+### Phase 1 — Understand Context
+- Identify the purpose of the change
+- Determine scope: which files changed and why
+...</textarea>
+        </div>
+        <div class="ed-field">
+          <div class="ed-label">Variables</div>
+          <div class="ed-vars">
+            <div class="ed-var-row"><input value="language" style="max-width:120px" /><input value="Programming language of code being reviewed" /><input value="TypeScript" placeholder="default" style="max-width:100px" /><button class="ed-var-rm" data-tooltip="Remove this variable from the skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="focusArea" style="max-width:120px" /><input value="Specific area to focus review on" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+          </div>
+          <button class="ed-add-btn" data-tooltip="Add a new variable or step to this skill definition">+ Add Variable</button>
+        </div>
+      </div>
+
+      <!-- INTEGRATION EDITOR -->
+      <div class="ed-type-editor" id="edIntegration">
+        <div class="ed-field">
+          <div class="ed-label">Skill Content (SKILL.md)</div>
+          <textarea class="ed-textarea mono" rows="4">---
+name: customer-report
+description: Fetches customer data from CRM API and generates reports
+tags: [api, reporting]
+version: 1.0.0
+context: fork
+---
+
+# Customer Report
+Generate a formatted customer report using the data retrieved from the CRM API...</textarea>
+        </div>
+        <div class="ed-field">
+          <div class="ed-label">Pre-Actions (run before skill body)</div>
+          <div class="ed-action-card" data-guide="{&quot;title&quot;: &quot;API Action Config&quot;, &quot;tag&quot;: &quot;Integration&quot;, &quot;body&quot;: &quot;Configure pre and post actions for integration skills &amp;mdash; &lt;em&gt;HTTP method, URL, headers, and response handling&lt;/em&gt;. Chain API calls, webhooks, and data transforms into a single skill.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+            <div class="ed-action-header"><span class="ed-action-badge pre">PRE</span><span class="ed-action-name">Fetch Customer Data</span><span class="ed-action-type-tag">api</span></div>
+            <div class="ed-action-body">
+              <div class="ed-action-row"><label>Method</label><select><option selected>GET</option><option>POST</option><option>PUT</option><option>DELETE</option></select></div>
+              <div class="ed-action-row"><label>URL</label><input value="https://api.example.com/customers/{{customerId}}" /></div>
+              <div class="ed-action-row"><label>Headers</label><input value="Authorization: Bearer {{env.CRM_API_KEY}}" /></div>
+            </div>
+          </div>
+          <button class="ed-add-btn">+ Add Pre-Action</button>
+        </div>
+        <div class="ed-field">
+          <div class="ed-label">Post-Actions (run after skill body)</div>
+          <div class="ed-action-card">
+            <div class="ed-action-header"><span class="ed-action-badge post">POST</span><span class="ed-action-name">Notify Slack</span><span class="ed-action-type-tag">webhook</span></div>
+            <div class="ed-action-body">
+              <div class="ed-action-row"><label>Method</label><select><option>GET</option><option selected>POST</option></select></div>
+              <div class="ed-action-row"><label>URL</label><input value="https://hooks.slack.com/services/T00/B00/xxx" /></div>
+            </div>
+          </div>
+          <button class="ed-add-btn">+ Add Post-Action</button>
+        </div>
+        <div class="ed-field">
+          <div class="ed-label">Variables</div>
+          <div class="ed-vars">
+            <div class="ed-var-row"><input value="customerId" style="max-width:120px" /><input value="CRM customer ID to fetch" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+          </div>
+          <button class="ed-add-btn">+ Add Variable</button>
+        </div>
+      </div>
+
+      <!-- WORKFLOW EDITOR -->
+      <div class="ed-type-editor" id="edWorkflow">
+        <div class="ed-field">
+          <div class="ed-label">Workflow Steps (sequential chain)</div>
+          <div class="ed-step-list" data-guide="{&quot;title&quot;: &quot;Workflow Steps&quot;, &quot;tag&quot;: &quot;Pipeline&quot;, &quot;body&quot;: &quot;Chain multiple skills into a pipeline &amp;mdash; &lt;em&gt;drag to reorder, map variables between steps&lt;/em&gt;. Output from step 1 flows into step 2 automatically. Build complex automations visually.&quot;, &quot;cat&quot;: &quot;kat-perk&quot;}">
+            <div class="ed-step">
+              <div class="ed-step-grip"><span></span><span></span><span></span></div>
+              <div class="ed-step-num">1</div>
+              <div class="ed-step-content">
+                <select class="ed-step-skill-select"><option selected>Code Review (Prompt)</option><option>Test Generator (Prompt)</option><option>Security Audit (Prompt)</option><option>Refactor Clean (Prompt)</option><option>Think Deeper (Prompt)</option></select>
+                <div class="ed-step-mapping-label">Input Mapping</div>
+                <div class="ed-step-mapping-row"><input value="language" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{language}}" /></div>
+                <div class="ed-step-mapping-row"><input value="focusArea" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{focusArea}}" /></div>
+              </div>
+            </div>
+            <div class="ed-step">
+              <div class="ed-step-grip"><span></span><span></span><span></span></div>
+              <div class="ed-step-num">2</div>
+              <div class="ed-step-content">
+                <select class="ed-step-skill-select"><option>Code Review (Prompt)</option><option>Test Generator (Prompt)</option><option selected>Security Audit (Prompt)</option><option>Refactor Clean (Prompt)</option><option>Think Deeper (Prompt)</option></select>
+                <div class="ed-step-mapping-label">Input Mapping</div>
+                <div class="ed-step-mapping-row"><input value="scope" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{steps.1.output}}" /></div>
+              </div>
+            </div>
+            <div class="ed-step">
+              <div class="ed-step-grip"><span></span><span></span><span></span></div>
+              <div class="ed-step-num">3</div>
+              <div class="ed-step-content">
+                <select class="ed-step-skill-select"><option>Code Review (Prompt)</option><option selected>Test Generator (Prompt)</option><option>Security Audit (Prompt)</option><option>Refactor Clean (Prompt)</option><option>Think Deeper (Prompt)</option></select>
+                <div class="ed-step-mapping-label">Input Mapping</div>
+                <div class="ed-step-mapping-row"><input value="testFramework" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="vitest" /></div>
+              </div>
+            </div>
+          </div>
+          <button class="ed-add-btn" style="margin-top:4px">+ Add Step</button>
+        </div>
+        <div class="ed-field">
+          <div class="ed-label">Workflow Variables (passed to first step)</div>
+          <div class="ed-vars">
+            <div class="ed-var-row"><input value="language" style="max-width:120px" /><input value="Language for the review pipeline" /><input value="TypeScript" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="focusArea" style="max-width:120px" /><input value="Focus area for code review step" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADVANCED SECTION -->
+      <div class="ed-advanced" data-guide="{&quot;title&quot;: &quot;Advanced Settings&quot;, &quot;tag&quot;: &quot;Power User&quot;, &quot;body&quot;: &quot;Fine-tune governance: &lt;em&gt;require approval before execution, mark as destructive, set max execution time&lt;/em&gt;. These controls determine how much autonomy the skill gets when running.&quot;, &quot;cat&quot;: &quot;kat-yawn&quot;}">
+        <button class="ed-advanced-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg> Advanced
+        </button>
+        <div class="ed-advanced-body">
+          <div class="ed-gov-row"><span class="ed-gov-label">Require Approval</span><div class="ed-switch" onclick="this.classList.toggle('on')"></div></div>
+          <div class="ed-gov-row"><span class="ed-gov-label">Destructive</span><div class="ed-switch" onclick="this.classList.toggle('on')"></div></div>
+          <div class="ed-field" style="margin-top:4px"><div class="ed-label">Max Execution Time (ms)</div><input class="ed-input" value="300000" style="max-width:140px" /></div>
+        </div>
+      </div>
+
+      <div class="ed-field"><div class="ed-label">Tags</div><input class="ed-input" value="review, quality, pr, code-review" /></div>
+    </div>
+    <div class="ed-footer">
+      <button class="btn-ghost" onclick="closeEditor()">Cancel</button>
+      <button class="btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg> Save Skill</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== APPROVAL TOAST ===== -->
+<div class="approval-toast" id="approvalToast" data-guide="{&quot;title&quot;: &quot;Integration Approval&quot;, &quot;tag&quot;: &quot;Security&quot;, &quot;body&quot;: &quot;Integration skills that access external APIs &lt;em&gt;require explicit approval before running&lt;/em&gt;. See exactly which domains will be contacted and what actions will execute. Allow once, always, or deny.&quot;, &quot;cat&quot;: &quot;kat-flip&quot;}">
+  <div class="at-timer"><div class="at-timer-fill" id="atTimerFill" style="width:78%"></div></div>
+  <div class="at-body">
+    <div class="at-title"><span>"Customer Report"</span> needs approval</div>
+    <div class="at-info">
+      <div class="at-domains">INTEGRATION: api.example.com, hooks.slack.com</div>
+      <div class="at-actions-summary">Actions: 1 pre (api), 1 post (webhook)</div>
+    </div>
+    <div class="at-reason">First run of INTEGRATION catskill</div>
+  </div>
+  <div class="at-buttons">
+    <button class="at-btn allow" onclick="dismissApproval()" data-tooltip="Allow this integration to run once — approve for this execution only">Allow Once</button>
+    <button class="at-btn always" onclick="dismissApproval()" data-tooltip="Always allow — trust this integration for all future runs">Always Allow</button>
+    <button class="at-btn deny" onclick="dismissApproval()" data-tooltip="Deny — block this integration from executing">Deny</button>
+  </div>
+  <div class="at-countdown">Auto-deny in <strong>47s</strong></div>
+</div>
+
+<script>
+// Category toggle
+function toggleCat(el) {
+  const arrow = el.querySelector('.sb-cat-arrow');
+  const subs = el.nextElementSibling;
+  if (subs && subs.classList.contains('sb-subcats')) {
+    arrow.classList.toggle('open');
+    subs.classList.toggle('open');
+  }
+}
+
+// Grid/list view toggle
+function setView(mode) {
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  event.target.closest('.toggle-btn').classList.add('active');
+}
+
+// Type filter
+function filterType(pill, type) {
+  document.querySelectorAll('.type-pill').forEach(p => p.classList.remove('active'));
+  pill.classList.add('active');
+  document.querySelectorAll('.skill-card').forEach(card => {
+    if (type === 'all') { card.style.display = ''; return; }
+    const cardType = card.querySelector('.skill-card-type').textContent.trim().toLowerCase();
+    card.style.display = cardType === type ? '' : 'none';
+  });
+}
+
+// Detail panel
+function showDetail(id) {
+  document.getElementById('detailPanel').classList.add('open');
+  switchDpTab(document.querySelector('.dp-tab'), 'info');
+}
+function closeDetail() {
+  document.getElementById('detailPanel').classList.remove('open');
+}
+function switchDpTab(tab, view) {
+  document.querySelectorAll('.dp-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  const info = document.getElementById('dpInfo');
+  const runner = document.getElementById('dpRunner');
+  const footer = document.getElementById('dpFooter');
+  if (view === 'info') {
+    info.style.display = ''; info.classList.remove('runner-view');
+    runner.classList.remove('active'); runner.style.display = '';
+    footer.style.display = '';
+  } else {
+    info.style.display = 'none';
+    runner.classList.add('active');
+    footer.style.display = 'none';
+  }
+}
+
+// Runner
+function showRunner(id) {
+  showDetail(id);
+  setTimeout(() => {
+    switchDpTab(document.querySelector('.dp-tab:nth-child(2)'), 'runner');
+  }, 50);
+}
+
+// Editor
+function openEditor(mode) {
+  const name = document.getElementById('dpName').textContent || 'Code Review';
+  document.getElementById('edTitle').textContent = mode === 'new' ? 'New CatSkill' : 'Edit: ' + name;
+  document.getElementById('editorOverlay').classList.add('open');
+  // Reset type selector to Prompt for new skills
+  if (mode === 'new') switchEdType(document.querySelector('.ed-type-opt'), 'prompt');
+}
+function closeEditor() {
+  document.getElementById('editorOverlay').classList.remove('open');
+}
+function switchEdType(opt, type) {
+  document.querySelectorAll('.ed-type-opt').forEach(o => o.classList.remove('selected'));
+  opt.classList.add('selected');
+  document.querySelectorAll('.ed-type-editor').forEach(e => e.classList.remove('active'));
+  if (type === 'prompt') document.getElementById('edPrompt').classList.add('active');
+  else if (type === 'integration') document.getElementById('edIntegration').classList.add('active');
+  else if (type === 'workflow') document.getElementById('edWorkflow').classList.add('active');
+}
+
+// Approval toast
+function showApproval() {
+  document.getElementById('approvalToast').classList.add('show');
+}
+function dismissApproval() {
+  document.getElementById('approvalToast').classList.remove('show');
+}
+
+// Close panels on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { closeEditor(); closeDetail(); dismissApproval(); }
+});
+</script>
+
+<script id="ping-guide-system">
+(function() {
+  /* ===== KAT POSITIONS & ANIMATIONS: fully randomized per guide ===== */
+  const katPositions = ['kat-pos-tl','kat-pos-tr','kat-pos-bl','kat-pos-br','kat-pos-ml','kat-pos-mr'];
+  const katAnimations = ['kat-excited','kat-happy','kat-wave','kat-think','kat-flip','kat-lick','kat-yawn','kat-yarn-play','kat-lean-left','kat-lean-right','kat-perk'];
+  let lastPos = -1;
+  let lastAnim = -1;
+  function randExclude(arr, exclude) { let i; do { i = Math.floor(Math.random() * arr.length); } while (i === exclude && arr.length > 1); return i; }
+
+  /* ===== GUIDE CARD ELEMENT ===== */
+  const card = document.createElement('div');
+  card.className = 'ping-guide-card';
+  card.innerHTML = `
+    <div class="ping-guide-accent"></div>
+    <div class="ping-guide-inner" id="guide-inner">
+      <div class="ping-guide-kat-wrap" id="guide-kat"></div>
+      <div class="ping-guide-text">
+        <div class="ping-guide-tag" id="guide-tag"></div>
+        <div class="ping-guide-title" id="guide-title"></div>
+        <div class="ping-guide-body" id="guide-body"></div>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(card);
+
+  // Inject KAT SVG
+  document.getElementById('guide-kat').innerHTML = `<svg class="kat-mascot" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">  <!-- Body -->  <ellipse class="kat-body" cx="28" cy="44" rx="14" ry="10" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Tail -->  <path class="kat-tail" d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4fa0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Head -->  <g class="kat-head">    <circle cx="38" cy="26" r="12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Left ear -->    <path class="kat-ear-l" d="M30 16 L27 4 L35 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M31 14 L29 7 L34 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Right ear -->    <path class="kat-ear-r" d="M44 14 L48 2 L50 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M45 13 L47.5 5 L49 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Eyes -->    <g class="kat-eyes">      <ellipse class="kat-eye-l" cx="33" cy="25" rx="2.5" ry="3" fill="#4fa0ff"/>      <ellipse class="kat-eye-r" cx="43" cy="24" rx="2.5" ry="3" fill="#4fa0ff"/>      <ellipse class="kat-pupil-l" cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0d0f14"/>      <ellipse class="kat-pupil-r" cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0d0f14"/>      <circle cx="34" cy="24" r="0.8" fill="#151820"/>      <circle cx="44" cy="23" r="0.8" fill="#151820"/>    </g>    <!-- Nose -->    <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#a78bfa"/>    <!-- Mouth -->    <path class="kat-mouth" d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Whiskers -->    <g class="kat-whiskers">      <line x1="28" y1="27" x2="20" y2="25" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="29" x2="19" y2="29" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="31" x2="20" y2="33" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="26" x2="56" y2="24" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="28" x2="57" y2="28" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="30" x2="56" y2="32" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>    </g>  </g>  <!-- Back leg / tail extension -->  <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <path d="M50 39 L50 40.5" stroke="#4fa0ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <path d="M52 38.5 L52 40" stroke="#4fa0ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <!-- Paws -->  <path class="kat-paw-r" d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <path class="kat-paw-l" d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Chest fur lines -->  <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#4fa0ff" stroke-width="1" opacity="0.3" stroke-linecap="round"/>  <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#4fa0ff" stroke-width="1" opacity="0.2" stroke-linecap="round"/></svg>`;
+
+  let activeEl = null;
+  let hideTimeout = null;
+  let tooltipActive = false;
+  const katEl = document.querySelector('.ping-guide-card .kat-mascot');
+  const innerEl = document.getElementById('guide-inner');
+
+  function showGuide(el) {
+    // Don't show guide card if tooltip is active (either on this element or a child)
+    if (tooltipActive) return;
+    if (el.hasAttribute('data-tooltip')) return;
+
+    clearTimeout(hideTimeout);
+    const data = JSON.parse(el.getAttribute('data-guide'));
+    document.getElementById('guide-tag').textContent = data.tag || 'Feature';
+    document.getElementById('guide-title').textContent = data.title;
+    document.getElementById('guide-body').innerHTML = data.body;
+
+    // Randomize KAT animation (never repeat the same one twice in a row)
+    if (katEl) {
+      lastAnim = randExclude(katAnimations, lastAnim);
+      katEl.setAttribute('class', 'kat-mascot ' + katAnimations[lastAnim]);
+    }
+
+    // Randomize KAT position (never repeat the same corner twice in a row)
+    lastPos = randExclude(katPositions, lastPos);
+    const pos = katPositions[lastPos];
+    innerEl.className = 'ping-guide-inner ' + pos;
+
+    // Highlight source element
+    if (activeEl) activeEl.classList.remove('guide-active');
+    el.classList.add('guide-active');
+    activeEl = el;
+
+    // Position the card smartly (viewport-aware)
+    const r = el.getBoundingClientRect();
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const cw = Math.min(340, vw - 24);
+    card.style.width = cw + 'px';
+    const ch = card.offsetHeight || 260;
+    let x, y;
+
+    // Try right side
+    if (r.right + 16 + cw < vw) {
+      x = r.right + 16;
+      y = Math.max(12, Math.min(r.top, vh - ch - 12));
+    }
+    // Try left side
+    else if (r.left - 16 - cw > 0) {
+      x = r.left - 16 - cw;
+      y = Math.max(12, Math.min(r.top, vh - ch - 12));
+    }
+    // Below
+    else {
+      x = Math.max(12, Math.min(r.left, vw - cw - 12));
+      y = r.bottom + 12;
+      if (y + ch > vh) y = Math.max(12, r.top - ch - 12);
+    }
+
+    card.style.left = x + 'px';
+    card.style.top = y + 'px';
+    card.classList.add('visible');
+  }
+
+  function hideGuide() {
+    hideTimeout = setTimeout(() => {
+      card.classList.remove('visible');
+      if (activeEl) { activeEl.classList.remove('guide-active'); activeEl = null; }
+    }, 200);
+  }
+
+  // Promote data-guide from inner children up to parent containers
+  // so the guide triggers when hovering ANYWHERE on the widget, not just the title bar
+  const containerSelectors = ['.card', '.stat-card', '.kanban-col'];
+  containerSelectors.forEach(sel => {
+    document.querySelectorAll(sel + ' [data-guide]').forEach(child => {
+      const parent = child.closest(sel);
+      if (parent && !parent.hasAttribute('data-guide')) {
+        parent.setAttribute('data-guide', child.getAttribute('data-guide'));
+        child.removeAttribute('data-guide');
+      }
+    });
+  });
+
+  // Attach to all data-guide elements
+  document.querySelectorAll('[data-guide]').forEach(el => {
+    el.addEventListener('mouseenter', () => showGuide(el));
+    el.addEventListener('mouseleave', hideGuide);
+  });
+
+  // Keep card visible when hovering over it
+  card.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+  card.addEventListener('mouseleave', hideGuide);
+
+  /* ===== VIEWPORT-AWARE TOOLTIPS ===== */
+  document.querySelectorAll('[data-tooltip]').forEach(el => {
+    el.addEventListener('mouseenter', function() {
+      tooltipActive = true;
+      // Hide guide card if showing
+      card.classList.remove('visible');
+      if (activeEl) { activeEl.classList.remove('guide-active'); activeEl = null; }
+
+      const r = el.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      let ty = r.top;
+
+      // Clamp horizontal position to viewport
+      const tipX = Math.max(140, Math.min(cx, window.innerWidth - 140));
+      // If too close to top, show below instead
+      if (r.top < 60) {
+        ty = r.bottom + 8;
+        el.style.setProperty('--tip-x', tipX + 'px');
+        el.style.setProperty('--tip-y', (ty + 40) + 'px');
+      } else {
+        el.style.setProperty('--tip-x', tipX + 'px');
+        el.style.setProperty('--tip-y', ty + 'px');
+      }
+    });
+    el.addEventListener('mouseleave', function() {
+      tooltipActive = false;
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

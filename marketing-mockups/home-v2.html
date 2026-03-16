@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PiNG! — Home</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* Type scale: 11 / 13 / 16 / 20 / 28 */
+  :root {
+    --bg-deep: #0d0f14; --bg-surface: #14171f; --bg-elevated: #1a1e28;
+    --bg-hover: #252a36; --bg-active: #2d3344;
+    --border: #2a2f3d; --border-subtle: #1f2430;
+    --text-primary: #e2e4ea; --text-secondary: #8890a4; --text-muted: #555d73;
+    --accent: #4fa0ff; --accent-dim: #2d6abf; --accent-glow: rgba(79,160,255,0.12);
+    --warm-accent: #e8a87c; --warm-accent-dim: rgba(232,168,124,0.12);
+    --green: #3ddc84; --green-dim: rgba(61,220,132,0.15);
+    --orange: #f5a623; --orange-dim: rgba(245,166,35,0.12);
+    --red: #ff5c5c; --red-dim: rgba(255,92,92,0.12);
+    --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+    --cyan: #22d3ee; --cyan-dim: rgba(34,211,238,0.10);
+    --yellow: #eab308; --yellow-dim: rgba(234,179,8,0.12);
+    --pink: #f472b6; --pink-dim: rgba(244,114,182,0.12);
+    --blue: #3b82f6; --blue-dim: rgba(59,130,246,0.12);
+    --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
+    --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
+    --radius: 8px; --radius-sm: 6px; --radius-lg: 12px;
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.03);
+    --card-shadow-hover: 0 4px 16px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  body { font-family: var(--font); background: var(--bg-deep); color: var(--text-primary); font-size: 13px; -webkit-font-smoothing: antialiased; height: 100vh; display: flex; overflow: hidden; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--bg-active); border-radius: 3px; }
+
+  /* ═══ SIDEBAR ═══ */
+  .sidebar { width: 220px; background: var(--bg-surface); border-right: 1px solid var(--border-subtle); display: flex; flex-direction: column; flex-shrink: 0; transition: width 0.2s ease; position: relative; }
+  .sidebar.collapsed { width: 0; border-right: none; overflow: hidden; }
+  .sidebar-resize { position: absolute; top: 0; bottom: 0; right: -2px; width: 3px; cursor: col-resize; z-index: 10; }
+  .sidebar-resize:hover, .sidebar-resize.active { background: var(--accent); opacity: 0.5; }
+  .col-btn { position: absolute; top: 50%; z-index: 25; width: 24px; height: 24px; border-radius: 50%; background: var(--bg-elevated); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); font-size: 11px; transition: all 0.15s; transform: translateY(-50%); box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
+  .col-btn:hover { background: var(--bg-hover); color: var(--text-primary); border-color: var(--accent-dim); box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+  .sb-brand { padding: 16px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border-subtle); cursor: pointer; transition: background 0.12s; }
+  .sb-brand:hover { background: var(--bg-hover); }
+  .sb-brand-icon { width: 36px; height: 36px; flex-shrink: 0; }
+  .sb-brand-name { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+  .sb-brand-meta { font-size: 10px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; margin-top: 1px; }
+  .sb-top { padding: 10px 10px 0; display: flex; flex-direction: column; gap: 6px; }
+  .sb-new-project { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600; cursor: pointer; border: none; font-family: var(--font); background: var(--accent); color: #fff; transition: all 0.12s; }
+  .sb-new-project:hover { background: #5eadff; }
+  .sb-new-project svg { width: 13px; height: 13px; }
+  .sb-search { display: flex; align-items: center; gap: 6px; padding: 7px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-elevated); font-size: 11px; color: var(--text-muted); cursor: pointer; }
+  .sb-search:hover { border-color: var(--border); }
+  .sb-search svg { width: 12px; height: 12px; opacity: 0.5; }
+  .sb-search kbd { margin-left: auto; font-size: 10px; font-family: var(--font-mono); color: var(--text-muted); opacity: 0.5; }
+
+  .sb-projects-header { display: flex; align-items: center; padding: 12px 14px 4px; font-size: 10px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.04em; text-transform: uppercase; }
+  .sb-projects-header .count { margin-left: 4px; font-weight: 400; opacity: 0.6; }
+  .sb-projects-list { flex: 1; overflow-y: auto; padding: 2px 6px; }
+  .sb-proj { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: var(--radius-sm); font-size: 12px; color: var(--text-secondary); margin-bottom: 1px; transition: all 0.1s; text-decoration: none; }
+  .sb-proj:hover { background: var(--bg-hover); color: var(--text-primary); }
+  .sb-proj.active { background: var(--accent-glow); color: var(--accent); }
+  .sb-proj .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .sb-proj .name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; }
+  .sb-proj .name:hover { text-decoration: underline; }
+  .sb-proj .chat-count { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); flex-shrink: 0; }
+  .sb-proj .arrow { font-size: 8px; width: 14px; height: 14px; display: flex; align-items: center; justify-content: center; transition: transform 0.15s; color: var(--text-muted); flex-shrink: 0; cursor: pointer; border-radius: 3px; }
+  .sb-proj .arrow:hover { color: var(--text-primary); background: var(--bg-active); }
+  .sb-proj .arrow.open { transform: rotate(90deg); }
+  .sb-proj .proj-actions { display: flex; gap: 2px; margin-left: auto; opacity: 0; transition: opacity 0.12s; flex-shrink: 0; }
+  .sb-proj:hover .proj-actions { opacity: 1; }
+  .sb-proj .proj-action { width: 18px; height: 18px; border-radius: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); transition: all 0.1s; border: none; background: none; padding: 0; }
+  .sb-proj .proj-action:hover { background: var(--bg-active); color: var(--accent); }
+  .sb-proj .proj-action svg { width: 12px; height: 12px; }
+  .sb-proj-chats { display: none; padding-left: 24px; }
+  .sb-proj-chats.open { display: block; }
+  .sb-proj-chat { display: flex; align-items: center; gap: 6px; padding: 4px 10px; font-size: 11px; color: var(--text-muted); cursor: pointer; border-radius: 4px; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-decoration: none; }
+  .sb-proj-chat:hover { background: var(--bg-hover); color: var(--text-secondary); }
+  .sb-proj-chat .chat-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+
+  .sb-footer { border-top: 1px solid var(--border-subtle); padding: 8px 10px; display: flex; justify-content: center; gap: 4px; }
+  .sb-footer-btn { display: flex; align-items: center; gap: 4px; padding: 5px 8px; border-radius: var(--radius-sm); font-size: 10px; color: var(--text-muted); cursor: pointer; transition: all 0.12s; opacity: 0.7; }
+  .sb-footer-btn:hover { color: var(--text-secondary); background: var(--bg-hover); opacity: 1; }
+  .sb-footer-btn svg { width: 12px; height: 12px; }
+
+  /* ═══ MAIN ═══ */
+  .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  .topbar { height: 38px; background: var(--bg-surface); border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; padding: 0 16px; flex-shrink: 0; -webkit-app-region: drag; }
+  .topbar-left { display: flex; align-items: center; gap: 8px; -webkit-app-region: no-drag; }
+  .topbar-spacer { flex: 1; }
+  .topbar-btn { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: var(--radius-sm); color: var(--text-muted); cursor: pointer; transition: all 0.12s; -webkit-app-region: no-drag; }
+  .topbar-btn:hover { background: var(--bg-hover); color: var(--text-secondary); }
+  .topbar-btn svg { width: 15px; height: 15px; }
+  .edit-home-btn { display: flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 10px; color: var(--text-muted); cursor: pointer; border: 1px solid var(--border-subtle); background: transparent; font-family: var(--font); -webkit-app-region: no-drag; transition: all 0.12s; }
+  .edit-home-btn:hover { border-color: var(--border); color: var(--text-secondary); }
+  .edit-home-btn svg { width: 12px; height: 12px; }
+
+  .content-scroll { flex: 1; overflow-y: auto; padding: 28px 32px; }
+
+  /* ═══ GREETING ═══ */
+  .greeting { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+  .greeting-cat { width: 64px; height: 64px; flex-shrink: 0; opacity: 0.9; }
+  .greeting-text h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+  .greeting-text h1 span { color: var(--accent); }
+  .greeting-date { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .greeting-nudge { font-size: 11px; color: var(--text-secondary); margin-top: 1px; }
+  .greeting-nudge strong { color: var(--warm-accent); font-weight: 600; }
+
+  /* ═══ WIDGET GRID ═══ */
+  .widget-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; position: relative; }
+  .wg-3 { grid-column: span 3; } .wg-4 { grid-column: span 4; } .wg-5 { grid-column: span 5; } .wg-6 { grid-column: span 6; } .wg-7 { grid-column: span 7; } .wg-8 { grid-column: span 8; } .wg-9 { grid-column: span 9; } .wg-10 { grid-column: span 10; } .wg-11 { grid-column: span 11; } .wg-12 { grid-column: span 12; }
+
+  /* ═══ WIDGET ═══ */
+  .widget { background: var(--bg-surface); border: 1px solid transparent; border-radius: var(--radius-lg); overflow: hidden; transition: border-color 0.15s, box-shadow 0.2s; position: relative; min-height: 100px; box-shadow: var(--card-shadow); }
+  .widget:hover { border-color: var(--border-subtle); box-shadow: var(--card-shadow-hover); }
+  .widget.dragging { opacity: 0.6; border-color: var(--accent-dim); box-shadow: 0 8px 32px rgba(0,0,0,0.5); z-index: 100; }
+  .widget.drag-over { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-glow); }
+
+  .widget-header { display: flex; align-items: center; gap: 6px; padding: 12px 14px 8px; font-size: 13px; font-weight: 600; cursor: grab; user-select: none; }
+  .widget-header:active { cursor: grabbing; }
+  .widget-header svg { width: 13px; height: 13px; opacity: 0.5; }
+  .widget-header .badge { font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 8px; }
+  .widget-header .drag-hint { margin-left: auto; opacity: 0; color: var(--text-muted); font-size: 10px; transition: opacity 0.15s; display: flex; align-items: center; gap: 3px; font-weight: 400; }
+  .widget:hover .drag-hint { opacity: 0.5; }
+  .widget-header .drag-dots { display: flex; flex-direction: column; gap: 2px; }
+  .widget-header .drag-dots span { display: flex; gap: 2px; }
+  .widget-header .drag-dots span::before, .widget-header .drag-dots span::after { content: ''; width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
+
+  .widget-body { padding: 0 14px 14px; }
+
+  /* Resize handle */
+  .resize-handle { position: absolute; bottom: 0; right: 0; width: 16px; height: 16px; cursor: nwse-resize; opacity: 0.25; transition: opacity 0.15s; }
+  .resize-handle::after { content: ''; position: absolute; bottom: 4px; right: 4px; width: 8px; height: 8px; border-right: 2px solid var(--text-muted); border-bottom: 2px solid var(--text-muted); border-radius: 0 0 2px 0; }
+  .widget:hover .resize-handle { opacity: 0.5; }
+  .resize-handle:hover { opacity: 1 !important; }
+
+  /* ═══ SKILLS WIDGET ═══ */
+  .sk-row { display: flex; gap: 8px; margin-bottom: 6px; }
+  .sk-card { flex: 1; display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--bg-elevated); border-radius: var(--radius-sm); cursor: pointer; transition: all 0.12s; border: 1px solid transparent; text-decoration: none; color: inherit; }
+  .sk-card:hover { border-color: var(--border); background: var(--bg-hover); }
+  .sk-icon { width: 24px; height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .sk-icon svg { width: 12px; height: 12px; }
+  .sk-icon.prompt { background: var(--blue-dim); color: var(--blue); }
+  .sk-icon.integration { background: var(--orange-dim); color: var(--orange); }
+  .sk-icon.workflow { background: var(--purple-dim); color: var(--purple); }
+  .sk-info { flex: 1; min-width: 0; }
+  .sk-name { font-size: 11px; font-weight: 500; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sk-type { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+  .sk-meta { font-size: 9px; color: var(--text-muted); font-family: var(--font-mono); flex-shrink: 0; }
+  .sk-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 4px; }
+  .sk-footer a { font-size: 10px; color: var(--accent); text-decoration: none; transition: opacity 0.12s; }
+  .sk-footer a:hover { opacity: 0.8; }
+  .sk-stat { display: flex; align-items: center; gap: 10px; }
+  .sk-stat-item { font-size: 10px; color: var(--text-muted); display: flex; align-items: center; gap: 3px; }
+  .sk-stat-item strong { color: var(--text-secondary); font-weight: 600; }
+
+  /* ═══ Activity ═══ */
+  .act-item { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); }
+  .act-item:last-child { border-bottom: none; }
+  .act-icon { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0; margin-top: 1px; }
+  .act-text { font-size: 11px; color: var(--text-secondary); line-height: 1.4; flex: 1; min-width: 0; }
+  .act-text strong { color: var(--text-primary); font-weight: 500; }
+  .act-meta { font-size: 10px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+  .act-project { font-size: 10px; padding: 1px 5px; border-radius: 3px; background: var(--bg-active); color: var(--text-muted); }
+  .act-arrow { flex-shrink: 0; color: var(--text-muted); font-size: 13px; cursor: pointer; margin-top: 4px; }
+  .act-arrow:hover { color: var(--accent); }
+
+  /* ═══ Tasks ═══ */
+  .task-counts { display: flex; gap: 6px; margin-bottom: 10px; }
+  .task-count-box { flex: 1; background: var(--bg-elevated); border: none; border-radius: var(--radius-sm); padding: 8px; text-align: center; }
+  .task-count-label { font-size: 10px; color: var(--text-muted); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.03em; }
+  .task-count-value { font-size: 20px; font-weight: 700; font-family: var(--font-mono); }
+  .task-count-value.danger { color: var(--red); }
+  .view-all-link { display: flex; align-items: center; justify-content: space-between; padding: 7px 10px; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-size: 11px; color: var(--text-secondary); cursor: pointer; }
+  .view-all-link:hover { border-color: var(--border); color: var(--text-primary); }
+
+  /* ═══ Project Health ═══ */
+  .ph-item { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); }
+  .ph-item:last-child { border-bottom: none; }
+  .ph-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .ph-name { font-size: 11px; font-weight: 500; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ph-bar { width: 80px; height: 4px; background: var(--bg-active); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+  .ph-fill { height: 100%; border-radius: 3px; }
+  .ph-tasks { font-size: 10px; color: var(--text-muted); flex-shrink: 0; }
+  .ph-overdue { color: var(--red); font-size: 10px; flex-shrink: 0; }
+  .ph-pct { font-size: 10px; font-family: var(--font-mono); color: var(--text-muted); width: 28px; text-align: right; flex-shrink: 0; }
+
+  /* ═══ Brain Status ═══ */
+  .brain-item { display: flex; align-items: flex-start; gap: 8px; padding: 7px 8px; background: var(--bg-elevated); border: none; border-radius: var(--radius-sm); margin-bottom: 5px; }
+  .brain-icon { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0; }
+  .brain-info { flex: 1; min-width: 0; }
+  .brain-title { font-size: 11px; font-weight: 500; margin-bottom: 1px; }
+  .brain-detail { font-size: 10px; color: var(--text-muted); line-height: 1.4; }
+  .brain-action { font-size: 10px; padding: 2px 7px; border-radius: 4px; background: var(--accent-glow); color: var(--accent); cursor: pointer; border: none; font-family: var(--font); margin-top: 3px; }
+
+  /* ═══ Calendar ═══ */
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: 10px; }
+  .cal-head { font-size: 10px; font-weight: 600; color: var(--text-muted); padding: 3px 0 6px; }
+  .cal-cell { min-height: 56px; border: 1px solid var(--border-subtle); padding: 3px; text-align: left; cursor: pointer; }
+  .cal-cell:hover { background: var(--bg-hover); }
+  .cal-cell .day-num { font-size: 10px; font-weight: 600; color: var(--text-secondary); margin-bottom: 2px; }
+  .cal-cell.today .day-num { color: var(--accent); background: var(--accent-glow); width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .cal-cell.today { background: rgba(79,160,255,0.03); }
+  .cal-cell.other { opacity: 0.2; }
+  .cal-evt { font-size: 9px; padding: 1px 3px; border-radius: 2px; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cal-evt.deadline { background: var(--red-dim); color: var(--red); }
+  .cal-evt.meeting { background: var(--accent-glow); color: var(--accent); }
+  .cal-evt.task { background: var(--purple-dim); color: var(--purple); }
+  .cal-evt.reminder { background: var(--orange-dim); color: var(--orange); }
+
+  /* ═══ Focus ═══ */
+  .focus-row { display: flex; align-items: center; gap: 8px; padding: 7px 8px; background: var(--bg-elevated); border: none; border-radius: var(--radius-sm); margin-bottom: 4px; cursor: pointer; transition: border-color 0.12s; }
+  .focus-row:hover { border-color: var(--border); }
+  .focus-text { flex: 1; font-size: 11px; }
+  .focus-meta { font-size: 10px; color: var(--text-muted); }
+  .focus-arrow { color: var(--text-muted); font-size: 13px; }
+
+  /* ═══ Agents ═══ */
+  .agent-row { display: flex; align-items: center; gap: 8px; padding: 7px 8px; background: var(--bg-elevated); border: none; border-radius: var(--radius-sm); margin-bottom: 4px; }
+  .agent-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .agent-dot.running { background: var(--green); box-shadow: 0 0 6px rgba(61,220,132,0.4); }
+  .agent-dot.idle { background: var(--text-muted); }
+  .agent-name { font-size: 11px; font-weight: 500; }
+  .agent-task { font-size: 10px; color: var(--text-muted); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .agent-model { font-size: 10px; padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); flex-shrink: 0; }
+  .agent-model.opus { background: var(--accent-glow); color: var(--accent); }
+
+  /* ═══ Cost ═══ */
+  .cost-row { display: flex; align-items: center; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid var(--border-subtle); font-size: 11px; }
+  .cost-row:last-child { border-bottom: none; }
+  .cost-label { color: var(--text-secondary); }
+  .cost-value { font-family: var(--font-mono); font-weight: 600; }
+  .conn-row { display: flex; align-items: center; gap: 6px; padding: 5px 0; border-bottom: 1px solid var(--border-subtle); font-size: 11px; }
+  .conn-row:last-child { border-bottom: none; }
+  .conn-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .conn-dot.ok { background: var(--green); }
+  .conn-dot.warn { background: var(--orange); }
+  .conn-name { flex: 1; }
+  .conn-detail { font-size: 10px; color: var(--text-muted); }
+
+  /* ═══ Quick Stats ═══ */
+  .stat-box { background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 8px; text-align: center; }
+  .stat-value { font-size: 20px; font-weight: 700; font-family: var(--font-mono); }
+  .stat-label { font-size: 10px; color: var(--text-muted); margin-top: 1px; text-transform: uppercase; letter-spacing: 0.03em; }
+
+  /* ═══ Recent Sessions ═══ */
+  .session-group-label { font-size: 10px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 8px 0 4px; }
+  .session-group-label:first-child { padding-top: 0; }
+  .session-item { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.12s; }
+  .session-item:hover { background: var(--bg-hover); }
+  .session-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .session-dot.active { background: var(--green); box-shadow: 0 0 6px rgba(61,220,132,0.3); }
+  .session-dot.idle { background: var(--text-muted); }
+  .session-info { flex: 1; min-width: 0; }
+  .session-name { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .session-meta { font-size: 10px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; margin-top: 1px; }
+  .session-project-tag { font-size: 10px; padding: 1px 5px; border-radius: 3px; background: var(--bg-active); color: var(--text-muted); }
+  .session-model { font-size: 10px; padding: 1px 4px; border-radius: 3px; font-family: var(--font-mono); background: var(--accent-glow); color: var(--accent); }
+
+  /* ═══ Drag ghost ═══ */
+  .drag-ghost { position: fixed; pointer-events: none; z-index: 1000; opacity: 0.85; transform: rotate(1.5deg); box-shadow: 0 12px 40px rgba(0,0,0,0.6); }
+</style>
+
+<style id="ping-marketing-styles">
+/* ===== TOOLTIP SYSTEM ===== */
+[data-tooltip] { position: relative; }
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: fixed; left: var(--tip-x, 0); top: var(--tip-y, 0);
+  transform: translateX(-50%) translateY(-100%) translateY(-8px);
+  background: #1a1e28; color: #e2e4ea; font-size: 11px; font-weight: 400;
+  padding: 6px 10px; border-radius: 6px; max-width: 280px; width: max-content;
+  white-space: normal; text-align: center; pointer-events: none;
+  opacity: 0; z-index: 10010; line-height: 1.4;
+  transition: opacity 0.18s ease 0.35s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 0 1px rgba(79,160,255,0.15);
+  border: 1px solid rgba(79,160,255,0.2);
+}
+[data-tooltip]:hover::after { opacity: 1; }
+/* Override any page-native tooltip CSS that conflicts with our injected system */
+.panel-toggle[data-tooltip]:hover::after { content: attr(data-tooltip) !important; position: fixed !important; left: var(--tip-x, 0) !important; top: var(--tip-y, 0) !important; bottom: auto !important; transform: translateX(-50%) translateY(-100%) translateY(-8px) !important; background: #1a1e28 !important; color: #e2e4ea !important; font-size: 11px !important; padding: 6px 10px !important; border-radius: 6px !important; max-width: 280px !important; width: max-content !important; border: 1px solid rgba(79,160,255,0.2) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 0 1px rgba(79,160,255,0.15) !important; z-index: 10010 !important; }
+/* When tooltip is showing, suppress guide card on same element */
+[data-tooltip].tooltip-active[data-guide] { pointer-events: auto; }
+
+/* ===== GUIDE CARD ===== */
+.ping-guide-card {
+  position: fixed; z-index: 10002; width: 340px; max-width: calc(100vw - 24px);
+  pointer-events: auto;
+  background: linear-gradient(145deg, #1e2235 0%, #151829 100%);
+  border: 1px solid rgba(79,160,255,0.25); border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 80px rgba(79,160,255,0.06), inset 0 1px 0 rgba(255,255,255,0.04);
+  overflow: hidden; opacity: 0; transform: translateY(8px) scale(0.97);
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.ping-guide-card.visible { opacity: 1; transform: translateY(0) scale(1); }
+.ping-guide-accent {
+  height: 3px;
+  background: linear-gradient(90deg, #4fa0ff 0%, #a78bfa 50%, #4fa0ff 100%);
+  background-size: 200% 100%;
+  animation: guideShimmer 3s ease infinite;
+}
+@keyframes guideShimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+/* KAT position layouts */
+.ping-guide-inner { padding: 16px; display: flex; gap: 14px; align-items: flex-start; }
+.ping-guide-inner.kat-pos-tr, .ping-guide-inner.kat-pos-mr, .ping-guide-inner.kat-pos-br {
+  flex-direction: row-reverse;
+}
+.ping-guide-inner.kat-pos-bl, .ping-guide-inner.kat-pos-br {
+  align-items: flex-end;
+}
+.ping-guide-inner.kat-pos-tl, .ping-guide-inner.kat-pos-tr {
+  align-items: flex-start;
+}
+.ping-guide-inner.kat-pos-ml, .ping-guide-inner.kat-pos-mr {
+  align-items: center;
+}
+
+.ping-guide-kat-wrap {
+  width: 64px; height: 54px; flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(79,160,255,0.3));
+}
+.ping-guide-kat-wrap .kat-mascot { width: 64px; height: 54px; }
+.ping-guide-text { flex: 1; min-width: 0; }
+.ping-guide-tag {
+  display: inline-block; font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.8px; padding: 2px 7px; border-radius: 4px; margin-bottom: 6px;
+  background: rgba(79,160,255,0.15); color: #4fa0ff;
+}
+.ping-guide-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3; }
+.ping-guide-body { font-size: 12px; color: #a0a4b8; line-height: 1.55; }
+.ping-guide-body em { color: #4fa0ff; font-style: normal; font-weight: 500; }
+
+[data-guide].guide-active {
+  box-shadow: 0 0 0 2px rgba(79,160,255,0.35), 0 0 24px rgba(79,160,255,0.08) !important;
+  transition: box-shadow 0.3s ease;
+}
+
+/* ===== ANIMATED KAT (original logo style, 64x64 viewBox) ===== */
+.kat-mascot .kat-body { animation: katBreathe 3s ease-in-out infinite; }
+@keyframes katBreathe { 0%,100% { ry: 10; } 50% { ry: 10.8; } }
+
+.kat-mascot .kat-tail { animation: tailWag 2.5s ease-in-out infinite; transform-origin: 12px 42px; }
+@keyframes tailWag { 0%,100% { d: path("M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30"); } 50% { d: path("M12 42 C4 36, 2 26, 8 22 C12 19, 14 24, 12 28"); } }
+
+.kat-mascot .kat-pupil-l, .kat-mascot .kat-pupil-r { animation: pupilLook 5s ease-in-out infinite; }
+@keyframes pupilLook { 0%,100% { cx: 33; } 25% { cx: 34; } 75% { cx: 32; } }
+
+.kat-mascot .kat-whiskers { animation: whiskerTwitch 3.5s ease-in-out infinite; transform-origin: 38px 28px; }
+@keyframes whiskerTwitch { 0%,100% { transform: rotate(0); } 50% { transform: rotate(1.5deg); } }
+
+/* === KAT STATES === */
+
+/* Excited: fast tail, ear twitching */
+.kat-excited .kat-tail { animation: tailFast 0.6s ease-in-out infinite !important; }
+@keyframes tailFast { 0%,100% { d: path("M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30"); } 50% { d: path("M12 42 C2 36, 0 24, 6 20 C10 17, 12 22, 10 26"); } }
+.kat-excited .kat-ear-l { animation: earTwitchL 0.8s ease-in-out infinite; transform-origin: 30px 12px; }
+.kat-excited .kat-ear-r { animation: earTwitchR 0.8s ease-in-out infinite; transform-origin: 46px 10px; }
+@keyframes earTwitchL { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-8deg); } }
+@keyframes earTwitchR { 0%,100% { transform: rotate(0); } 50% { transform: rotate(8deg); } }
+
+/* Happy: big smile, slow tail */
+.kat-happy .kat-mouth { d: path("M33 31 Q38 35, 43 31") !important; stroke-width: 1.8 !important; }
+.kat-happy .kat-tail { animation: tailSlow 1.5s ease-in-out infinite !important; }
+@keyframes tailSlow { 0%,100% { d: path("M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30"); } 50% { d: path("M12 42 C4 36, 2 26, 8 22 C12 19, 14 24, 12 28"); } }
+
+/* Wave: paw bouncing */
+.kat-wave .kat-paw-r { animation: pawWave 0.7s ease-in-out infinite; transform-origin: 25px 50px; }
+@keyframes pawWave { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-15deg); } }
+
+/* Flip: head facing opposite direction */
+.kat-flip .kat-head { transform: scaleX(-1); transform-origin: 38px 26px; }
+
+/* Think: pupils looking up */
+.kat-think .kat-pupil-l, .kat-think .kat-pupil-r { animation: pupilUp 2s ease-in-out infinite !important; }
+@keyframes pupilUp { 0%,100% { cy: 25; } 50% { cy: 23; } }
+
+/* Lick: mouth wiggle */
+.kat-lick .kat-mouth { animation: katLickMouth 1.2s ease-in-out infinite; }
+@keyframes katLickMouth { 0%,100% { d: path("M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5"); } 50% { d: path("M35 31 Q38 34, 38 31 Q38 34, 41 31"); } }
+.kat-lick .kat-paw-l { animation: lickPaw 1.2s ease-in-out infinite; transform-origin: 18px 52px; }
+@keyframes lickPaw { 0%,100% { transform: rotate(0); } 50% { transform: rotate(8deg); } }
+
+/* Yawn: mouth wide, body stretch */
+.kat-yawn .kat-mouth { d: path("M34 30 Q38 37 42 30") !important; stroke-width: 1.8 !important; }
+.kat-yawn .kat-body { animation: yawnStretch 3s ease-in-out infinite !important; }
+@keyframes yawnStretch { 0%,100% { ry: 10; } 40%,60% { ry: 11.5; } }
+
+/* Yarn: pupils tracking, tail wagging fast */
+.kat-yarn-play .kat-pupil-l { animation: pupilTrackYarn 1.5s ease-in-out infinite !important; }
+.kat-yarn-play .kat-pupil-r { animation: pupilTrackYarnR 1.5s ease-in-out infinite !important; }
+@keyframes pupilTrackYarn { 0%,100% { cx: 34; cy: 25; } 50% { cx: 35; cy: 24; } }
+@keyframes pupilTrackYarnR { 0%,100% { cx: 44; cy: 24; } 50% { cx: 45; cy: 23; } }
+.kat-yarn-play .kat-tail { animation: tailFast 0.6s ease-in-out infinite !important; }
+
+/* Head lean left */
+.kat-lean-left .kat-head { animation: headLeanL 2.5s ease-in-out infinite; transform-origin: 38px 36px; }
+@keyframes headLeanL { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-12deg); } }
+
+/* Head lean right */
+.kat-lean-right .kat-head { animation: headLeanR 2.5s ease-in-out infinite; transform-origin: 38px 36px; }
+@keyframes headLeanR { 0%,100% { transform: rotate(0); } 50% { transform: rotate(12deg); } }
+
+/* Ear perk: both ears forward */
+.kat-perk .kat-ear-l { animation: earPerkL 1.5s ease-in-out infinite; transform-origin: 30px 12px; }
+.kat-perk .kat-ear-r { animation: earPerkR 1.5s ease-in-out infinite; transform-origin: 46px 10px; }
+@keyframes earPerkL { 0%,100% { transform: rotate(0); } 50% { transform: rotate(5deg); } }
+@keyframes earPerkR { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-5deg); } }
+.kat-perk .kat-pupil-l, .kat-perk .kat-pupil-r { animation: none !important; }
+</style>
+
+</head>
+<body>
+<a href="../index.html" style="position:fixed;top:12px;left:12px;z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
+
+<!-- ═══ SIDEBAR ═══ -->
+<div class="sidebar" data-guide="{&quot;title&quot;: &quot;Project Navigator&quot;, &quot;tag&quot;: &quot;Navigation&quot;, &quot;body&quot;: &quot;All your projects in one sidebar. Each project is an &lt;em&gt;isolated AI workspace&lt;/em&gt; with its own chats, files, knowledge, and agent history. Click to dive in, right-click for options.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
+  <!-- Brand header with cat mascot -->
+  <div class="sb-brand" onclick="window.location.href='home-v2.html'">
+    <svg class="sb-brand-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4fa0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="38" cy="26" r="12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M30 16 L27 4 L35 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M44 14 L48 2 L50 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M31 14 L29 7 L34 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M45 13 L47.5 5 L49 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse cx="33" cy="25" rx="2.5" ry="3" fill="#4fa0ff"/>
+      <ellipse cx="43" cy="24" rx="2.5" ry="3" fill="#4fa0ff"/>
+      <ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0d0f14"/>
+      <ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0d0f14"/>
+      <circle cx="34" cy="24" r="0.8" fill="#151820"/>
+      <circle cx="44" cy="23" r="0.8" fill="#151820"/>
+      <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#a78bfa"/>
+      <path d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="28" y1="27" x2="20" y2="25" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="28" y1="29" x2="19" y2="29" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="28" y1="31" x2="20" y2="33" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="48" y1="26" x2="56" y2="24" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="48" y1="28" x2="57" y2="28" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="48" y1="30" x2="56" y2="32" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M50 39 L50 40.5" stroke="#4fa0ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+      <path d="M52 38.5 L52 40" stroke="#4fa0ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+      <path d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#4fa0ff" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+      <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#4fa0ff" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+    </svg>
+    <div>
+      <div class="sb-brand-name">PiNG<span style="color:var(--accent)">!</span></div>
+      <div class="sb-brand-meta"><span style="width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block"></span> Active</div>
+    </div>
+  </div>
+
+  <div class="sb-top">
+    <button class="sb-new-project" data-tooltip="Create a new project workspace with its own AI context, files, and knowledge base">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      New Project
+    </button>
+    <div class="sb-search" data-tooltip="Universal search and command palette — find anything across all projects instantly">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Search...
+      <kbd>&#8984;K</kbd>
+    </div>
+  </div>
+
+  <div class="sb-projects-header">Projects <span class="count">21</span></div>
+
+  <div class="sb-projects-list">
+    <div>
+      <div class="sb-proj active" data-tooltip="Your active project — click to open, expand arrow to see chats"><span class="arrow open" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--green)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none" data-tooltip="Open this project workspace — AI context, files, chats, and knowledge all in one place">PiNG!</a><span class="chat-count">56</span><span class="proj-actions"><button class="proj-action" title="Open project browser" data-tooltip="Open the full project workspace with files, knowledge, and settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options" data-tooltip="Rename, archive, duplicate, or configure this project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats open">
+        <a href="chat-pane-v3.html" class="sb-proj-chat" data-tooltip="Resume this AI conversation with full context preserved"><span class="chat-dot" style="background:var(--green)"></span>Universal tool calling</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--green)"></span>check the repo</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Browser Talk</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Browser Health C16</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Auto Runner C2</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>MCP Harden C3</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>UI Discussion</a>
+        <a href="#" class="sb-proj-chat" style="opacity:0.5">+13 more...</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">CatSkills</a><span class="chat-count">6</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats">
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Skill browser redesign</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Runner implementation</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Approval toast UX</a>
+        <a href="#" class="sb-proj-chat" style="opacity:0.5">+3 more...</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Mia's Telephone</a><span class="chat-count">2</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats">
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Initial setup</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Audio pipeline</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Payroll</a><span class="chat-count">1</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats">
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Tax calculation fix</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--orange)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Loudbox Talent</a><span class="chat-count">3</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats">
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--orange)"></span>API integration</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Dashboard layout</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Candidate search</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Lattice Demo</a><span class="chat-count">6</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats">
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Prototype setup</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Data model design</a>
+        <a href="#" class="sb-proj-chat" style="opacity:0.5">+4 more...</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Physics</a><span class="chat-count">3</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats">
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Simulation engine</a>
+        <a href="#" class="sb-proj-chat" style="opacity:0.5">+2 more...</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Harness Tests</a><span class="chat-count">2</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats">
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Test harness setup</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>CI integration</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Memory Test 5</a><span class="chat-count">4</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats">
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Memory leak analysis</a>
+        <a href="#" class="sb-proj-chat" style="opacity:0.5">+3 more...</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Download Test</a><span class="chat-count">2</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats">
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Download manager</a>
+        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Resume support</a>
+      </div>
+    </div>
+    <div class="sb-proj" style="opacity:0.4"><span class="dot" style="background:var(--text-muted)"></span><span class="name">+11 more...</span><span class="chat-count"></span></div>
+  </div>
+
+  <div class="sb-footer" data-guide="{&quot;title&quot;: &quot;Workspace Utilities&quot;, &quot;tag&quot;: &quot;Settings&quot;, &quot;body&quot;: &quot;&lt;em&gt;Usage tracking, trash recovery, and global settings&lt;/em&gt; &amp;mdash; always accessible from the sidebar footer. Monitor your AI spending, recover deleted items, or tweak your entire workspace.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">
+    <div class="sb-footer-btn" data-tooltip="Track AI token usage and costs across all your projects and providers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> Usage</div>
+    <div class="sb-footer-btn" data-tooltip="Recover recently deleted chats, notes, and files"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg> Trash</div>
+    <div class="sb-footer-btn" data-tooltip="Configure AI models, API keys, themes, shortcuts, and workspace preferences"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg> Settings</div>
+  </div>
+  <div class="sidebar-resize" id="sidebar-resize"></div>
+</div>
+
+<!-- Sidebar collapse toggle (outside sidebar so visible when collapsed) -->
+<div style="position:relative;flex-shrink:0;width:0">
+  <div class="col-btn" id="sb-col-btn" onclick="toggleSidebar()" style="position:absolute;top:50%;left:-12px;transform:translateY(-50%)" data-tooltip="Collapse sidebar to maximize workspace — click again to restore">&#171;</div>
+</div>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-btn" title="Global Browser" data-guide="{&quot;title&quot;: &quot;Built-in AI Browser&quot;, &quot;tag&quot;: &quot;Killer Feature&quot;, &quot;body&quot;: &quot;Browse the web &lt;em&gt;right inside PiNG&lt;/em&gt; &amp;mdash; your AI can see and interact with any page alongside you. Research, scrape data, fill forms, or let AI navigate while you watch. No more copy-pasting between browser and chat.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}" data-tooltip="Browse the web inside PiNG — AI can see and interact with pages alongside you"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+    </div>
+    <div class="topbar-spacer"></div>
+    <button class="edit-home-btn" data-tooltip="Customize your dashboard — drag, resize, add or remove widgets to fit your workflow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      Edit Home
+    </button>
+  </div>
+
+  <div class="content-scroll">
+    <!-- Greeting with cat mascot -->
+    <div class="greeting" data-guide="{&quot;title&quot;: &quot;Your Personal Greeting&quot;, &quot;tag&quot;: &quot;Home&quot;, &quot;body&quot;: &quot;PiNG greets you by name with &lt;em&gt;smart nudges about overdue tasks and active projects&lt;/em&gt;. The cat mascot lives here too &amp;mdash; your friendly AI companion at the heart of your workspace.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+      <svg class="greeting-cat" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4fa0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="38" cy="26" r="12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M30 16 L27 4 L35 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M44 14 L48 2 L50 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M31 14 L29 7 L34 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M45 13 L47.5 5 L49 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <ellipse cx="33" cy="25" rx="2.5" ry="3" fill="#4fa0ff"/>
+        <ellipse cx="43" cy="24" rx="2.5" ry="3" fill="#4fa0ff"/>
+        <ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0d0f14"/>
+        <ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0d0f14"/>
+        <circle cx="34" cy="24" r="0.8" fill="#151820"/>
+        <circle cx="44" cy="23" r="0.8" fill="#151820"/>
+        <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#a78bfa"/>
+        <path d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="28" y1="27" x2="20" y2="25" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <line x1="28" y1="29" x2="19" y2="29" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <line x1="28" y1="31" x2="20" y2="33" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <line x1="48" y1="26" x2="56" y2="24" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <line x1="48" y1="28" x2="57" y2="28" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <line x1="48" y1="30" x2="56" y2="32" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M50 39 L50 40.5" stroke="#4fa0ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+        <path d="M52 38.5 L52 40" stroke="#4fa0ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+        <path d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#4fa0ff" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+        <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#4fa0ff" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+      </svg>
+      <div class="greeting-text">
+        <h1>Good evening, <span>Allan</span></h1>
+        <div class="greeting-date">Wednesday, March 11</div>
+        <div class="greeting-nudge"><strong>36 overdue</strong> tasks across 3 projects</div>
+      </div>
+    </div>
+
+    <!-- ═══ WIDGET GRID ═══ -->
+    <div class="widget-grid" id="widget-grid" data-guide="{&quot;title&quot;: &quot;Your Command Center&quot;, &quot;tag&quot;: &quot;Dashboard&quot;, &quot;body&quot;: &quot;A fully customizable widget grid &amp;mdash; &lt;em&gt;drag, resize, add, remove&lt;/em&gt;. Every widget is live data from your AI workspace. This is your mission control for vibe coding.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+
+      <!-- ═══ ROW 1 ═══ -->
+
+      <!-- Recent Activity -->
+      <div class="widget wg-4" data-widget="activity" data-guide="{&quot;title&quot;: &quot;Activity Feed&quot;, &quot;tag&quot;: &quot;Dashboard&quot;, &quot;body&quot;: &quot;Your real-time pulse on everything happening across projects. Every AI chat, commit, and agent action \u2014 &lt;em&gt;all in one glanceable stream&lt;/em&gt;. No more tab-hopping to stay in the loop.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
+        <div class="widget-header" style="color:var(--orange)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Recent Activity
+          <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
+        </div>
+        <div class="widget-body">
+          <div class="act-item"><div class="act-icon" style="background:var(--purple-dim);color:var(--purple)">&#9881;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>Trust Mechanism:</strong> Receipts with cryptographic hash...</div><div class="act-meta"><span class="act-project">PiNG!</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
+          <div class="act-item"><div class="act-icon" style="background:var(--green-dim);color:var(--green)">&#10003;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>Concurrency:</strong> Handled via Git Worktrees...</div><div class="act-meta"><span class="act-project">PiNG!</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
+          <div class="act-item"><div class="act-icon" style="background:var(--accent-glow);color:var(--accent)">&#9672;</div><div style="flex:1;min-width:0"><div class="act-text">Stop assuming cross-chat messages work...</div><div class="act-meta"><span class="act-project">PiNG!</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
+          <div class="act-item"><div class="act-icon" style="background:var(--yellow-dim);color:var(--yellow)">&#9733;</div><div style="flex:1;min-width:0"><div class="act-text">Adopt Star + Context Horizon model...</div><div class="act-meta"><span class="act-project">PiNG!</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
+        </div>
+        <div class="resize-handle"></div>
+      </div>
+
+      <!-- Tasks -->
+      <div class="widget wg-4" data-widget="tasks" data-guide="{&quot;title&quot;: &quot;Smart Task Tracker&quot;, &quot;tag&quot;: &quot;Productivity&quot;, &quot;body&quot;: &quot;AI-generated tasks pulled from your chats, plus your own. PiNG reads context and &lt;em&gt;auto-suggests what to work on next&lt;/em&gt;. Drag to reorder, check to complete \u2014 your AI knows the plan.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">
+        <div class="widget-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Tasks
+          <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
+        </div>
+        <div class="widget-body">
+          <div class="task-counts">
+            <div class="task-count-box"><div class="task-count-label">Overdue</div><div class="task-count-value danger">36</div></div>
+            <div class="task-count-box"><div class="task-count-label">Today</div><div class="task-count-value">0</div></div>
+            <div class="task-count-box"><div class="task-count-label">This Week</div><div class="task-count-value">0</div></div>
+          </div>
+          <div class="view-all-link">View all tasks <span>&rarr;</span></div>
+        </div>
+        <div class="resize-handle"></div>
+      </div>
+
+      <!-- Project Health -->
+      <div class="widget wg-4" data-widget="health" data-guide="{&quot;title&quot;: &quot;System Health Monitor&quot;, &quot;tag&quot;: &quot;DevOps&quot;, &quot;body&quot;: &quot;Real-time health of your dev environment \u2014 &lt;em&gt;memory, CPU, disk, and running processes&lt;/em&gt;. Spot resource hogs before they crash your build. One widget, zero guesswork.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+        <div class="widget-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+          Project Health
+          <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
+        </div>
+        <div class="widget-body">
+          <div class="ph-item"><span class="ph-dot" style="background:var(--orange)"></span><span class="ph-name">Memory test 4</span><span class="ph-tasks">0/51</span><span class="ph-overdue">34 overdue</span><span class="ph-pct">0%</span></div>
+          <div class="ph-item"><span class="ph-dot" style="background:var(--red)"></span><span class="ph-name">Mia's Telephone</span><span class="ph-tasks">0/2</span><span class="ph-overdue">2 overdue</span><span class="ph-pct">0%</span></div>
+          <div class="ph-item"><span class="ph-dot" style="background:var(--green)"></span><span class="ph-name">PiNG!</span><div class="ph-bar"><div class="ph-fill" style="width:16%;background:var(--green)"></div></div><span class="ph-tasks">6/37</span><span class="ph-pct">16%</span></div>
+        </div>
+        <div class="resize-handle"></div>
+      </div>
+
+      <!-- ═══ ROW 2 ═══ -->
+
+      <!-- Brain Status -->
+      <div class="widget wg-5" data-widget="brain" data-guide="{&quot;title&quot;: &quot;Brain Monitor&quot;, &quot;tag&quot;: &quot;AI Intelligence&quot;, &quot;body&quot;: &quot;Watch your AI conversation context in real-time. PiNG warns you &lt;em&gt;before context limits hit&lt;/em&gt; so you never lose a thought mid-conversation. Context-aware AI, literally.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">
+        <div class="widget-header" style="color:var(--cyan)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          Brain Status
+          <span class="badge" style="background:var(--cyan-dim);color:var(--cyan)">4 insights</span>
+          <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
+        </div>
+        <div class="widget-body">
+          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"Local LLM thesis" &mdash; 3660KB context</div><button class="brain-action" data-tooltip="Jump to this chat before context runs out — save your conversation">Open Chat</button></div></div>
+          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"Local LLM Rehab" &mdash; 1867KB context</div><button class="brain-action">Open Chat</button></div></div>
+          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"Browser Talk" &mdash; 1603KB context</div></div></div>
+        </div>
+        <div class="resize-handle"></div>
+      </div>
+
+      <!-- Calendar -->
+      <div class="widget wg-7" data-widget="calendar" data-guide="{&quot;title&quot;: &quot;Integrated Calendar&quot;, &quot;tag&quot;: &quot;Planning&quot;, &quot;body&quot;: &quot;Your schedule, inline with your workspace. &lt;em&gt;See deadlines alongside active AI tasks&lt;/em&gt; \u2014 no context-switching to a separate calendar app. Plan your sprint without leaving PiNG.&quot;, &quot;cat&quot;: &quot;kat-lean-left&quot;}">
+        <div class="widget-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          March 2026
+          <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
+        </div>
+        <div class="widget-body">
+          <div class="cal-grid">
+            <div class="cal-head">Sun</div><div class="cal-head">Mon</div><div class="cal-head">Tue</div><div class="cal-head">Wed</div><div class="cal-head">Thu</div><div class="cal-head">Fri</div><div class="cal-head">Sat</div>
+            <div class="cal-cell"><div class="day-num">1</div><div class="cal-evt deadline">deadline...</div></div>
+            <div class="cal-cell"><div class="day-num">2</div><div class="cal-evt meeting">offline deadline...</div></div>
+            <div class="cal-cell"><div class="day-num">3</div></div>
+            <div class="cal-cell"><div class="day-num">4</div></div>
+            <div class="cal-cell"><div class="day-num">5</div></div>
+            <div class="cal-cell"><div class="day-num">6</div></div>
+            <div class="cal-cell"><div class="day-num">7</div></div>
+            <div class="cal-cell"><div class="day-num">8</div></div>
+            <div class="cal-cell"><div class="day-num">9</div></div>
+            <div class="cal-cell"><div class="day-num">10</div></div>
+            <div class="cal-cell today"><div class="day-num">11</div></div>
+            <div class="cal-cell"><div class="day-num">12</div></div>
+            <div class="cal-cell"><div class="day-num">13</div></div>
+            <div class="cal-cell"><div class="day-num">14</div></div>
+            <div class="cal-cell"><div class="day-num">15</div></div>
+            <div class="cal-cell"><div class="day-num">16</div></div>
+            <div class="cal-cell"><div class="day-num">17</div></div>
+            <div class="cal-cell"><div class="day-num">18</div><div class="cal-evt task">deadline is on...</div><div class="cal-evt reminder">my deadline...</div></div>
+            <div class="cal-cell"><div class="day-num">19</div></div>
+            <div class="cal-cell"><div class="day-num">20</div></div>
+            <div class="cal-cell"><div class="day-num">21</div></div>
+            <div class="cal-cell"><div class="day-num">22</div></div>
+            <div class="cal-cell"><div class="day-num">23</div></div>
+            <div class="cal-cell"><div class="day-num">24</div></div>
+            <div class="cal-cell"><div class="day-num">25</div></div>
+            <div class="cal-cell"><div class="day-num">26</div></div>
+            <div class="cal-cell"><div class="day-num">27</div></div>
+            <div class="cal-cell"><div class="day-num">28</div></div>
+            <div class="cal-cell"><div class="day-num">29</div></div>
+            <div class="cal-cell"><div class="day-num">30</div></div>
+            <div class="cal-cell"><div class="day-num">31</div></div>
+            <div class="cal-cell other"><div class="day-num">1</div></div>
+            <div class="cal-cell other"><div class="day-num">2</div></div>
+            <div class="cal-cell other"><div class="day-num">3</div></div>
+            <div class="cal-cell other"><div class="day-num">4</div></div>
+          </div>
+        </div>
+        <div class="resize-handle"></div>
+      </div>
+
+      <!-- ═══ ROW 3 ═══ -->
+
+      <!-- Focus -->
+      <div class="widget wg-4" data-widget="focus" data-guide="{&quot;title&quot;: &quot;Focus Mode Timer&quot;, &quot;tag&quot;: &quot;Deep Work&quot;, &quot;body&quot;: &quot;Pomodoro-style focus sessions &lt;em&gt;built into your AI workspace&lt;/em&gt;. Start a focus block and let PiNG queue non-urgent notifications. Code deeper, ship faster.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+        <div class="widget-header" style="color:var(--red)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          Focus
+          <span class="badge" style="background:var(--red-dim);color:var(--red)">36 overdue</span>
+          <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
+        </div>
+        <div class="widget-body">
+          <div class="focus-row"><div class="focus-text">Review PR by EOD</div><div class="focus-meta">47d overdue</div><span class="focus-arrow">&rsaquo;</span></div>
+          <div class="focus-row"><div class="focus-text">Fix FTS5 external content sync</div><div class="focus-meta">3d overdue</div><span class="focus-arrow">&rsaquo;</span></div>
+          <div class="focus-row"><div class="focus-text">Add browser timeout retry</div><div class="focus-meta">2d overdue</div><span class="focus-arrow">&rsaquo;</span></div>
+          <div class="focus-row"><div class="focus-text">Payroll Q1 reconciliation</div><div class="focus-meta">14d overdue</div><span class="focus-arrow">&rsaquo;</span></div>
+        </div>
+        <div class="resize-handle"></div>
+      </div>
+
+      <!-- Active Agents -->
+      <div class="widget wg-4" data-widget="agents" data-guide="{&quot;title&quot;: &quot;Active Agents&quot;, &quot;tag&quot;: &quot;AI Agents&quot;, &quot;body&quot;: &quot;See every AI agent running in your workspace &amp;mdash; &lt;em&gt;what they are doing, which model, and how many tokens used&lt;/em&gt;. Pause, resume, or spawn new agents on the fly.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+        <div class="widget-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2a9 9 0 019 9"/><path d="M12 22a9 9 0 01-9-9"/></svg>
+          Active Agents
+          <span class="badge" style="background:var(--green-dim);color:var(--green)">2 live</span>
+          <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
+        </div>
+        <div class="widget-body">
+          <div class="agent-row"><span class="agent-dot running"></span><div style="flex:1;min-width:0"><div class="agent-name">Browser Health C16</div><div class="agent-task">Executing gate-check &mdash; 1037 tests...</div></div><span class="agent-model opus">opus</span></div>
+          <div class="agent-row"><span class="agent-dot running"></span><div style="flex:1;min-width:0"><div class="agent-name">Auto Runner C2</div><div class="agent-task">Planning AR-C2 implementation...</div></div><span class="agent-model opus">opus</span></div>
+          <div class="agent-row"><span class="agent-dot idle"></span><div style="flex:1;min-width:0"><div class="agent-name">Memory Indexer</div><div class="agent-task">Idle &mdash; last run 22m ago</div></div><span class="agent-model opus" style="background:var(--bg-active);color:var(--text-muted)">idle</span></div>
+        </div>
+        <div class="resize-handle"></div>
+      </div>
+
+      <!-- Cost & Connections -->
+      <div class="widget wg-4" data-widget="cost" data-guide="{&quot;title&quot;: &quot;Cost Tracker&quot;, &quot;tag&quot;: &quot;Budget&quot;, &quot;body&quot;: &quot;Real-time spending across all AI providers. &lt;em&gt;Set budgets, see per-project costs, and never get surprise bills&lt;/em&gt;. Finally \u2014 AI usage you can actually plan around.&quot;, &quot;cat&quot;: &quot;kat-lean-right&quot;}">
+        <div class="widget-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          Cost &amp; Connections
+          <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
+        </div>
+        <div class="widget-body">
+          <div class="cost-row"><span class="cost-label">This month</span><span class="cost-value" style="color:var(--accent)">$14.27</span></div>
+          <div class="cost-row"><span class="cost-label">Budget</span><span class="cost-value">$50.00</span></div>
+          <div class="cost-row"><span class="cost-label">Total tokens</span><span class="cost-value">4.2M</span></div>
+          <div style="height:1px;background:var(--border-subtle);margin:6px 0"></div>
+          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">GitHub</span><span class="conn-detail">3 open PRs</span></div>
+          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">MCP Servers</span><span class="conn-detail">3 active</span></div>
+          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">Linear</span><span class="conn-detail">synced</span></div>
+          <div class="conn-row"><span class="conn-dot warn"></span><span class="conn-name">Slack</span><span class="conn-detail">not connected</span></div>
+        </div>
+        <div class="resize-handle"></div>
+      </div>
+
+      <!-- ═══ ROW 4 ═══ -->
+
+      <!-- Scheduled Tasks -->
+      <div class="widget wg-6" data-widget="scheduled" data-guide="{&quot;title&quot;: &quot;Scheduled Tasks&quot;, &quot;tag&quot;: &quot;Automation&quot;, &quot;body&quot;: &quot;Set it and forget it \u2014 &lt;em&gt;cron-style automation for your AI workflows&lt;/em&gt;. Schedule code reviews, daily summaries, or test runs. Your AI assistant works while you sleep.&quot;, &quot;cat&quot;: &quot;kat-perk&quot;}">
+        <div class="widget-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Scheduled Tasks
+          <span class="badge" style="background:var(--bg-active);color:var(--text-muted)">3 active</span>
+          <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
+        </div>
+        <div class="widget-body">
+          <div class="focus-row"><div style="flex:1"><div class="focus-text">Daily gate-check</div><div class="focus-meta" style="margin-top:2px">PiNG! &middot; Every day 9:00 AM &middot; Next: tomorrow</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
+          <div class="focus-row"><div style="flex:1"><div class="focus-text">Weekly memory prune</div><div class="focus-meta" style="margin-top:2px">All projects &middot; Fridays 6:00 PM &middot; Next: Mar 14</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
+          <div class="focus-row"><div style="flex:1"><div class="focus-text">Dependency audit</div><div class="focus-meta" style="margin-top:2px">PiNG! &middot; Monthly 1st &middot; Next: Apr 1</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
+        </div>
+        <div class="resize-handle"></div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="widget wg-6" data-widget="stats" data-guide="{&quot;title&quot;: &quot;Usage Statistics&quot;, &quot;tag&quot;: &quot;Analytics&quot;, &quot;body&quot;: &quot;Visualize how you use AI \u2014 &lt;em&gt;messages per day, tokens consumed, favorite models&lt;/em&gt;. Understand your workflow patterns and optimize for peak productivity.&quot;, &quot;cat&quot;: &quot;kat-yawn&quot;}">
+        <div class="widget-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Quick Stats
+          <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
+        </div>
+        <div class="widget-body" style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
+          <div class="stat-box"><div class="stat-value">21</div><div class="stat-label">Projects</div></div>
+          <div class="stat-box"><div class="stat-value" style="color:var(--accent)">87</div><div class="stat-label">Chats</div></div>
+          <div class="stat-box"><div class="stat-value" style="color:var(--green)">5,758</div><div class="stat-label">Tests</div></div>
+          <div class="stat-box"><div class="stat-value">142</div><div class="stat-label">Memories</div></div>
+        </div>
+        <div class="resize-handle"></div>
+      </div>
+
+      <!-- ═══ SKILLS WIDGET ═══ -->
+      <div class="widget wg-6" data-widget="skills" data-guide="{&quot;title&quot;: &quot;CatSkills Quick Access&quot;, &quot;tag&quot;: &quot;Skills&quot;, &quot;body&quot;: &quot;Your top skills, one click away. CatSkills are &lt;em&gt;reusable AI superpowers&lt;/em&gt; &amp;mdash; prompt templates, tool chains, and workflows you have built or installed. The secret sauce of power users.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+        <div class="widget-header" style="color:var(--accent)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          CatSkills
+          <span class="badge" style="background:rgba(79,160,255,0.1);color:var(--accent)">47</span>
+          <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
+        </div>
+        <div class="widget-body">
+          <div class="sk-row">
+            <a class="sk-card" href="skills-v2.html" data-tooltip="Open this CatSkill — view details, edit, or run it"><div class="sk-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="sk-info"><div class="sk-name">Code Review</div><div class="sk-type">Prompt</div></div><span class="sk-meta">24x</span></a>
+            <a class="sk-card" href="skills-v2.html"><div class="sk-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="sk-info"><div class="sk-name">GitHub PR Bot</div><div class="sk-type">Integration</div></div><span class="sk-meta">22x</span></a>
+          </div>
+          <div class="sk-row">
+            <a class="sk-card" href="skills-v2.html"><div class="sk-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="sk-info"><div class="sk-name">Daily Standup</div><div class="sk-type">Workflow</div></div><span class="sk-meta">19x</span></a>
+            <a class="sk-card" href="skills-v2.html"><div class="sk-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="sk-info"><div class="sk-name">Test Generator</div><div class="sk-type">Prompt</div></div><span class="sk-meta">18x</span></a>
+          </div>
+          <div class="sk-footer">
+            <div class="sk-stat"><span class="sk-stat-item"><strong>28</strong> prompt</span><span class="sk-stat-item"><strong>10</strong> integration</span><span class="sk-stat-item"><strong>9</strong> workflow</span></div>
+            <a href="skills-v2.html">All CatSkills &rarr;</a>
+          </div>
+        </div>
+        <div class="resize-handle"></div>
+      </div>
+
+      <!-- ═══ ROW 5 ═══ -->
+
+      <!-- Recent Sessions (Today / Yesterday / Older) -->
+      <div class="widget wg-12" data-widget="sessions" data-guide="{&quot;title&quot;: &quot;Recent Sessions&quot;, &quot;tag&quot;: &quot;History&quot;, &quot;body&quot;: &quot;Jump back into any recent conversation instantly. &lt;em&gt;Full context preserved&lt;/em&gt; &amp;mdash; PiNG remembers where you left off so you never lose your train of thought. Organized by Today, Yesterday, and Older.&quot;, &quot;cat&quot;: &quot;kat-lick&quot;}">
+        <div class="widget-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          Recent Sessions
+          <span class="badge" style="background:var(--bg-active);color:var(--text-muted)">all projects</span>
+          <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
+        </div>
+        <div class="widget-body" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+          <!-- Today -->
+          <div>
+            <div class="session-group-label">Today</div>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit;background:var(--accent-glow)"><span class="session-dot active"></span><div class="session-info"><div class="session-name" style="color:var(--accent)">Ingest and wait functionality</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot active"></span><div class="session-info"><div class="session-name">Continue previous coding session work</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot active"></span><div class="session-info"><div class="session-name">Perfect mockup and plan PiNG implem...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Parallel work on skills and orchestrator</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Review UI Talk album mockup HTML</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Debug Gemini 3.0 compatibility issues</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">sonnet</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Investigate PiNG folder linking issue</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+          </div>
+          <!-- Yesterday -->
+          <div>
+            <div class="session-group-label">Yesterday</div>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Investigate HTML file drag-and-drop br...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Work on PlanPack C from handoff docs</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+          </div>
+          <!-- Older -->
+          <div>
+            <div class="session-group-label">Older</div>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Verify PlanPack A monolith split compl...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Design LLM-Core spec for PiNG works...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Create PiNG landing page for March la...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">sonnet</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Design local LLM integration with Meta...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Quick Fixes 030826</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Evaluate learnings system competitive ...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Broken learnings plan pack</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Analyze Skills A3 and Orchestration P1 ...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+          </div>
+        </div>
+        <div class="resize-handle"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══ SIDEBAR COLLAPSE ═══
+function toggleSidebar() {
+  const sb = document.querySelector('.sidebar');
+  sb.classList.toggle('collapsed');
+  const btn = document.getElementById('sb-col-btn');
+  btn.innerHTML = sb.classList.contains('collapsed') ? '&#187;' : '&#171;';
+}
+
+function getSpanClass(el) {
+  for (const cls of el.classList) {
+    if (cls.startsWith('wg-')) return cls;
+  }
+  return 'wg-4';
+}
+
+// ═══════════════════════════════════════════
+// DRAG & DROP — Swap widgets by dragging headers
+// ═══════════════════════════════════════════
+(function() {
+  const grid = document.getElementById('widget-grid');
+  let dragWidget = null;
+  let dragGhost = null;
+  let offsetX = 0, offsetY = 0;
+
+  // Use mousedown on headers for drag initiation
+  grid.addEventListener('mousedown', function(e) {
+    const header = e.target.closest('.widget-header');
+    if (!header) return;
+    const widget = header.closest('.widget');
+    if (!widget) return;
+
+    // Prevent text selection
+    e.preventDefault();
+
+    const rect = widget.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+
+    // Wait for a small movement to start drag
+    let startX = e.clientX, startY = e.clientY;
+    let dragging = false;
+
+    function onMove(ev) {
+      const dx = ev.clientX - startX;
+      const dy = ev.clientY - startY;
+      if (!dragging && Math.abs(dx) + Math.abs(dy) > 5) {
+        dragging = true;
+        dragWidget = widget;
+        widget.classList.add('dragging');
+
+        // Create ghost
+        dragGhost = widget.cloneNode(true);
+        dragGhost.classList.add('drag-ghost');
+        dragGhost.style.width = rect.width + 'px';
+        dragGhost.style.height = rect.height + 'px';
+        document.body.appendChild(dragGhost);
+      }
+      if (dragging) {
+        dragGhost.style.left = (ev.clientX - offsetX) + 'px';
+        dragGhost.style.top = (ev.clientY - offsetY) + 'px';
+
+        // Highlight drop target
+        const allWidgets = grid.querySelectorAll('.widget');
+        allWidgets.forEach(w => w.classList.remove('drag-over'));
+        const target = getWidgetUnderCursor(ev.clientX, ev.clientY);
+        if (target && target !== dragWidget) {
+          target.classList.add('drag-over');
+        }
+      }
+    }
+
+    function onUp(ev) {
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+
+      if (dragging) {
+        // Find drop target
+        const target = getWidgetUnderCursor(ev.clientX, ev.clientY);
+        if (target && target !== dragWidget) {
+          swapWidgets(dragWidget, target);
+        }
+
+        // Cleanup
+        dragWidget.classList.remove('dragging');
+        grid.querySelectorAll('.widget').forEach(w => w.classList.remove('drag-over'));
+        if (dragGhost) {
+          dragGhost.remove();
+          dragGhost = null;
+        }
+        dragWidget = null;
+      }
+    }
+
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  });
+
+  function getWidgetUnderCursor(x, y) {
+    const widgets = grid.querySelectorAll('.widget');
+    for (const w of widgets) {
+      const r = w.getBoundingClientRect();
+      if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) {
+        return w;
+      }
+    }
+    return null;
+  }
+
+  function swapWidgets(a, b) {
+    // Swap positions in DOM
+    const aNext = a.nextSibling;
+    const bNext = b.nextSibling;
+    const parent = a.parentNode;
+
+    // Swap grid-column spans
+    const aClass = getSpanClass(a);
+    const bClass = getSpanClass(b);
+    a.classList.remove(aClass);
+    b.classList.remove(bClass);
+    a.classList.add(bClass);
+    b.classList.add(aClass);
+
+    // Swap DOM positions
+    if (aNext === b) {
+      parent.insertBefore(b, a);
+    } else if (bNext === a) {
+      parent.insertBefore(a, b);
+    } else {
+      parent.insertBefore(a, bNext);
+      parent.insertBefore(b, aNext);
+    }
+  }
+})();
+
+// ═══════════════════════════════════════════
+// RESIZE — Silky smooth pixel drag, no grid reflow during drag
+// Widget is pulled out of flow (absolute) so others don't shuffle.
+// Snaps back to grid on release.
+// ═══════════════════════════════════════════
+(function() {
+  const grid = document.getElementById('widget-grid');
+
+  grid.addEventListener('mousedown', function(e) {
+    const handle = e.target.closest('.resize-handle');
+    if (!handle) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    const widget = handle.closest('.widget');
+    const rect = widget.getBoundingClientRect();
+    const gridRect = grid.getBoundingClientRect();
+    const startX = e.clientX;
+    const startWidth = rect.width;
+    const startHeight = rect.height;
+    const gridWidth = gridRect.width;
+    const colWidth = gridWidth / 12;
+    const minWidth = colWidth * 3;
+    const maxWidth = gridWidth;
+
+    // Create a placeholder to hold the widget's grid slot
+    const placeholder = document.createElement('div');
+    placeholder.className = widget.className;
+    placeholder.style.visibility = 'hidden';
+    placeholder.style.minHeight = startHeight + 'px';
+    widget.parentNode.insertBefore(placeholder, widget);
+
+    // Pull widget out of flow — absolute over its current position
+    widget.style.position = 'absolute';
+    widget.style.top = (rect.top - gridRect.top) + 'px';
+    widget.style.left = (rect.left - gridRect.left) + 'px';
+    widget.style.width = startWidth + 'px';
+    widget.style.height = startHeight + 'px';
+    widget.style.zIndex = '100';
+    widget.style.transition = 'none';
+    widget.style.gridColumn = 'unset';
+    document.body.style.cursor = 'nwse-resize';
+    document.body.style.userSelect = 'none';
+
+    function onMove(ev) {
+      const delta = ev.clientX - startX;
+      const newWidth = Math.max(minWidth, Math.min(maxWidth, startWidth + delta));
+      widget.style.width = newWidth + 'px';
+    }
+
+    function onUp() {
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+
+      // Snap to nearest grid column
+      const finalWidth = parseFloat(widget.style.width);
+      const newCols = Math.max(3, Math.min(12, Math.round(finalWidth / colWidth)));
+
+      // Remove absolute positioning, restore to grid flow
+      widget.style.position = '';
+      widget.style.top = '';
+      widget.style.left = '';
+      widget.style.width = '';
+      widget.style.height = '';
+      widget.style.zIndex = '';
+      widget.style.transition = '';
+      widget.style.gridColumn = '';
+
+      // Update span class
+      const current = getSpanClass(widget);
+      const target = 'wg-' + newCols;
+      if (current !== target) {
+        widget.classList.remove(current);
+        widget.classList.add(target);
+      }
+
+      // Also update placeholder span before removing, so grid reflows once
+      placeholder.classList.remove(getSpanClass(placeholder));
+      placeholder.classList.add(target);
+
+      // Remove placeholder
+      placeholder.remove();
+    }
+
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  });
+})();
+
+// ═══════════════════════════════════════════
+// SIDEBAR RESIZE — Drag edge to resize (matches Project view)
+// ═══════════════════════════════════════════
+(function() {
+  const handle = document.getElementById('sidebar-resize');
+  const sidebar = document.querySelector('.sidebar');
+  if (!handle || !sidebar) return;
+  let startX, startW;
+
+  handle.addEventListener('mousedown', function(e) {
+    e.preventDefault();
+    startX = e.clientX;
+    startW = sidebar.getBoundingClientRect().width;
+    handle.classList.add('active');
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+    sidebar.style.transition = 'none';
+
+    function onMove(ev) {
+      const dx = ev.clientX - startX;
+      const newW = Math.max(140, Math.min(350, startW + dx));
+      sidebar.style.width = newW + 'px';
+    }
+    function onUp() {
+      handle.classList.remove('active');
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+      sidebar.style.transition = '';
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+    }
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  });
+})();
+
+// Project disclosure toggle
+function toggleProjectChats(wrapper) {
+  const arrow = wrapper.querySelector('.arrow');
+  const chats = wrapper.querySelector('.sb-proj-chats');
+  if (arrow && chats) {
+    arrow.classList.toggle('open');
+    chats.classList.toggle('open');
+  }
+}
+</script>
+
+
+<script id="ping-guide-system">
+(function() {
+  /* ===== KAT POSITIONS & ANIMATIONS: fully randomized per guide ===== */
+  const katPositions = ['kat-pos-tl','kat-pos-tr','kat-pos-bl','kat-pos-br','kat-pos-ml','kat-pos-mr'];
+  const katAnimations = ['kat-excited','kat-happy','kat-wave','kat-think','kat-flip','kat-lick','kat-yawn','kat-yarn-play','kat-lean-left','kat-lean-right','kat-perk'];
+  let lastPos = -1;
+  let lastAnim = -1;
+  function randExclude(arr, exclude) { let i; do { i = Math.floor(Math.random() * arr.length); } while (i === exclude && arr.length > 1); return i; }
+
+  /* ===== GUIDE CARD ELEMENT ===== */
+  const card = document.createElement('div');
+  card.className = 'ping-guide-card';
+  card.innerHTML = `
+    <div class="ping-guide-accent"></div>
+    <div class="ping-guide-inner" id="guide-inner">
+      <div class="ping-guide-kat-wrap" id="guide-kat"></div>
+      <div class="ping-guide-text">
+        <div class="ping-guide-tag" id="guide-tag"></div>
+        <div class="ping-guide-title" id="guide-title"></div>
+        <div class="ping-guide-body" id="guide-body"></div>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(card);
+
+  // Inject KAT SVG
+  document.getElementById('guide-kat').innerHTML = `<svg class="kat-mascot" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">  <!-- Body -->  <ellipse class="kat-body" cx="28" cy="44" rx="14" ry="10" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Tail -->  <path class="kat-tail" d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4fa0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Head -->  <g class="kat-head">    <circle cx="38" cy="26" r="12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Left ear -->    <path class="kat-ear-l" d="M30 16 L27 4 L35 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M31 14 L29 7 L34 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Right ear -->    <path class="kat-ear-r" d="M44 14 L48 2 L50 12" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M45 13 L47.5 5 L49 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Eyes -->    <g class="kat-eyes">      <ellipse class="kat-eye-l" cx="33" cy="25" rx="2.5" ry="3" fill="#4fa0ff"/>      <ellipse class="kat-eye-r" cx="43" cy="24" rx="2.5" ry="3" fill="#4fa0ff"/>      <ellipse class="kat-pupil-l" cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0d0f14"/>      <ellipse class="kat-pupil-r" cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0d0f14"/>      <circle cx="34" cy="24" r="0.8" fill="#151820"/>      <circle cx="44" cy="23" r="0.8" fill="#151820"/>    </g>    <!-- Nose -->    <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#a78bfa"/>    <!-- Mouth -->    <path class="kat-mouth" d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Whiskers -->    <g class="kat-whiskers">      <line x1="28" y1="27" x2="20" y2="25" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="29" x2="19" y2="29" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="31" x2="20" y2="33" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="26" x2="56" y2="24" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="28" x2="57" y2="28" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="30" x2="56" y2="32" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>    </g>  </g>  <!-- Back leg / tail extension -->  <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <path d="M50 39 L50 40.5" stroke="#4fa0ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <path d="M52 38.5 L52 40" stroke="#4fa0ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <!-- Paws -->  <path class="kat-paw-r" d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <path class="kat-paw-l" d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Chest fur lines -->  <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#4fa0ff" stroke-width="1" opacity="0.3" stroke-linecap="round"/>  <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#4fa0ff" stroke-width="1" opacity="0.2" stroke-linecap="round"/></svg>`;
+
+  let activeEl = null;
+  let hideTimeout = null;
+  let tooltipActive = false;
+  const katEl = document.querySelector('.ping-guide-card .kat-mascot');
+  const innerEl = document.getElementById('guide-inner');
+
+  function showGuide(el) {
+    // Don't show guide card if tooltip is active (either on this element or a child)
+    if (tooltipActive) return;
+    if (el.hasAttribute('data-tooltip')) return;
+
+    clearTimeout(hideTimeout);
+    const data = JSON.parse(el.getAttribute('data-guide'));
+    document.getElementById('guide-tag').textContent = data.tag || 'Feature';
+    document.getElementById('guide-title').textContent = data.title;
+    document.getElementById('guide-body').innerHTML = data.body;
+
+    // Randomize KAT animation (never repeat the same one twice in a row)
+    if (katEl) {
+      lastAnim = randExclude(katAnimations, lastAnim);
+      katEl.setAttribute('class', 'kat-mascot ' + katAnimations[lastAnim]);
+    }
+
+    // Randomize KAT position (never repeat the same corner twice in a row)
+    lastPos = randExclude(katPositions, lastPos);
+    const pos = katPositions[lastPos];
+    innerEl.className = 'ping-guide-inner ' + pos;
+
+    // Highlight source element
+    if (activeEl) activeEl.classList.remove('guide-active');
+    el.classList.add('guide-active');
+    activeEl = el;
+
+    // Position the card smartly (viewport-aware)
+    const r = el.getBoundingClientRect();
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const cw = Math.min(340, vw - 24);
+    card.style.width = cw + 'px';
+    const ch = card.offsetHeight || 260;
+    let x, y;
+
+    // Try right side
+    if (r.right + 16 + cw < vw) {
+      x = r.right + 16;
+      y = Math.max(12, Math.min(r.top, vh - ch - 12));
+    }
+    // Try left side
+    else if (r.left - 16 - cw > 0) {
+      x = r.left - 16 - cw;
+      y = Math.max(12, Math.min(r.top, vh - ch - 12));
+    }
+    // Below
+    else {
+      x = Math.max(12, Math.min(r.left, vw - cw - 12));
+      y = r.bottom + 12;
+      if (y + ch > vh) y = Math.max(12, r.top - ch - 12);
+    }
+
+    card.style.left = x + 'px';
+    card.style.top = y + 'px';
+    card.classList.add('visible');
+  }
+
+  function hideGuide() {
+    hideTimeout = setTimeout(() => {
+      card.classList.remove('visible');
+      if (activeEl) { activeEl.classList.remove('guide-active'); activeEl = null; }
+    }, 200);
+  }
+
+  // Promote data-guide from inner children up to parent containers
+  // so the guide triggers when hovering ANYWHERE on the widget, not just the title bar
+  const containerSelectors = ['.card', '.stat-card', '.kanban-col'];
+  containerSelectors.forEach(sel => {
+    document.querySelectorAll(sel + ' [data-guide]').forEach(child => {
+      const parent = child.closest(sel);
+      if (parent && !parent.hasAttribute('data-guide')) {
+        parent.setAttribute('data-guide', child.getAttribute('data-guide'));
+        child.removeAttribute('data-guide');
+      }
+    });
+  });
+
+  // Attach to all data-guide elements
+  document.querySelectorAll('[data-guide]').forEach(el => {
+    el.addEventListener('mouseenter', () => showGuide(el));
+    el.addEventListener('mouseleave', hideGuide);
+  });
+
+  // Keep card visible when hovering over it
+  card.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+  card.addEventListener('mouseleave', hideGuide);
+
+  /* ===== VIEWPORT-AWARE TOOLTIPS ===== */
+  document.querySelectorAll('[data-tooltip]').forEach(el => {
+    el.addEventListener('mouseenter', function() {
+      tooltipActive = true;
+      // Hide guide card if showing
+      card.classList.remove('visible');
+      if (activeEl) { activeEl.classList.remove('guide-active'); activeEl = null; }
+
+      const r = el.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      let ty = r.top;
+
+      // Clamp horizontal position to viewport
+      const tipX = Math.max(140, Math.min(cx, window.innerWidth - 140));
+      // If too close to top, show below instead
+      if (r.top < 60) {
+        ty = r.bottom + 8;
+        el.style.setProperty('--tip-x', tipX + 'px');
+        el.style.setProperty('--tip-y', (ty + 40) + 'px');
+      } else {
+        el.style.setProperty('--tip-x', tipX + 'px');
+        el.style.setProperty('--tip-y', ty + 'px');
+      }
+    });
+    el.addEventListener('mouseleave', function() {
+      tooltipActive = false;
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
