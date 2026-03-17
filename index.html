@@ -377,9 +377,10 @@ a { color: var(--accent); text-decoration: none; }
 /* ═══ COMPARISON TABLE ═══ */
 .comparison-section { background: var(--bg-primary); }
 .comparison-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.comparison-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 700px; }
-.comparison-table th, .comparison-table td { padding: 12px 16px; text-align: center; border-bottom: 1px solid var(--border); }
-.comparison-table th { background: var(--bg-tertiary); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); position: sticky; top: 64px; }
+.comparison-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 850px; }
+.comparison-table th, .comparison-table td { padding: 12px 14px; text-align: center; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.comparison-table td:first-child { white-space: normal; }
+.comparison-table th { background: var(--bg-tertiary); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); }
 .comparison-table th:first-child, .comparison-table td:first-child { text-align: left; min-width: 200px; }
 .highlight-col { background: rgba(74,156,255,0.05) !important; }
 .comparison-table th.highlight-col { color: var(--accent); }
@@ -510,7 +511,7 @@ a { color: var(--accent); text-decoration: none; }
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-value">11</span>
+          <span class="stat-value">11+</span>
           <span class="stat-label">AI Providers</span>
         </div>
         <div class="stat-divider"></div>
