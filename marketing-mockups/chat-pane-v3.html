@@ -851,25 +851,90 @@
       <div class="tb-separator"></div>
 
       <!-- Model selector -->
-      <div class="model-pill" onclick="toggleDropdown('model-dd')" style="position:relative" data-guide="{&quot;title&quot;: &quot;Multi-Model Support&quot;, &quot;tag&quot;: &quot;AI Models&quot;, &quot;body&quot;: &quot;Pick your AI &amp;mdash; &lt;em&gt;Claude, GPT, Gemini, or local Llama&lt;/em&gt;. Switch models mid-conversation. Use Opus for complex reasoning, Haiku for speed, or your own local model for privacy.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}" data-tooltip="Pick your AI model — Claude, GPT, Gemini, or local Llama">
+      <div class="model-pill" onclick="toggleDropdown('model-dd')" style="position:relative" data-guide="{&quot;title&quot;: &quot;Multi-Model Support&quot;, &quot;tag&quot;: &quot;AI Models&quot;, &quot;body&quot;: &quot;Pick your AI &amp;mdash; &lt;em&gt;Claude, GPT, Gemini, Grok, Sonar, DeepSeek, Kimi, Qwen, Yi, Mistral, or local models&lt;/em&gt;. Switch models mid-conversation. Use Opus for complex reasoning, Haiku for speed, or your own local model for privacy.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}" data-tooltip="Pick your AI model — 11 providers, 35 models">
         <span class="model-dot"></span>
         Opus 4.6
         <span class="chevron">&#9662;</span>
         <div class="dropdown-demo" id="model-dd" style="min-width:240px;max-height:420px;overflow-y:auto">
+          <!-- ── Anthropic ──────────────────────────────────── -->
           <div style="padding:4px 10px 2px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">Anthropic</div>
           <div class="dd-item active"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0"></span> Claude Opus 4.6 <span class="dd-key">smartest</span></div>
           <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0"></span> Claude Sonnet 4.6 <span class="dd-key">balanced</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0"></span> Claude Sonnet 4.5 <span class="dd-key">balanced</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0"></span> Claude Opus 4.5 <span class="dd-key">smartest</span></div>
           <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0"></span> Claude Haiku 4.5 <span class="dd-key">fast</span></div>
           <div class="dd-sep"></div>
+
+          <!-- ── OpenAI ────────────────────────────────────── -->
           <div style="padding:4px 10px 2px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">OpenAI</div>
-          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#74aa9c;flex-shrink:0"></span> GPT-4.1 <span class="dd-key">smartest</span></div>
-          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#74aa9c;flex-shrink:0"></span> o3 <span class="dd-key">reasoning</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#74aa9c;flex-shrink:0"></span> GPT-5.4 (Flagship) <span class="dd-key">smartest</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#74aa9c;flex-shrink:0"></span> GPT-5.2 (Thinking) <span class="dd-key">reasoning</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#74aa9c;flex-shrink:0"></span> GPT-5.1 (Fast) <span class="dd-key">fast</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#74aa9c;flex-shrink:0"></span> GPT-5 <span class="dd-key">balanced</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#74aa9c;flex-shrink:0"></span> GPT-5 Mini <span class="dd-key">mini</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#74aa9c;flex-shrink:0"></span> GPT-5 Nano <span class="dd-key">nano</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#74aa9c;flex-shrink:0"></span> o3 (Reasoning) <span class="dd-key">reasoning</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#74aa9c;flex-shrink:0"></span> o4 Mini (Reasoning) <span class="dd-key">reasoning</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#74aa9c;flex-shrink:0"></span> GPT-4.1 <span class="dd-key">legacy</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#74aa9c;flex-shrink:0"></span> GPT-4o <span class="dd-key">legacy</span></div>
           <div class="dd-sep"></div>
+
+          <!-- ── Google ────────────────────────────────────── -->
           <div style="padding:4px 10px 2px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">Google</div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#4285f4;flex-shrink:0"></span> Gemini 3.1 Pro <span class="dd-key">smartest</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#4285f4;flex-shrink:0"></span> Gemini 3 Flash <span class="dd-key">fast</span></div>
           <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#4285f4;flex-shrink:0"></span> Gemini 2.5 Pro <span class="dd-key">smartest</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#4285f4;flex-shrink:0"></span> Gemini 2.5 Flash <span class="dd-key">balanced</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#4285f4;flex-shrink:0"></span> Gemini 2.5 Flash Lite <span class="dd-key">fast</span></div>
           <div class="dd-sep"></div>
+
+          <!-- ── xAI (Grok) ────────────────────────────────── -->
+          <div style="padding:4px 10px 2px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">xAI</div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#1DA1F2;flex-shrink:0"></span> Grok 4 <span class="dd-key">smartest</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#1DA1F2;flex-shrink:0"></span> Grok 4 Fast <span class="dd-key">fast</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#1DA1F2;flex-shrink:0"></span> Grok 3 <span class="dd-key">balanced</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#1DA1F2;flex-shrink:0"></span> Grok 3 Mini <span class="dd-key">mini</span></div>
+          <div class="dd-sep"></div>
+
+          <!-- ── Perplexity ────────────────────────────────── -->
+          <div style="padding:4px 10px 2px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">Perplexity</div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#20808D;flex-shrink:0"></span> Sonar (Fast Search) <span class="dd-key">search</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#20808D;flex-shrink:0"></span> Sonar Pro (Advanced) <span class="dd-key">search</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#20808D;flex-shrink:0"></span> Sonar Reasoning Pro <span class="dd-key">reasoning</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#20808D;flex-shrink:0"></span> Sonar Deep Research <span class="dd-key">deep</span></div>
+          <div class="dd-sep"></div>
+
+          <!-- ── DeepSeek ──────────────────────────────────── -->
+          <div style="padding:4px 10px 2px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">DeepSeek</div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#5B6CF0;flex-shrink:0"></span> DeepSeek V3.2 <span class="dd-key">balanced</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#5B6CF0;flex-shrink:0"></span> DeepSeek V3.2 (Thinking) <span class="dd-key">reasoning</span></div>
+          <div class="dd-sep"></div>
+
+          <!-- ── Moonshot (Kimi) ───────────────────────────── -->
+          <div style="padding:4px 10px 2px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">Moonshot</div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#FF6B35;flex-shrink:0"></span> Kimi K2.5 <span class="dd-key">smartest</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#FF6B35;flex-shrink:0"></span> Kimi (Moonshot v1) <span class="dd-key">balanced</span></div>
+          <div class="dd-sep"></div>
+
+          <!-- ── Alibaba (Qwen) ────────────────────────────── -->
+          <div style="padding:4px 10px 2px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">Alibaba</div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#FF6A00;flex-shrink:0"></span> Qwen3 Max <span class="dd-key">smartest</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#FF6A00;flex-shrink:0"></span> Qwen Plus <span class="dd-key">balanced</span></div>
+          <div class="dd-sep"></div>
+
+          <!-- ── 01.AI (Yi) ────────────────────────────────── -->
+          <div style="padding:4px 10px 2px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">01.AI</div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#7C3AED;flex-shrink:0"></span> Yi Lightning <span class="dd-key">fast</span></div>
+          <div class="dd-sep"></div>
+
+          <!-- ── Mistral ───────────────────────────────────── -->
+          <div style="padding:4px 10px 2px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">Mistral</div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:#FF7000;flex-shrink:0"></span> Mistral Medium 3 <span class="dd-key">balanced</span></div>
+          <div class="dd-sep"></div>
+
+          <!-- ── Local ─────────────────────────────────────── -->
           <div style="padding:4px 10px 2px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">Local (Ollama)</div>
-          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:var(--yellow);flex-shrink:0"></span> Llama 4 Scout <span class="dd-key">local</span></div>
+          <div class="dd-item"><span style="width:6px;height:6px;border-radius:50%;background:var(--yellow);flex-shrink:0"></span> Local Model <span class="dd-key">local</span></div>
         </div>
       </div>
 
