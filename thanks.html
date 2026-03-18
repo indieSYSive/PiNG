@@ -22,12 +22,13 @@
   .container {
     max-width: 560px;
   }
-  .kat-emoji {
-    font-size: 80px;
-    margin-bottom: 1.5rem;
+  .kat-logo {
+    margin: 0 auto 1.5rem;
     display: block;
     animation: bounce 2s ease infinite;
   }
+  @keyframes kat-blink { 0%, 90%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+  .kat-eyes { animation: kat-blink 4s infinite; transform-origin: center; }
   @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-12px); }
@@ -92,7 +93,31 @@
 <body>
   <div class="confetti" id="confetti"></div>
   <div class="container">
-    <span class="kat-emoji">🐱</span>
+    <svg class="kat-logo" width="80" height="80" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(74,156,255,0.06)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4a9cff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="38" cy="26" r="12" fill="rgba(74,156,255,0.06)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M30 16 L27 4 L35 12" fill="rgba(74,156,255,0.06)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M31 14 L29 7 L34 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M44 14 L48 2 L50 12" fill="rgba(74,156,255,0.06)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M45 13 L47.5 5 L49 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse class="kat-eyes" cx="33" cy="25" rx="2.5" ry="3" fill="#4a9cff"/>
+      <ellipse class="kat-eyes" cx="43" cy="24" rx="2.5" ry="3" fill="#4a9cff"/>
+      <ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0a0f1a"/>
+      <ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0a0f1a"/>
+      <circle cx="34" cy="24" r="0.8" fill="#151820"/>
+      <circle cx="44" cy="23" r="0.8" fill="#151820"/>
+      <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#a78bfa"/>
+      <path d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#4a9cff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="28" y1="27" x2="20" y2="25" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="28" y1="29" x2="19" y2="29" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="48" y1="26" x2="56" y2="24" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="48" y1="28" x2="57" y2="28" stroke="#555d73" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(74,156,255,0.06)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(74,156,255,0.06)" stroke="#4a9cff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(74,156,255,0.06)" stroke="#4a9cff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#4a9cff" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+    </svg>
     <h1>You're on the list!</h1>
     <p>
       We'll send you a heads-up when <span class="highlight">PiNG!</span> is ready for beta.
