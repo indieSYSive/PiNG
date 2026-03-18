@@ -506,14 +506,14 @@
 
 </head>
 <body>
-<a href="../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
+<a href="../../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
 
 <!-- ===== TITLE BAR ===== -->
 <div class="title-bar">
   <div class="traffic-lights"><div class="tl tl-c"></div><div class="tl tl-m"></div><div class="tl tl-x"></div></div>
   <div class="title-nav">
-    <a href="home-v2.html">Home</a><span class="sep">/</span>
-    <a href="project-unified-v2.html">PiNG!</a><span class="sep">/</span>
+    <a href="home.html">Home</a><span class="sep">/</span>
+    <a href="project.html">&#9878; Morrison &amp; Assoc.</a><span class="sep">/</span>
     <span class="current">CatSkills</span>
   </div>
 </div>
@@ -537,14 +537,14 @@
     <div class="sb-sep"></div>
     <div class="sb-label">Categories</div>
     <div class="sb-cats">
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--blue)"></div><span class="sb-cat-name">Code Quality</span><span class="sb-cat-n">14</span></div>
-      <div class="sb-subcats"><div class="sb-subcat">Review</div><div class="sb-subcat">Testing</div><div class="sb-subcat">Security</div></div>
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--green)"></div><span class="sb-cat-name">Productivity</span><span class="sb-cat-n">11</span></div>
-      <div class="sb-subcats"><div class="sb-subcat">Analysis</div><div class="sb-subcat">Writing</div><div class="sb-subcat">Templates</div></div>
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--purple)"></div><span class="sb-cat-name">Workflows</span><span class="sb-cat-n">8</span></div>
-      <div class="sb-subcats"><div class="sb-subcat">Pipelines</div><div class="sb-subcat">Automation</div></div>
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--orange)"></div><span class="sb-cat-name">Integrations</span><span class="sb-cat-n">9</span></div>
-      <div class="sb-subcats"><div class="sb-subcat">APIs</div><div class="sb-subcat">Webhooks</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--blue)"></div><span class="sb-cat-name">Litigation</span><span class="sb-cat-n">14</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Discovery</div><div class="sb-subcat">Motions</div><div class="sb-subcat">Depositions</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--green)"></div><span class="sb-cat-name">Transactional</span><span class="sb-cat-n">11</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Contracts</div><div class="sb-subcat">M&amp;A</div><div class="sb-subcat">Due Diligence</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--purple)"></div><span class="sb-cat-name">Research</span><span class="sb-cat-n">8</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Case Law</div><div class="sb-subcat">Statutes</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--orange)"></div><span class="sb-cat-name">Practice Mgmt</span><span class="sb-cat-n">9</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Billing</div><div class="sb-subcat">Calendar</div></div>
       <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--cyan)"></div><span class="sb-cat-name">Custom</span><span class="sb-cat-n">5</span></div>
       <div class="sb-subcats"><div class="sb-subcat">Personal</div></div>
     </div>
@@ -578,92 +578,92 @@
     <div class="skills-scroll">
       <div class="skills-grid" id="skillsGrid" data-guide="{&quot;title&quot;: &quot;CatSkills Grid&quot;, &quot;tag&quot;: &quot;Library&quot;, &quot;body&quot;: &quot;Your collection of &lt;em&gt;reusable AI superpowers&lt;/em&gt; &amp;mdash; Prompts, Integrations, and Workflows. Click any card for details, star favorites, or hit Run to execute instantly. 47 skills and growing.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
         <!-- 10 skill cards -->
-        <div class="skill-card" onclick="showDetail('code-review')" data-tooltip="Code Review — structured feedback with severity levels and fix suggestions">
+        <div class="skill-card" onclick="showDetail('code-review')" data-tooltip="Contract Reviewer — clause-by-clause analysis with risk flags and redline suggestions">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Code Review</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">Structured code review with severity-tiered findings and actionable recommendations</div>
-            <div class="skill-card-tags"><span class="skill-tag">review</span><span class="skill-tag">quality</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Contract Reviewer</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Clause-by-clause contract analysis with risk flags and redline suggestions</div>
+            <div class="skill-card-tags"><span class="skill-tag">contracts</span><span class="skill-tag">redline</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 24x</span><div class="skill-footer-spacer"></div><div class="skill-star fav" data-tooltip="Favorited — this skill appears in your quick-access panel"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation();showRunner('code-review')" data-tooltip="Execute this skill immediately — AI runs it with your current context"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('test-gen')" data-tooltip="Test Generator — auto-generate test suites from your source code">
+        <div class="skill-card" onclick="showDetail('test-gen')" data-tooltip="Legal Research — Westlaw and case-law database search with citation verification">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Test Generator</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">Generates comprehensive test suites with edge cases, mocking strategies, and full coverage</div>
-            <div class="skill-card-tags"><span class="skill-tag">testing</span><span class="skill-tag">vitest</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Legal Research</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Westlaw and case-law database search with citation verification and precedent analysis</div>
+            <div class="skill-card-tags"><span class="skill-tag">research</span><span class="skill-tag">westlaw</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 18x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('think-deeper')" data-tooltip="Think Deeper — force extended reasoning for complex decisions">
+        <div class="skill-card" onclick="showDetail('think-deeper')" data-tooltip="Brief Writer — IRAC-structured legal brief drafting with argument development">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Think Deeper</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">Multi-phase analytical reasoning for complex technical problems and architectural decisions</div>
-            <div class="skill-card-tags"><span class="skill-tag">analysis</span><span class="skill-tag">reasoning</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Brief Writer</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">IRAC-structured legal brief drafting with argument development and citation formatting</div>
+            <div class="skill-card-tags"><span class="skill-tag">briefs</span><span class="skill-tag">IRAC</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 11x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('security-audit')" data-tooltip="Security Audit — scan for vulnerabilities and dependency risks">
+        <div class="skill-card" onclick="showDetail('security-audit')" data-tooltip="Discovery Analyzer — document review and privilege classification">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Security Audit</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">OWASP-aligned vulnerability scanning with severity classification and remediation guidance</div>
-            <div class="skill-card-tags"><span class="skill-tag">security</span><span class="skill-tag">audit</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Discovery Analyzer</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Document review and privilege classification with relevance scoring and production tracking</div>
+            <div class="skill-card-tags"><span class="skill-tag">discovery</span><span class="skill-tag">privilege</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 12x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('refactor-clean')" data-tooltip="Refactor Clean — restructure code while preserving behavior">
+        <div class="skill-card" onclick="showDetail('refactor-clean')" data-tooltip="Deposition Prep — witness outline and question generation">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Refactor Clean</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">SOLID-based code refactoring with before/after analysis and regression safety checks</div>
-            <div class="skill-card-tags"><span class="skill-tag">refactor</span><span class="skill-tag">clean</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Deposition Prep</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Witness outline and question generation with impeachment strategy and exhibit coordination</div>
+            <div class="skill-card-tags"><span class="skill-tag">deposition</span><span class="skill-tag">witness</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 15x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('customer-report')" data-tooltip="Customer Report — pull data from APIs and generate formatted reports">
+        <div class="skill-card" onclick="showDetail('customer-report')" data-tooltip="Compliance Checker — regulatory compliance scanning across jurisdictions">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Customer Report</div><div class="skill-card-type integration">Integration</div></div></div>
-            <div class="skill-card-desc">Fetches customer data from CRM API and generates formatted weekly reports</div>
-            <div class="skill-card-tags"><span class="skill-tag">api</span><span class="skill-tag">reporting</span></div>
+            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Compliance Checker</div><div class="skill-card-type integration">Integration</div></div></div>
+            <div class="skill-card-desc">Regulatory compliance scanning across jurisdictions with risk assessment and remediation tracking</div>
+            <div class="skill-card-tags"><span class="skill-tag">compliance</span><span class="skill-tag">regulatory</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 8x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation();showApproval()" data-tooltip="Run this integration skill — may require approval for API access"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('github-pr')" data-tooltip="GitHub PR Bot — auto-draft PRs with descriptions and reviewer assignments">
+        <div class="skill-card" onclick="showDetail('github-pr')" data-tooltip="Billing Calculator — time entry calculation and invoice generation">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">GitHub PR Bot</div><div class="skill-card-type integration">Integration</div></div></div>
-            <div class="skill-card-desc">Automated PR creation and review with GitHub API and webhook notifications</div>
-            <div class="skill-card-tags"><span class="skill-tag">github</span><span class="skill-tag">pr</span></div>
+            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Billing Calculator</div><div class="skill-card-type integration">Integration</div></div></div>
+            <div class="skill-card-desc">Time entry calculation and invoice generation with rate tables and matter code tracking</div>
+            <div class="skill-card-tags"><span class="skill-tag">billing</span><span class="skill-tag">invoicing</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 22x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('deploy-checker')" data-tooltip="Deploy Checker — pre-flight checks: tests, types, lint, dependencies">
+        <div class="skill-card" onclick="showDetail('deploy-checker')" data-tooltip="Case Timeline — court calendar and deadline tracking with SOL alerts">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Deploy Checker</div><div class="skill-card-type integration">Integration</div></div></div>
-            <div class="skill-card-desc">Validates deployment readiness across CI pipelines, tests, and environment configs</div>
-            <div class="skill-card-tags"><span class="skill-tag">deploy</span><span class="skill-tag">ci</span></div>
+            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Case Timeline</div><div class="skill-card-type integration">Integration</div></div></div>
+            <div class="skill-card-desc">Court calendar and deadline tracking with statute of limitations alerts and filing reminders</div>
+            <div class="skill-card-tags"><span class="skill-tag">calendar</span><span class="skill-tag">deadlines</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 7x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('full-review')" data-tooltip="Full Review Pipeline — chain Code Review + Security Audit + Test Gen in one workflow">
+        <div class="skill-card" onclick="showDetail('full-review')" data-tooltip="Client Intake — new matter intake with conflict checks and engagement letters">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Full Review Pipeline</div><div class="skill-card-type workflow">Workflow</div></div></div>
-            <div class="skill-card-desc">Chains Code Review, Security Audit, and Test Generator into a complete review pipeline</div>
-            <div class="skill-card-tags"><span class="skill-tag">pipeline</span><span class="skill-tag">review</span></div>
+            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Client Intake</div><div class="skill-card-type workflow">Workflow</div></div></div>
+            <div class="skill-card-desc">New matter intake forms with conflict checks, engagement letters, and client onboarding workflow</div>
+            <div class="skill-card-tags"><span class="skill-tag">intake</span><span class="skill-tag">onboarding</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 6x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run workflow" onclick="event.stopPropagation()" data-tooltip="Execute this workflow — runs all chained steps in sequence"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('daily-standup')" data-tooltip="Daily Standup — summarize progress and blockers from your chat history">
+        <div class="skill-card" onclick="showDetail('daily-standup')" data-tooltip="Motion Drafter — template-based motion and pleading drafting with court formatting">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Daily Standup</div><div class="skill-card-type workflow">Workflow</div></div></div>
-            <div class="skill-card-desc">Generates standup reports from recent commits, PRs, and task progress across projects</div>
-            <div class="skill-card-tags"><span class="skill-tag">standup</span><span class="skill-tag">report</span></div>
+            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Motion Drafter</div><div class="skill-card-type workflow">Workflow</div></div></div>
+            <div class="skill-card-desc">Template-based motion and pleading drafting with court-specific formatting and filing rules</div>
+            <div class="skill-card-tags"><span class="skill-tag">motions</span><span class="skill-tag">pleadings</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 19x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run workflow" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
@@ -674,10 +674,10 @@
     <div class="suggestion-bar" data-guide="{&quot;title&quot;: &quot;Smart Suggestions&quot;, &quot;tag&quot;: &quot;AI Context&quot;, &quot;body&quot;: &quot;PiNG analyzes your current conversation and &lt;em&gt;recommends CatSkills that match your context&lt;/em&gt;. One click to inject. The AI learns which suggestions you accept over time.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
       <span class="sg-label">Suggested for this conversation</span>
       <div class="sg-pills">
-        <div class="sg-pill" data-tooltip="Click to inject this suggested skill into your current conversation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Code Review</div>
-        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Think Deeper</div>
-        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Test Generator</div>
-        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Full Review Pipeline</div>
+        <div class="sg-pill" data-tooltip="Click to inject this suggested skill into your current conversation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Contract Reviewer</div>
+        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Brief Writer</div>
+        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Legal Research</div>
+        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Discovery Analyzer</div>
       </div>
       <button class="sg-all" data-tooltip="Browse the full CatSkills library — 47 skills available">All CatSkills &rarr;</button>
     </div>
@@ -689,7 +689,7 @@
 
     <div class="dp-header">
       <div class="dp-badge prompt" id="dpBadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Prompt</div>
-      <div class="dp-name" id="dpName">Code Review</div>
+      <div class="dp-name" id="dpName">Contract Reviewer</div>
       <div class="dp-meta" id="dpMeta">v1.0.0 &middot; Created Mar 5, 2026 &middot; Last used 2h ago</div>
     </div>
 
@@ -702,11 +702,11 @@
     <div class="dp-body" id="dpInfo">
       <div class="dp-section">
         <div class="dp-section-label">Description</div>
-        <div class="dp-desc">Performs a structured code review with severity-tiered findings (critical, warning, suggestion). Analyzes code quality, patterns, potential bugs, and architectural concerns. Provides actionable feedback with specific line references.</div>
+        <div class="dp-desc">Performs clause-by-clause contract analysis with risk-tiered findings (critical, caution, note). Reviews indemnification caps, liability clauses, IP assignments, and termination provisions. Provides redline suggestions with precedent citations.</div>
       </div>
       <div class="dp-section">
         <div class="dp-section-label">Tags</div>
-        <div class="dp-tags"><span class="dp-tag">review</span><span class="dp-tag">quality</span><span class="dp-tag">code-analysis</span><span class="dp-tag">best-practices</span></div>
+        <div class="dp-tags"><span class="dp-tag">contracts</span><span class="dp-tag">redline</span><span class="dp-tag">risk-analysis</span><span class="dp-tag">due-diligence</span></div>
       </div>
       <div class="dp-section">
         <div class="dp-section-label">Allowed Tools</div>
@@ -722,8 +722,8 @@
       </div>
       <div class="dp-section">
         <div class="dp-section-label">Variables</div>
-        <div class="dp-var"><div class="dp-var-name">{{language}}</div><div><div class="dp-var-desc">Programming language of code being reviewed</div><div class="dp-var-meta">optional &middot; default: TypeScript</div></div></div>
-        <div class="dp-var"><div class="dp-var-name">{{focusArea}}</div><div><div class="dp-var-desc">Specific area to focus review on</div><div class="dp-var-meta">optional</div></div></div>
+        <div class="dp-var"><div class="dp-var-name">{{jurisdiction}}</div><div><div class="dp-var-desc">Governing jurisdiction for the contract</div><div class="dp-var-meta">optional &middot; default: California</div></div></div>
+        <div class="dp-var"><div class="dp-var-name">{{contractType}}</div><div><div class="dp-var-desc">Contract type (M&amp;A, NDA, SaaS, etc.)</div><div class="dp-var-meta">optional</div></div></div>
       </div>
       <div class="dp-section">
         <div class="dp-section-label">Governance</div>
@@ -736,7 +736,7 @@
       <div class="dp-section">
         <div class="dp-section-label">Skill Folder</div>
         <div style="font-size:10px;color:var(--text-muted);font-family:var(--font-mono);background:var(--bg-elevated);padding:6px 8px;border-radius:var(--radius-sm);border:1px solid var(--border-subtle)">
-          <div>code-review/</div>
+          <div>contract-reviewer/</div>
           <div style="padding-left:12px;color:var(--text-secondary)">SKILL.md</div>
           <div style="padding-left:12px;color:var(--text-secondary)">ping.yaml</div>
         </div>
@@ -747,27 +747,27 @@
     <div class="dp-body runner-view" id="dpRunner">
       <div class="runner-status" data-tooltip="Live execution status — see which phase is running right now">
         <div class="runner-status-dot"></div>
-        <span class="runner-status-text">Running &mdash; Phase 2: Analyzing quality...</span>
+        <span class="runner-status-text">Running &mdash; Phase 2: Analyzing indemnification clauses...</span>
       </div>
       <div class="runner-progress" data-guide="{&quot;title&quot;: &quot;Execution Progress&quot;, &quot;tag&quot;: &quot;Live Status&quot;, &quot;body&quot;: &quot;Real-time progress tracking &amp;mdash; &lt;em&gt;see which phase is running, percentage complete, and current operation&lt;/em&gt;. The progress bar fills as each phase completes.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
         <div class="runner-progress-bar"><div class="runner-progress-fill prompt" style="width:67%"></div></div>
         <div class="runner-progress-label"><span>Phase 2 of 4</span><span>67%</span></div>
       </div>
-      <div class="runner-output" data-guide="{&quot;title&quot;: &quot;Live Execution Output&quot;, &quot;tag&quot;: &quot;Runner&quot;, &quot;body&quot;: &quot;Watch your skill execute in real time &amp;mdash; &lt;em&gt;markdown-formatted output streams live as AI works&lt;/em&gt;. See analysis results, code suggestions, and structured findings appear phase by phase.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}"><span class="event">[start] execution-a7f3 &bull; code-review &bull; manual</span>
-<span class="event">[progress] 25% &mdash; Phase 1: Understanding context</span>
-<span class="chunk"><span class="md-h2">Review Summary</span>- <span class="md-bold">Scope:</span> src/services/BrowserManager.ts (322 lines)
-- <span class="md-bold">Verdict:</span> REQUEST CHANGES
-- <span class="md-bold">Risk Level:</span> MEDIUM</span>
+      <div class="runner-output" data-guide="{&quot;title&quot;: &quot;Live Execution Output&quot;, &quot;tag&quot;: &quot;Runner&quot;, &quot;body&quot;: &quot;Watch your skill execute in real time &amp;mdash; &lt;em&gt;markdown-formatted output streams live as AI works&lt;/em&gt;. See analysis results, code suggestions, and structured findings appear phase by phase.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}"><span class="event">[start] execution-a7f3 &bull; contract-reviewer &bull; manual</span>
+<span class="event">[progress] 25% &mdash; Phase 1: Parsing contract structure</span>
+<span class="chunk"><span class="md-h2">Review Summary</span>- <span class="md-bold">Document:</span> TechCorp-Merger-Agreement.pdf (47 pages)
+- <span class="md-bold">Verdict:</span> REVISIONS RECOMMENDED
+- <span class="md-bold">Risk Level:</span> HIGH</span>
 
-<span class="event">[progress] 50% &mdash; Phase 2: Analyzing quality</span>
+<span class="event">[progress] 50% &mdash; Phase 2: Analyzing indemnification clauses</span>
 <span class="chunk"><span class="md-h2">Findings</span>
-<span class="md-h3">P0 &mdash; Must Fix</span><span class="md-trow"><span class="md-th"> #   File:Line              Finding</span></span><span class="md-trow"> 1   BrowserManager.ts:47   Missing error handling on...</span></span></div>
+<span class="md-h3">P0 &mdash; Critical Risk</span><span class="md-trow"><span class="md-th"> #   Section                 Finding</span></span><span class="md-trow"> 1   &sect;7.2 Indemnification   Uncapped liability exposure...</span></span></div>
       <div class="runner-vardebug" data-guide="{&quot;title&quot;: &quot;Variable Resolution Debug&quot;, &quot;tag&quot;: &quot;Transparency&quot;, &quot;body&quot;: &quot;See exactly how &lt;em&gt;variables resolved at runtime&lt;/em&gt; &amp;mdash; which values came from skill defaults, which from user input, and which from project context. Full transparency into AI behavior.&quot;, &quot;cat&quot;: &quot;kat-lean-right&quot;}">
         <div class="runner-vardebug-title">&#9654; Variable Resolution</div>
         <table class="runner-var-table">
           <tr><th>Variable</th><th>Value</th><th>Source</th></tr>
-          <tr><td class="var-name">language</td><td class="var-val">TypeScript</td><td><span class="var-src">skill_default</span></td></tr>
-          <tr><td class="var-name">focusArea</td><td class="var-val">error handling</td><td><span class="var-src">input</span></td></tr>
+          <tr><td class="var-name">jurisdiction</td><td class="var-val">California</td><td><span class="var-src">skill_default</span></td></tr>
+          <tr><td class="var-name">contractType</td><td class="var-val">M&amp;A Agreement</td><td><span class="var-src">input</span></td></tr>
         </table>
       </div>
       <button class="runner-cancel" data-tooltip="Cancel the current execution — stops AI mid-run"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg> Cancel Execution</button>
@@ -789,8 +789,8 @@
     </div>
     <div class="ed-body">
       <!-- Common fields -->
-      <div class="ed-field"><div class="ed-label">Name</div><input class="ed-input" value="Code Review" /></div>
-      <div class="ed-field"><div class="ed-label">Description</div><textarea class="ed-textarea" rows="2">Structured code review with severity-tiered findings and actionable recommendations</textarea></div>
+      <div class="ed-field"><div class="ed-label">Name</div><input class="ed-input" value="Contract Reviewer" /></div>
+      <div class="ed-field"><div class="ed-label">Description</div><textarea class="ed-textarea" rows="2">Clause-by-clause contract analysis with risk flags, redline suggestions, and precedent comparison</textarea></div>
       <div class="ed-field">
         <div class="ed-label">Type</div>
         <div class="ed-type-selector" data-guide="{&quot;title&quot;: &quot;Skill Type Picker&quot;, &quot;tag&quot;: &quot;Architecture&quot;, &quot;body&quot;: &quot;Three skill architectures: &lt;em&gt;Prompt (SKILL.md templates), Integration (API action chains), Workflow (multi-step pipelines)&lt;/em&gt;. Each unlocks a specialized editor tailored to that pattern.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
@@ -807,30 +807,30 @@
         <div class="ed-field">
           <div class="ed-label">Skill Content (SKILL.md)</div>
           <textarea class="ed-textarea mono" rows="8">---
-name: code-review
-description: Structured code review with severity-tiered findings
-tags: [review, quality, pr, code-review]
+name: contract-reviewer
+description: Clause-by-clause contract analysis with risk flags
+tags: [contracts, redline, risk-analysis, due-diligence]
 version: 1.0.0
 allowed-tools: Read, Grep, Glob
 context: fork
 ---
 
-# Code Review
+# Contract Reviewer
 
-You are a senior staff engineer conducting a thorough code review. Analyze the provided code with a focus on correctness, maintainability, and production readiness.
+You are a senior associate conducting a thorough contract review. Analyze the provided agreement with a focus on risk allocation, liability exposure, and compliance.
 
 ## Review Process
 
-### Phase 1 — Understand Context
-- Identify the purpose of the change
-- Determine scope: which files changed and why
+### Phase 1 — Parse Structure
+- Identify the contract type and governing law
+- Determine scope: which sections need review
 ...</textarea>
         </div>
         <div class="ed-field">
           <div class="ed-label">Variables</div>
           <div class="ed-vars">
-            <div class="ed-var-row"><input value="language" style="max-width:120px" /><input value="Programming language of code being reviewed" /><input value="TypeScript" placeholder="default" style="max-width:100px" /><button class="ed-var-rm" data-tooltip="Remove this variable from the skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-            <div class="ed-var-row"><input value="focusArea" style="max-width:120px" /><input value="Specific area to focus review on" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="jurisdiction" style="max-width:120px" /><input value="Governing jurisdiction for the contract" /><input value="California" placeholder="default" style="max-width:100px" /><button class="ed-var-rm" data-tooltip="Remove this variable from the skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="contractType" style="max-width:120px" /><input value="Contract type (M&amp;A, NDA, SaaS, etc.)" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
           </div>
           <button class="ed-add-btn" data-tooltip="Add a new variable or step to this skill definition">+ Add Variable</button>
         </div>
@@ -841,24 +841,24 @@ You are a senior staff engineer conducting a thorough code review. Analyze the p
         <div class="ed-field">
           <div class="ed-label">Skill Content (SKILL.md)</div>
           <textarea class="ed-textarea mono" rows="4">---
-name: customer-report
-description: Fetches customer data from CRM API and generates reports
-tags: [api, reporting]
+name: compliance-checker
+description: Regulatory compliance scanning across jurisdictions
+tags: [compliance, regulatory]
 version: 1.0.0
 context: fork
 ---
 
-# Customer Report
-Generate a formatted customer report using the data retrieved from the CRM API...</textarea>
+# Compliance Checker
+Scan contract provisions against regulatory databases and flag non-compliant clauses...</textarea>
         </div>
         <div class="ed-field">
           <div class="ed-label">Pre-Actions (run before skill body)</div>
           <div class="ed-action-card" data-guide="{&quot;title&quot;: &quot;API Action Config&quot;, &quot;tag&quot;: &quot;Integration&quot;, &quot;body&quot;: &quot;Configure pre and post actions for integration skills &amp;mdash; &lt;em&gt;HTTP method, URL, headers, and response handling&lt;/em&gt;. Chain API calls, webhooks, and data transforms into a single skill.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
-            <div class="ed-action-header"><span class="ed-action-badge pre">PRE</span><span class="ed-action-name">Fetch Customer Data</span><span class="ed-action-type-tag">api</span></div>
+            <div class="ed-action-header"><span class="ed-action-badge pre">PRE</span><span class="ed-action-name">Fetch Regulatory Data</span><span class="ed-action-type-tag">api</span></div>
             <div class="ed-action-body">
               <div class="ed-action-row"><label>Method</label><select><option selected>GET</option><option>POST</option><option>PUT</option><option>DELETE</option></select></div>
-              <div class="ed-action-row"><label>URL</label><input value="https://api.example.com/customers/{{customerId}}" /></div>
-              <div class="ed-action-row"><label>Headers</label><input value="Authorization: Bearer {{env.CRM_API_KEY}}" /></div>
+              <div class="ed-action-row"><label>URL</label><input value="https://api.westlaw.com/regulations/{{jurisdiction}}" /></div>
+              <div class="ed-action-row"><label>Headers</label><input value="Authorization: Bearer {{env.WESTLAW_API_KEY}}" /></div>
             </div>
           </div>
           <button class="ed-add-btn">+ Add Pre-Action</button>
@@ -866,10 +866,10 @@ Generate a formatted customer report using the data retrieved from the CRM API..
         <div class="ed-field">
           <div class="ed-label">Post-Actions (run after skill body)</div>
           <div class="ed-action-card">
-            <div class="ed-action-header"><span class="ed-action-badge post">POST</span><span class="ed-action-name">Notify Slack</span><span class="ed-action-type-tag">webhook</span></div>
+            <div class="ed-action-header"><span class="ed-action-badge post">POST</span><span class="ed-action-name">Log to Clio</span><span class="ed-action-type-tag">webhook</span></div>
             <div class="ed-action-body">
               <div class="ed-action-row"><label>Method</label><select><option>GET</option><option selected>POST</option></select></div>
-              <div class="ed-action-row"><label>URL</label><input value="https://hooks.slack.com/services/T00/B00/xxx" /></div>
+              <div class="ed-action-row"><label>URL</label><input value="https://app.clio.com/api/v4/activities" /></div>
             </div>
           </div>
           <button class="ed-add-btn">+ Add Post-Action</button>
@@ -877,7 +877,7 @@ Generate a formatted customer report using the data retrieved from the CRM API..
         <div class="ed-field">
           <div class="ed-label">Variables</div>
           <div class="ed-vars">
-            <div class="ed-var-row"><input value="customerId" style="max-width:120px" /><input value="CRM customer ID to fetch" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="jurisdiction" style="max-width:120px" /><input value="Target jurisdiction for compliance scan" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
           </div>
           <button class="ed-add-btn">+ Add Variable</button>
         </div>
@@ -892,28 +892,28 @@ Generate a formatted customer report using the data retrieved from the CRM API..
               <div class="ed-step-grip"><span></span><span></span><span></span></div>
               <div class="ed-step-num">1</div>
               <div class="ed-step-content">
-                <select class="ed-step-skill-select"><option selected>Code Review (Prompt)</option><option>Test Generator (Prompt)</option><option>Security Audit (Prompt)</option><option>Refactor Clean (Prompt)</option><option>Think Deeper (Prompt)</option></select>
+                <select class="ed-step-skill-select"><option selected>Contract Reviewer (Prompt)</option><option>Legal Research (Prompt)</option><option>Discovery Analyzer (Prompt)</option><option>Deposition Prep (Prompt)</option><option>Brief Writer (Prompt)</option></select>
                 <div class="ed-step-mapping-label">Input Mapping</div>
-                <div class="ed-step-mapping-row"><input value="language" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{language}}" /></div>
-                <div class="ed-step-mapping-row"><input value="focusArea" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{focusArea}}" /></div>
+                <div class="ed-step-mapping-row"><input value="jurisdiction" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{jurisdiction}}" /></div>
+                <div class="ed-step-mapping-row"><input value="contractType" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{contractType}}" /></div>
               </div>
             </div>
             <div class="ed-step">
               <div class="ed-step-grip"><span></span><span></span><span></span></div>
               <div class="ed-step-num">2</div>
               <div class="ed-step-content">
-                <select class="ed-step-skill-select"><option>Code Review (Prompt)</option><option>Test Generator (Prompt)</option><option selected>Security Audit (Prompt)</option><option>Refactor Clean (Prompt)</option><option>Think Deeper (Prompt)</option></select>
+                <select class="ed-step-skill-select"><option>Contract Reviewer (Prompt)</option><option>Legal Research (Prompt)</option><option selected>Discovery Analyzer (Prompt)</option><option>Deposition Prep (Prompt)</option><option>Brief Writer (Prompt)</option></select>
                 <div class="ed-step-mapping-label">Input Mapping</div>
-                <div class="ed-step-mapping-row"><input value="scope" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{steps.1.output}}" /></div>
+                <div class="ed-step-mapping-row"><input value="documents" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{steps.1.output}}" /></div>
               </div>
             </div>
             <div class="ed-step">
               <div class="ed-step-grip"><span></span><span></span><span></span></div>
               <div class="ed-step-num">3</div>
               <div class="ed-step-content">
-                <select class="ed-step-skill-select"><option>Code Review (Prompt)</option><option selected>Test Generator (Prompt)</option><option>Security Audit (Prompt)</option><option>Refactor Clean (Prompt)</option><option>Think Deeper (Prompt)</option></select>
+                <select class="ed-step-skill-select"><option>Contract Reviewer (Prompt)</option><option selected>Legal Research (Prompt)</option><option>Discovery Analyzer (Prompt)</option><option>Deposition Prep (Prompt)</option><option>Brief Writer (Prompt)</option></select>
                 <div class="ed-step-mapping-label">Input Mapping</div>
-                <div class="ed-step-mapping-row"><input value="testFramework" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="vitest" /></div>
+                <div class="ed-step-mapping-row"><input value="citationFormat" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="Bluebook" /></div>
               </div>
             </div>
           </div>
@@ -922,8 +922,8 @@ Generate a formatted customer report using the data retrieved from the CRM API..
         <div class="ed-field">
           <div class="ed-label">Workflow Variables (passed to first step)</div>
           <div class="ed-vars">
-            <div class="ed-var-row"><input value="language" style="max-width:120px" /><input value="Language for the review pipeline" /><input value="TypeScript" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-            <div class="ed-var-row"><input value="focusArea" style="max-width:120px" /><input value="Focus area for code review step" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="jurisdiction" style="max-width:120px" /><input value="Jurisdiction for the review pipeline" /><input value="California" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="contractType" style="max-width:120px" /><input value="Contract type for review step" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
           </div>
         </div>
       </div>
@@ -940,7 +940,7 @@ Generate a formatted customer report using the data retrieved from the CRM API..
         </div>
       </div>
 
-      <div class="ed-field"><div class="ed-label">Tags</div><input class="ed-input" value="review, quality, pr, code-review" /></div>
+      <div class="ed-field"><div class="ed-label">Tags</div><input class="ed-input" value="contracts, redline, risk-analysis, due-diligence" /></div>
     </div>
     <div class="ed-footer">
       <button class="btn-ghost" onclick="closeEditor()">Cancel</button>
@@ -953,9 +953,9 @@ Generate a formatted customer report using the data retrieved from the CRM API..
 <div class="approval-toast" id="approvalToast" data-guide="{&quot;title&quot;: &quot;Integration Approval&quot;, &quot;tag&quot;: &quot;Security&quot;, &quot;body&quot;: &quot;Integration skills that access external APIs &lt;em&gt;require explicit approval before running&lt;/em&gt;. See exactly which domains will be contacted and what actions will execute. Allow once, always, or deny.&quot;, &quot;cat&quot;: &quot;kat-flip&quot;}">
   <div class="at-timer"><div class="at-timer-fill" id="atTimerFill" style="width:78%"></div></div>
   <div class="at-body">
-    <div class="at-title"><span>"Customer Report"</span> needs approval</div>
+    <div class="at-title"><span>"Compliance Checker"</span> needs approval</div>
     <div class="at-info">
-      <div class="at-domains">INTEGRATION: api.example.com, hooks.slack.com</div>
+      <div class="at-domains">INTEGRATION: api.westlaw.com, app.clio.com</div>
       <div class="at-actions-summary">Actions: 1 pre (api), 1 post (webhook)</div>
     </div>
     <div class="at-reason">First run of INTEGRATION catskill</div>
@@ -1031,7 +1031,7 @@ function showRunner(id) {
 
 // Editor
 function openEditor(mode) {
-  const name = document.getElementById('dpName').textContent || 'Code Review';
+  const name = document.getElementById('dpName').textContent || 'Contract Reviewer';
   document.getElementById('edTitle').textContent = mode === 'new' ? 'New CatSkill' : 'Edit: ' + name;
   document.getElementById('editorOverlay').classList.add('open');
   // Reset type selector to Prompt for new skills

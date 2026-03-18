@@ -475,7 +475,7 @@ a { color: var(--accent); text-decoration: none; }
         <a href="#demo">Live Demo</a>
         <a href="#pricing">Pricing</a>
         <a href="#privacy">Privacy</a>
-        <a href="#beta" class="nav-cta">Join the Beta</a>
+        <a href="#beta" class="nav-cta">Request Early Access</a>
       </div>
       <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -502,12 +502,11 @@ a { color: var(--accent); text-decoration: none; }
         <span class="gradient-text">AI Workspace.</span>
       </h1>
       <p class="hero-subtitle">
-        11 AI providers and growing. 42+ models. 100+ agent tools. Perfect memory.
-        One desktop app that replaces your entire AI stack &mdash; and costs you nothing.
+        One desktop app where Claude, GPT, Gemini, and local models don't just chat &mdash; they orchestrate. Perfect memory. 100+ agent tools. Everything local, everything private. Bring your own API keys. Pay only for what you use.
       </p>
       <div class="hero-actions">
         <a href="#beta" class="btn btn-primary btn-lg">
-          <span>Get Early Access</span>
+          <span>Request Early Access</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
         <a href="#demo" class="btn btn-ghost btn-lg">Explore the Demo</a>
@@ -525,67 +524,16 @@ a { color: var(--accent); text-decoration: none; }
         <div class="stat-divider"></div>
         <div class="stat">
           <span class="stat-value">100%</span>
-          <span class="stat-label">Local Storage</span>
+          <span class="stat-label">Local &amp; Private</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <span class="stat-value">$0</span>
-          <span class="stat-label">Monthly Fee</span>
+          <span class="stat-value">Free</span>
+          <span class="stat-label">App &mdash; BYOK</span>
         </div>
       </div>
     </div>
 
-    <!-- App Preview -->
-    <div class="hero-preview fade-in">
-      <div class="preview-window">
-        <div class="preview-titlebar">
-          <div class="titlebar-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
-          <span class="titlebar-title">PiNG! &mdash; Project: My Startup</span>
-        </div>
-        <div class="preview-body">
-          <div class="preview-sidebar">
-            <div class="sidebar-section">
-              <div class="sidebar-label">Projects</div>
-              <div class="sidebar-item active"><span class="sidebar-icon">&#128193;</span> My Startup</div>
-              <div class="sidebar-item"><span class="sidebar-icon">&#128193;</span> Research Notes</div>
-              <div class="sidebar-item"><span class="sidebar-icon">&#128193;</span> Side Project</div>
-            </div>
-            <div class="sidebar-section">
-              <div class="sidebar-label">Recent Chats</div>
-              <div class="sidebar-item"><span class="sidebar-icon">&#128172;</span> API design (Claude)</div>
-              <div class="sidebar-item"><span class="sidebar-icon">&#128172;</span> Data pipeline (GPT-4o)</div>
-              <div class="sidebar-item"><span class="sidebar-icon">&#128172;</span> Brainstorm (Llama)</div>
-            </div>
-          </div>
-          <div class="preview-chat">
-            <div class="chat-messages">
-              <div class="chat-msg user">
-                <div class="msg-header"><span class="msg-name">You</span><span class="msg-model">to Claude Opus</span></div>
-                <div class="msg-body">Refactor the auth module to use JWT. Read the current code first.</div>
-              </div>
-              <div class="chat-msg assistant">
-                <div class="msg-header"><span class="msg-name">Claude Opus</span><span class="msg-badge claude">Claude</span></div>
-                <div class="msg-body">
-                  I'll analyze the auth module and implement JWT. Let me start by reading the codebase.
-                  <div class="msg-artifact">
-                    <div class="artifact-header"><span class="artifact-icon">&#9881;</span> Agent Actions</div>
-                    <div class="artifact-body">
-                      <span class="code-line"><span class="code-num">1</span> <span class="code-key">fs.read</span> src/auth/handler.ts <span style="color:#22c55e">&#10003; 89 lines</span></span>
-                      <span class="code-line"><span class="code-num">2</span> <span class="code-key">code.analyze</span> Finding auth patterns...</span>
-                      <span class="code-line"><span class="code-num">3</span> <span class="code-key">fs.write</span> src/auth/jwt.ts <span style="color:#f59e0b">&#9888; Awaiting approval</span></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="chat-input-bar">
-              <div class="model-selector"><span class="model-dot claude"></span> Claude Opus <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
-              <div class="chat-input-placeholder">Message Claude Opus...</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- ═══ BUILT FOR EVERYONE ═══ -->
@@ -641,34 +589,51 @@ a { color: var(--accent); text-decoration: none; }
     </div>
   </section>
 
-  <!-- ═══ PAIN POINTS ═══ -->
-  <section class="section pain-section">
+  <!-- ═══ PAIN + SOLUTION SIDE BY SIDE ═══ -->
+  <section class="section pain-solution-section">
     <div class="container">
-      <div class="section-header fade-in">
-        <h2 class="section-title">Sound Familiar?</h2>
-        <p class="section-subtitle">The AI tool sprawl is real. You're spending more time switching tools than actually building.</p>
-      </div>
-      <div class="pain-grid">
-        <div class="pain-card fade-in">
-          <div class="pain-icon">&#128184;</div>
-          <h3>Subscription Overload</h3>
-          <p>ChatGPT Plus + Claude Pro + Gemini Advanced = $60+/month. And you're still not using each one to its full potential.</p>
+      <div class="twin-columns fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+
+        <!-- LEFT: Sound Familiar? -->
+        <div>
+          <div class="section-badge" style="margin-bottom:12px">The Problem</div>
+          <h2 class="section-title" style="font-size:28px;margin-bottom:8px">Sound Familiar?</h2>
+          <p style="color:var(--text-muted);font-size:15px;line-height:1.7;margin-bottom:20px">The AI tool sprawl is real. You're spending more time switching tools than actually building.</p>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <span style="font-size:20px;flex-shrink:0;margin-top:2px">&#128184;</span>
+              <div><strong style="color:var(--text-primary);font-size:14px">Subscription Overload</strong><br><span style="color:var(--text-muted);font-size:13px;line-height:1.6">ChatGPT Plus + Claude Pro + Gemini Advanced = $60+/month. And you're still not using each one to its full potential.</span></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <span style="font-size:20px;flex-shrink:0;margin-top:2px">&#128256;</span>
+              <div><strong style="color:var(--text-primary);font-size:14px">Constant Context-Switching</strong><br><span style="color:var(--text-muted);font-size:13px;line-height:1.6">Claude for writing, GPT for code, Gemini for research. Three tabs, three logins, three lost trains of thought.</span></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <span style="font-size:20px;flex-shrink:0;margin-top:2px">&#128274;</span>
+              <div><strong style="color:var(--text-primary);font-size:14px">Your Data, Their Cloud</strong><br><span style="color:var(--text-muted);font-size:13px;line-height:1.6">Every message, every idea, every document &mdash; stored on someone else's servers. No export. No control. No thanks.</span></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <span style="font-size:20px;flex-shrink:0;margin-top:2px">&#129504;</span>
+              <div><strong style="color:var(--text-primary);font-size:14px">AI Amnesia</strong><br><span style="color:var(--text-muted);font-size:13px;line-height:1.6">You spent 30 minutes giving Claude context. Next session? Gone. Start over. Every. Single. Time. It's infuriating.</span></div>
+            </div>
+          </div>
         </div>
-        <div class="pain-card fade-in">
-          <div class="pain-icon">&#128256;</div>
-          <h3>Constant Context-Switching</h3>
-          <p>Claude for writing, GPT for code, Gemini for research. Three tabs, three logins, three lost trains of thought.</p>
+
+        <!-- RIGHT: Every Model, One Interface -->
+        <div>
+          <div class="feature-badge" style="margin-bottom:12px">The Solution</div>
+          <h2 class="section-title" style="font-size:28px;margin-bottom:8px">Every Model, One Interface</h2>
+          <p style="color:var(--text-muted);font-size:15px;line-height:1.7;margin-bottom:20px">11 providers and counting. 42+ models and growing. Claude, GPT-5, Gemini, Grok, Perplexity, DeepSeek, Kimi, Qwen, Yi, Mistral &mdash; plus a local LLM store for fully offline AI. As new models launch, PiNG! adds them. Switch mid-conversation. Compare side-by-side. Use the right brain for the right job.</p>
+          <ul class="feature-list" style="margin-bottom:0">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Bring your own API keys &mdash; pay only for tokens used</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Run local models 100% offline via built-in Llama engine</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Split-pane views for parallel AI conversations</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Free app &mdash; bring your own API keys, pay only for tokens</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> All data stored locally &mdash; your machine, your rules</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Perfect memory across sessions &mdash; AI never forgets</li>
+          </ul>
         </div>
-        <div class="pain-card fade-in">
-          <div class="pain-icon">&#128274;</div>
-          <h3>Your Data, Their Cloud</h3>
-          <p>Every message, every idea, every document &mdash; stored on someone else's servers. No export. No control. No thanks.</p>
-        </div>
-        <div class="pain-card fade-in">
-          <div class="pain-icon">&#129504;</div>
-          <h3>AI Amnesia</h3>
-          <p>You spent 30 minutes giving Claude context. Next session? Gone. Start over. Every. Single. Time. It's infuriating.</p>
-        </div>
+
       </div>
     </div>
   </section>
@@ -677,38 +642,48 @@ a { color: var(--accent); text-decoration: none; }
   <section class="section features-section" id="features">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="section-badge">Features</div>
-        <h2 class="section-title">One App. <span class="gradient-text">Every AI. Zero Limits.</span></h2>
-        <p class="section-subtitle">PiNG! isn't another web wrapper. It's a native desktop powerhouse built for people who ship with AI.</p>
+        <div class="section-badge">What PiNG! Does</div>
+        <h2 class="section-title">Three Things. <span class="gradient-text">Done Right.</span></h2>
+        <p class="section-subtitle">PiNG! isn't another web wrapper. It's a native desktop workspace built around three core principles.</p>
       </div>
 
-      <!-- Multi-Model -->
-      <div class="feature-showcase fade-in">
-        <div class="feature-text">
-          <div class="feature-badge">Multi-Model</div>
-          <h3>Every Model, One Interface</h3>
-          <p>11 providers and counting. 42+ models and growing. Claude, GPT-5, Gemini, Grok, Perplexity, DeepSeek, Kimi, Qwen, Yi, Mistral &mdash; plus a local LLM store for fully offline AI. As new models launch, PiNG! adds them. Switch mid-conversation. Compare side-by-side. Use the right brain for the right job.</p>
-          <ul class="feature-list">
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Bring your own API keys &mdash; pay only for tokens used</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Run local models 100% offline via built-in Llama engine</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a9cff" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Split-pane views for parallel AI conversations</li>
+      <!-- 3 Benefit Pillars -->
+      <div class="fade-in" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:64px">
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 24px;text-align:center">
+          <div style="font-size:36px;margin-bottom:12px">🧠</div>
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:8px">Remembers Everything</h3>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px">Your AI never starts from scratch. Decisions, preferences, and past work persist across every session.</p>
+          <ul style="text-align:left;font-size:13px;color:var(--text-muted);list-style:none;display:flex;flex-direction:column;gap:6px">
+            <li>&#10003; RAG-powered memory retrieval</li>
+            <li>&#10003; Smart Notes auto-extracted from chats</li>
+            <li>&#10003; Observational memory that learns you</li>
           </ul>
         </div>
-        <div class="feature-visual">
-          <div class="model-cards">
-            <div class="model-card" style="--delay:0s"><div class="model-card-icon claude-bg">C</div><div class="model-card-info"><span class="model-card-name">Claude Opus 4.6</span><span class="model-card-desc">Deep analysis &amp; creative writing</span></div><span class="model-card-status connected">Connected</span></div>
-            <div class="model-card" style="--delay:0.05s"><div class="model-card-icon gpt-bg">G</div><div class="model-card-info"><span class="model-card-name">GPT-5.4</span><span class="model-card-desc">Flagship reasoning &amp; multimodal</span></div><span class="model-card-status connected">Connected</span></div>
-            <div class="model-card" style="--delay:0.1s"><div class="model-card-icon gemini-bg">G</div><div class="model-card-info"><span class="model-card-name">Gemini 3.1 Pro</span><span class="model-card-desc">1M context &amp; research</span></div><span class="model-card-status connected">Connected</span></div>
-            <div class="model-card" style="--delay:0.15s"><div class="model-card-icon" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">X</div><div class="model-card-info"><span class="model-card-name">Grok 4</span><span class="model-card-desc">xAI reasoning &amp; 2M context</span></div><span class="model-card-status connected">Connected</span></div>
-            <div class="model-card" style="--delay:0.2s"><div class="model-card-icon" style="background:linear-gradient(135deg,#1a3a4a,#0d4f6a)">P</div><div class="model-card-info"><span class="model-card-name">Perplexity Sonar</span><span class="model-card-desc">Live web search &amp; citations</span></div><span class="model-card-status connected">Connected</span></div>
-            <div class="model-card" style="--delay:0.25s"><div class="model-card-icon" style="background:linear-gradient(135deg,#1a2a4a,#2a4a7a)">D</div><div class="model-card-info"><span class="model-card-name">DeepSeek V3.2</span><span class="model-card-desc">Cost-efficient reasoning</span></div><span class="model-card-status connected">Connected</span></div>
-            <div class="model-card" style="--delay:0.3s"><div class="model-card-icon" style="background:linear-gradient(135deg,#2a1a3a,#4a2a5a)">K</div><div class="model-card-info"><span class="model-card-name">Kimi K2.5</span><span class="model-card-desc">Moonshot 256K context</span></div><span class="model-card-status connected">Connected</span></div>
-            <div class="model-card" style="--delay:0.35s"><div class="model-card-icon" style="background:linear-gradient(135deg,#3a2a1a,#5a4a2a)">Q</div><div class="model-card-info"><span class="model-card-name">Qwen3 Max</span><span class="model-card-desc">Alibaba multilingual AI</span></div><span class="model-card-status connected">Connected</span></div>
-            <div class="model-card" style="--delay:0.4s"><div class="model-card-icon" style="background:linear-gradient(135deg,#1a3a2a,#2a5a3a)">Y</div><div class="model-card-info"><span class="model-card-name">Yi Lightning</span><span class="model-card-desc">01.AI fast inference</span></div><span class="model-card-status connected">Connected</span></div>
-            <div class="model-card" style="--delay:0.45s"><div class="model-card-icon" style="background:linear-gradient(135deg,#3a1a1a,#5a2a2a)">M</div><div class="model-card-info"><span class="model-card-name">Mistral Medium 3</span><span class="model-card-desc">European open-weight AI</span></div><span class="model-card-status connected">Connected</span></div>
-            <div class="model-card" style="--delay:0.5s"><div class="model-card-icon local-bg">L</div><div class="model-card-info"><span class="model-card-name">Local LLM Store</span><span class="model-card-desc">Offline &amp; fully private</span></div><span class="model-card-status local">On Device</span></div>
-          </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 24px;text-align:center">
+          <div style="font-size:36px;margin-bottom:12px">&#9881;&#65039;</div>
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:8px">Runs the Work</h3>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px">AI that doesn't just talk &mdash; it executes. 100+ tools, multi-step workflows, and autonomous agents.</p>
+          <ul style="text-align:left;font-size:13px;color:var(--text-muted);list-style:none;display:flex;flex-direction:column;gap:6px">
+            <li>&#10003; 100+ agent tools across 10 domains</li>
+            <li>&#10003; CatSkills reusable workflows</li>
+            <li>&#10003; Multi-LLM orchestration (42+ models)</li>
+          </ul>
         </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 24px;text-align:center">
+          <div style="font-size:36px;margin-bottom:12px">&#128450;&#65039;</div>
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:8px">Organizes Your World</h3>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px">Projects, tasks, files, calendar, and knowledge base &mdash; all in one place, all AI-connected.</p>
+          <ul style="text-align:left;font-size:13px;color:var(--text-muted);list-style:none;display:flex;flex-direction:column;gap:6px">
+            <li>&#10003; Kanban boards &amp; calendar views</li>
+            <li>&#10003; Files &amp; knowledge base with RAG</li>
+            <li>&#10003; Per-project workspaces</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-header fade-in" style="margin-bottom:32px">
+        <h2 class="section-title" style="font-size:28px">Under the Hood</h2>
+        <p class="section-subtitle">A closer look at the systems that power PiNG!</p>
       </div>
 
       <!-- Agent Tools -->
@@ -950,51 +925,18 @@ a { color: var(--accent); text-decoration: none; }
       <div class="section-header fade-in">
         <div class="section-badge">Live Demo</div>
         <h2 class="section-title">See What We've Been <span class="gradient-text">Building</span></h2>
-        <p class="section-subtitle">PiNG! is a work in progress &mdash; and we're proud of every pixel. Explore interactive mockups of every screen. Hover over anything &mdash; KAT will explain it.</p>
+        <p class="section-subtitle">These are real interactive mockups of every screen. Click into any demo and hover over buttons, panels, and widgets &mdash; KAT (our AI cat mascot) will explain what everything does.</p>
       </div>
-      <div class="demo-grid fade-in">
-        <a href="marketing-mockups/home-v2.html" class="demo-card" target="_blank">
-          <div class="demo-card-preview">&#127968;</div>
-          <div class="demo-card-body">
-            <h3>Home Dashboard</h3>
-            <p>Your command center. Activity feed, quick stats, recent projects &mdash; everything at a glance.</p>
-            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-          </div>
-        </a>
-        <a href="marketing-mockups/chat-pane-v3.html" class="demo-card" target="_blank">
-          <div class="demo-card-preview">&#128172;</div>
-          <div class="demo-card-body">
-            <h3>AI Chat Interface</h3>
-            <p>Multi-model chat with artifacts, split panes, and inline agent actions.</p>
-            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-          </div>
-        </a>
-        <a href="marketing-mockups/project-unified-v2.html" class="demo-card" target="_blank">
-          <div class="demo-card-preview">&#128202;</div>
-          <div class="demo-card-body">
-            <h3>Project Command Center</h3>
-            <p>Kanban boards, knowledge base, analytics, calendar &mdash; your entire project in one view.</p>
-            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-          </div>
-        </a>
-        <a href="marketing-mockups/skills-v1.html" class="demo-card" target="_blank">
-          <div class="demo-card-preview">&#9889;</div>
-          <div class="demo-card-body">
-            <h3>CatSkills Library</h3>
-            <p>Browse, create, and manage reusable AI workflows. Your skill arsenal.</p>
-            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-          </div>
-        </a>
-        <a href="marketing-mockups/skills-v2.html" class="demo-card" target="_blank">
-          <div class="demo-card-preview">&#127919;</div>
-          <div class="demo-card-body">
-            <h3>Skills Studio</h3>
-            <p>Deep-dive into skill configuration. Edit steps, set variables, chain tools.</p>
-            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-          </div>
-        </a>
+      <div class="demo-persona-badge fade-in" id="personaBadge" style="text-align:center;margin-bottom:20px;display:none;">
+        <div style="display:inline-flex;align-items:center;gap:12px;padding:8px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:100px;margin-bottom:8px;">
+          <span style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;font-weight:500;">Viewing as</span>
+          <span id="personaName" style="color:var(--text-primary);font-weight:600;font-size:14px;"></span>
+          <button onclick="shufflePersona()" style="background:rgba(74,156,255,0.1);border:1px solid rgba(74,156,255,0.2);border-radius:100px;color:var(--accent);padding:4px 12px;cursor:pointer;font-size:11px;font-family:inherit;font-weight:500;transition:all 0.2s;" onmouseover="this.style.background='rgba(74,156,255,0.2)'" onmouseout="this.style.background='rgba(74,156,255,0.1)'">Switch</button>
+        </div>
+        <div id="personaSummary" style="font-size:14px;color:var(--text-muted);max-width:540px;margin:0 auto;line-height:1.5;"></div>
       </div>
-      <div class="demo-kat-hint fade-in">
+      <p class="fade-in" style="text-align:center;font-size:13px;color:var(--text-muted);margin-bottom:16px;letter-spacing:0.2px">Click any demo below, then hover over buttons and panels to see what they do.</p>
+      <div class="demo-kat-hint fade-in" style="margin-bottom:24px">
         <svg class="demo-kat-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(74,156,255,0.1)" stroke="#4a9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4a9cff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1011,103 +953,48 @@ a { color: var(--accent); text-decoration: none; }
           <strong>Meet KAT, your guide.</strong> Hover over any button, widget, or section in the demos &mdash; KAT will pop up and explain exactly what it does. Try it!
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══ PRICING ═══ -->
-  <section class="section pricing-section" id="pricing">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-badge">Pricing</div>
-        <h2 class="section-title">Choose Your <span class="gradient-text">Power Level</span></h2>
-        <p class="section-subtitle">All tiers use your own API keys. You pay providers directly for tokens used.</p>
+      <div class="demo-grid fade-in" id="demoGrid">
+        <a href="marketing-mockups/home-v2.html" class="demo-card" data-demo="home" target="_blank">
+          <div class="demo-card-preview">&#127968;</div>
+          <div class="demo-card-body">
+            <h3>Home Dashboard</h3>
+            <p>Your command center. Activity feed, quick stats, recent projects &mdash; everything at a glance.</p>
+            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+        </a>
+        <a href="marketing-mockups/chat-pane-v3.html" class="demo-card" data-demo="chat" target="_blank">
+          <div class="demo-card-preview">&#128172;</div>
+          <div class="demo-card-body">
+            <h3>AI Chat Interface</h3>
+            <p>Multi-model chat with artifacts, split panes, and inline agent actions.</p>
+            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+        </a>
+        <a href="marketing-mockups/project-unified-v2.html" class="demo-card" data-demo="project" target="_blank">
+          <div class="demo-card-preview">&#128202;</div>
+          <div class="demo-card-body">
+            <h3>Project Command Center</h3>
+            <p>Kanban boards, knowledge base, analytics, calendar &mdash; your entire project in one view.</p>
+            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+        </a>
+        <a href="marketing-mockups/skills-v1.html" class="demo-card" data-demo="skills-browse" target="_blank">
+          <div class="demo-card-preview">&#9889;</div>
+          <div class="demo-card-body">
+            <h3>CatSkills Library</h3>
+            <p>Browse, create, and manage reusable AI workflows. Your skill arsenal.</p>
+            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+        </a>
+        <a href="marketing-mockups/skills-v2.html" class="demo-card" data-demo="skills-detail" target="_blank">
+          <div class="demo-card-preview">&#127919;</div>
+          <div class="demo-card-body">
+            <h3>Skills Studio</h3>
+            <p>Deep-dive into skill configuration. Edit steps, set variables, chain tools.</p>
+            <span class="demo-link">Explore Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+        </a>
       </div>
-      <div class="pricing-grid fade-in">
-
-        <!-- CURIOUS (Free) -->
-        <div class="pricing-card">
-          <span class="pricing-tag free">Free Forever</span>
-          <div class="pricing-name">PiNG! CURIOUS</div>
-          <div class="pricing-price">$0 <span>/mo</span></div>
-          <div class="pricing-desc">Everything you need to start thinking with AI.</div>
-          <ul class="pricing-features">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Multi-LLM chat (Claude, GPT, Gemini, Local)</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> RAG-powered knowledge retrieval</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Project files &amp; notes</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Global + project memory</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 8 premium themes</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Token transparency</li>
-            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No built-in browser</li>
-            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No agent tools</li>
-            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No CatSkills</li>
-          </ul>
-          <div class="pricing-cta ghost" style="opacity:0.5;pointer-events:none;cursor:default">Coming in Beta</div>
-        </div>
-
-        <!-- BASIC ($9/mo) -->
-        <div class="pricing-card popular">
-          <span class="pricing-tag popular">Most Popular</span>
-          <div class="pricing-name">PiNG! BASIC</div>
-          <div class="pricing-price">$9 <span>/mo</span></div>
-          <div class="pricing-desc">For power users who want the full AI experience.</div>
-          <ul class="pricing-features">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Everything in Curious +</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Agentic browser with privacy shields</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Advanced LLM controls (temperature, top-p, thinking modes)</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Limited CatSkills (10 custom workflows)</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Limited Harness tools (search, clipboard, notifications)</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Session replay &amp; restore</li>
-            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No coding tools</li>
-            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No sandbox</li>
-          </ul>
-          <div class="pricing-cta ghost" style="opacity:0.5;pointer-events:none;cursor:default">Coming in Beta</div>
-        </div>
-
-        <!-- CODER ($19/mo) -->
-        <div class="pricing-card">
-          <span class="pricing-tag builder">For Builders</span>
-          <div class="pricing-name">PiNG! CODER</div>
-          <div class="pricing-price">$19 <span>/mo</span></div>
-          <div class="pricing-desc">The complete developer toolkit. Ship faster with AI.</div>
-          <ul class="pricing-features">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Everything in Basic +</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Complete CatSkills (unlimited workflows)</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 100+ Harness tools (fs, git, bash, code, data, web)</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Sandboxed execution (Deno + Python VM)</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> MCP server support</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Full terminal integration</li>
-            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No Lattice enterprise schemas</li>
-          </ul>
-          <div class="pricing-cta ghost" style="opacity:0.5;pointer-events:none;cursor:default">Coming in Beta</div>
-        </div>
-
-        <!-- ENTERPRISE ($49/mo) -->
-        <div class="pricing-card">
-          <span class="pricing-tag enterprise">The Full Stack</span>
-          <div class="pricing-name">PiNG! ENTERPRISE</div>
-          <div class="pricing-price">TBA</div>
-          <div class="pricing-desc">Enterprise-grade AI for teams that demand quality.</div>
-          <ul class="pricing-features">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Everything in Coder +</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Lattice enterprise schema builder</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 30 vertical knowledge packs (Fintech, Healthcare, Insurance, Accounting, Legal, Education, Retail, etc.)</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Compliance-grade database generation</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> SVQC-validated outputs</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Priority support</li>
-          </ul>
-          <div class="pricing-cta ghost" style="opacity:0.5;pointer-events:none;cursor:default">Coming in Beta</div>
-        </div>
-      </div>
-
-      <div class="savings-card fade-in">
-        <div class="savings-comparison">
-          <div><span class="savings-label">Typical monthly cost</span><span class="savings-price strikethrough">$60 <span class="savings-note">/mo (3 subscriptions)</span></span></div>
-          <div class="savings-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-          <div><span class="savings-label">With PiNG!</span><span class="savings-price highlight">$0&ndash;49 <span class="savings-note">/mo with PiNG!</span></span></div>
-        </div>
-        <p class="savings-footer">All tiers use your own API keys. You pay providers directly for tokens used.</p>
-      </div>
-      <p class="pricing-note fade-in" style="margin-top:24px"><strong>Bring Your Own AI keys</strong> &mdash; PiNG! never touches your tokens. You pay providers directly for usage.</p>
     </div>
   </section>
 
@@ -1156,6 +1043,91 @@ a { color: var(--accent); text-decoration: none; }
     </div>
   </section>
 
+  <!-- ═══ PRICING ═══ -->
+  <section class="section pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Pricing</div>
+        <h2 class="section-title">Choose Your <span class="gradient-text">Power Level</span></h2>
+        <p class="section-subtitle">All tiers use your own API keys. You pay providers directly for tokens used.</p>
+      </div>
+      <div class="pricing-grid fade-in">
+
+        <!-- CURIOUS (Free) -->
+        <div class="pricing-card">
+          <span class="pricing-tag free">Free Forever</span>
+          <div class="pricing-name">PiNG! CURIOUS</div>
+          <div class="pricing-desc">Everything you need to start thinking with AI. <strong>Always free.</strong></div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Multi-LLM chat (Claude, GPT, Gemini, Local)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> RAG-powered knowledge retrieval</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Project files &amp; notes</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Global + project memory</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 8 premium themes</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Token transparency</li>
+            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No built-in browser</li>
+            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No agent tools</li>
+            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No CatSkills</li>
+          </ul>
+          <div class="pricing-cta ghost" style="opacity:0.5;pointer-events:none;cursor:default">Coming in Beta</div>
+        </div>
+
+        <!-- BASIC -->
+        <div class="pricing-card popular">
+          <span class="pricing-tag popular">Most Popular</span>
+          <div class="pricing-name">PiNG! BASIC</div>
+          <div class="pricing-desc">For power users who want the full AI experience.</div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Everything in Curious +</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Agentic browser with privacy shields</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Advanced LLM controls (temperature, top-p, thinking modes)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Limited CatSkills (10 custom workflows)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Limited Harness tools (search, clipboard, notifications)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Session replay &amp; restore</li>
+            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No coding tools</li>
+            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No sandbox</li>
+          </ul>
+          <div class="pricing-cta ghost" style="opacity:0.5;pointer-events:none;cursor:default">Coming in Beta</div>
+        </div>
+
+        <!-- CODER -->
+        <div class="pricing-card">
+          <span class="pricing-tag builder">For Builders</span>
+          <div class="pricing-name">PiNG! CODER</div>
+          <div class="pricing-desc">The complete developer toolkit. Ship faster with AI.</div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Everything in Basic +</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Complete CatSkills (unlimited workflows)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 100+ Harness tools (fs, git, bash, code, data, web)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Sandboxed execution (Deno + Python VM)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> MCP server support</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Full terminal integration</li>
+            <li class="missing"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> No Lattice enterprise schemas</li>
+          </ul>
+          <div class="pricing-cta ghost" style="opacity:0.5;pointer-events:none;cursor:default">Coming in Beta</div>
+        </div>
+
+        <!-- ENTERPRISE -->
+        <div class="pricing-card">
+          <span class="pricing-tag enterprise">The Full Stack</span>
+          <div class="pricing-name">PiNG! ENTERPRISE</div>
+          <div class="pricing-desc">Enterprise-grade AI for teams that demand quality.</div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Everything in Coder +</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Lattice enterprise schema builder</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 30 vertical knowledge packs (Fintech, Healthcare, Insurance, Accounting, Legal, Education, Retail, etc.)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Compliance-grade database generation</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> SVQC-validated outputs</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Priority support</li>
+          </ul>
+          <div class="pricing-cta ghost" style="opacity:0.5;pointer-events:none;cursor:default">Coming in Beta</div>
+        </div>
+      </div>
+
+      <p class="pricing-note fade-in" style="margin-top:24px"><strong>PiNG! CURIOUS is free forever.</strong> Bring your own API keys &mdash; you pay providers directly for token usage. No hidden fees.</p>
+    </div>
+  </section>
+
   <!-- ═══ BETA CTA ═══ -->
   <section class="section beta-section" id="beta">
     <div class="container">
@@ -1169,10 +1141,14 @@ a { color: var(--accent); text-decoration: none; }
           <div class="countdown-unit"><span class="countdown-value" id="cd-mins">--</span><span class="countdown-label">Minutes</span></div>
           <div class="countdown-unit"><span class="countdown-value" id="cd-secs">--</span><span class="countdown-label">Seconds</span></div>
         </div>
-        <div class="beta-form">
-          <input type="email" class="beta-input" placeholder="your@email.com" aria-label="Email address">
-          <button class="btn btn-primary">Get Early Access</button>
-        </div>
+        <form class="beta-form" action="https://formsubmit.co/indra@jiniandjacko.com" method="POST">
+          <input type="hidden" name="_subject" value="🚀 New PiNG! Beta Signup!">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_next" value="https://indiesysive.github.io/PiNG/thanks.html">
+          <input type="email" name="email" class="beta-input" placeholder="your@email.com" aria-label="Email address" required>
+          <button type="submit" class="btn btn-primary">Request Early Access</button>
+        </form>
         <p class="beta-note">No spam. Just a heads-up when PiNG! is ready. Unsubscribe anytime.</p>
       </div>
     </div>
@@ -1250,6 +1226,117 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
+
+/* ═══ RANDOM PERSONA SELECTION ═══ */
+const personas = {
+  developer: {
+    label: 'Developer',
+    name: 'Allan (Developer)',
+    emoji: '👨‍💻',
+    summary: 'PiNG! plans your features, generates code, runs tests, and commits \u2014 in one workflow.',
+    paths: {
+      home: 'marketing-mockups/home-v2.html',
+      chat: 'marketing-mockups/chat-pane-v3.html',
+      project: 'marketing-mockups/project-unified-v2.html',
+      'skills-browse': 'marketing-mockups/skills-v1.html',
+      'skills-detail': 'marketing-mockups/skills-v2.html'
+    }
+  },
+  student: {
+    label: 'Student',
+    name: 'Maya (CS Student)',
+    emoji: '📚',
+    summary: 'PiNG! organizes lectures, writes essays, builds study guides, and preps for exams \u2014 in one workspace.',
+    paths: {
+      home: 'marketing-mockups/demo-student/home.html',
+      chat: 'marketing-mockups/demo-student/chat.html',
+      project: 'marketing-mockups/demo-student/project.html',
+      'skills-browse': 'marketing-mockups/demo-student/skills-browse.html',
+      'skills-detail': 'marketing-mockups/demo-student/skills-detail.html'
+    }
+  },
+  lawyer: {
+    label: 'Lawyer',
+    name: 'Sarah Chen (Attorney)',
+    emoji: '⚖️',
+    summary: 'PiNG! reviews contracts, drafts briefs, analyzes discovery, and tracks case timelines \u2014 in one workspace.',
+    paths: {
+      home: 'marketing-mockups/demo-lawyer/home.html',
+      chat: 'marketing-mockups/demo-lawyer/chat.html',
+      project: 'marketing-mockups/demo-lawyer/project.html',
+      'skills-browse': 'marketing-mockups/demo-lawyer/skills-browse.html',
+      'skills-detail': 'marketing-mockups/demo-lawyer/skills-detail.html'
+    }
+  },
+  finance: {
+    label: 'Finance',
+    name: 'James Park (Analyst)',
+    emoji: '📈',
+    summary: 'PiNG! builds DCF models, analyzes earnings, generates client reports, and tracks portfolios \u2014 in one workspace.',
+    paths: {
+      home: 'marketing-mockups/demo-finance/home.html',
+      chat: 'marketing-mockups/demo-finance/chat.html',
+      project: 'marketing-mockups/demo-finance/project.html',
+      'skills-browse': 'marketing-mockups/demo-finance/skills-browse.html',
+      'skills-detail': 'marketing-mockups/demo-finance/skills-detail.html'
+    }
+  },
+  mom: {
+    label: 'Parent',
+    name: 'Rachel Torres (Mom)',
+    emoji: '👩‍👧‍👦',
+    summary: 'PiNG! plans meals, helps with homework, coordinates schedules, and tracks the family budget \u2014 in one workspace.',
+    paths: {
+      home: 'marketing-mockups/demo-mom/home.html',
+      chat: 'marketing-mockups/demo-mom/chat.html',
+      project: 'marketing-mockups/demo-mom/project.html',
+      'skills-browse': 'marketing-mockups/demo-mom/skills-browse.html',
+      'skills-detail': 'marketing-mockups/demo-mom/skills-detail.html'
+    }
+  }
+};
+
+// Weighted random: developer ~40%, others ~15% each
+function pickPersona() {
+  const weighted = ['developer','developer','developer','developer','developer','developer','developer','developer','student','student','student','lawyer','lawyer','lawyer','finance','finance','finance','mom','mom','mom'];
+  return weighted[Math.floor(Math.random() * weighted.length)];
+}
+
+function applyPersona(key) {
+  const p = personas[key];
+  if (!p) return;
+  sessionStorage.setItem('ping-persona', key);
+  // Update demo card links
+  document.querySelectorAll('#demoGrid .demo-card[data-demo]').forEach(card => {
+    const demo = card.getAttribute('data-demo');
+    if (p.paths[demo]) card.setAttribute('href', p.paths[demo]);
+  });
+  // Show persona badge with summary
+  const badge = document.getElementById('personaBadge');
+  const nameEl = document.getElementById('personaName');
+  const summaryEl = document.getElementById('personaSummary');
+  if (badge && nameEl) {
+    nameEl.textContent = p.name;
+    if (summaryEl) summaryEl.textContent = p.summary || '';
+    badge.style.display = 'block';
+  }
+}
+
+function shufflePersona() {
+  let current = sessionStorage.getItem('ping-persona') || '';
+  let next;
+  do { next = pickPersona(); } while (next === current);
+  applyPersona(next);
+}
+
+// Initialize on page load
+(function initPersona() {
+  let chosen = sessionStorage.getItem('ping-persona');
+  if (!chosen) {
+    chosen = pickPersona();
+  }
+  applyPersona(chosen);
+})();
 </script>
 </body>
 </html>

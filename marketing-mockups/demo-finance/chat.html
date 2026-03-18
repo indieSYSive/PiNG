@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PiNG! — Chat Pane v3</title>
+<title>PiNG! — Apex Capital Research</title>
 <style>
   /* ─── Reset & Tokens ─── */
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -689,14 +689,14 @@
 
 </head>
 <body>
-<a href="../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
+<a href="../../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
 
 <!-- ═══════════════════════════════════════════
      TITLE BAR
      ═══════════════════════════════════════════ -->
 <div class="title-bar">
   <div class="traffic-lights"><div class="tl tl-c"></div><div class="tl tl-m"></div><div class="tl tl-x"></div></div>
-  <a class="title-home" href="home-v2.html" data-tooltip="Go back to home dashboard — your AI workspace command center">
+  <a class="title-home" href="home.html" data-tooltip="Go back to home dashboard — your AI workspace command center">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
     Home
   </a>
@@ -704,20 +704,20 @@
   <div class="session-tabs" data-guide="{&quot;title&quot;: &quot;Session Tabs&quot;, &quot;tag&quot;: &quot;Multitasking&quot;, &quot;body&quot;: &quot;Run multiple AI conversations in parallel \u2014 &lt;em&gt;each tab is a full chat session&lt;/em&gt;. Compare outputs, context-switch instantly, or go full quad-pane view.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">
     <div class="session-tab active" onclick="switchView('single')">
       <span class="dot"></span>
-      030326 8PM
+      NVDA Analysis
       <span class="close-tab" data-tooltip="Close this chat tab — conversation is saved and can be reopened anytime">&times;</span>
     </div>
     <div class="session-tab" onclick="switchView('single')">
       <span class="dot" style="background: var(--text-muted)"></span>
-      Debug Session
+      Portfolio Review
       <span class="close-tab">&times;</span>
     </div>
   </div>
   <div class="tab-add" data-tooltip="Open a new chat tab — run parallel conversations with different AI models">+</div>
   <div class="title-spacer"></div>
-  <a class="title-project" href="project-unified-v2.html" data-tooltip="Open the full project workspace with files, knowledge, and settings">
+  <a class="title-project" href="project.html" data-tooltip="Open the full project workspace with files, knowledge, and settings">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8h2m2 0h2"/><path d="M7 11h6"/></svg>
-    L2 Test and Tools
+    📈 Apex Capital Research
   </a>
   <span class="title-view-label" id="view-label">Single view</span>
   <div class="layout-toggles">
@@ -747,7 +747,7 @@
   <!-- ═══ SIDEBAR ═══ -->
   <div class="sidebar" id="sidebar" data-guide="{&quot;title&quot;: &quot;Chat Organizer&quot;, &quot;tag&quot;: &quot;Navigation&quot;, &quot;body&quot;: &quot;Folders, pins, favorites \u2014 &lt;em&gt;organize hundreds of chats without losing a single thread&lt;/em&gt;. Color-coded project folders with smart search. Right-click for power moves.&quot;, &quot;cat&quot;: &quot;kat-lean-left&quot;}">
     <div class="sidebar-inner">
-      <a class="sb-project" href="home-v2.html" style="text-decoration:none;color:inherit;cursor:pointer">
+      <a class="sb-project" href="home.html" style="text-decoration:none;color:inherit;cursor:pointer">
         <div class="sb-icon"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4fa0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -783,7 +783,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           New Chat
         </div>
-        <a href="project-unified-v2.html" class="sb-action-btn">
+        <a href="project.html" class="sb-action-btn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
           Project View
         </a>
@@ -797,13 +797,13 @@
 
       <div class="sb-label">Chats</div>
       <div class="sb-chat-section">
-        <div class="cf-folder"><div class="cf-folder-header active" onclick="toggleFolder(this)" data-guide="{&quot;title&quot;: &quot;Chat Folders&quot;, &quot;tag&quot;: &quot;Organization&quot;, &quot;body&quot;: &quot;Color-coded folders &lt;em&gt;auto-organize chats by project&lt;/em&gt;. Expand to see threads, collapse to declutter. Pin important chats, right-click for power moves. Scales to hundreds of conversations.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}"><span class="cf-arrow open">&#9654;</span><span class="cf-folder-icon" style="background:var(--accent-glow);color:var(--accent)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px"><rect x="2" y="3" width="12" height="8" rx="1.5"/><path d="M5 14h6"/><path d="M8 11v3"/></svg></span>PiNG! Dev<span class="cf-count">20</span></div><div class="cf-folder-chats open"><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--green)"></span> Universal tool calling<span class="cf-pin">&#128204;</span></div><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--green)"></span> check the repo</div><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--text-muted)"></span> Browser Talk</div><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--text-muted)"></span> Browser Health C16</div><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--text-muted)"></span> Auto Runner C2</div><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--text-muted)"></span> MCP Harden C3</div><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--text-muted)"></span> UI Discussion</div><div class="cf-chat-item" style="opacity:0.5"><span class="cf-chat-dot" style="background:var(--text-muted)"></span> +13 more...</div></div></div>
-        <div><div class="cf-folder-header" onclick="toggleFolder(this)"><span class="cf-arrow">&#9654;</span><span class="cf-folder-icon" style="background:var(--purple-dim);color:var(--purple)"><svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 1.5l2 4 4.5.7-3.25 3.2.75 4.5L8 11.7l-4 2.2.75-4.5L1.5 6.2l4.5-.7z"/></svg></span>CatSkills<span class="cf-count">6</span></div><div class="cf-folder-chats"></div></div>
-        <div><div class="cf-folder-header" onclick="toggleFolder(this)"><span class="cf-arrow">&#9654;</span><span class="cf-folder-icon" style="background:var(--cyan-dim);color:var(--cyan)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px"><circle cx="8" cy="8" r="2.5"/><path d="M8 1v2m0 10v2m-7-7h2m10 0h2m-2.5-4.5-1.5 1.5m-7 7-1.5 1.5m0-10 1.5 1.5m7 7 1.5 1.5"/></svg></span>Memory System<span class="cf-count">3</span></div><div class="cf-folder-chats"></div></div>
-        <div><div class="cf-folder-header" onclick="toggleFolder(this)"><span class="cf-arrow">&#9654;</span><span class="cf-folder-icon" style="background:var(--green-dim);color:var(--green)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px"><path d="M2 4.5V12a1.5 1.5 0 001.5 1.5h9A1.5 1.5 0 0014 12V6a1.5 1.5 0 00-1.5-1.5H8L6.5 3H3.5A1.5 1.5 0 002 4.5z"/></svg></span>REPO/Coding<span class="cf-count">6</span></div><div class="cf-folder-chats"></div></div>
-        <div><div class="cf-folder-header" onclick="toggleFolder(this)"><span class="cf-arrow">&#9654;</span><span class="cf-folder-icon" style="background:var(--orange-dim);color:var(--orange)"><svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M9 1L4 9h4l-1 6 5-8H8l1-6z"/></svg></span>Features<span class="cf-count">3</span></div><div class="cf-folder-chats"></div></div>
-        <div><div class="cf-folder-header" onclick="toggleFolder(this)"><span class="cf-arrow">&#9654;</span><span class="cf-folder-icon" style="background:var(--red-dim);color:var(--red)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px"><path d="M10 2a4 4 0 00-3.46 6L2 12.5V14h1.5L8 9.46A4 4 0 1010 2z"/></svg></span>FIXES<span class="cf-count">4</span></div><div class="cf-folder-chats"></div></div>
-        <div><div class="cf-folder-header" onclick="toggleFolder(this)"><span class="cf-arrow">&#9654;</span><span class="cf-folder-icon" style="background:var(--bg-active);color:var(--text-muted)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px"><path d="M4 1.5h5l3 3V14a.5.5 0 01-.5.5h-7A.5.5 0 014 14V2a.5.5 0 01.5-.5z"/><path d="M9 1.5v3h3"/></svg></span>Unfiled<span class="cf-count">13</span></div><div class="cf-folder-chats"></div></div>
+        <div class="cf-folder"><div class="cf-folder-header active" onclick="toggleFolder(this)" data-guide="{&quot;title&quot;: &quot;Chat Folders&quot;, &quot;tag&quot;: &quot;Organization&quot;, &quot;body&quot;: &quot;Color-coded folders &lt;em&gt;auto-organize chats by project&lt;/em&gt;. Expand to see threads, collapse to declutter. Pin important chats, right-click for power moves. Scales to hundreds of conversations.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}"><span class="cf-arrow open">&#9654;</span><span class="cf-folder-icon" style="background:var(--accent-glow);color:var(--accent)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px"><rect x="2" y="3" width="12" height="8" rx="1.5"/><path d="M5 14h6"/><path d="M8 11v3"/></svg></span>Apex Capital Research<span class="cf-count">22</span></div><div class="cf-folder-chats open"><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--green)"></span> Q1 earnings &mdash; NVDA<span class="cf-pin">&#128204;</span></div><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--green)"></span> Portfolio risk assessment</div><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--text-muted)"></span> DCF model &mdash; Series B</div><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--text-muted)"></span> Market sentiment</div><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--text-muted)"></span> Portfolio rebalance</div><div class="cf-chat-item" oncontextmenu="showCtxMenu(event, this)"><span class="cf-chat-dot" style="background:var(--text-muted)"></span> SEC 10-K review</div><div class="cf-chat-item" style="opacity:0.5"><span class="cf-chat-dot" style="background:var(--text-muted)"></span> +16 more...</div></div></div>
+        <div><div class="cf-folder-header" onclick="toggleFolder(this)"><span class="cf-arrow">&#9654;</span><span class="cf-folder-icon" style="background:var(--purple-dim);color:var(--purple)"><svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 1.5l2 4 4.5.7-3.25 3.2.75 4.5L8 11.7l-4 2.2.75-4.5L1.5 6.2l4.5-.7z"/></svg></span>Semiconductor Coverage<span class="cf-count">14</span></div><div class="cf-folder-chats"></div></div>
+        <div><div class="cf-folder-header" onclick="toggleFolder(this)"><span class="cf-arrow">&#9654;</span><span class="cf-folder-icon" style="background:var(--cyan-dim);color:var(--cyan)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px"><circle cx="8" cy="8" r="2.5"/><path d="M8 1v2m0 10v2m-7-7h2m10 0h2m-2.5-4.5-1.5 1.5m-7 7-1.5 1.5m0-10 1.5 1.5m7 7 1.5 1.5"/></svg></span>Financial Models<span class="cf-count">7</span></div><div class="cf-folder-chats"></div></div>
+        <div><div class="cf-folder-header" onclick="toggleFolder(this)"><span class="cf-arrow">&#9654;</span><span class="cf-folder-icon" style="background:var(--green-dim);color:var(--green)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px"><path d="M2 4.5V12a1.5 1.5 0 001.5 1.5h9A1.5 1.5 0 0014 12V6a1.5 1.5 0 00-1.5-1.5H8L6.5 3H3.5A1.5 1.5 0 002 4.5z"/></svg></span>Client Portfolios<span class="cf-count">9</span></div><div class="cf-folder-chats"></div></div>
+        <div><div class="cf-folder-header" onclick="toggleFolder(this)"><span class="cf-arrow">&#9654;</span><span class="cf-folder-icon" style="background:var(--orange-dim);color:var(--orange)"><svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M9 1L4 9h4l-1 6 5-8H8l1-6z"/></svg></span>Trading Signals<span class="cf-count">5</span></div><div class="cf-folder-chats"></div></div>
+        <div><div class="cf-folder-header" onclick="toggleFolder(this)"><span class="cf-arrow">&#9654;</span><span class="cf-folder-icon" style="background:var(--red-dim);color:var(--red)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px"><path d="M10 2a4 4 0 00-3.46 6L2 12.5V14h1.5L8 9.46A4 4 0 1010 2z"/></svg></span>Compliance &amp; Audit<span class="cf-count">4</span></div><div class="cf-folder-chats"></div></div>
+        <div><div class="cf-folder-header" onclick="toggleFolder(this)"><span class="cf-arrow">&#9654;</span><span class="cf-folder-icon" style="background:var(--bg-active);color:var(--text-muted)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px"><path d="M4 1.5h5l3 3V14a.5.5 0 01-.5.5h-7A.5.5 0 014 14V2a.5.5 0 01.5-.5z"/><path d="M9 1.5v3h3"/></svg></span>Macro Research<span class="cf-count">6</span></div><div class="cf-folder-chats"></div></div>
       </div>
 
       <div class="sb-footer">
@@ -835,11 +835,11 @@
       <!-- Mode selector -->
       <div class="mode-selector" onclick="toggleDropdown('mode-dd')" style="position:relative" data-guide="{&quot;title&quot;: &quot;Mode Selector&quot;, &quot;tag&quot;: &quot;Controls&quot;, &quot;body&quot;: &quot;Switch between &lt;em&gt;Coding, Research, and Chat modes&lt;/em&gt; &amp;mdash; each optimized for different work. Set autonomy level: Auto, Manual, or Full. The AI adapts to how you want to work.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}" data-tooltip="Switch between Coding, Research, and Chat modes with adjustable autonomy">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        Coding &middot; Auto
+        Research &middot; Auto
         <span class="chevron">&#9662;</span>
         <div class="dropdown-demo" id="mode-dd">
-          <div class="dd-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Coding <span class="dd-key">&#8984;1</span></div>
-          <div class="dd-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Research <span class="dd-key">&#8984;2</span></div>
+          <div class="dd-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Coding <span class="dd-key">&#8984;1</span></div>
+          <div class="dd-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Research <span class="dd-key">&#8984;2</span></div>
           <div class="dd-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> Chat <span class="dd-key">&#8984;3</span></div>
           <div class="dd-sep"></div>
           <div class="dd-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Autonomy: Auto</div>
@@ -941,15 +941,15 @@
       <div class="tb-separator"></div>
 
       <!-- Prompt Profile (Tier 1) -->
-      <div class="prompt-profile" onclick="toggleDropdown('profile-dd')" style="position:relative" data-tooltip="Switch prompt profiles — Default, Code Review, PlanPack, or create your own">
+      <div class="prompt-profile" onclick="toggleDropdown('profile-dd')" style="position:relative" data-tooltip="Switch prompt profiles — Default, Equity Research, Financial Modeling, or create your own">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Default
+        Equity Research
         <span style="font-size:7px;color:var(--text-muted)">&#9662;</span>
         <div class="dropdown-demo" id="profile-dd" style="min-width:180px">
-          <div class="dd-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Default</div>
-          <div class="dd-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Code Review</div>
-          <div class="dd-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PlanPack Executor</div>
-          <div class="dd-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Research Deep</div>
+          <div class="dd-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Default</div>
+          <div class="dd-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Equity Research</div>
+          <div class="dd-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Financial Modeling</div>
+          <div class="dd-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Risk Analysis</div>
           <div class="dd-sep"></div>
           <div class="dd-item" style="color:var(--accent)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> New Profile...</div>
         </div>
@@ -959,13 +959,13 @@
 
       <!-- Repo context (merged from context-bar) -->
       <svg class="ctx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;opacity:0.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-      <span class="ctx-path" data-tooltip="Current project context — AI sees all files and knowledge in this project">PING-Skills</span>
+      <span class="ctx-path" data-tooltip="Current project context — AI sees all files and knowledge in this project">Apex Capital</span>
       <span class="ctx-sep">/</span>
-      <span class="ctx-path" style="color:var(--text-muted)">L2-test/docs</span>
+      <span class="ctx-path" style="color:var(--text-muted)">Research/Semiconductors</span>
       <span class="ctx-badge">Full Access</span>
       <span class="ctx-sep">|</span>
-      <span class="ctx-branch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg> main</span>
-      <span class="ctx-git-status">2M</span>
+      <span class="ctx-branch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg> q1-2026</span>
+      <span class="ctx-git-status">5M</span>
       <span class="ctx-trust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Verified</span>
 
       <div class="tb-separator"></div>
@@ -973,7 +973,7 @@
       <!-- Folder indicator (Tier 1) -->
       <div class="folder-indicator">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-        PiNG! Dev
+        📈 Apex Capital
       </div>
 
       <!-- Continuation chain (Tier 1) -->
@@ -1049,7 +1049,7 @@
 
             <!-- ═══ USER MESSAGE with hover actions ═══ -->
             <div class="message msg-user">
-              Can you refactor the logger utility to support structured JSON output?
+              Pull NVDA's Q1 filing and compare revenue growth against AMD and Intel. I want a sensitivity analysis on margin scenarios.
               <!-- Tier 1: User message actions (hover reveal) -->
               <div class="msg-actions">
                 <div class="msg-action" data-tip="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
@@ -1062,7 +1062,7 @@
             <div class="message msg-assistant" data-guide="{&quot;title&quot;: &quot;AI Response&quot;, &quot;tag&quot;: &quot;Chat&quot;, &quot;body&quot;: &quot;Rich AI responses with &lt;em&gt;inline code blocks, artifacts, and interactive elements&lt;/em&gt;. Hover for feedback tags, copy buttons, and regeneration options. Every response is actionable.&quot;, &quot;cat&quot;: &quot;kat-lean-right&quot;}">
               <div class="msg-label">
                 <span class="model-tag">opus 4.6</span>
-                <span class="mode-tag">Coding</span>
+                <span class="mode-tag">Research</span>
                 2 min ago
                 <!-- Tier 1: Status indicators (persistent when active) -->
                 <div class="msg-indicators">
@@ -1070,10 +1070,10 @@
                   <div class="msg-ind protected" title="Protected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                 </div>
               </div>
-              <div class="msg-content"><p>I'll refactor the logger to support structured JSON output. Let me read the current implementation first.</p></div>
-              <div class="tool-block"><span class="tool-icon">&#9656;</span> Read <code>src/utils/logger.ts</code> <span class="tool-status">&#10003; 47 lines</span></div>
-              <div class="tool-block"><span class="tool-icon">&#9656;</span> Edit <code>src/utils/logger.ts:12-35</code> <span class="tool-status">&#10003; applied</span></div>
-              <div class="msg-content"><p>Done. The logger now exports <code>logger.json()</code> for structured output alongside the existing methods. No new dependencies added.</p></div>
+              <div class="msg-content"><p>I'll pull the NVDA Q1 filing and run a comparative analysis against AMD and Intel. Let me start with the earnings data.</p></div>
+              <div class="tool-block"><span class="tool-icon">&#9656;</span> Read <code>NVDA-10Q-Q1-2026.pdf</code> <span class="tool-status">&#10003; 32 pages</span></div>
+              <div class="tool-block"><span class="tool-icon">&#9656;</span> Search <code>AMD Intel Q1 2026 earnings results</code> <span class="tool-status">&#10003; 9 results</span></div>
+              <div class="msg-content"><p>NVDA Q1 revenue came in at <code>$44.1B</code> (+69% YoY), with data center driving 86% of total revenue. AMD posted <code>$7.4B</code> (+36% YoY) while Intel reported <code>$12.7B</code> (-3% YoY). I've built the sensitivity table with 5 margin scenarios.</p></div>
 
               <!-- Tier 1: Assistant message actions (hover reveal) -->
               <div class="msg-actions">
@@ -1110,7 +1110,7 @@
 
             <!-- ═══ SECOND USER MESSAGE ═══ -->
             <div class="message msg-user">
-              Now run the full gate check to make sure nothing broke.
+              Now run the DCF sensitivity with bear/base/bull cases and chart the revenue projections.
               <div class="msg-actions">
                 <div class="msg-action" data-tip="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
                 <div class="msg-action" data-tip="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
@@ -1120,11 +1120,11 @@
 
             <!-- ═══ STREAMING ASSISTANT (with thinking indicator) ═══ -->
             <div class="message msg-assistant">
-              <div class="msg-label"><span class="model-tag">opus 4.6</span> <span class="mode-tag">Coding</span> just now</div>
-              <div class="tool-block"><span class="tool-icon">&#9656;</span> Bash <code>./scripts/gate-check.sh</code> <span class="tool-status" style="color:var(--orange)">running...</span></div>
+              <div class="msg-label"><span class="model-tag">opus 4.6</span> <span class="mode-tag">Research</span> just now</div>
+              <div class="tool-block"><span class="tool-icon">&#9656;</span> CatSkill <code>DCF Builder</code> <span class="tool-status" style="color:var(--orange)">running...</span></div>
               <div class="thinking-indicator">
                 <div class="thinking-dots"><span></span><span></span><span></span></div>
-                <span class="thinking-label">Running gate check...</span>
+                <span class="thinking-label">Building sensitivity analysis...</span>
               </div>
               <div class="msg-actions">
                 <div class="msg-action" data-tip="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
@@ -1175,7 +1175,7 @@
               </div>
               <textarea class="input-box" placeholder="Type a message..." rows="1"></textarea>
               <div class="input-actions">
-                <button class="input-icon-btn" title="Voice input" data-tooltip="Speak your message — voice-to-text input for hands-free coding"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></button>
+                <button class="input-icon-btn" title="Voice input" data-tooltip="Speak your message — voice-to-text input for hands-free research"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></button>
                 <!-- Stop button (Tier 1) — visible during generation -->
                 <button class="stop-btn" title="Stop generation" data-tooltip="Stop AI generation mid-stream — keep what it wrote so far"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
               </div>
@@ -1247,7 +1247,7 @@
             <!-- Artifact with drag + hover actions -->
             <div class="artifact-item">
               <div class="art-drag">&#8942;&#8942;</div>
-              <div class="art-info"><div class="art-name">logger.ts (modified)</div><div class="art-meta">TypeScript &middot; 47 lines &middot; 2 min ago</div></div>
+              <div class="art-info"><div class="art-name">NVDA Earnings Table</div><div class="art-meta">Table &middot; 24 rows &middot; 2 min ago</div></div>
               <div class="art-actions">
                 <div class="art-action" data-tip="Rename"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
                 <div class="art-action" data-tip="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
@@ -1258,7 +1258,7 @@
 
             <div class="artifact-item">
               <div class="art-drag">&#8942;&#8942;</div>
-              <div class="art-info"><div class="art-name">logger.test.ts (new)</div><div class="art-meta">TypeScript &middot; 23 lines &middot; 2 min ago</div></div>
+              <div class="art-info"><div class="art-name">Revenue Chart (interactive)</div><div class="art-meta">Chart &middot; NVDA vs AMD vs INTC &middot; 2 min ago</div></div>
               <div class="art-actions">
                 <div class="art-action" data-tip="Rename"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
                 <div class="art-action" data-tip="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
@@ -1269,7 +1269,7 @@
 
             <div class="artifact-item">
               <div class="art-drag">&#8942;&#8942;</div>
-              <div class="art-info"><div class="art-name">gate-check output</div><div class="art-meta">Terminal &middot; 12 lines &middot; 1 min ago</div></div>
+              <div class="art-info"><div class="art-name">Sensitivity Analysis</div><div class="art-meta">Model &middot; 5 scenarios &middot; 1 min ago</div></div>
               <div class="art-actions">
                 <div class="art-action" data-tip="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
                 <div class="art-action" data-tip="Open in Preview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
@@ -1279,7 +1279,7 @@
 
             <div class="artifact-item" style="opacity:0.5">
               <div class="art-drag">&#8942;&#8942;</div>
-              <div class="art-info"><div class="art-name">+ 6 more artifacts...</div><div class="art-meta">from earlier in session</div></div>
+              <div class="art-info"><div class="art-name">+ 6 more artifacts...</div><div class="art-meta">DCF model, comp tables, filings</div></div>
               <div class="art-actions"></div>
             </div>
           </div>
@@ -1293,20 +1293,20 @@
     <div class="view" id="view-split-v">
       <div class="split-v-grid">
 
-        <!-- PANE 1: Browser Health C16 — Coding · Full · Opus -->
+        <!-- PANE 1: Q1 Earnings &mdash; NVDA — Coding · Full · Opus -->
         <div class="pane">
-          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--green)"></span><span class="pane-label">Browser Health C16</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
+          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--green)"></span><span class="pane-label">Q1 Earnings &mdash; NVDA</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
           <div class="pane-toolbar">
             <div class="pane-tb-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              Coding &middot; Full
+              Research &middot; Full
             </div>
             <div class="pane-tb-sep"></div>
             <div class="pane-tb-pill"><span class="dot" style="background:var(--accent)"></span> Opus 4.6</div>
             <div class="pane-tb-sep"></div>
             <div style="display:flex;align-items:center;gap:2px;font-size:10px;color:var(--accent);padding:1px 4px;border-radius:3px;background:var(--accent-glow)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:9px;height:9px"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-              PiNG! Dev
+              Apex Capital
             </div>
             <div style="display:flex;align-items:center;gap:2px;font-size:10px;color:var(--purple);padding:1px 4px">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:9px;height:9px"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
@@ -1318,10 +1318,10 @@
             <div class="pane-tb-icon" title="Notes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
           </div>
           <div class="pane-body">
-            <div class="mini-msg-user">Run the full gate check with the latest changes.</div>
-            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Bash <code>./scripts/gate-check.sh</code> &#10003;</div><p>All 1037 browser tests pass. Gate check complete &mdash; no regressions found.</p></div>
-            <div class="mini-msg-user">Now commit with the triad update.</div>
-            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Bash <code>git add ...</code> &#10003;</div><div class="mini-tool">&#9656; Bash <code>git commit</code> &#10003;</div><p>Committed implementation + triad docs. Branch is ready for push.</p></div>
+            <div class="mini-msg-user">Pull the latest NVDA Q1 filing and summarize revenue by segment.</div>
+            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Read <code>NVDA-10Q-Q1-2026.pdf</code> &#10003;</div><p>Data center revenue hit $39.2B (+73% YoY), gaming at $3.3B (+9%). Gross margin expanded to 78.4%.</p></div>
+            <div class="mini-msg-user">Compare against AMD and Intel margins. Build the comp table.</div>
+            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Search <code>AMD INTC Q1 margins</code> &#10003;</div><div class="mini-tool">&#9656; CatSkill <code>Comp Table Builder</code> &#10003;</div><p>Comp table built. NVDA leads at 78.4% gross margin vs AMD 53.1% and Intel 41.2%.</p></div>
           </div>
           <div class="mini-input">
             <input class="mini-input-box" placeholder="Message..." />
@@ -1338,20 +1338,20 @@
           </div>
         </div>
 
-        <!-- PANE 2: Auto Runner C2 — Coding · Auto · Opus -->
+        <!-- PANE 2: DCF Model &mdash; Series B — Coding · Auto · Opus -->
         <div class="pane">
-          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--purple)"></span><span class="pane-label">Auto Runner C2</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
+          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--purple)"></span><span class="pane-label">DCF Model &mdash; Series B</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
           <div class="pane-toolbar">
             <div class="pane-tb-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              Coding &middot; Auto
+              Research &middot; Auto
             </div>
             <div class="pane-tb-sep"></div>
             <div class="pane-tb-pill"><span class="dot" style="background:var(--accent)"></span> Opus 4.6</div>
             <div class="pane-tb-sep"></div>
             <div style="display:flex;align-items:center;gap:2px;font-size:10px;color:var(--accent);padding:1px 4px;border-radius:3px;background:var(--accent-glow)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:9px;height:9px"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-              PiNG! Dev
+              Apex Capital
             </div>
             <div class="pane-tb-spacer"></div>
             <div class="pane-tb-icon" title="Artifacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
@@ -1359,13 +1359,13 @@
             <div class="pane-tb-icon" title="Notes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
           </div>
           <div class="pane-body">
-            <div class="mini-msg-user">Start AR-C2 implementation. Read the spec first.</div>
-            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Read <code>docs/phase-7.2/AR-C2-spec.md</code> &#10003;</div><p>I've analyzed the AR-C2 spec. This chunk adds the auto-runner scheduling engine with cron-based triggers.</p></div>
+            <div class="mini-msg-user">Build the DCF model for the Series B target. Use 10-year projections.</div>
+            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Read <code>SeriesB-Financials.xlsx</code> &#10003;</div><p>I've loaded the Series B financials. Building 10-year DCF with WACC at 12% and terminal growth at 3%.</p></div>
             <div class="mini-msg-assistant">
-              <div class="mini-tool" style="border-left-color:var(--orange)">&#9656; Edit <code>src/autorunner/scheduler.ts</code> <span style="color:var(--orange);margin-left:auto">running...</span></div>
+              <div class="mini-tool" style="border-left-color:var(--orange)">&#9656; CatSkill <code>DCF Builder</code> <span style="color:var(--orange);margin-left:auto">running...</span></div>
               <div class="thinking-indicator" style="padding:4px 0">
                 <div class="thinking-dots"><span></span><span></span><span></span></div>
-                <span class="thinking-label" style="font-size:10px">Implementing scheduler...</span>
+                <span class="thinking-label" style="font-size:10px">Computing implied valuations...</span>
               </div>
             </div>
           </div>
@@ -1393,20 +1393,20 @@
     <div class="view" id="view-split-h">
       <div class="split-h-grid">
 
-        <!-- PANE 1: Browser Health C16 — Coding · Full · Opus -->
+        <!-- PANE 1: Q1 Earnings &mdash; NVDA — Coding · Full · Opus -->
         <div class="pane">
-          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--green)"></span><span class="pane-label">Browser Health C16</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
+          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--green)"></span><span class="pane-label">Q1 Earnings &mdash; NVDA</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
           <div class="pane-toolbar">
             <div class="pane-tb-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              Coding &middot; Full
+              Research &middot; Full
             </div>
             <div class="pane-tb-sep"></div>
             <div class="pane-tb-pill"><span class="dot" style="background:var(--accent)"></span> Opus 4.6</div>
             <div class="pane-tb-sep"></div>
             <div style="display:flex;align-items:center;gap:2px;font-size:10px;color:var(--accent);padding:1px 4px;border-radius:3px;background:var(--accent-glow)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:9px;height:9px"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-              PiNG! Dev
+              Apex Capital
             </div>
             <div style="display:flex;align-items:center;gap:2px;font-size:10px;color:var(--purple);padding:1px 4px">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:9px;height:9px"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
@@ -1418,10 +1418,10 @@
             <div class="pane-tb-icon" title="Notes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
           </div>
           <div class="pane-body">
-            <div class="mini-msg-user">Run the full gate check with the latest changes.</div>
-            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Bash <code>./scripts/gate-check.sh</code> &#10003;</div><p>All 1037 browser tests pass. Gate check complete &mdash; no regressions found.</p></div>
-            <div class="mini-msg-user">Now commit with the triad update.</div>
-            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Bash <code>git add ...</code> &#10003;</div><div class="mini-tool">&#9656; Bash <code>git commit</code> &#10003;</div><p>Committed implementation + triad docs. Branch is ready for push.</p></div>
+            <div class="mini-msg-user">Pull the latest NVDA Q1 filing and summarize revenue by segment.</div>
+            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Read <code>NVDA-10Q-Q1-2026.pdf</code> &#10003;</div><p>Data center revenue hit $39.2B (+73% YoY), gaming at $3.3B (+9%). Gross margin expanded to 78.4%.</p></div>
+            <div class="mini-msg-user">Compare against AMD and Intel margins. Build the comp table.</div>
+            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Search <code>AMD INTC Q1 margins</code> &#10003;</div><div class="mini-tool">&#9656; CatSkill <code>Comp Table Builder</code> &#10003;</div><p>Comp table built. NVDA leads at 78.4% gross margin vs AMD 53.1% and Intel 41.2%.</p></div>
           </div>
           <div class="mini-input">
             <input class="mini-input-box" placeholder="Message..." />
@@ -1438,9 +1438,9 @@
           </div>
         </div>
 
-        <!-- PANE 3: UI Discussion — Chat · Auto · Sonnet -->
+        <!-- PANE 3: Market Sentiment — Chat · Auto · Sonnet -->
         <div class="pane">
-          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--text-muted)"></span><span class="pane-label">UI Discussion</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
+          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--text-muted)"></span><span class="pane-label">Market Sentiment</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
           <div class="pane-toolbar">
             <div class="pane-tb-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
@@ -1454,8 +1454,8 @@
             <div class="pane-tb-icon" title="Notes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
           </div>
           <div class="pane-body">
-            <div class="mini-msg-user">Let's finalize the project view mockup. Show me the sidebar layout.</div>
-            <div class="mini-msg-assistant"><p>The sidebar uses a collapsible folder tree with the cat mascot logo at the top. Each folder shows a colored icon and chat count badge...</p></div>
+            <div class="mini-msg-user">Summarize today's macro sentiment. Focus on Fed commentary and yield curve shifts.</div>
+            <div class="mini-msg-assistant"><p>Fed held rates at 4.25%. 10Y yield fell 8bps to 4.12%. Market pricing 2 cuts by Q4. Sector rotation into defensives accelerating...</p></div>
           </div>
           <div class="mini-input">
             <input class="mini-input-box" placeholder="Message..." />
@@ -1481,13 +1481,13 @@
     <div class="view" id="view-three-col">
       <div class="three-col-grid">
 
-        <!-- PANE 1: Browser Health C16 — Coding · Full · Opus -->
+        <!-- PANE 1: Q1 Earnings &mdash; NVDA — Coding · Full · Opus -->
         <div class="pane">
-          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--green)"></span><span class="pane-label">Browser Health C16</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
+          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--green)"></span><span class="pane-label">Q1 Earnings &mdash; NVDA</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
           <div class="pane-toolbar">
             <div class="pane-tb-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              Coding &middot; Full
+              Research &middot; Full
             </div>
             <div class="pane-tb-sep"></div>
             <div class="pane-tb-pill"><span class="dot" style="background:var(--accent)"></span> Opus 4.6</div>
@@ -1496,10 +1496,10 @@
             <div class="pane-tb-icon" title="TODOs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
           </div>
           <div class="pane-body">
-            <div class="mini-msg-user">Run the full gate check with the latest changes.</div>
-            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Bash <code>./scripts/gate-check.sh</code> &#10003;</div><p>All 1037 browser tests pass. Gate check complete &mdash; no regressions found.</p></div>
-            <div class="mini-msg-user">Now commit with the triad update.</div>
-            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Bash <code>git commit</code> &#10003;</div><p>Committed. Branch is ready for push.</p></div>
+            <div class="mini-msg-user">Pull the latest NVDA Q1 filing and summarize revenue by segment.</div>
+            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Read <code>NVDA-10Q-Q1-2026.pdf</code> &#10003;</div><p>Data center revenue hit $39.2B (+73% YoY), gaming at $3.3B (+9%). Gross margin expanded to 78.4%.</p></div>
+            <div class="mini-msg-user">Compare against AMD and Intel margins. Build the comp table.</div>
+            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; CatSkill <code>Comp Table Builder</code> &#10003;</div><p>Done. Comp table saved to your research workspace.</p></div>
           </div>
           <div class="mini-input">
             <input class="mini-input-box" placeholder="Message..." />
@@ -1507,13 +1507,13 @@
           </div>
         </div>
 
-        <!-- PANE 2: Auto Runner C2 — Coding · Auto · Opus -->
+        <!-- PANE 2: DCF Model &mdash; Series B — Coding · Auto · Opus -->
         <div class="pane">
-          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--purple)"></span><span class="pane-label">Auto Runner C2</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
+          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--purple)"></span><span class="pane-label">DCF Model &mdash; Series B</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
           <div class="pane-toolbar">
             <div class="pane-tb-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              Coding &middot; Auto
+              Research &middot; Auto
             </div>
             <div class="pane-tb-sep"></div>
             <div class="pane-tb-pill"><span class="dot" style="background:var(--accent)"></span> Opus 4.6</div>
@@ -1521,13 +1521,13 @@
             <div class="pane-tb-icon active" title="TODOs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span class="mini-dot"></span></div>
           </div>
           <div class="pane-body">
-            <div class="mini-msg-user">Start AR-C2 implementation. Read the spec first.</div>
-            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Read <code>docs/phase-7.2/AR-C2-spec.md</code> &#10003;</div><p>I've analyzed the AR-C2 spec. Adding the auto-runner scheduling engine.</p></div>
+            <div class="mini-msg-user">Build the DCF model for the Series B target. Use 10-year projections.</div>
+            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Read <code>SeriesB-Financials.xlsx</code> &#10003;</div><p>Loaded financials. Building 10-year DCF with bear/base/bull scenarios.</p></div>
             <div class="mini-msg-assistant">
-              <div class="mini-tool" style="border-left-color:var(--orange)">&#9656; Edit <code>src/autorunner/scheduler.ts</code> <span style="color:var(--orange);margin-left:auto">running...</span></div>
+              <div class="mini-tool" style="border-left-color:var(--orange)">&#9656; CatSkill <code>DCF Builder</code> <span style="color:var(--orange);margin-left:auto">running...</span></div>
               <div class="thinking-indicator" style="padding:4px 0">
                 <div class="thinking-dots"><span></span><span></span><span></span></div>
-                <span class="thinking-label" style="font-size:10px">Implementing scheduler...</span>
+                <span class="thinking-label" style="font-size:10px">Computing implied valuations...</span>
               </div>
             </div>
           </div>
@@ -1537,9 +1537,9 @@
           </div>
         </div>
 
-        <!-- PANE 3: UI Discussion — Chat · Auto · Sonnet -->
+        <!-- PANE 3: Market Sentiment — Chat · Auto · Sonnet -->
         <div class="pane">
-          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--text-muted)"></span><span class="pane-label">UI Discussion</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
+          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--text-muted)"></span><span class="pane-label">Market Sentiment</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
           <div class="pane-toolbar">
             <div class="pane-tb-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
@@ -1551,8 +1551,8 @@
             <div class="pane-tb-icon" title="Artifacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
           </div>
           <div class="pane-body">
-            <div class="mini-msg-user">Let's finalize the project view mockup. Show me the sidebar layout.</div>
-            <div class="mini-msg-assistant"><p>The sidebar uses a collapsible folder tree with the cat mascot logo at the top. Each folder shows a colored icon and chat count badge...</p></div>
+            <div class="mini-msg-user">Summarize today's macro sentiment. Focus on Fed commentary and yield curve shifts.</div>
+            <div class="mini-msg-assistant"><p>Fed held rates at 4.25%. 10Y yield fell 8bps to 4.12%. Market pricing 2 cuts by Q4. Sector rotation into defensives accelerating...</p></div>
           </div>
           <div class="mini-input">
             <input class="mini-input-box" placeholder="Message..." />
@@ -1569,13 +1569,13 @@
     <div class="view" id="view-four-pane">
       <div class="four-pane-grid" data-guide="{&quot;title&quot;: &quot;Quad-Pane View&quot;, &quot;tag&quot;: &quot;Power User&quot;, &quot;body&quot;: &quot;Run &lt;em&gt;4 AI conversations simultaneously&lt;/em&gt; &amp;mdash; each with its own model, mode, and context. One pane can even be a browser. The ultimate multitasking setup for power users.&quot;, &quot;cat&quot;: &quot;kat-perk&quot;}">
 
-        <!-- PANE 1: Browser Health C16 — Coding · Full · Opus -->
+        <!-- PANE 1: Q1 Earnings &mdash; NVDA — Coding · Full · Opus -->
         <div class="pane">
-          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--green)"></span><span class="pane-label">Browser Health C16</span><div class="pane-actions"><span class="pane-action" data-tooltip="Expand this pane to full view or close it">&#8599;</span><span class="pane-action">&times;</span></div></div>
+          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--green)"></span><span class="pane-label">Q1 Earnings &mdash; NVDA</span><div class="pane-actions"><span class="pane-action" data-tooltip="Expand this pane to full view or close it">&#8599;</span><span class="pane-action">&times;</span></div></div>
           <div class="pane-toolbar">
             <div class="pane-tb-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              Coding &middot; Full
+              Research &middot; Full
             </div>
             <div class="pane-tb-sep"></div>
             <div class="pane-tb-pill"><span class="dot" style="background:var(--accent)"></span> Opus 4.6</div>
@@ -1583,7 +1583,7 @@
             <!-- Folder indicator (compact) -->
             <div style="display:flex;align-items:center;gap:2px;font-size:10px;color:var(--accent);padding:1px 4px;border-radius:3px;background:var(--accent-glow)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:9px;height:9px"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-              PiNG! Dev
+              Apex Capital
             </div>
             <!-- Chain indicator (compact) -->
             <div style="display:flex;align-items:center;gap:2px;font-size:10px;color:var(--purple);padding:1px 4px">
@@ -1597,26 +1597,26 @@
           </div>
           <div class="pane-body">
             <!-- Mini messages with hover actions -->
-            <div class="mini-msg-user">Run the full gate check with the latest changes.
+            <div class="mini-msg-user">Pull the latest NVDA Q1 filing and summarize revenue by segment.
               <div class="mini-actions">
                 <div class="mini-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
                 <div class="mini-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
               </div>
             </div>
-            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Bash <code>./scripts/gate-check.sh</code> &#10003;</div><p>All 1037 browser tests pass. Gate check complete &mdash; no regressions found.</p>
+            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Read <code>NVDA-10Q-Q1-2026.pdf</code> &#10003;</div><p>Data center revenue hit $39.2B (+73% YoY), gaming at $3.3B (+9%). Gross margin expanded to 78.4%.</p>
               <div class="mini-actions">
                 <div class="mini-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
                 <div class="mini-action star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                 <div class="mini-action" style="color:var(--green)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14z"/></svg></div>
               </div>
             </div>
-            <div class="mini-msg-user">Now commit with the triad update.
+            <div class="mini-msg-user">Compare against AMD and Intel margins. Build the comp table.
               <div class="mini-actions">
                 <div class="mini-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
                 <div class="mini-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
               </div>
             </div>
-            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Bash <code>git add ...</code> &#10003;</div><div class="mini-tool">&#9656; Bash <code>git commit</code> &#10003;</div><p>Committed implementation + triad docs. Branch is ready for push.</p>
+            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Search <code>AMD INTC Q1 margins</code> &#10003;</div><div class="mini-tool">&#9656; CatSkill <code>Comp Table Builder</code> &#10003;</div><p>Comp table built. NVDA leads at 78.4% gross margin vs AMD 53.1% and Intel 41.2%.</p>
               <div class="mini-actions">
                 <div class="mini-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
                 <div class="mini-action star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
@@ -1647,20 +1647,20 @@
           </div>
         </div>
 
-        <!-- PANE 2: Auto Runner C2 — Coding · Auto · Opus (streaming) -->
+        <!-- PANE 2: DCF Model &mdash; Series B — Coding · Auto · Opus (streaming) -->
         <div class="pane">
-          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--purple)"></span><span class="pane-label">Auto Runner C2</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
+          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--purple)"></span><span class="pane-label">DCF Model &mdash; Series B</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
           <div class="pane-toolbar">
             <div class="pane-tb-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              Coding &middot; Auto
+              Research &middot; Auto
             </div>
             <div class="pane-tb-sep"></div>
             <div class="pane-tb-pill"><span class="dot" style="background:var(--accent)"></span> Opus 4.6</div>
             <div class="pane-tb-sep"></div>
             <div style="display:flex;align-items:center;gap:2px;font-size:10px;color:var(--accent);padding:1px 4px;border-radius:3px;background:var(--accent-glow)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:9px;height:9px"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-              PiNG! Dev
+              Apex Capital
             </div>
             <div class="pane-tb-spacer"></div>
             <div class="pane-tb-icon" title="Artifacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
@@ -1668,13 +1668,13 @@
             <div class="pane-tb-icon" title="Notes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
           </div>
           <div class="pane-body">
-            <div class="mini-msg-user">Start AR-C2 implementation. Read the spec first.
+            <div class="mini-msg-user">Build the DCF model for the Series B target. Use 10-year projections.
               <div class="mini-actions">
                 <div class="mini-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
                 <div class="mini-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
               </div>
             </div>
-            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Read <code>docs/phase-7.2/AR-C2-spec.md</code> &#10003;</div><p>I've analyzed the AR-C2 spec. This chunk adds the auto-runner scheduling engine with cron-based triggers.</p>
+            <div class="mini-msg-assistant"><div class="mini-tool">&#9656; Read <code>SeriesB-Financials.xlsx</code> &#10003;</div><p>I've loaded the Series B financials. Building 10-year DCF with WACC at 12% and terminal growth at 3%.</p>
               <div class="mini-actions">
                 <div class="mini-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
                 <div class="mini-action star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
@@ -1683,10 +1683,10 @@
             </div>
             <!-- Streaming state -->
             <div class="mini-msg-assistant">
-              <div class="mini-tool" style="border-left-color:var(--orange)">&#9656; Edit <code>src/autorunner/scheduler.ts</code> <span style="color:var(--orange);margin-left:auto">running...</span></div>
+              <div class="mini-tool" style="border-left-color:var(--orange)">&#9656; CatSkill <code>DCF Builder</code> <span style="color:var(--orange);margin-left:auto">running...</span></div>
               <div class="thinking-indicator" style="padding:4px 0">
                 <div class="thinking-dots"><span></span><span></span><span></span></div>
-                <span class="thinking-label" style="font-size:10px">Implementing scheduler...</span>
+                <span class="thinking-label" style="font-size:10px">Computing implied valuations...</span>
               </div>
             </div>
           </div>
@@ -1706,9 +1706,9 @@
           </div>
         </div>
 
-        <!-- PANE 3: UI Discussion — Chat · Auto · Sonnet -->
+        <!-- PANE 3: Market Sentiment — Chat · Auto · Sonnet -->
         <div class="pane">
-          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--text-muted)"></span><span class="pane-label">UI Discussion</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
+          <div class="pane-header"><span style="width:6px;height:6px;border-radius:50%;background:var(--text-muted)"></span><span class="pane-label">Market Sentiment</span><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
           <div class="pane-toolbar">
             <div class="pane-tb-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
@@ -1722,13 +1722,13 @@
             <div class="pane-tb-icon" title="Notes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
           </div>
           <div class="pane-body">
-            <div class="mini-msg-user">Let's finalize the project view mockup. Show me the sidebar layout.
+            <div class="mini-msg-user">Summarize today's macro sentiment. Focus on Fed commentary and yield curve shifts.
               <div class="mini-actions">
                 <div class="mini-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
                 <div class="mini-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
               </div>
             </div>
-            <div class="mini-msg-assistant"><p>The sidebar uses a collapsible folder tree with the cat mascot logo at the top. Each folder shows a colored icon and chat count badge...</p>
+            <div class="mini-msg-assistant"><p>Fed held rates at 4.25%. 10Y yield fell 8bps to 4.12%. Market pricing 2 cuts by Q4. Sector rotation into defensives accelerating...</p>
               <div class="mini-actions">
                 <div class="mini-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
                 <div class="mini-action star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
@@ -1753,7 +1753,7 @@
 
         <!-- PANE 4: Browser — Research · Manual · Gemini -->
         <div class="pane">
-          <div class="pane-header" style="gap:8px"><div class="browser-nav"><span class="browser-nav-btn">&#8592;</span><span class="browser-nav-btn">&#8594;</span><span class="browser-nav-btn">&#8635;</span></div><input class="browser-url" value="https://apple.com" readonly /><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
+          <div class="pane-header" style="gap:8px"><div class="browser-nav"><span class="browser-nav-btn">&#8592;</span><span class="browser-nav-btn">&#8594;</span><span class="browser-nav-btn">&#8635;</span></div><input class="browser-url" value="https://bloomberg.com/markets" readonly /><div class="pane-actions"><span class="pane-action">&#8599;</span><span class="pane-action">&times;</span></div></div>
           <div class="pane-toolbar">
             <div class="pane-tb-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>
@@ -1765,7 +1765,7 @@
             <div class="pane-tb-icon" title="Artifacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
             <div class="pane-tb-icon" title="TODOs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
           </div>
-          <div class="browser-viewport"><div class="browser-placeholder"><div class="site-name" style="font-size:32px">&#63743;</div><div class="site-name">apple.com</div><div class="site-url" style="margin-top:8px">Browser pane &mdash; live web preview</div></div></div>
+          <div class="browser-viewport"><div class="browser-placeholder"><div class="site-name" style="font-size:32px">B</div><div class="site-name">bloomberg.com/markets</div><div class="site-url" style="margin-top:8px">Browser pane &mdash; live market data</div></div></div>
         </div>
 
       </div>
@@ -1792,7 +1792,7 @@
           <div class="sp-item selected">
             <div class="sp-item-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
             <div class="sp-item-info">
-              <div class="sp-item-name">Code Review</div>
+              <div class="sp-item-name">Earnings Analyzer</div>
               <div class="sp-item-meta"><span class="sp-item-type prompt">Prompt</span><span>Used 2h ago</span><span class="sp-item-fav">★</span></div>
             </div>
             <button class="sp-item-run prompt">▶ Run</button>
@@ -1800,7 +1800,7 @@
           <div class="sp-item">
             <div class="sp-item-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
             <div class="sp-item-info">
-              <div class="sp-item-name">GitHub PR Bot</div>
+              <div class="sp-item-name">Bloomberg Terminal</div>
               <div class="sp-item-meta"><span class="sp-item-type integration">Integration</span><span>Used 5h ago</span></div>
             </div>
             <button class="sp-item-run integration">▶ Run</button>
@@ -1808,7 +1808,7 @@
           <div class="sp-item">
             <div class="sp-item-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
             <div class="sp-item-info">
-              <div class="sp-item-name">Test Generator</div>
+              <div class="sp-item-name">DCF Builder</div>
               <div class="sp-item-meta"><span class="sp-item-type prompt">Prompt</span><span>Used yesterday</span><span class="sp-item-fav">★</span></div>
             </div>
             <button class="sp-item-run prompt">▶ Run</button>
@@ -1822,24 +1822,24 @@
           <div class="sp-item">
             <div class="sp-item-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
             <div class="sp-item-info">
-              <div class="sp-item-name">Think Deeper</div>
-              <div class="sp-item-meta"><span class="sp-item-type prompt">Prompt</span><span>Multi-phase analytical reasoning</span></div>
+              <div class="sp-item-name">Portfolio Risk</div>
+              <div class="sp-item-meta"><span class="sp-item-type prompt">Prompt</span><span>VAR and stress testing across holdings</span></div>
             </div>
             <button class="sp-item-run prompt">▶ Run</button>
           </div>
           <div class="sp-item">
             <div class="sp-item-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
             <div class="sp-item-info">
-              <div class="sp-item-name">Security Audit</div>
-              <div class="sp-item-meta"><span class="sp-item-type prompt">Prompt</span><span>OWASP-aligned vulnerability scanning</span></div>
+              <div class="sp-item-name">SEC Filing Reader</div>
+              <div class="sp-item-meta"><span class="sp-item-type prompt">Prompt</span><span>Parse 10-K/10-Q filings for key metrics</span></div>
             </div>
             <button class="sp-item-run prompt">▶ Run</button>
           </div>
           <div class="sp-item">
             <div class="sp-item-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
             <div class="sp-item-info">
-              <div class="sp-item-name">Full Review Pipeline</div>
-              <div class="sp-item-meta"><span class="sp-item-type workflow">Workflow</span><span>3 steps &middot; Code Review → Security → Test Gen</span></div>
+              <div class="sp-item-name">Earnings Season Pipeline</div>
+              <div class="sp-item-meta"><span class="sp-item-type workflow">Workflow</span><span>4 steps &middot; Transcript → Model → Comp Table → Note</span></div>
             </div>
             <button class="sp-item-run workflow">▶ Run</button>
           </div>
@@ -1852,32 +1852,32 @@
           <div class="sp-item">
             <div class="sp-item-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
             <div class="sp-item-info">
-              <div class="sp-item-name">Customer Report</div>
-              <div class="sp-item-meta"><span class="sp-item-type integration">Integration</span><span>CRM API + Slack webhook</span></div>
+              <div class="sp-item-name">SEC Filing Reader</div>
+              <div class="sp-item-meta"><span class="sp-item-type integration">Integration</span><span>10-K/10-Q extraction via EDGAR</span></div>
             </div>
             <button class="sp-item-run integration">▶ Run</button>
           </div>
           <div class="sp-item">
             <div class="sp-item-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
             <div class="sp-item-info">
-              <div class="sp-item-name">Daily Standup</div>
-              <div class="sp-item-meta"><span class="sp-item-type workflow">Workflow</span><span>Generates standup from recent commits</span></div>
+              <div class="sp-item-name">Morning Brief</div>
+              <div class="sp-item-meta"><span class="sp-item-type workflow">Workflow</span><span>Pre-market briefing from overnight data</span></div>
             </div>
             <button class="sp-item-run workflow">▶ Run</button>
           </div>
           <div class="sp-item">
             <div class="sp-item-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
             <div class="sp-item-info">
-              <div class="sp-item-name">Deploy Checker</div>
-              <div class="sp-item-meta"><span class="sp-item-type integration">Integration</span><span>CI pipelines + environment configs</span></div>
+              <div class="sp-item-name">Compliance Checker</div>
+              <div class="sp-item-meta"><span class="sp-item-type integration">Integration</span><span>Pre-trade compliance + restricted list</span></div>
             </div>
             <button class="sp-item-run integration">▶ Run</button>
           </div>
           <div class="sp-item">
             <div class="sp-item-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
             <div class="sp-item-info">
-              <div class="sp-item-name">Refactor Clean</div>
-              <div class="sp-item-meta"><span class="sp-item-type prompt">Prompt</span><span>SOLID-based code refactoring</span></div>
+              <div class="sp-item-name">Client Report Writer</div>
+              <div class="sp-item-meta"><span class="sp-item-type prompt">Prompt</span><span>Institutional-grade research notes</span></div>
             </div>
             <button class="sp-item-run prompt">▶ Run</button>
           </div>
@@ -1888,7 +1888,7 @@
       <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
       <span><kbd>↵</kbd> run skill</span>
       <span><kbd>⌘K</kbd> open</span>
-      <a class="sp-footer-link" href="skills-v2.html" data-tooltip="Browse the full CatSkills library with 47 available skills">Browse All CatSkills →</a>
+      <a class="sp-footer-link" href="skills-browse.html" data-tooltip="Browse the full CatSkills library with 47 available skills">Browse All CatSkills →</a>
     </div>
   </div>
 </div>

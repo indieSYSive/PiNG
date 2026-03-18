@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PiNG! Project View — Unified AI Workstation</title>
+<title>PiNG! — Family Command Center</title>
 <style data-tooltip="Project memory — facts and decisions AI remembers across all conversations">
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -742,13 +742,13 @@
 
 </head>
 <body>
-<a href="../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
+<a href="../../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
 
 <!-- Title Bar -->
 <div class="title-bar">
   <div class="traffic-lights"><div class="tl tl-c"></div><div class="tl tl-m"></div><div class="tl tl-x"></div></div>
   <div class="title-nav">
-    <a href="home-v2.html">&#8249; Home</a><span style="color:var(--text-muted)">/</span><a class="current">PiNG!</a>
+    <a href="home.html">&#8249; Home</a><span style="color:var(--text-muted)">/</span><a class="current">&#127969; Family Command Center</a>
   </div>
   <div class="title-spacer"></div>
   <div class="title-search" data-guide="{&quot;title&quot;: &quot;Command Palette&quot;, &quot;tag&quot;: &quot;Power User&quot;, &quot;body&quot;: &quot;The ultimate power move &amp;mdash; &lt;em&gt;search anything or run commands with Cmd+K&lt;/em&gt;. Find files, switch chats, run skills, or jump to any project. Keyboard-first workflow for speed demons.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}"><span>&#128269;</span> Search or run a command...<kbd>&#8984;K</kbd></div>
@@ -759,7 +759,7 @@
 
   <!-- ═══ SIDEBAR ═══ -->
   <div class="sidebar" id="ws-sidebar" data-guide="{&quot;title&quot;: &quot;Project Navigator&quot;, &quot;tag&quot;: &quot;Navigation&quot;, &quot;body&quot;: &quot;Every dimension of your project in one sidebar: &lt;em&gt;Chats, Notes, Files, Knowledge, CatSkills, Agents&lt;/em&gt;. Click to explore, badges show live counts. Your project brain, organized.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
-    <a class="sb-project" href="home-v2.html" style="text-decoration:none;color:inherit;cursor:pointer">
+    <a class="sb-project" href="home.html" style="text-decoration:none;color:inherit;cursor:pointer">
       <div class="sb-icon"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4fa0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -814,7 +814,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
         Knowledge <span class="sb-badge n">4</span>
       </div>
-      <div class="sb-item" onclick="showView('analytics')" data-guide="{&quot;title&quot;: &quot;Analytics&quot;, &quot;tag&quot;: &quot;Insights&quot;, &quot;body&quot;: &quot;Know exactly where your AI budget goes &amp;mdash; &lt;em&gt;token usage, costs per model, daily trends&lt;/em&gt;. Opus vs Sonnet breakdown, per-task spending, and exportable reports. Data-driven AI for teams that care about ROI.&quot;, &quot;cat&quot;: &quot;kat-lean-right&quot;}">
+      <div class="sb-item" onclick="showView('analytics')" data-guide="{&quot;title&quot;: &quot;Analytics&quot;, &quot;tag&quot;: &quot;Insights&quot;, &quot;body&quot;: &quot;Know exactly where your AI budget goes &amp;mdash; &lt;em&gt;token usage, costs per model, daily trends&lt;/em&gt;. Opus vs Sonnet breakdown, per-task spending, and exportable reports. Data-driven AI for families that care about value.&quot;, &quot;cat&quot;: &quot;kat-lean-right&quot;}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
         Analytics
       </div>
@@ -822,11 +822,11 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         Tasks <span class="sb-badge a">6</span>
       </div>
-      <div class="sb-item" onclick="showView('skills')" data-guide="{&quot;title&quot;: &quot;CatSkills&quot;, &quot;tag&quot;: &quot;Superpowers&quot;, &quot;body&quot;: &quot;8 project-scoped skills and &lt;em&gt;47 in the global library&lt;/em&gt;. Code Review, Test Generator, GitHub PR Bot &amp;mdash; reusable AI workflows you build, share, and run with one click. The power user multiplier.&quot;, &quot;cat&quot;: &quot;kat-flip&quot;}">
+      <div class="sb-item" onclick="showView('skills')" data-guide="{&quot;title&quot;: &quot;CatSkills&quot;, &quot;tag&quot;: &quot;Superpowers&quot;, &quot;body&quot;: &quot;8 project-scoped skills and &lt;em&gt;47 in the global library&lt;/em&gt;. Meal Planner, Grocery List Builder, Budget Tracker &amp;mdash; reusable AI workflows you build, share, and run with one click. The busy mom multiplier.&quot;, &quot;cat&quot;: &quot;kat-flip&quot;}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         CatSkills <span class="sb-badge c">8</span>
       </div>
-      <div class="sb-item" onclick="showView('calendar')" data-guide="{&quot;title&quot;: &quot;Calendar&quot;, &quot;tag&quot;: &quot;Planning&quot;, &quot;body&quot;: &quot;Deadlines, milestones, and scheduled tasks &amp;mdash; &lt;em&gt;all linked to chats and AI agents&lt;/em&gt;. Month, week, and day views. Add events, set recurrence, and see your sprint plan alongside your AI workspace.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+      <div class="sb-item" onclick="showView('calendar')" data-guide="{&quot;title&quot;: &quot;Calendar&quot;, &quot;tag&quot;: &quot;Planning&quot;, &quot;body&quot;: &quot;Deadlines, milestones, and scheduled tasks &amp;mdash; &lt;em&gt;all linked to chats and AI agents&lt;/em&gt;. Month, week, and day views. Add events, set recurrence, and see your family schedule alongside your AI workspace.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Calendar
       </div>
@@ -836,17 +836,17 @@
       <div class="sb-label" data-guide="{&quot;title&quot;: &quot;System Tools&quot;, &quot;tag&quot;: &quot;Navigation&quot;, &quot;body&quot;: &quot;Core project utilities &amp;mdash; &lt;em&gt;manage agents, project memory, connections, workflows, and usage tracking&lt;/em&gt;. Everything your AI workspace needs to run smoothly, all in one sidebar section.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">System</div>
       <div class="sb-item" data-tooltip="View and manage autonomous AI agents working on this project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2a9 9 0 019 9"/><path d="M12 22a9 9 0 01-9-9"/></svg> Agents <span class="sb-badge l">2</span></div>
       <div class="sb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a9 9 0 019 9c0 3.87-3.13 7-7 7h-1v4l-4-4"/></svg> Memory</div>
-      <div class="sb-item" data-tooltip="Connected services — GitHub, MCP servers, APIs feeding into this project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Connections</div>
+      <div class="sb-item" data-tooltip="Connected services — Google Calendar, Instacart, Etsy feeding into this project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Connections</div>
       <div class="sb-item" data-tooltip="Automated multi-step AI workflows scoped to this project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Workflows</div>
       <div class="sb-item" data-tooltip="Track AI spending and token usage for this specific project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> Usage &amp; Cost</div>
     </div>
     <div class="sb-div"></div>
     <div class="sb-section">
       <div class="sb-label" data-guide="{&quot;title&quot;: &quot;Pinned Resources&quot;, &quot;tag&quot;: &quot;Quick Access&quot;, &quot;body&quot;: &quot;Your most-used files and resources, &lt;em&gt;always one click away&lt;/em&gt;. Pin config files, active chats, staging URLs, or anything you reference constantly. Drag to reorder by importance.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">Pinned</div>
-      <div class="pinned-item" data-tooltip="Pinned items — your most-used files, chats, and links always one click away"><span style="font-size:10px;opacity:0.5">&#9733;</span> PING.md</div>
-      <div class="pinned-item"><span style="font-size:10px;opacity:0.5">&#9733;</span> Browser Health C16</div>
-      <div class="pinned-item"><span style="font-size:10px;opacity:0.5">&#9733;</span> gate-check.sh</div>
-      <div class="pinned-item"><span style="font-size:10px;opacity:0.5">&#9733;</span> Staging: localhost:5173</div>
+      <div class="pinned-item" data-tooltip="Pinned items — your most-used files, chats, and links always one click away"><span style="font-size:10px;opacity:0.5">&#9733;</span> Weekly Meal Plan</div>
+      <div class="pinned-item"><span style="font-size:10px;opacity:0.5">&#9733;</span> Family Calendar</div>
+      <div class="pinned-item"><span style="font-size:10px;opacity:0.5">&#9733;</span> Grocery Budget</div>
+      <div class="pinned-item"><span style="font-size:10px;opacity:0.5">&#9733;</span> Etsy Shop Dashboard</div>
     </div>
     <div class="sb-footer">
       <div class="sb-footer-btn" data-tooltip="Configure project-specific AI settings, models, and workspace preferences"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;opacity:0.7"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg> Settings</div>
@@ -868,9 +868,9 @@
       <div class="view-scroll overview-content">
         <div class="project-header" data-guide="{&quot;title&quot;: &quot;Project Command Center&quot;, &quot;tag&quot;: &quot;Project&quot;, &quot;body&quot;: &quot;Your project at a glance \u2014 &lt;em&gt;status, tech stack, quick actions&lt;/em&gt;. Launch a new chat, create a note, run a workflow, or search semantically across all project knowledge.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
           <div class="project-header-info">
-            <div class="project-header-title">PiNG! <span class="proj-status">Active</span></div>
-            <div class="project-header-desc">AI-powered desktop workspace — Electron, React, TypeScript, SQLite</div>
-            <div class="project-header-tags"><span class="proj-tag">Electron</span><span class="proj-tag">React</span><span class="proj-tag">TypeScript</span><span class="proj-tag">SQLite</span><span class="proj-tag">Vite</span></div>
+            <div class="project-header-title">&#127969; Family Command Center <span class="proj-status">Active</span></div>
+            <div class="project-header-desc">Everything our family needs in one place — meals, schedules, school, budget</div>
+            <div class="project-header-tags"><span class="proj-tag">Meals</span><span class="proj-tag">Kids</span><span class="proj-tag">Budget</span><span class="proj-tag">Health</span><span class="proj-tag">School</span></div>
           </div>
           <div class="project-actions">
             <button class="proj-action primary" onclick="showView('chats')" data-tooltip="Start a fresh AI conversation with full project context loaded automatically"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> New Chat</button>
@@ -879,44 +879,44 @@
         </div>
         <div class="quick-actions">
           <div class="qa-btn" data-guide="{&quot;title&quot;: &quot;Quick Task Creation&quot;, &quot;tag&quot;: &quot;Productivity&quot;, &quot;body&quot;: &quot;Create a task in one keystroke &amp;mdash; &lt;em&gt;press T and start typing&lt;/em&gt;. AI auto-suggests priority and links it to relevant conversations. Tasks flow straight into your kanban board.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}" data-tooltip="Create a task — AI tracks it alongside your kanban board"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> New Task <kbd>T</kbd></div>
-          <div class="qa-btn" data-guide="{&quot;title&quot;: &quot;Quick Note Capture&quot;, &quot;tag&quot;: &quot;Knowledge&quot;, &quot;body&quot;: &quot;Capture ideas instantly &amp;mdash; &lt;em&gt;press N and write&lt;/em&gt;. Notes are AI-indexed and linked to your project knowledge graph. Never lose a thought between coding sessions.&quot;, &quot;cat&quot;: &quot;kat-lean-right&quot;}" data-tooltip="Create a note &mdash; AI-assisted or freeform, linked to this project&#39;s knowledge graph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> New Note <kbd>N</kbd></div>
-          <div class="qa-btn" data-guide="{&quot;title&quot;: &quot;One-Click Workflows&quot;, &quot;tag&quot;: &quot;Automation&quot;, &quot;body&quot;: &quot;Execute your CatSkill workflows with a single click &amp;mdash; &lt;em&gt;gate checks, code reviews, PlanPack chunks&lt;/em&gt;. Chain AI operations into repeatable automations. Power user productivity.&quot;, &quot;cat&quot;: &quot;kat-flip&quot;}" data-tooltip="Execute a CatSkill workflow — chain multiple AI operations in sequence"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Run Workflow</div>
-          <div class="qa-btn" data-guide="{&quot;title&quot;: &quot;Semantic Search&quot;, &quot;tag&quot;: &quot;Killer Feature&quot;, &quot;body&quot;: &quot;Search by &lt;em&gt;meaning, not just keywords&lt;/em&gt;. Ask natural questions like &amp;ldquo;how does auth work?&amp;rdquo; and PiNG finds relevant code, notes, chats, and docs across your entire project. Powered by vector embeddings.&quot;, &quot;cat&quot;: &quot;kat-yarn-play&quot;}" data-tooltip="Search by meaning, not just keywords — find related code, notes, and conversations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Semantic Search</div>
+          <div class="qa-btn" data-guide="{&quot;title&quot;: &quot;Quick Note Capture&quot;, &quot;tag&quot;: &quot;Knowledge&quot;, &quot;body&quot;: &quot;Capture ideas instantly &amp;mdash; &lt;em&gt;press N and write&lt;/em&gt;. Notes are AI-indexed and linked to your project knowledge graph. Never lose a thought between planning sessions.&quot;, &quot;cat&quot;: &quot;kat-lean-right&quot;}" data-tooltip="Create a note &mdash; AI-assisted or freeform, linked to this project&#39;s knowledge graph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> New Note <kbd>N</kbd></div>
+          <div class="qa-btn" data-guide="{&quot;title&quot;: &quot;One-Click Workflows&quot;, &quot;tag&quot;: &quot;Automation&quot;, &quot;body&quot;: &quot;Execute your CatSkill workflows with a single click &amp;mdash; &lt;em&gt;meal planning, grocery orders, family briefings&lt;/em&gt;. Chain AI operations into repeatable automations. Power user productivity.&quot;, &quot;cat&quot;: &quot;kat-flip&quot;}" data-tooltip="Execute a CatSkill workflow — chain multiple AI operations in sequence"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Run Workflow</div>
+          <div class="qa-btn" data-guide="{&quot;title&quot;: &quot;Semantic Search&quot;, &quot;tag&quot;: &quot;Killer Feature&quot;, &quot;body&quot;: &quot;Search by &lt;em&gt;meaning, not just keywords&lt;/em&gt;. Ask natural questions like &amp;ldquo;what are nut-free dinner ideas?&amp;rdquo; and PiNG finds relevant recipes, notes, chats, and docs across your entire project. Powered by vector embeddings.&quot;, &quot;cat&quot;: &quot;kat-yarn-play&quot;}" data-tooltip="Search by meaning, not just keywords — find related recipes, notes, and conversations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Semantic Search</div>
         </div>
 
         <!-- Stats Row -->
         <div class="grid">
-          <div class="stat-card col-3" data-guide="{&quot;title&quot;: &quot;Chat Count&quot;, &quot;tag&quot;: &quot;Overview&quot;, &quot;body&quot;: &quot;56 AI conversations in this project &amp;mdash; &lt;em&gt;+3 this week&lt;/em&gt;. Every chat preserves full context. Click to browse, search, or resume any conversation.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}"><div class="stat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> Chats</div><div class="stat-value">56</div><div class="stat-sub"><span class="up">+3</span> this week</div></div>
-          <div class="stat-card col-3" data-guide="{&quot;title&quot;: &quot;Live Agent Count&quot;, &quot;tag&quot;: &quot;AI Agents&quot;, &quot;body&quot;: &quot;How many autonomous AI agents are &lt;em&gt;running right now&lt;/em&gt; in this project. Green means active &amp;mdash; one running code, one reasoning through a problem. Spawn more from the Agents panel.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}"><div class="stat-label">Agents Active</div><div class="stat-value" style="color:var(--green)">2</div><div class="stat-sub">1 running, 1 thinking</div></div>
-          <div class="stat-card col-3" data-guide="{&quot;title&quot;: &quot;Task Progress&quot;, &quot;tag&quot;: &quot;Productivity&quot;, &quot;body&quot;: &quot;6 of 37 tasks complete &amp;mdash; with &lt;em&gt;6 overdue flagged in red&lt;/em&gt;. AI auto-detects tasks from your conversations and adds them here. Click to open the full kanban board.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}"><div class="stat-label">Tasks</div><div class="stat-value" style="color:var(--green)">6<span style="font-size:13px;color:var(--text-muted)">/37</span></div><div class="stat-sub">16% &middot; <span class="down">6 overdue</span></div></div>
-          <div class="stat-card col-3" data-guide="{&quot;title&quot;: &quot;AI Cost Tracker&quot;, &quot;tag&quot;: &quot;Budget&quot;, &quot;body&quot;: &quot;$14.27 of your $50 monthly budget spent &amp;mdash; &lt;em&gt;real-time cost tracking per project&lt;/em&gt;. See exactly which models and conversations cost the most. Never get surprise API bills again.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}"><div class="stat-label">Cost This Month</div><div class="stat-value">$14<span style="font-size:13px;color:var(--text-muted)">.27</span></div><div class="stat-sub">of $50 budget</div></div>
+          <div class="stat-card col-3" data-guide="{&quot;title&quot;: &quot;Chat Count&quot;, &quot;tag&quot;: &quot;Overview&quot;, &quot;body&quot;: &quot;57 AI conversations in this project &amp;mdash; &lt;em&gt;+4 this week&lt;/em&gt;. Every chat preserves full context. Click to browse, search, or resume any conversation.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}"><div class="stat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> Chats</div><div class="stat-value">57</div><div class="stat-sub"><span class="up">+4</span> this week</div></div>
+          <div class="stat-card col-3" data-guide="{&quot;title&quot;: &quot;Notes &amp; Knowledge&quot;, &quot;tag&quot;: &quot;Knowledge&quot;, &quot;body&quot;: &quot;128 notes and 42 recipes stored &amp;mdash; &lt;em&gt;searchable and AI-indexed&lt;/em&gt;. Your family's collective knowledge in one place.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}"><div class="stat-label">Notes</div><div class="stat-value">128</div><div class="stat-sub">42 recipes, 15 files</div></div>
+          <div class="stat-card col-3" data-guide="{&quot;title&quot;: &quot;Task Progress&quot;, &quot;tag&quot;: &quot;Productivity&quot;, &quot;body&quot;: &quot;3 of 9 tasks complete &amp;mdash; with &lt;em&gt;2 overdue flagged in red&lt;/em&gt;. AI auto-detects tasks from your conversations and adds them here. Click to open the full kanban board.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}"><div class="stat-label">Tasks</div><div class="stat-value" style="color:var(--green)">3<span style="font-size:13px;color:var(--text-muted)">/9</span></div><div class="stat-sub">33% &middot; <span class="down">2 overdue</span></div></div>
+          <div class="stat-card col-3" data-guide="{&quot;title&quot;: &quot;AI Cost Tracker&quot;, &quot;tag&quot;: &quot;Budget&quot;, &quot;body&quot;: &quot;$6.20 of your $15 monthly budget spent &amp;mdash; &lt;em&gt;real-time cost tracking per project&lt;/em&gt;. See exactly which models and conversations cost the most. Never get surprise API bills again.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}"><div class="stat-label">Cost This Month</div><div class="stat-value">$6<span style="font-size:13px;color:var(--text-muted)">.20</span></div><div class="stat-sub">of $15 budget</div></div>
         </div>
 
         <!-- Live Systems -->
         <div class="section-title">Live Systems</div>
         <div class="grid">
-          <div class="card col-5" onclick="showView('chats')" data-guide="{&quot;title&quot;: &quot;Live Agents Panel&quot;, &quot;tag&quot;: &quot;AI Agents&quot;, &quot;body&quot;: &quot;Watch AI agents work in real-time &amp;mdash; &lt;em&gt;see what they are running, which model powers them, token counts&lt;/em&gt;. Like a mission control for your autonomous coding assistants.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
-            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Active AI Agents&quot;, &quot;tag&quot;: &quot;AI Agents&quot;, &quot;body&quot;: &quot;Your autonomous AI workers &amp;mdash; &lt;em&gt;running tasks, executing scripts, and reasoning through problems&lt;/em&gt;. Each agent uses its own context and model. Manage, pause, or spawn new ones.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2a9 9 0 019 9"/><path d="M12 22a9 9 0 01-9-9"/></svg> Active Agents <span class="card-count" style="background:var(--green-dim);color:var(--green)">2 live</span><span class="card-action">Manage &rarr;</span></div>
+          <div class="card col-5" onclick="showView('chats')" data-guide="{&quot;title&quot;: &quot;Live Agents Panel&quot;, &quot;tag&quot;: &quot;AI Agents&quot;, &quot;body&quot;: &quot;Watch AI agents work in real-time &amp;mdash; &lt;em&gt;see what they are running, which model powers them, token counts&lt;/em&gt;. Like a mission control for your autonomous family assistants.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Active AI Agents&quot;, &quot;tag&quot;: &quot;AI Agents&quot;, &quot;body&quot;: &quot;Your autonomous AI workers &amp;mdash; &lt;em&gt;running tasks, planning meals, and organizing schedules&lt;/em&gt;. Each agent uses its own context and model. Manage, pause, or spawn new ones.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2a9 9 0 019 9"/><path d="M12 22a9 9 0 01-9-9"/></svg> Active Agents <span class="card-count" style="background:var(--green-dim);color:var(--green)">2 live</span><span class="card-action">Manage &rarr;</span></div>
             <div class="card-body">
-              <div class="agent-item"><div class="agent-avatar running"><span class="pulse">&#9672;</span></div><div class="agent-info"><div class="agent-name">Browser Health C16 <span class="agent-status-tag running">Running</span></div><div class="agent-task">Executing gate-check.sh — verifying 1037 tests pass...</div></div><div class="agent-meta"><div class="agent-model">opus 4.6</div><div class="agent-tokens">42K tokens</div></div></div>
-              <div class="agent-item"><div class="agent-avatar thinking"><span class="pulse">&#9672;</span></div><div class="agent-info"><div class="agent-name">Auto Runner C2 <span class="agent-status-tag thinking">Thinking</span></div><div class="agent-task">Planning AR-C2 implementation based on spec...</div></div><div class="agent-meta"><div class="agent-model">opus 4.6</div><div class="agent-tokens">18K tokens</div></div></div>
+              <div class="agent-item"><div class="agent-avatar running"><span class="pulse">&#9672;</span></div><div class="agent-info"><div class="agent-name">Meal Planner <span class="agent-status-tag running">Running</span></div><div class="agent-task">Generating grocery list for Week 12 meal plan...</div></div><div class="agent-meta"><div class="agent-model">opus</div><div class="agent-tokens">8K tokens</div></div></div>
+              <div class="agent-item"><div class="agent-avatar running"><span class="pulse">&#9672;</span></div><div class="agent-info"><div class="agent-name">Schedule Coordinator <span class="agent-status-tag running">Running</span></div><div class="agent-task">Syncing family calendar with school events...</div></div><div class="agent-meta"><div class="agent-model">sonnet</div><div class="agent-tokens">5K tokens</div></div></div>
             </div>
           </div>
           <div class="card col-3">
-            <div class="card-header" data-guide="{&quot;title&quot;: &quot;External Connections&quot;, &quot;tag&quot;: &quot;Integrations&quot;, &quot;body&quot;: &quot;GitHub, MCP servers, APIs &amp;mdash; &lt;em&gt;all connected and live&lt;/em&gt;. PiNG bridges your AI workspace to your actual dev infrastructure. Pull PRs, push code, run tools &amp;mdash; all from chat.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Connections <span class="card-action">Add &rarr;</span></div>
+            <div class="card-header" data-guide="{&quot;title&quot;: &quot;External Connections&quot;, &quot;tag&quot;: &quot;Integrations&quot;, &quot;body&quot;: &quot;Google Calendar, Instacart, Etsy &amp;mdash; &lt;em&gt;all connected and live&lt;/em&gt;. PiNG bridges your AI workspace to your family tools. Sync schedules, order groceries, manage listings &amp;mdash; all from chat.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Connections <span class="card-action">Add &rarr;</span></div>
             <div class="card-body">
-              <div class="connection-item"><div class="conn-icon github">&#9673;</div><div class="conn-info"><div class="conn-name">GitHub</div><div class="conn-detail">loudbox/ping-skills &middot; 3 open PRs</div></div><div class="conn-status connected"></div></div>
-              <div class="connection-item"><div class="conn-icon mcp">&#9672;</div><div class="conn-info"><div class="conn-name">MCP Servers</div><div class="conn-detail">3 active &middot; filesystem, browser, preview</div></div><div class="conn-status connected"></div></div>
-              <div class="connection-item"><div class="conn-icon linear">&#9645;</div><div class="conn-info"><div class="conn-name">Linear</div><div class="conn-detail">PiNG workspace &middot; synced</div></div><div class="conn-status connected"></div></div>
-              <div class="connection-item" style="opacity:0.5"><div class="conn-icon slack">&#9830;</div><div class="conn-info"><div class="conn-name">Slack</div><div class="conn-detail">Not connected</div></div><div class="conn-status disconnected"></div></div>
+              <div class="connection-item"><div class="conn-icon" style="background:#4285f4;color:#fff;border:1px solid #3367d6">&#128197;</div><div class="conn-info"><div class="conn-name">Google Calendar</div><div class="conn-detail">Family calendar &middot; synced</div></div><div class="conn-status connected"></div></div>
+              <div class="connection-item"><div class="conn-icon mcp">&#128722;</div><div class="conn-info"><div class="conn-name">Instacart</div><div class="conn-detail">Linked &middot; delivery Thu 6PM</div></div><div class="conn-status connected"></div></div>
+              <div class="connection-item"><div class="conn-icon linear">&#127973;</div><div class="conn-info"><div class="conn-name">Pediatric Portal</div><div class="conn-detail">Liam &middot; linked</div></div><div class="conn-status connected"></div></div>
+              <div class="connection-item"><div class="conn-icon slack">&#127979;</div><div class="conn-info"><div class="conn-name">School Portal</div><div class="conn-detail">3 new notices</div></div><div class="conn-status connected"></div></div>
             </div>
           </div>
           <div class="card col-4">
-            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Dev Environment&quot;, &quot;tag&quot;: &quot;DevOps&quot;, &quot;body&quot;: &quot;Running processes and dev servers &lt;em&gt;managed right inside PiNG&lt;/em&gt;. Start, stop, and monitor your Vite server, Electron process, or any custom command.&quot;, &quot;cat&quot;: &quot;kat-yawn&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg> Environment</div>
+            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Scheduled Automations&quot;, &quot;tag&quot;: &quot;Automation&quot;, &quot;body&quot;: &quot;Recurring tasks and automations &lt;em&gt;managed right inside PiNG&lt;/em&gt;. Start, stop, and monitor your daily briefings, grocery lists, or any scheduled workflow.&quot;, &quot;cat&quot;: &quot;kat-yawn&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg> Environment</div>
             <div class="card-body">
-              <div class="env-item"><div class="env-indicator running"></div><div class="env-info"><div class="env-name">Dev Server</div><div class="env-detail">localhost:5173 &middot; vite &middot; 24m</div></div><div class="env-action stop" data-tooltip="Stop this running process — clean shutdown from within PiNG">Stop</div></div>
-              <div class="env-item"><div class="env-indicator running"></div><div class="env-info"><div class="env-name">Electron Main</div><div class="env-detail">PID 4821 &middot; electron . &middot; 24m</div></div><div class="env-action stop">Stop</div></div>
-              <div class="env-item"><div class="env-indicator stopped"></div><div class="env-info"><div class="env-name">Test Watcher</div><div class="env-detail">vitest --watch &middot; stopped</div></div><div class="env-action start" data-tooltip="Start this process — launch dev servers and tools from PiNG">Start</div></div>
+              <div class="env-item"><div class="env-indicator running"></div><div class="env-info"><div class="env-name">Daily Briefing</div><div class="env-detail">Scheduled &middot; 7:00 AM daily</div></div><div class="env-action stop" data-tooltip="Pause this scheduled task">Pause</div></div>
+              <div class="env-item"><div class="env-indicator running"></div><div class="env-info"><div class="env-name">Weekly Grocery List</div><div class="env-detail">Scheduled &middot; Thu 6:00 PM</div></div><div class="env-action stop">Pause</div></div>
+              <div class="env-item"><div class="env-indicator stopped"></div><div class="env-info"><div class="env-name">Monthly Budget Review</div><div class="env-detail">Next: Apr 1 &middot; paused</div></div><div class="env-action start" data-tooltip="Resume this scheduled task">Resume</div></div>
             </div>
           </div>
         </div>
@@ -925,26 +925,26 @@
         <div class="section-title">Work</div>
         <div class="grid">
           <div class="card col-4" onclick="showView('chats')">
-            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Recent Conversations&quot;, &quot;tag&quot;: &quot;History&quot;, &quot;body&quot;: &quot;Quick-jump to your latest AI conversations. &lt;em&gt;Live dots show active chats&lt;/em&gt; &amp;mdash; resume where you left off with full context preserved.&quot;, &quot;cat&quot;: &quot;kat-lick&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> Recent Chats <span class="card-action">All 56 &rarr;</span></div>
+            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Recent Conversations&quot;, &quot;tag&quot;: &quot;History&quot;, &quot;body&quot;: &quot;Quick-jump to your latest AI conversations. &lt;em&gt;Live dots show active chats&lt;/em&gt; &amp;mdash; resume where you left off with full context preserved.&quot;, &quot;cat&quot;: &quot;kat-lick&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> Recent Chats <span class="card-action">All 57 &rarr;</span></div>
             <div class="card-body">
-              <div class="chat-mini"><span class="chat-mini-dot live"></span><span class="chat-mini-name">Browser Health C16</span><span class="chat-mini-time">2h</span></div>
-              <div class="chat-mini"><span class="chat-mini-dot live"></span><span class="chat-mini-name">UI Talk — Mockups</span><span class="chat-mini-time">3h</span></div>
-              <div class="chat-mini"><span class="chat-mini-dot idle"></span><span class="chat-mini-name">Logger refactor</span><span class="chat-mini-time">1d</span></div>
-              <div class="chat-mini"><span class="chat-mini-dot idle"></span><span class="chat-mini-name">Gate check fixes</span><span class="chat-mini-time">2d</span></div>
-              <div class="chat-mini"><span class="chat-mini-dot idle"></span><span class="chat-mini-name">FTS5 migration</span><span class="chat-mini-time">3d</span></div>
+              <div class="chat-mini"><span class="chat-mini-dot live"></span><span class="chat-mini-name">Weekly meal plan &amp; grocery list</span><span class="chat-mini-time">2h</span></div>
+              <div class="chat-mini"><span class="chat-mini-dot live"></span><span class="chat-mini-name">Ethan's science project ideas</span><span class="chat-mini-time">3h</span></div>
+              <div class="chat-mini"><span class="chat-mini-dot idle"></span><span class="chat-mini-name">Birthday party ideas — Mia</span><span class="chat-mini-time">1d</span></div>
+              <div class="chat-mini"><span class="chat-mini-dot idle"></span><span class="chat-mini-name">Summer camp research</span><span class="chat-mini-time">2d</span></div>
+              <div class="chat-mini"><span class="chat-mini-dot idle"></span><span class="chat-mini-name">Soccer carpool schedule</span><span class="chat-mini-time">3d</span></div>
             </div>
           </div>
           <div class="card col-4" onclick="showView('tasks')">
-            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Project Tasks&quot;, &quot;tag&quot;: &quot;Productivity&quot;, &quot;body&quot;: &quot;Track what needs doing &amp;mdash; &lt;em&gt;AI-suggested and manually created tasks&lt;/em&gt;. Check off completions, see what is in progress. Your project roadmap at a glance.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Tasks <span class="card-count">37</span><span class="card-action">Board &rarr;</span></div>
+            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Project Tasks&quot;, &quot;tag&quot;: &quot;Productivity&quot;, &quot;body&quot;: &quot;Track what needs doing &amp;mdash; &lt;em&gt;AI-suggested and manually created tasks&lt;/em&gt;. Check off completions, see what is in progress. Your project roadmap at a glance.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Tasks <span class="card-count">9</span><span class="card-action">Board &rarr;</span></div>
             <div class="card-body">
-              <div class="task-row"><div class="task-check"></div><span class="task-row-title">Review PR by EOD</span><span class="task-row-due" style="color:var(--red)">46d overdue</span></div>
-              <div class="task-row"><div class="task-check"></div><span class="task-row-title">Fix MCP hardening C3</span><span class="task-row-due" style="color:var(--red)">12d overdue</span></div>
-              <div class="task-row"><div class="task-check"></div><span class="task-row-title">Auto Runner C2-C6</span><span class="task-row-due" style="color:var(--accent)">in progress</span></div>
-              <div class="task-row"><div class="task-check done">&#10003;</div><span class="task-row-title done">Browser Health — SHIP</span><span class="task-row-due" style="color:var(--green)">done</span></div>
+              <div class="task-row"><div class="task-check"></div><span class="task-row-title">Sign Ethan for robotics camp</span><span class="task-row-due" style="color:var(--red)">2d overdue</span></div>
+              <div class="task-row"><div class="task-check"></div><span class="task-row-title">Order unicorn decorations for Mia</span><span class="task-row-due" style="color:var(--red)">1d overdue</span></div>
+              <div class="task-row"><div class="task-check"></div><span class="task-row-title">Schedule Liam's 2-year checkup</span><span class="task-row-due" style="color:var(--accent)">today</span></div>
+              <div class="task-row"><div class="task-check done">&#10003;</div><span class="task-row-title done">Print grocery list</span><span class="task-row-due" style="color:var(--green)">done</span></div>
             </div>
           </div>
           <div class="card col-4" onclick="showView('calendar')">
-            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Project Calendar&quot;, &quot;tag&quot;: &quot;Planning&quot;, &quot;body&quot;: &quot;Deadlines, milestones, and scheduled tasks &lt;em&gt;all visible in context&lt;/em&gt;. See upcoming work without leaving your project view. Plan sprints alongside AI agents.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Calendar <span class="card-action">Full view &rarr;</span></div>
+            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Project Calendar&quot;, &quot;tag&quot;: &quot;Planning&quot;, &quot;body&quot;: &quot;Deadlines, milestones, and scheduled tasks &lt;em&gt;all visible in context&lt;/em&gt;. See upcoming work without leaving your project view. Plan your week alongside AI assistants.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Calendar <span class="card-action">Full view &rarr;</span></div>
             <div class="card-body">
               <div class="cal-header">March 2026 <div class="cal-nav"><div class="cal-nav-btn">&lsaquo;</div><div class="cal-nav-btn">&rsaquo;</div></div></div>
               <div class="cal-grid-mini">
@@ -965,22 +965,22 @@
           <div class="card col-4" onclick="showView('knowledge')">
             <div class="card-header" data-guide="{&quot;title&quot;: &quot;Project Knowledge Base&quot;, &quot;tag&quot;: &quot;AI Memory&quot;, &quot;body&quot;: &quot;Feed your AI domain knowledge &amp;mdash; &lt;em&gt;128 indexed items including facts, decisions, and context&lt;/em&gt;. Every piece of knowledge persists across conversations. Your AI gets smarter with every session.&quot;, &quot;cat&quot;: &quot;kat-yarn-play&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg> Knowledge <span class="card-count">128</span><span class="card-action">View all &rarr;</span></div>
             <div class="card-body">
-              <div class="memory-item"><span class="memory-type" style="background:var(--cyan-dim);color:var(--cyan)">Fact</span><div class="memory-title">The SDK is a downstream adapter for Gemini wire format</div><div class="memory-source">Source conversation &middot; 8:25 AM</div></div>
-              <div class="memory-item"><span class="memory-type" style="background:var(--orange-dim);color:var(--orange)">Decision</span><div class="memory-title">Adopt "Star + Context Horizon" model for memory</div><div class="memory-source">UI Talk &middot; yesterday</div></div>
+              <div class="memory-item"><span class="memory-type" style="background:var(--cyan-dim);color:var(--cyan)">Fact</span><div class="memory-title">Mia has a tree nut allergy — avoid all nut-based recipes</div><div class="memory-source">Dietary preferences &middot; saved</div></div>
+              <div class="memory-item"><span class="memory-type" style="background:var(--orange-dim);color:var(--orange)">Decision</span><div class="memory-title">Weekly grocery budget capped at $150 for family of 5</div><div class="memory-source">Budget chat &middot; yesterday</div></div>
             </div>
           </div>
           <div class="card col-4">
-            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Automated Workflows&quot;, &quot;tag&quot;: &quot;Automation&quot;, &quot;body&quot;: &quot;5 workflow automations &amp;mdash; &lt;em&gt;trigger on commit, run manually, or schedule&lt;/em&gt;. Chain multiple AI operations: gate checks, PlanPack execution, code review, and more. Set it and forget it.&quot;, &quot;cat&quot;: &quot;kat-flip&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Workflows <span class="card-count">5</span></div>
+            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Automated Workflows&quot;, &quot;tag&quot;: &quot;Automation&quot;, &quot;body&quot;: &quot;5 workflow automations &amp;mdash; &lt;em&gt;trigger on schedule, run manually, or automate&lt;/em&gt;. Chain multiple AI operations: meal planning, grocery ordering, calendar sync, and more. Set it and forget it.&quot;, &quot;cat&quot;: &quot;kat-flip&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Workflows <span class="card-count">5</span></div>
             <div class="card-body">
-              <div class="workflow-item"><div class="workflow-icon auto">&#9889;</div><div class="workflow-info"><div class="workflow-name">Gate Check &amp; Report</div><div class="workflow-trigger">Trigger: on commit</div></div><div class="workflow-run-btn" data-tooltip="Run this workflow now — executes the full automation chain">Run</div></div>
-              <div class="workflow-item"><div class="workflow-icon manual">&#9654;</div><div class="workflow-info"><div class="workflow-name">PlanPack Chunk Execute</div><div class="workflow-trigger">Manual &middot; chunk + mini-SVQC</div></div><div class="workflow-run-btn">Run</div></div>
+              <div class="workflow-item"><div class="workflow-icon auto">&#9889;</div><div class="workflow-info"><div class="workflow-name">Weekly Family Routine</div><div class="workflow-trigger">Trigger: Thu 6PM &middot; Meal Plan → Grocery → Calendar</div></div><div class="workflow-run-btn" data-tooltip="Run this workflow now — executes the full automation chain">Run</div></div>
+              <div class="workflow-item"><div class="workflow-icon manual">&#9654;</div><div class="workflow-info"><div class="workflow-name">Morning Briefing</div><div class="workflow-trigger">Daily 7AM &middot; schedule + reminders + weather</div></div><div class="workflow-run-btn">Run</div></div>
             </div>
           </div>
           <div class="card col-4">
-            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Project Memory&quot;, &quot;tag&quot;: &quot;AI Brain&quot;, &quot;body&quot;: &quot;Your AI remembers everything &amp;mdash; &lt;em&gt;PING.md standards, 54 learnings, and system context&lt;/em&gt;. Three memory layers: system config, project learnings, and conversation history. Context budget shows token usage at a glance.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a9 9 0 019 9c0 3.87-3.13 7-7 7h-1v4l-4-4"/><circle cx="12" cy="10" r="1"/></svg> Project Memory</div>
+            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Project Memory&quot;, &quot;tag&quot;: &quot;AI Brain&quot;, &quot;body&quot;: &quot;Your AI remembers everything &amp;mdash; &lt;em&gt;family preferences, dietary needs, and household routines&lt;/em&gt;. Three memory layers: system config, project learnings, and conversation history. Context budget shows token usage at a glance.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a9 9 0 019 9c0 3.87-3.13 7-7 7h-1v4l-4-4"/><circle cx="12" cy="10" r="1"/></svg> Project Memory</div>
             <div class="card-body">
-              <div class="memory-item"><span class="memory-type system">System</span><div class="memory-title">PING.md — code standards, work modes, gate checks</div><div class="memory-source">220 lines &middot; updated 1d ago</div></div>
-              <div class="memory-item"><span class="memory-type learning">Learning</span><div class="memory-title">54 learnings (GL-SWEEP, GL-RECEIPT, GL-TEST...)</div><div class="memory-source">learnings.md &middot; updated 2d ago</div></div>
+              <div class="memory-item"><span class="memory-type system">System</span><div class="memory-title">Family preferences — allergies, diets, schedules</div><div class="memory-source">42 entries &middot; updated today</div></div>
+              <div class="memory-item"><span class="memory-type learning">Learning</span><div class="memory-title">128 memories — recipes, routines, milestones</div><div class="memory-source">family-memory.md &middot; updated 1d ago</div></div>
               <div class="memory-budget"><div class="memory-budget-label"><span style="color:var(--text-secondary)">Context Budget</span><span style="color:var(--text-muted);font-family:var(--font-mono)">14K / 1.0M tokens</span></div><div class="progress-bar"><div class="progress-fill" style="width:1.4%;background:var(--accent)"></div></div></div>
             </div>
           </div>
@@ -994,27 +994,27 @@
             <div class="card-body">
               <div class="cost-chart"><div class="cost-bar opus" style="height:15%"></div><div class="cost-bar opus" style="height:22%"></div><div class="cost-bar opus" style="height:45%"></div><div class="cost-bar sonnet" style="height:12%"></div><div class="cost-bar opus" style="height:68%"></div><div class="cost-bar opus" style="height:35%"></div><div class="cost-bar opus" style="height:90%"></div><div class="cost-bar opus" style="height:55%"></div><div class="cost-bar opus" style="height:75%"></div></div>
               <div class="cost-legend"><div class="cost-legend-item"><div class="cost-legend-dot" style="background:var(--accent)"></div> Opus</div><div class="cost-legend-item"><div class="cost-legend-dot" style="background:var(--green)"></div> Sonnet</div></div>
-              <div class="cost-breakdown"><div class="cost-stat"><div class="cost-stat-value">1.2M</div><div class="cost-stat-label">tokens today</div></div><div class="cost-stat"><div class="cost-stat-value">$14.27</div><div class="cost-stat-label">this month</div></div><div class="cost-stat"><div class="cost-stat-value">$35.73</div><div class="cost-stat-label">remaining</div></div></div>
+              <div class="cost-breakdown"><div class="cost-stat"><div class="cost-stat-value">1.2M</div><div class="cost-stat-label">tokens today</div></div><div class="cost-stat"><div class="cost-stat-value">$4.20</div><div class="cost-stat-label">this month</div></div><div class="cost-stat"><div class="cost-stat-value">$10.80</div><div class="cost-stat-label">remaining</div></div></div>
             </div>
           </div>
           <div class="card col-4">
-            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Project Health Dashboard&quot;, &quot;tag&quot;: &quot;Quality&quot;, &quot;body&quot;: &quot;Your codebase vitals at a glance &amp;mdash; &lt;em&gt;5,800+ tests passing, zero any types, clean file sizes&lt;/em&gt;. Tech debt tracked and task progress visible. Green bars mean ship-ready code.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Project Health</div>
+            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Project Health Dashboard&quot;, &quot;tag&quot;: &quot;Quality&quot;, &quot;body&quot;: &quot;Your family vitals at a glance &amp;mdash; &lt;em&gt;meals planned, budget on track, school progress visible&lt;/em&gt;. Family goals tracked and task progress visible. Green bars mean everything is on track.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Project Health</div>
             <div class="card-body">
-              <div class="health-row"><div class="health-label">Tests</div><div class="health-bar"><div class="health-fill" style="width:100%;background:var(--green)"></div></div><div class="health-value" style="color:var(--green)">5,800+</div></div>
-              <div class="health-row"><div class="health-label">Type Safety</div><div class="health-bar"><div class="health-fill" style="width:100%;background:var(--green)"></div></div><div class="health-value" style="color:var(--green)">0 any</div></div>
-              <div class="health-row"><div class="health-label">File Sizes</div><div class="health-bar"><div class="health-fill" style="width:95%;background:var(--green)"></div></div><div class="health-value" style="color:var(--green)">Clean</div></div>
-              <div class="health-row"><div class="health-label">Tasks</div><div class="health-bar"><div class="health-fill" style="width:16%;background:var(--accent)"></div></div><div class="health-value">16%</div></div>
-              <div class="health-row"><div class="health-label">Tech Debt</div><div class="health-bar"><div class="health-fill" style="width:88%;background:var(--orange)"></div></div><div class="health-value" style="color:var(--orange)">2 items</div></div>
+              <div class="health-row"><div class="health-label">Meals Planned</div><div class="health-bar"><div class="health-fill" style="width:85%;background:var(--green)"></div></div><div class="health-value" style="color:var(--green)">6/7</div></div>
+              <div class="health-row"><div class="health-label">Budget</div><div class="health-bar"><div class="health-fill" style="width:70%;background:var(--green)"></div></div><div class="health-value" style="color:var(--green)">On Track</div></div>
+              <div class="health-row"><div class="health-label">School Progress</div><div class="health-bar"><div class="health-fill" style="width:60%;background:var(--green)"></div></div><div class="health-value" style="color:var(--green)">60%</div></div>
+              <div class="health-row"><div class="health-label">Etsy Orders</div><div class="health-bar"><div class="health-fill" style="width:40%;background:var(--accent)"></div></div><div class="health-value">3 pending</div></div>
+              <div class="health-row"><div class="health-label">Family Time</div><div class="health-bar"><div class="health-fill" style="width:50%;background:var(--orange)"></div></div><div class="health-value" style="color:var(--orange)">needs more</div></div>
             </div>
           </div>
           <div class="card col-4">
-            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Audit Trail&quot;, &quot;tag&quot;: &quot;Security&quot;, &quot;body&quot;: &quot;Every AI action logged &amp;mdash; &lt;em&gt;file edits, command executions, git commits, test runs&lt;/em&gt;. Full transparency into what your AI agents are doing. Trust but verify, automatically.&quot;, &quot;cat&quot;: &quot;kat-perk&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Audit Log</div>
+            <div class="card-header" data-guide="{&quot;title&quot;: &quot;Audit Trail&quot;, &quot;tag&quot;: &quot;Security&quot;, &quot;body&quot;: &quot;Every AI action logged &amp;mdash; &lt;em&gt;meal plans, calendar updates, grocery lists, budget checks&lt;/em&gt;. Full transparency into what your AI assistant is doing. Trust but verify, automatically.&quot;, &quot;cat&quot;: &quot;kat-perk&quot;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Audit Log</div>
             <div class="card-body">
-              <div class="audit-item"><span class="audit-icon exec">&#9654;</span><span class="audit-text">Agent ran <code>gate-check.sh</code> — all gates passed</span><span class="audit-time">2h ago</span></div>
-              <div class="audit-item"><span class="audit-icon write">&#9998;</span><span class="audit-text">Edited <code>BrowserManager.ts</code> lines 12-85</span><span class="audit-time">2h ago</span></div>
-              <div class="audit-item"><span class="audit-icon write">&#9998;</span><span class="audit-text">Created <code>chat-pane-v2.html</code></span><span class="audit-time">3h ago</span></div>
-              <div class="audit-item"><span class="audit-icon exec">&#9654;</span><span class="audit-text">Ran <code>npm test</code> — 5,800 tests passed</span><span class="audit-time">3h ago</span></div>
-              <div class="audit-item"><span class="audit-icon exec">&#9654;</span><span class="audit-text">Git commit: "BH-C16: final chunk SHIP"</span><span class="audit-time">4h ago</span></div>
+              <div class="audit-item"><span class="audit-icon exec">&#9654;</span><span class="audit-text">Generated grocery list — 34 items, $87 estimated</span><span class="audit-time">2h ago</span></div>
+              <div class="audit-item"><span class="audit-icon write">&#9998;</span><span class="audit-text">Created weekly schedule — 12 activities across 3 kids</span><span class="audit-time">2h ago</span></div>
+              <div class="audit-item"><span class="audit-icon write">&#9998;</span><span class="audit-text">Listed vintage earrings on Etsy — $24.99</span><span class="audit-time">3h ago</span></div>
+              <div class="audit-item"><span class="audit-icon exec">&#9654;</span><span class="audit-text">Updated family calendar — synced 8 events from Google</span><span class="audit-time">3h ago</span></div>
+              <div class="audit-item"><span class="audit-icon exec">&#9654;</span><span class="audit-text">Budget alert: Grocery spending at 70% of monthly limit</span><span class="audit-time">4h ago</span></div>
             </div>
           </div>
         </div>
@@ -1024,10 +1024,10 @@
         <div class="grid">
           <div class="card col-12" data-guide="{&quot;title&quot;: &quot;Recent Activity Feed&quot;, &quot;tag&quot;: &quot;Timeline&quot;, &quot;body&quot;: &quot;A chronological stream of &lt;em&gt;everything happening in your project&lt;/em&gt;. Ship confirmations, mockup creations, knowledge extractions, and more. Your project heartbeat in real-time.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
             <div class="card-body" style="padding-top:12px">
-              <div class="activity-item"><div class="activity-time">2h ago</div><div class="activity-text"><strong>Browser Health C16</strong> — SHIP confirmed. All 16 chunks complete. 1037 browser tests.</div></div>
-              <div class="activity-item"><div class="activity-time">3h ago</div><div class="activity-text"><strong>UI Talk</strong> — Chat pane v2 mockup created: <code>chat-pane-v2.html</code></div></div>
-              <div class="activity-item"><div class="activity-time">5h ago</div><div class="activity-text"><strong>Knowledge</strong> — 4 new facts extracted from conversations</div></div>
-              <div class="activity-item"><div class="activity-time">1d ago</div><div class="activity-text"><strong>Tools Wave 2</strong> — SHIP confirmed. 4 chunks complete, 104 new tests.</div></div>
+              <div class="activity-item"><div class="activity-time">2h ago</div><div class="activity-text"><strong>Meal Planning</strong> — Week 12 plan created. 7 dinners, 5 lunches, all nut-free.</div></div>
+              <div class="activity-item"><div class="activity-time">3h ago</div><div class="activity-text"><strong>Ethan's Science</strong> — Project outline finalized: plant growth experiment</div></div>
+              <div class="activity-item"><div class="activity-time">5h ago</div><div class="activity-text"><strong>Etsy Shop</strong> — 3 new listings created: handmade earrings collection</div></div>
+              <div class="activity-item"><div class="activity-time">1d ago</div><div class="activity-text"><strong>Family Budget</strong> — March expense report complete. Under budget by $58.</div></div>
             </div>
           </div>
         </div>
@@ -1037,7 +1037,7 @@
     <!-- ══════════ VIEW: CHATS ══════════ -->
     <div class="view" id="view-chats" data-guide="{&quot;title&quot;: &quot;Chat Management&quot;, &quot;tag&quot;: &quot;Conversations&quot;, &quot;body&quot;: &quot;Three-panel chat management &amp;mdash; &lt;em&gt;folders, list, and detail view&lt;/em&gt;. Organize hundreds of AI conversations with color-coded folders, search, and linked items. Never lose a thread.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
       <div class="view-toolbar">
-        <div class="view-title">&#128172; Chats <span class="count">56 conversations</span></div>
+        <div class="view-title">&#128172; Chats <span class="count">57 conversations</span></div>
         <div class="view-spacer"></div>
         <div class="search-box"><span>&#128269;</span><input placeholder="Search chats..." /></div>
       </div>
@@ -1047,83 +1047,74 @@
           <div class="chats-folders-inner">
             <div style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;padding:4px 10px">Folders</div>
             <div class="cf-folder" data-folder="all">
-              <div class="cf-folder-header selected" onclick="selectFolder('all',this)"><div class="cf-folder-icon" style="background:var(--bg-active);color:var(--text-secondary)">&#128172;</div> All Chats <span class="cf-count">56</span></div>
+              <div class="cf-folder-header selected" onclick="selectFolder('all',this)"><div class="cf-folder-icon" style="background:var(--bg-active);color:var(--text-secondary)">&#128172;</div> All Chats <span class="cf-count">57</span></div>
             </div>
             <div style="height:1px;background:var(--border-subtle);margin:6px 10px"></div>
-            <div class="cf-folder" data-folder="ping-dev">
-              <div class="cf-folder-header" onclick="selectFolder('ping-dev',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--accent-glow);color:var(--accent)">&#128193;</div> PiNG! Dev <span class="cf-count">20</span></div>
+            <div class="cf-folder" data-folder="family-hub">
+              <div class="cf-folder-header" onclick="selectFolder('family-hub',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--accent-glow);color:var(--accent)">&#128193;</div> Family Hub <span class="cf-count">16</span></div>
               <div class="cf-folder-chats">
-                <div class="cf-chat-item">Browser Health C16 <span class="cf-chat-date">2h</span></div>
-                <div class="cf-chat-item">Auto Runner C2 <span class="cf-chat-date">5h</span></div>
-                <div class="cf-chat-item">Logger refactor <span class="cf-chat-date">1d</span></div>
-                <div class="cf-chat-item">Gate check fixes <span class="cf-chat-date">2d</span></div>
-                <div class="cf-chat-item">FTS5 migration <span class="cf-chat-date">3d</span></div>
-                <div class="cf-chat-item">Tools Wave 2 <span class="cf-chat-date">5d</span></div>
-                <div class="cf-chat-item">MCP Harden C2 <span class="cf-chat-date">6d</span></div>
+                <div class="cf-chat-item">Weekly meal plan &amp; grocery list <span class="cf-chat-date">2h</span></div>
+                <div class="cf-chat-item">Ethan's science project ideas <span class="cf-chat-date">3h</span></div>
+                <div class="cf-chat-item">Soccer carpool schedule <span class="cf-chat-date">1d</span></div>
+                <div class="cf-chat-item">Birthday party ideas — Mia <span class="cf-chat-date">1d</span></div>
+                <div class="cf-chat-item">Summer camp research <span class="cf-chat-date">2d</span></div>
+                <div class="cf-chat-item">Budget tracker &mdash; March <span class="cf-chat-date">3d</span></div>
               </div>
             </div>
-            <div class="cf-folder" data-folder="catskills">
-              <div class="cf-folder-header" onclick="selectFolder('catskills',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--purple-dim);color:var(--purple)">&#128193;</div> CatSkills <span class="cf-count">6</span></div>
+            <div class="cf-folder" data-folder="meals">
+              <div class="cf-folder-header" onclick="selectFolder('meals',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--green-dim);color:var(--green)">&#128193;</div> Meal Planning <span class="cf-count">8</span></div>
               <div class="cf-folder-chats">
-                <div class="cf-chat-item">Skill Builder <span class="cf-chat-date">2d</span></div>
-                <div class="cf-chat-item">Prompt Templates <span class="cf-chat-date">4d</span></div>
-                <div class="cf-chat-item">Skill Triggers <span class="cf-chat-date">5d</span></div>
-                <div class="cf-chat-item">Agent Routing <span class="cf-chat-date">1w</span></div>
-                <div class="cf-chat-item">Eval Framework <span class="cf-chat-date">1w</span></div>
-                <div class="cf-chat-item">Custom Actions <span class="cf-chat-date">2w</span></div>
+                <div class="cf-chat-item">Week 12 meal plan <span class="cf-chat-date">2h</span></div>
+                <div class="cf-chat-item">Nut-free snack ideas <span class="cf-chat-date">3d</span></div>
+                <div class="cf-chat-item">Batch cooking Sunday <span class="cf-chat-date">5d</span></div>
+                <div class="cf-chat-item">Liam's toddler meal ideas <span class="cf-chat-date">1w</span></div>
               </div>
             </div>
-            <div class="cf-folder" data-folder="memory">
-              <div class="cf-folder-header" onclick="selectFolder('memory',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--cyan-dim);color:var(--cyan)">&#128193;</div> Memory System <span class="cf-count">3</span></div>
+            <div class="cf-folder" data-folder="kids">
+              <div class="cf-folder-header" onclick="selectFolder('kids',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--purple-dim);color:var(--purple)">&#128193;</div> Kids' Activities <span class="cf-count">11</span></div>
               <div class="cf-folder-chats">
-                <div class="cf-chat-item">Star + Context Horizon <span class="cf-chat-date">1d</span></div>
-                <div class="cf-chat-item">Memory Architecture <span class="cf-chat-date">3d</span></div>
-                <div class="cf-chat-item">Context Budget Design <span class="cf-chat-date">5d</span></div>
+                <div class="cf-chat-item">Ethan's math tutoring <span class="cf-chat-date">1d</span></div>
+                <div class="cf-chat-item">Mia's soccer schedule <span class="cf-chat-date">2d</span></div>
+                <div class="cf-chat-item">Summer camp options <span class="cf-chat-date">3d</span></div>
               </div>
             </div>
-            <div class="cf-folder" data-folder="repo">
-              <div class="cf-folder-header" onclick="selectFolder('repo',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--green-dim);color:var(--green)">&#128193;</div> REPO/Coding <span class="cf-count">6</span></div>
+            <div class="cf-folder" data-folder="budget">
+              <div class="cf-folder-header" onclick="selectFolder('budget',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--orange-dim);color:var(--orange)">&#128193;</div> Family Budget <span class="cf-count">5</span></div>
               <div class="cf-folder-chats">
-                <div class="cf-chat-item">Gemini adapter testing <span class="cf-chat-date">1w</span></div>
-                <div class="cf-chat-item">SQLite WAL tuning <span class="cf-chat-date">1w</span></div>
-                <div class="cf-chat-item">IPC refactor <span class="cf-chat-date">2w</span></div>
-                <div class="cf-chat-item">Vite HMR config <span class="cf-chat-date">2w</span></div>
-                <div class="cf-chat-item">ESLint rules <span class="cf-chat-date">3w</span></div>
-                <div class="cf-chat-item">Monorepo structure <span class="cf-chat-date">3w</span></div>
-              </div>
-            </div>
-            <div class="cf-folder" data-folder="features">
-              <div class="cf-folder-header" onclick="selectFolder('features',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--orange-dim);color:var(--orange)">&#128193;</div> Features <span class="cf-count">3</span></div>
-              <div class="cf-folder-chats">
-                <div class="cf-chat-item">UI Talk — Mockups <span class="cf-chat-date">3h</span></div>
-                <div class="cf-chat-item">Product Landing Page <span class="cf-chat-date">1d</span></div>
+                <div class="cf-chat-item">March budget review <span class="cf-chat-date">3d</span></div>
+                <div class="cf-chat-item">Grocery cost tracking <span class="cf-chat-date">1w</span></div>
                 <div class="cf-chat-item">Voice Settings <span class="cf-chat-date">2d</span></div>
               </div>
             </div>
             <div class="cf-folder" data-folder="fixes">
-              <div class="cf-folder-header" onclick="selectFolder('fixes',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--red-dim);color:var(--red)">&#128193;</div> FIXES <span class="cf-count">4</span></div>
+              <div class="cf-folder-header" onclick="selectFolder('fixes',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--red-dim);color:var(--red)">&#128193;</div> Etsy Business <span class="cf-count">7</span></div>
               <div class="cf-folder-chats">
-                <div class="cf-chat-item">Crash on large paste <span class="cf-chat-date">3d</span></div>
-                <div class="cf-chat-item">Memory leak sidebar <span class="cf-chat-date">5d</span></div>
-                <div class="cf-chat-item">Dark mode glitch <span class="cf-chat-date">1w</span></div>
-                <div class="cf-chat-item">Scroll jump fix <span class="cf-chat-date">2w</span></div>
+                <div class="cf-chat-item">Product descriptions — spring line <span class="cf-chat-date">3d</span></div>
+                <div class="cf-chat-item">SEO tags for earrings <span class="cf-chat-date">5d</span></div>
+                <div class="cf-chat-item">Shipping label templates <span class="cf-chat-date">1w</span></div>
+                <div class="cf-chat-item">Craft fair prep — March 28 <span class="cf-chat-date">2w</span></div>
               </div>
             </div>
-            <div class="cf-folder" data-folder="rag">
-              <div class="cf-folder-header" onclick="selectFolder('rag',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--yellow-dim);color:var(--yellow)">&#128193;</div> RAG Tests <span class="cf-count">1</span></div>
+            <div class="cf-folder" data-folder="health">
+              <div class="cf-folder-header" onclick="selectFolder('health',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--cyan-dim);color:var(--cyan)">&#128193;</div> Health &amp; Appointments <span class="cf-count">4</span></div>
               <div class="cf-folder-chats">
-                <div class="cf-chat-item">Embedding benchmark <span class="cf-chat-date">2w</span></div>
+                <div class="cf-chat-item">Liam's pediatrician schedule <span class="cf-chat-date">1w</span></div>
+                <div class="cf-chat-item">Vaccination tracker <span class="cf-chat-date">2w</span></div>
               </div>
             </div>
-            <div class="cf-folder" data-folder="unfiled">
-              <div class="cf-folder-header" onclick="selectFolder('unfiled',this)" style="color:var(--text-muted)"><div class="cf-folder-icon" style="background:var(--bg-active);color:var(--text-muted)">&#128193;</div> Unfiled <span class="cf-count">13</span></div>
+            <div class="cf-folder" data-folder="school">
+              <div class="cf-folder-header" onclick="selectFolder('school',this)"><span class="cf-arrow" onclick="event.stopPropagation();toggleFolder(this.parentElement)">&#9654;</span><div class="cf-folder-icon" style="background:var(--pink-dim);color:var(--pink)">&#128193;</div> Homeschool — Ethan &amp; Mia <span class="cf-count">6</span></div>
+              <div class="cf-folder-chats">
+                <div class="cf-chat-item">Ethan's science project <span class="cf-chat-date">3h</span></div>
+                <div class="cf-chat-item">Math homework help <span class="cf-chat-date">2d</span></div>
+              </div>
             </div>
           </div>
           <div class="chats-folders-stats">
             <div style="font-size:10px;color:var(--text-muted);margin-bottom:6px">STATS</div>
-            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:2px">Total tokens: 4.2M</div>
-            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:2px">Total cost: $14.27</div>
-            <div style="font-size:11px;color:var(--text-secondary)">Avg per chat: 75K tok</div>
+            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:2px">Total tokens: 1.5M</div>
+            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:2px">Total cost: $6.20</div>
+            <div style="font-size:11px;color:var(--text-secondary)">Avg per chat: 26K tok</div>
           </div>
         </div>
         <!-- Left panel collapse -->
@@ -1134,176 +1125,176 @@
         </div>
         <!-- Chat list -->
         <div class="chats-list" id="chats-list" style="overflow-y:auto">
-          <div class="cl-item active" data-folder="ping-dev">
+          <div class="cl-item active" data-folder="family-hub">
             <div class="cl-status live"></div>
             <div class="cl-body">
-              <div class="cl-title">Browser Health C16 <span class="pin">&#9733;</span></div>
-              <div class="cl-preview">Executing gate-check.sh — verifying 1037 tests pass...</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">42K tok</span><span class="cl-cont">&#8594; continued from C15</span></div>
+              <div class="cl-title">Weekly meal plan &amp; grocery list <span class="pin">&#9733;</span></div>
+              <div class="cl-preview">Checking Instacart availability for 34 grocery items...</div>
+              <div class="cl-meta"><span class="cl-model opus">opus</span><span class="cl-tokens">8K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">2h ago</div><div class="cl-msgs">284 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">2h ago</div><div class="cl-msgs">24 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="features">
+          <div class="cl-item" data-folder="family-hub">
             <div class="cl-status live"></div>
             <div class="cl-body">
-              <div class="cl-title">UI Talk — Mockups <span class="pin">&#9733;</span></div>
-              <div class="cl-preview">make it uniform across your mockups the workspace list...</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">38K tok</span></div>
+              <div class="cl-title">Ethan's science project ideas <span class="pin">&#9733;</span></div>
+              <div class="cl-preview">Creating experiment plan for plant growth study...</div>
+              <div class="cl-meta"><span class="cl-model opus">opus</span><span class="cl-tokens">5K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">3h ago</div><div class="cl-msgs">96 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">3h ago</div><div class="cl-msgs">18 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="ping-dev">
+          <div class="cl-item" data-folder="family-hub">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Auto Runner C2</div>
-              <div class="cl-preview">Planning AR-C2 implementation based on spec...</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">18K tok</span><span class="cl-cont">&#8594; continued from AR-C1</span></div>
+              <div class="cl-title">Birthday party ideas — Mia</div>
+              <div class="cl-preview">Unicorn-themed party plan — decorations, activities, food for 10 kids</div>
+              <div class="cl-meta"><span class="cl-model opus">opus</span><span class="cl-tokens">4K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">5h ago</div><div class="cl-msgs">42 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">1d ago</div><div class="cl-msgs">16 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="ping-dev">
+          <div class="cl-item" data-folder="family-hub">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Logger refactor</div>
-              <div class="cl-preview">Finished — structured JSON output added to all services</div>
-              <div class="cl-meta"><span class="cl-model sonnet">sonnet 4.6</span><span class="cl-tokens">8K tok</span></div>
+              <div class="cl-title">Summer camp research</div>
+              <div class="cl-preview">Comparing 5 day camps in the area — pros, cons, pricing</div>
+              <div class="cl-meta"><span class="cl-model sonnet">sonnet</span><span class="cl-tokens">6K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">1d ago</div><div class="cl-msgs">18 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">2d ago</div><div class="cl-msgs">12 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="memory">
+          <div class="cl-item" data-folder="family-hub">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Star + Context Horizon</div>
-              <div class="cl-preview">Adopted Star model for context window management...</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">28K tok</span></div>
+              <div class="cl-title">Soccer carpool schedule</div>
+              <div class="cl-preview">Coordinated weekly carpool with 3 other families...</div>
+              <div class="cl-meta"><span class="cl-model sonnet">sonnet</span><span class="cl-tokens">3K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">1d ago</div><div class="cl-msgs">64 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">3d ago</div><div class="cl-msgs">8 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="features">
+          <div class="cl-item" data-folder="budget">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Product Landing Page</div>
-              <div class="cl-preview">Hero section with cat mascot animation ready for review</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">15K tok</span></div>
+              <div class="cl-title">Budget tracker &mdash; March</div>
+              <div class="cl-preview">$842 of $1,200 grocery budget spent so far this month</div>
+              <div class="cl-meta"><span class="cl-model sonnet">sonnet</span><span class="cl-tokens">4K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">1d ago</div><div class="cl-msgs">28 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">3d ago</div><div class="cl-msgs">14 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="ping-dev">
+          <div class="cl-item" data-folder="meals">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Gate check fixes <span class="pin">&#9733;</span></div>
-              <div class="cl-preview">Fixed console.* violations in 3 files, updated gate-check.sh</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">22K tok</span></div>
+              <div class="cl-title">Nut-free snack ideas <span class="pin">&#9733;</span></div>
+              <div class="cl-preview">25 kid-approved, nut-free snacks for school and home</div>
+              <div class="cl-meta"><span class="cl-model opus">opus</span><span class="cl-tokens">3K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">2d ago</div><div class="cl-msgs">56 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">3d ago</div><div class="cl-msgs">10 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="catskills">
+          <div class="cl-item" data-folder="kids">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Skill Builder</div>
-              <div class="cl-preview">New YAML-based skill definition format working...</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">31K tok</span></div>
+              <div class="cl-title">Ethan's math tutoring</div>
+              <div class="cl-preview">Helped with fractions worksheet — used pizza examples</div>
+              <div class="cl-meta"><span class="cl-model opus">opus</span><span class="cl-tokens">5K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">2d ago</div><div class="cl-msgs">72 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">4d ago</div><div class="cl-msgs">22 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="features">
+          <div class="cl-item" data-folder="health">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Voice Settings</div>
-              <div class="cl-preview">TTS engine selection and pitch controls complete</div>
-              <div class="cl-meta"><span class="cl-model sonnet">sonnet 4.6</span><span class="cl-tokens">9K tok</span></div>
+              <div class="cl-title">Liam's pediatrician schedule</div>
+              <div class="cl-preview">Next checkup Mar 20 — vaccination tracker updated</div>
+              <div class="cl-meta"><span class="cl-model sonnet">sonnet</span><span class="cl-tokens">9K tok</span></div>
             </div>
             <div class="cl-right"><div class="cl-time">2d ago</div><div class="cl-msgs">22 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="ping-dev">
+          <div class="cl-item" data-folder="meals">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">FTS5 migration</div>
-              <div class="cl-preview">Should we use external-content mode or standalone for KB?</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">35K tok</span></div>
+              <div class="cl-title">Batch cooking Sunday prep</div>
+              <div class="cl-preview">5 freezer meals for the week — all nut-free and kid-approved</div>
+              <div class="cl-meta"><span class="cl-model opus">opus</span><span class="cl-tokens">3K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">3d ago</div><div class="cl-msgs">128 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">3d ago</div><div class="cl-msgs">12 msgs</div></div>
           </div>
           <div class="cl-item" data-folder="fixes">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Crash on large paste</div>
-              <div class="cl-preview">Fixed — was exceeding IPC message size limit at 5MB</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">14K tok</span></div>
+              <div class="cl-title">Etsy product descriptions — spring</div>
+              <div class="cl-preview">SEO-optimized listings for handmade earring collection</div>
+              <div class="cl-meta"><span class="cl-model opus">opus</span><span class="cl-tokens">4K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">3d ago</div><div class="cl-msgs">36 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">3d ago</div><div class="cl-msgs">16 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="memory">
+          <div class="cl-item" data-folder="kids">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Memory Architecture</div>
-              <div class="cl-preview">Three-tier model: hot (session), warm (project), cold (global)</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">45K tok</span></div>
+              <div class="cl-title">Mia's birthday party planning</div>
+              <div class="cl-preview">Unicorn theme — invitations, games, nut-free cake ideas</div>
+              <div class="cl-meta"><span class="cl-model opus">opus</span><span class="cl-tokens">5K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">3d ago</div><div class="cl-msgs">142 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">3d ago</div><div class="cl-msgs">18 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="catskills">
+          <div class="cl-item" data-folder="school">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Prompt Templates</div>
-              <div class="cl-preview">Mustache-style variable interpolation with defaults</div>
-              <div class="cl-meta"><span class="cl-model sonnet">sonnet 4.6</span><span class="cl-tokens">11K tok</span></div>
+              <div class="cl-title">Ethan's history curriculum</div>
+              <div class="cl-preview">Ancient civilizations unit — timeline activities and reading list</div>
+              <div class="cl-meta"><span class="cl-model sonnet">sonnet</span><span class="cl-tokens">3K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">4d ago</div><div class="cl-msgs">48 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">4d ago</div><div class="cl-msgs">14 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="ping-dev">
+          <div class="cl-item" data-folder="budget">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Tools Wave 2</div>
-              <div class="cl-preview">SHIP confirmed. 4 chunks complete, 104 new tests.</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">62K tok</span></div>
+              <div class="cl-title">Etsy revenue tracking</div>
+              <div class="cl-preview">Q1 sales: $420 — top seller: beaded bracelets at $18 avg</div>
+              <div class="cl-meta"><span class="cl-model opus">opus</span><span class="cl-tokens">4K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">5d ago</div><div class="cl-msgs">320 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">5d ago</div><div class="cl-msgs">10 msgs</div></div>
+          </div>
+          <div class="cl-item" data-folder="health">
+            <div class="cl-status idle"></div>
+            <div class="cl-body">
+              <div class="cl-title">Liam's sleep schedule adjustments</div>
+              <div class="cl-preview">Transitioning from 2 naps to 1 — tips and timeline</div>
+              <div class="cl-meta"><span class="cl-model sonnet">sonnet</span><span class="cl-tokens">2K tok</span></div>
+            </div>
+            <div class="cl-right"><div class="cl-time">5d ago</div><div class="cl-msgs">8 msgs</div></div>
+          </div>
+          <div class="cl-item" data-folder="kids">
+            <div class="cl-status idle"></div>
+            <div class="cl-body">
+              <div class="cl-title">Summer activity planning</div>
+              <div class="cl-preview">Day camps, swim lessons, and library programs for all 3 kids</div>
+              <div class="cl-meta"><span class="cl-model opus">opus</span><span class="cl-tokens">5K tok</span></div>
+            </div>
+            <div class="cl-right"><div class="cl-time">5d ago</div><div class="cl-msgs">16 msgs</div></div>
           </div>
           <div class="cl-item" data-folder="fixes">
-            <div class="cl-status idle"></div>
-            <div class="cl-body">
-              <div class="cl-title">Memory leak sidebar</div>
-              <div class="cl-preview">React effect cleanup was missing on unmount</div>
-              <div class="cl-meta"><span class="cl-model sonnet">sonnet 4.6</span><span class="cl-tokens">6K tok</span></div>
-            </div>
-            <div class="cl-right"><div class="cl-time">5d ago</div><div class="cl-msgs">14 msgs</div></div>
-          </div>
-          <div class="cl-item" data-folder="memory">
-            <div class="cl-status idle"></div>
-            <div class="cl-body">
-              <div class="cl-title">Context Budget Design</div>
-              <div class="cl-preview">Token allocation strategy per memory tier defined</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">19K tok</span></div>
-            </div>
-            <div class="cl-right"><div class="cl-time">5d ago</div><div class="cl-msgs">52 msgs</div></div>
-          </div>
-          <div class="cl-item" data-folder="ping-dev">
             <div class="cl-status pinned"></div>
             <div class="cl-body">
-              <div class="cl-title">MCP Harden C2 <span class="pin">&#9733;</span></div>
-              <div class="cl-preview">Trust Mechanism: receipts with cryptographic proofs</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">48K tok</span></div>
+              <div class="cl-title">Craft fair booth planning <span class="pin">&#9733;</span></div>
+              <div class="cl-preview">Display layout, pricing cards, inventory for March 28 fair</div>
+              <div class="cl-meta"><span class="cl-model opus">opus</span><span class="cl-tokens">6K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">6d ago</div><div class="cl-msgs">186 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">6d ago</div><div class="cl-msgs">22 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="repo">
+          <div class="cl-item" data-folder="meals">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Gemini adapter testing</div>
-              <div class="cl-preview">thoughtSignature management FROM the event IR</div>
-              <div class="cl-meta"><span class="cl-model gemini">gemini 2.5</span><span class="cl-tokens">12K tok</span></div>
+              <div class="cl-title">Liam's toddler meal ideas</div>
+              <div class="cl-preview">Finger foods and easy meals for a picky 2-year-old</div>
+              <div class="cl-meta"><span class="cl-model sonnet">sonnet</span><span class="cl-tokens">2K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">1w ago</div><div class="cl-msgs">34 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">1w ago</div><div class="cl-msgs">12 msgs</div></div>
           </div>
-          <div class="cl-item" data-folder="rag">
+          <div class="cl-item" data-folder="budget">
             <div class="cl-status idle"></div>
             <div class="cl-body">
-              <div class="cl-title">Embedding benchmark</div>
-              <div class="cl-preview">Comparing voyage-3 vs text-embedding-3-large on our corpus</div>
-              <div class="cl-meta"><span class="cl-model opus">opus 4.6</span><span class="cl-tokens">22K tok</span></div>
+              <div class="cl-title">Home renovation budget</div>
+              <div class="cl-preview">Kitchen backsplash options — comparing costs and DIY vs pro</div>
+              <div class="cl-meta"><span class="cl-model opus">opus</span><span class="cl-tokens">4K tok</span></div>
             </div>
-            <div class="cl-right"><div class="cl-time">2w ago</div><div class="cl-msgs">46 msgs</div></div>
+            <div class="cl-right"><div class="cl-time">2w ago</div><div class="cl-msgs">14 msgs</div></div>
           </div>
           <div id="cl-footer" style="text-align:center;padding:16px;font-size:11px;color:var(--text-muted)">Showing 19 of 56 conversations</div>
         </div>
@@ -1315,22 +1306,22 @@
         <!-- Detail panel -->
         <div class="chats-detail">
           <div class="cd-title">Chat Details</div>
-          <div class="cd-field"><div class="cd-label">Title</div><div class="cd-value" style="font-weight:600">Browser Health C16</div></div>
-          <div class="cd-field"><div class="cd-label">Model</div><div class="cd-value"><span class="cl-model opus" style="display:inline-flex">opus 4.6</span></div></div>
+          <div class="cd-field"><div class="cd-label">Title</div><div class="cd-value" style="font-weight:600">Weekly Meal Plan &amp; Grocery List</div></div>
+          <div class="cd-field"><div class="cd-label">Model</div><div class="cd-value"><span class="cl-model opus" style="display:inline-flex">opus</span></div></div>
           <div class="cd-field"><div class="cd-label">Status</div><div class="cd-value" style="color:var(--green)">&#9679; Running</div></div>
-          <div class="cd-field"><div class="cd-label">Tokens</div><div class="cd-value" style="font-family:var(--font-mono)">42,180</div></div>
-          <div class="cd-field"><div class="cd-label">Messages</div><div class="cd-value">284</div></div>
-          <div class="cd-field"><div class="cd-label">Created</div><div class="cd-value">Mar 9, 2026</div></div>
-          <div class="cd-field"><div class="cd-label">Folder</div><div class="cd-value" style="color:var(--accent)">&#128193; PlanPack Work</div></div>
-          <div class="cd-field"><div class="cd-label">Continuation</div><div class="cd-value" style="color:var(--purple)">&#8594; from Browser Health C15</div></div>
+          <div class="cd-field"><div class="cd-label">Tokens</div><div class="cd-value" style="font-family:var(--font-mono)">8,420</div></div>
+          <div class="cd-field"><div class="cd-label">Messages</div><div class="cd-value">24</div></div>
+          <div class="cd-field"><div class="cd-label">Created</div><div class="cd-value">Mar 15, 2026</div></div>
+          <div class="cd-field"><div class="cd-label">Folder</div><div class="cd-value" style="color:var(--accent)">&#128193; Meal Planning</div></div>
+          <div class="cd-field"><div class="cd-label">Continuation</div><div class="cd-value" style="color:var(--purple)">&#8594; from Week 11 Plan</div></div>
           <div style="margin-top:16px"><div class="cd-title" style="font-size:10px">Linked Items</div>
-            <div class="cd-linked">&#9745; Fix MCP hardening C3 <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">task</span></div>
-            <div class="cd-linked">&#128196; BrowserManager.ts <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">file</span></div>
-            <div class="cd-linked">&#9889; Decision: adopt Star + Context... <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">note</span></div>
+            <div class="cd-linked">&#9745; Buy groceries for Monday <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">task</span></div>
+            <div class="cd-linked">&#128196; family-preferences.md <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">file</span></div>
+            <div class="cd-linked">&#9889; Decision: Weekly budget is $150 <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">note</span></div>
           </div>
           <div style="margin-top:16px"><div class="cd-title" style="font-size:10px">Extracted Notes</div>
-            <div class="cd-linked" style="border-left:2px solid var(--green)">&#9889; Adopt Star + Context Horizon model</div>
-            <div class="cd-linked" style="border-left:2px solid var(--yellow)">&#11088; Concurrency via Git Worktrees</div>
+            <div class="cd-linked" style="border-left:2px solid var(--green)">&#9889; Mia is allergic to tree nuts</div>
+            <div class="cd-linked" style="border-left:2px solid var(--yellow)">&#11088; Ethan prefers pasta over rice</div>
           </div>
           <div style="margin-top:16px;display:flex;gap:6px">
             <button class="action-btn primary" style="flex:1" data-tooltip="Open this chat in the full conversation view">Open Chat</button>
@@ -1372,12 +1363,12 @@
           </div>
         </div>
         <div class="notes-list" style="overflow-y:auto">
-          <div class="note-card"><div class="note-card-header"><span class="note-type-badge decision">&#9889; Decision</span><span class="note-confidence">conf: 0.95</span><span class="note-pin">&#9733;</span></div><div class="note-content">Adopt "Star + Context Horizon" model for memory architecture — central project memory with radiating conversation-level contexts</div><div class="note-footer"><span class="source-link">&#128172; UI Talk — Mockups</span><span>&middot;</span><span>yesterday, 3:42 PM</span><div class="note-actions"><div class="note-action-btn">&#9998;</div><div class="note-action-btn">&#128204;</div><div class="note-action-btn">&#128279;</div><div class="note-action-btn">&#8593;</div><div class="note-action-btn">&#128465;</div></div></div></div>
-          <div class="note-card"><div class="note-card-header"><span class="note-type-badge fact">&#128204; Fact</span><span class="note-confidence">conf: 0.92</span><span class="note-source-tag">auto-extracted</span></div><div class="note-content">The SDK is used as a downstream adapter to produce correct Gemini wire format (including thoughtSignature management) FROM the event IR</div><div class="note-footer"><span class="source-link">&#128172; Source conversation</span><span>&middot;</span><span>today, 8:25 AM</span><div class="note-actions"><div class="note-action-btn">&#9998;</div><div class="note-action-btn">&#128204;</div><div class="note-action-btn">&#128279;</div></div></div></div>
-          <div class="note-card"><div class="note-card-header"><span class="note-type-badge open_question">&#10067; Open Question</span><span class="note-confidence">conf: 0.78</span></div><div class="note-content">Should we use FTS5 external-content mode or standalone for the knowledge base?</div><div class="note-footer"><span class="source-link">&#128172; FTS5 migration</span><span>&middot;</span><span>3 days ago</span></div></div>
-          <div class="note-card"><div class="note-card-header"><span class="note-type-badge observation">&#128065; Observation</span><span class="note-confidence">conf: 0.88</span></div><div class="note-content">Trust Mechanism: "Receipts" with cryptographic proofs could be a differentiator</div><div class="note-footer"><span class="source-link">&#128172; MCP Harden C2</span><span>&middot;</span><span>6 days ago</span></div></div>
-          <div class="note-card"><div class="note-card-header"><span class="note-type-badge idea">&#128161; Idea</span><span class="note-confidence">conf: 0.82</span></div><div class="note-content">Stop assuming cross-chat memory means copying full context — share structured knowledge objects instead</div><div class="note-footer"><span class="source-link">&#128172; UI Talk — Mockups</span><span>&middot;</span><span>today</span></div></div>
-          <div class="note-card"><div class="note-card-header"><span class="note-type-badge preference">&#11088; Preference</span><span class="note-confidence">conf: 0.98</span><span class="note-pin">&#9733;</span></div><div class="note-content">Concurrency should be handled via Git Worktrees — each agent gets its own isolated copy</div><div class="note-footer"><span class="source-link">&#128172; Browser Health C16</span><span>&middot;</span><span>2h ago</span></div></div>
+          <div class="note-card"><div class="note-card-header"><span class="note-type-badge decision">&#9889; Decision</span><span class="note-confidence">conf: 0.95</span><span class="note-pin">&#9733;</span></div><div class="note-content">Weekly grocery budget capped at $150 — prioritize organic produce and nut-free snacks for Mia</div><div class="note-footer"><span class="source-link">&#128172; Budget Tracker — March</span><span>&middot;</span><span>yesterday, 3:42 PM</span><div class="note-actions"><div class="note-action-btn">&#9998;</div><div class="note-action-btn">&#128204;</div><div class="note-action-btn">&#128279;</div><div class="note-action-btn">&#8593;</div><div class="note-action-btn">&#128465;</div></div></div></div>
+          <div class="note-card"><div class="note-card-header"><span class="note-type-badge fact">&#128204; Fact</span><span class="note-confidence">conf: 0.92</span><span class="note-source-tag">auto-extracted</span></div><div class="note-content">Mia is allergic to tree nuts and shellfish — always check ingredient lists before adding recipes to meal plan</div><div class="note-footer"><span class="source-link">&#128172; Meal Planning</span><span>&middot;</span><span>today, 8:25 AM</span><div class="note-actions"><div class="note-action-btn">&#9998;</div><div class="note-action-btn">&#128204;</div><div class="note-action-btn">&#128279;</div></div></div></div>
+          <div class="note-card"><div class="note-card-header"><span class="note-type-badge open_question">&#10067; Open Question</span><span class="note-confidence">conf: 0.78</span></div><div class="note-content">Should we switch Ethan to Saxon math or stick with Teaching Textbooks for next semester?</div><div class="note-footer"><span class="source-link">&#128172; Homeschool Planning</span><span>&middot;</span><span>3 days ago</span></div></div>
+          <div class="note-card"><div class="note-card-header"><span class="note-type-badge observation">&#128065; Observation</span><span class="note-confidence">conf: 0.88</span></div><div class="note-content">Ethan learns best with hands-on projects — his robotics interest could connect to science and math curriculum</div><div class="note-footer"><span class="source-link">&#128172; Ethan's Science Project</span><span>&middot;</span><span>6 days ago</span></div></div>
+          <div class="note-card"><div class="note-card-header"><span class="note-type-badge idea">&#128161; Idea</span><span class="note-confidence">conf: 0.82</span></div><div class="note-content">Create a shared family calendar that auto-syncs Etsy shipping deadlines with kids' activity schedules</div><div class="note-footer"><span class="source-link">&#128172; Family Calendar</span><span>&middot;</span><span>today</span></div></div>
+          <div class="note-card"><div class="note-card-header"><span class="note-type-badge preference">&#11088; Preference</span><span class="note-confidence">conf: 0.98</span><span class="note-pin">&#9733;</span></div><div class="note-content">Baby Liam naps at 1 PM and 4 PM — schedule all appointments and errands around nap times</div><div class="note-footer"><span class="source-link">&#128172; Family Routines</span><span>&middot;</span><span>2h ago</span></div></div>
         </div>
         <div class="notes-detail">
           <div class="nd-title">Note Details</div>
@@ -1387,9 +1378,9 @@
           <div class="nd-field"><div class="nd-label">Created</div><div class="nd-value">Mar 10, 2026, 3:42 PM</div></div>
           <div class="nd-field"><div class="nd-label">Pinned</div><div class="nd-value" style="color:var(--orange)">&#9733; Yes</div></div>
           <div style="margin-top:16px"><div class="nd-title" style="font-size:10px">Linked Items</div>
-            <div class="nd-linked">&#128172; UI Talk — Mockups <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">chat</span></div>
-            <div class="nd-linked">&#9745; Project View UI design <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">task</span></div>
-            <div class="nd-linked">&#128196; memory-arch.md <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">file</span></div>
+            <div class="nd-linked">&#128172; Budget Tracker — March <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">chat</span></div>
+            <div class="nd-linked">&#9745; Review grocery spending <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">task</span></div>
+            <div class="nd-linked">&#128196; family-preferences.md <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">file</span></div>
           </div>
         </div>
       </div>
@@ -1411,58 +1402,58 @@
           <div class="ft-item folder"><span class="ft-icon folder-icon">&#128193;</span> Unfiled <span class="ft-count">3</span></div>
           <div class="ft-item folder" onclick="toggleFileFolder(this)"><span class="ft-toggle">&#9660;</span><span class="ft-icon folder-icon">&#128193;</span> Research <span class="ft-count">5</span></div>
           <div class="ft-children">
-            <div class="ft-item ft-indent"><span class="ft-icon file-md">MD</span> RAG implementation v251.md</div>
-            <div class="ft-item ft-indent"><span class="ft-icon file-txt">TX</span> Phase 4.0 Agentic browser.txt</div>
-            <div class="ft-item ft-indent folder" onclick="toggleFileFolder(this)"><span class="ft-toggle">&#9660;</span><span class="ft-icon folder-icon">&#128193;</span> Embeddings <span class="ft-count">2</span></div>
+            <div class="ft-item ft-indent"><span class="ft-icon file-md">MD</span> Weekly Meal Plan — Week 12.md</div>
+            <div class="ft-item ft-indent"><span class="ft-icon file-txt">TX</span> Etsy pricing strategy.txt</div>
+            <div class="ft-item ft-indent folder" onclick="toggleFileFolder(this)"><span class="ft-toggle">&#9660;</span><span class="ft-icon folder-icon">&#128193;</span> Recipes <span class="ft-count">2</span></div>
             <div class="ft-children">
-              <div class="ft-item ft-indent-2"><span class="ft-icon file-md">MD</span> Vector search notes.md</div>
-              <div class="ft-item ft-indent-2"><span class="ft-icon file-txt">TX</span> BM25 vs cosine comparison.txt</div>
+              <div class="ft-item ft-indent-2"><span class="ft-icon file-md">MD</span> Nut-free substitutions.md</div>
+              <div class="ft-item ft-indent-2"><span class="ft-icon file-txt">TX</span> Craft fair inventory checklist.txt</div>
             </div>
           </div>
           <div class="ft-item folder" onclick="toggleFileFolder(this)"><span class="ft-toggle">&#9660;</span><span class="ft-icon folder-icon">&#128193;</span> Drafts <span class="ft-count">6</span></div>
           <div class="ft-children">
-            <div class="ft-item ft-indent"><span class="ft-icon file-md">MD</span> PiNG! Whitepaper.md</div>
-            <div class="ft-item ft-indent"><span class="ft-icon file-md">MD</span> Memory Recommendations.md</div>
-            <div class="ft-item ft-indent folder" onclick="toggleFileFolder(this)"><span class="ft-toggle">&#9654;</span><span class="ft-icon folder-icon">&#128193;</span> UI Mockups <span class="ft-count">3</span></div>
+            <div class="ft-item ft-indent"><span class="ft-icon file-md">MD</span> Homeschool curriculum plan.md</div>
+            <div class="ft-item ft-indent"><span class="ft-icon file-md">MD</span> Summer activity ideas.md</div>
+            <div class="ft-item ft-indent folder" onclick="toggleFileFolder(this)"><span class="ft-toggle">&#9654;</span><span class="ft-icon folder-icon">&#128193;</span> Etsy Photos <span class="ft-count">3</span></div>
             <div class="ft-children" style="display:none">
-              <div class="ft-item ft-indent-2"><span class="ft-icon file-txt">HT</span> chat-pane-v2.html</div>
-              <div class="ft-item ft-indent-2"><span class="ft-icon file-txt">HT</span> project-view-v2.html</div>
+              <div class="ft-item ft-indent-2"><span class="ft-icon file-txt">HT</span> earrings-set-01.jpg</div>
+              <div class="ft-item ft-indent-2"><span class="ft-icon file-txt">HT</span> bracelet-stack-02.jpg</div>
               <div class="ft-item ft-indent-2 folder" onclick="toggleFileFolder(this)"><span class="ft-toggle">&#9654;</span><span class="ft-icon folder-icon">&#128193;</span> Archive <span class="ft-count">1</span></div>
               <div class="ft-children" style="display:none">
-                <div class="ft-item ft-indent-3"><span class="ft-icon file-txt">HT</span> chat-pane-v1.html</div>
+                <div class="ft-item ft-indent-3"><span class="ft-icon file-txt">HT</span> pendant-gold-03.jpg</div>
               </div>
             </div>
           </div>
           <div class="ft-item folder" onclick="toggleFileFolder(this)"><span class="ft-toggle">&#9654;</span><span class="ft-icon folder-icon">&#128193;</span> Final <span class="ft-count">2</span></div>
           <div class="ft-children" style="display:none">
-            <div class="ft-item ft-indent"><span class="ft-icon file-md">MD</span> Technical White Paper.md</div>
-            <div class="ft-item ft-indent"><span class="ft-icon file-md">MD</span> Product Brief.md</div>
+            <div class="ft-item ft-indent"><span class="ft-icon file-md">MD</span> Family Budget — 2026.md</div>
+            <div class="ft-item ft-indent"><span class="ft-icon file-md">MD</span> Mia's Birthday Checklist.md</div>
           </div>
         </div>
         <div class="files-list" style="overflow-y:auto">
           <div class="fl-header"><span>Name</span><span>Size</span><span>Modified</span><span>Status</span><span>AI Context</span></div>
-          <div class="fl-row"><div class="fl-name"><div class="fl-file-icon md">MD</div><div><div class="fl-filename">RAG implementation v251.md</div><div class="fl-filename-sub">Research</div></div></div><div class="fl-size">111 KB</div><div class="fl-date">Jan 2</div><div><span class="fl-status draft">Draft</span></div><div><span class="fl-context summary">&#128221; Summary</span></div></div>
-          <div class="fl-row"><div class="fl-name"><div class="fl-file-icon md">MD</div><div><div class="fl-filename">PiNG! Technical White Paper.md</div><div class="fl-filename-sub">Final</div></div></div><div class="fl-size">68.8 KB</div><div class="fl-date">Dec 19</div><div><span class="fl-status canonical">Canonical</span></div><div><span class="fl-context full">&#9989; Full</span></div></div>
-          <div class="fl-row"><div class="fl-name"><div class="fl-file-icon txt">TX</div><div><div class="fl-filename">Phase 4.0 Agentic browser.txt</div><div class="fl-filename-sub">Research</div></div></div><div class="fl-size">43.7 KB</div><div class="fl-date">Jan 5</div><div><span class="fl-status draft">Draft</span></div><div><span class="fl-context summary">&#128221; Summary</span></div></div>
-          <div class="fl-row"><div class="fl-name"><div class="fl-file-icon md">MD</div><div><div class="fl-filename">PiNG! Whitepaper.md</div><div class="fl-filename-sub">Drafts</div></div></div><div class="fl-size">29 KB</div><div class="fl-date">Dec 19</div><div><span class="fl-status draft">Draft</span></div><div><span class="fl-context summary">&#128221; Summary</span></div></div>
-          <div class="fl-row" style="opacity:0.5"><div class="fl-name"><div class="fl-file-icon txt">TX</div><div><div class="fl-filename">the-ping-memory-magic.txt</div><div class="fl-filename-sub">Unfiled</div></div></div><div class="fl-size">5.4 KB</div><div class="fl-date">Dec 22</div><div><span class="fl-status archived">Archived</span></div><div><span class="fl-context excluded">&#8212; Excluded</span></div></div>
+          <div class="fl-row"><div class="fl-name"><div class="fl-file-icon md">MD</div><div><div class="fl-filename">Weekly Meal Plan — Week 12.md</div><div class="fl-filename-sub">Research</div></div></div><div class="fl-size">111 KB</div><div class="fl-date">Jan 2</div><div><span class="fl-status draft">Draft</span></div><div><span class="fl-context summary">&#128221; Summary</span></div></div>
+          <div class="fl-row"><div class="fl-name"><div class="fl-file-icon md">MD</div><div><div class="fl-filename">Family Budget — 2026.md</div><div class="fl-filename-sub">Final</div></div></div><div class="fl-size">68.8 KB</div><div class="fl-date">Dec 19</div><div><span class="fl-status canonical">Canonical</span></div><div><span class="fl-context full">&#9989; Full</span></div></div>
+          <div class="fl-row"><div class="fl-name"><div class="fl-file-icon txt">TX</div><div><div class="fl-filename">Etsy pricing strategy.txt</div><div class="fl-filename-sub">Research</div></div></div><div class="fl-size">43.7 KB</div><div class="fl-date">Jan 5</div><div><span class="fl-status draft">Draft</span></div><div><span class="fl-context summary">&#128221; Summary</span></div></div>
+          <div class="fl-row"><div class="fl-name"><div class="fl-file-icon md">MD</div><div><div class="fl-filename">Homeschool curriculum plan.md</div><div class="fl-filename-sub">Drafts</div></div></div><div class="fl-size">29 KB</div><div class="fl-date">Dec 19</div><div><span class="fl-status draft">Draft</span></div><div><span class="fl-context summary">&#128221; Summary</span></div></div>
+          <div class="fl-row" style="opacity:0.5"><div class="fl-name"><div class="fl-file-icon txt">TX</div><div><div class="fl-filename">old-grocery-lists-2025.txt</div><div class="fl-filename-sub">Unfiled</div></div></div><div class="fl-size">5.4 KB</div><div class="fl-date">Dec 22</div><div><span class="fl-status archived">Archived</span></div><div><span class="fl-context excluded">&#8212; Excluded</span></div></div>
         </div>
         <div class="files-preview">
-          <div class="fp-header"><div class="fp-filename">RAG implementation v251.md</div><div class="fp-meta"><span>111 KB</span><span>&middot;</span><span>Markdown</span><span>&middot;</span><span style="color:var(--cyan)">&#128221; Summary in context</span></div></div>
+          <div class="fp-header"><div class="fp-filename">Weekly Meal Plan — Week 12.md</div><div class="fp-meta"><span>8 KB</span><span>&middot;</span><span>Markdown</span><span>&middot;</span><span style="color:var(--cyan)">&#128221; Summary in context</span></div></div>
           <div class="fp-body">
             <div style="font-size:10px;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">AI Summary</div>
-            <div style="font-size:11px;color:var(--text-secondary);line-height:1.5;padding:8px 10px;background:var(--bg-elevated);border-radius:var(--radius-sm);border-left:2px solid var(--cyan);margin-bottom:12px">Technical deep-dive on RAG for PiNG!. Covers chunk strategies, embedding models, vector search with SQLite vec extension, and hybrid retrieval. Recommends 70/30 BM25/vector weighting.</div>
+            <div style="font-size:11px;color:var(--text-secondary);line-height:1.5;padding:8px 10px;background:var(--bg-elevated);border-radius:var(--radius-sm);border-left:2px solid var(--cyan);margin-bottom:12px">Complete meal plan for the family covering breakfast, lunch, dinner and snacks. Accounts for Mia's nut allergy and Ethan's picky eating. Estimated grocery cost $87.</div>
             <div style="font-size:10px;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">Preview</div>
-            <div class="fp-preview-content"># RAG Implementation v2.51
+            <div class="fp-preview-content"># Weekly Meal Plan — Week 12
 
 ## Overview
-This document outlines the complete
-RAG pipeline for PiNG!'s knowledge
-retrieval system...
+Family meals for March 10-16,
+nut-free options throughout...
 
-## 1. Chunking Strategy
-- Window size: 512 tokens
-- Overlap: 64 tokens
+## Monday
+- Breakfast: Overnight oats
+- Lunch: Turkey wraps
+- Dinner: Slow cooker chicken
 ...</div>
           </div>
           <div class="fp-actions"><button class="action-btn secondary" style="flex:1">Open in Chat</button><button class="action-btn secondary" style="flex:1">Download</button></div>
@@ -1484,14 +1475,14 @@ retrieval system...
           <div class="kb-stat"><div class="kb-stat-label">Indexed Files</div><div class="kb-stat-value" style="color:var(--green)">247</div><div class="kb-stat-sub">of 842 discovered</div></div>
           <div class="kb-stat"><div class="kb-stat-label">Chunks</div><div class="kb-stat-value">1,842</div><div class="kb-stat-sub">avg 380 tokens each</div></div>
           <div class="kb-stat"><div class="kb-stat-label">Memories</div><div class="kb-stat-value" style="color:var(--purple)">67</div><div class="kb-stat-sub">42 project + 25 global</div></div>
-          <div class="kb-stat"><div class="kb-stat-label">Embeddings</div><div class="kb-stat-value">1,842</div><div class="kb-stat-sub">384-dim vectors</div></div>
+          <div class="kb-stat"><div class="kb-stat-label">Recipes</div><div class="kb-stat-value">1,842</div><div class="kb-stat-sub">384-dim vectors</div></div>
           <div class="kb-stat"><div class="kb-stat-label">Last Indexed</div><div class="kb-stat-value" style="font-size:14px">2h ago</div><div class="kb-stat-sub">auto-index on</div></div>
         </div>
         <!-- Tab Navigation -->
         <div class="kb-tabs">
-          <div class="kb-tab active" onclick="switchKbTab('files')" data-guide="{&quot;title&quot;: &quot;Knowledge Base&quot;, &quot;tag&quot;: &quot;AI Memory&quot;, &quot;body&quot;: &quot;Your indexed project files &amp;mdash; &lt;em&gt;code, docs, configs, all chunked and searchable by meaning&lt;/em&gt;. Toggle files in and out of AI context to manage your token budget. The foundation of context-aware AI.&quot;, &quot;cat&quot;: &quot;kat-yarn-play&quot;}">&#128196; Knowledge Base</div>
+          <div class="kb-tab active" onclick="switchKbTab('files')" data-guide="{&quot;title&quot;: &quot;Knowledge Base&quot;, &quot;tag&quot;: &quot;AI Memory&quot;, &quot;body&quot;: &quot;Your indexed family files &amp;mdash; &lt;em&gt;meal plans, schedules, notes, all chunked and searchable by meaning&lt;/em&gt;. Toggle files in and out of AI context to manage your budget. The foundation of context-aware AI.&quot;, &quot;cat&quot;: &quot;kat-yarn-play&quot;}">&#128196; Knowledge Base</div>
           <div class="kb-tab" onclick="switchKbTab('project-memory')" data-guide="{&quot;title&quot;: &quot;Project Memory&quot;, &quot;tag&quot;: &quot;AI Brain&quot;, &quot;body&quot;: &quot;Briefs, decisions, and notes &lt;em&gt;auto-extracted from your conversations&lt;/em&gt;. AI builds a living memory of your project &amp;mdash; architecture choices, process preferences, and key facts. Filter by type or origin.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">&#127793; Project Memory</div>
-          <div class="kb-tab" onclick="switchKbTab('global-memory')" data-guide="{&quot;title&quot;: &quot;Global Memory&quot;, &quot;tag&quot;: &quot;Cross-Project&quot;, &quot;body&quot;: &quot;Facts and preferences that &lt;em&gt;persist across all projects&lt;/em&gt; &amp;mdash; your identity, tool preferences, coding style, and topic snapshots. AI knows you, not just your code. Confidence scores show reliability.&quot;, &quot;cat&quot;: &quot;kat-lean-left&quot;}">&#127760; Global Memory</div>
+          <div class="kb-tab" onclick="switchKbTab('global-memory')" data-guide="{&quot;title&quot;: &quot;Global Memory&quot;, &quot;tag&quot;: &quot;Cross-Project&quot;, &quot;body&quot;: &quot;Facts and preferences that &lt;em&gt;persist across all projects&lt;/em&gt; &amp;mdash; your identity, tool preferences, family routines, and topic snapshots. AI knows you, not just your schedule. Confidence scores show reliability.&quot;, &quot;cat&quot;: &quot;kat-lean-left&quot;}">&#127760; Global Memory</div>
         </div>
 
         <!-- TAB: Knowledge Base (files + context) -->
@@ -1516,11 +1507,11 @@ retrieval system...
             </div>
             <div class="kb-files" style="overflow-y:auto">
               <div class="kb-file-row header"><span>File</span><span>Status</span><span>Chunks</span><span>Tokens</span><span>Included</span></div>
-              <div class="kb-file-row"><div class="kb-file-name"><div><div class="filename">BrowserManager.ts</div><div class="filepath">src/electron/services/</div></div></div><span class="kb-status indexed">Indexed</span><span class="kb-chunks">8</span><span class="kb-tokens">3,240</span><div class="kb-toggle on"></div></div>
-              <div class="kb-file-row"><div class="kb-file-name"><div><div class="filename">AgentTaskService.ts</div><div class="filepath">src/electron/services/</div></div></div><span class="kb-status indexed">Indexed</span><span class="kb-chunks">12</span><span class="kb-tokens">4,860</span><div class="kb-toggle on"></div></div>
-              <div class="kb-file-row"><div class="kb-file-name"><div><div class="filename">PING.md</div><div class="filepath">./</div></div></div><span class="kb-status indexed">Indexed</span><span class="kb-chunks">6</span><span class="kb-tokens">2,480</span><div class="kb-toggle on"></div></div>
-              <div class="kb-file-row"><div class="kb-file-name"><div><div class="filename">schema.sql</div><div class="filepath">src/electron/db/</div></div></div><span class="kb-status extracting">Extracting</span><span class="kb-chunks">—</span><span class="kb-tokens">—</span><div class="kb-toggle on"></div></div>
-              <div class="kb-file-row"><div class="kb-file-name"><div><div class="filename">vite.config.ts</div><div class="filepath">./</div></div></div><span class="kb-status excluded">Excluded</span><span class="kb-chunks">—</span><span class="kb-tokens">—</span><div class="kb-toggle off"></div></div>
+              <div class="kb-file-row"><div class="kb-file-name"><div><div class="filename">weekly-meals.md</div><div class="filepath">family/meal-plans/</div></div></div><span class="kb-status indexed">Indexed</span><span class="kb-chunks">8</span><span class="kb-tokens">3,240</span><div class="kb-toggle on"></div></div>
+              <div class="kb-file-row"><div class="kb-file-name"><div><div class="filename">allergy-notes.md</div><div class="filepath">family/health/</div></div></div><span class="kb-status indexed">Indexed</span><span class="kb-chunks">12</span><span class="kb-tokens">4,860</span><div class="kb-toggle on"></div></div>
+              <div class="kb-file-row"><div class="kb-file-name"><div><div class="filename">etsy-listings.md</div><div class="filepath">business/etsy/</div></div></div><span class="kb-status indexed">Indexed</span><span class="kb-chunks">6</span><span class="kb-tokens">2,480</span><div class="kb-toggle on"></div></div>
+              <div class="kb-file-row"><div class="kb-file-name"><div><div class="filename">homeschool-curriculum.md</div><div class="filepath">family/school/</div></div></div><span class="kb-status extracting">Extracting</span><span class="kb-chunks">—</span><span class="kb-tokens">—</span><div class="kb-toggle on"></div></div>
+              <div class="kb-file-row"><div class="kb-file-name"><div><div class="filename">old-recipes-2024.md</div><div class="filepath">family/archive/</div></div></div><span class="kb-status excluded">Excluded</span><span class="kb-chunks">—</span><span class="kb-tokens">—</span><div class="kb-toggle off"></div></div>
             </div>
           </div>
         </div>
@@ -1544,33 +1535,33 @@ retrieval system...
             <div class="memory-list">
               <div class="mem-card">
                 <div class="mem-card-header"><span class="mem-type brief">Brief</span><span class="mem-cat">project</span><span class="mem-origin">&#128295; system</span></div>
-                <div class="mem-content">PiNG! is an AI-powered desktop workspace built with Electron, React, TypeScript, and SQLite. Owner: Allan (Loudbox Studios, Philippines). Uses three-role system: Coach 1 (Claude Opus), Coach 2 (ChatGPT), Executor (Claude Code).</div>
+                <div class="mem-content">Torres family — Rachel (mom), David (dad), Ethan (12), Mia (8), baby Liam (2). Mia has tree nut and shellfish allergies. Homeschooling Ethan and Mia. Rachel runs an Etsy craft shop.</div>
                 <div class="mem-footer"><span>Created: Mar 1</span><span>&middot;</span><span>Last updated: 2h ago</span><span class="mem-pin" style="margin-left:auto">&#9733;</span></div>
               </div>
               <div class="mem-card">
                 <div class="mem-card-header"><span class="mem-type decision">Decision</span><span class="mem-cat">ux</span><span class="mem-origin">&#129302; auto</span></div>
-                <div class="mem-content">Adopt "Star + Context Horizon" model for memory architecture — central project memory with radiating conversation-level contexts</div>
-                <div class="mem-footer"><span>&#128172; UI Talk — Mockups</span><span>&middot;</span><span>yesterday 3:42 PM</span></div>
+                <div class="mem-content">Weekly grocery budget capped at $150. Prioritize organic produce, always check for nut-free options for Mia.</div>
+                <div class="mem-footer"><span>&#128172; Budget Tracker</span><span>&middot;</span><span>yesterday 3:42 PM</span></div>
               </div>
               <div class="mem-card">
                 <div class="mem-card-header"><span class="mem-type decision">Decision</span><span class="mem-cat">technical</span><span class="mem-origin">&#129302; auto</span></div>
-                <div class="mem-content">Concurrency handled via Git Worktrees — each agent gets its own isolated copy of the repo</div>
-                <div class="mem-footer"><span>&#128172; Browser Health C16</span><span>&middot;</span><span>2h ago</span></div>
+                <div class="mem-content">Ethan's favorite subject is robotics. He learns best with hands-on projects and building things.</div>
+                <div class="mem-footer"><span>&#128172; Homeschool Planning</span><span>&middot;</span><span>2h ago</span></div>
               </div>
               <div class="mem-card">
                 <div class="mem-card-header"><span class="mem-type note">Note</span><span class="mem-cat">process</span><span class="mem-origin">&#128100; user</span></div>
-                <div class="mem-content">Allan prefers PlanPack for multi-file changes and Small Fix mode for quick bug fixes. When in doubt, ask.</div>
+                <div class="mem-content">Baby Liam naps at 1 PM and 4 PM. Schedule all appointments and errands around nap times.</div>
                 <div class="mem-footer"><span>&#128172; multiple sources</span><span>&middot;</span><span>3 days ago</span></div>
               </div>
               <div class="mem-card">
                 <div class="mem-card-header"><span class="mem-type brief">Brief</span><span class="mem-cat">project</span><span class="mem-origin">&#128295; system</span></div>
-                <div class="mem-content">Current codebase: 5,800+ tests, 0 any types, gate-check.sh enforces quality. Browser Health (16 chunks) and Tools Wave 2 (4 chunks) are SHIPPED.</div>
+                <div class="mem-content">28 recipes indexed (all nut-free). Etsy shop has 42 active listings. Family calendar synced with Google Calendar.</div>
                 <div class="mem-footer"><span>Auto-updated</span><span>&middot;</span><span>2h ago</span><span class="mem-pin" style="margin-left:auto">&#9733;</span></div>
               </div>
               <div class="mem-card">
                 <div class="mem-card-header"><span class="mem-type note">Note</span><span class="mem-cat">technical</span><span class="mem-origin">&#129302; auto</span></div>
-                <div class="mem-content">Trust Mechanism: "Receipts" with cryptographic proofs could be a differentiator for MCP hardening</div>
-                <div class="mem-footer"><span>&#128172; MCP Harden C2</span><span>&middot;</span><span>6 days ago</span></div>
+                <div class="mem-content">Mia's soccer practice is Tuesdays and Thursdays at 4 PM. Ethan's piano lessons are Wednesdays at 3:30 PM.</div>
+                <div class="mem-footer"><span>&#128172; Kids' Activities</span><span>&middot;</span><span>6 days ago</span></div>
               </div>
             </div>
           </div>
@@ -1583,11 +1574,11 @@ retrieval system...
             <div style="width:180px;background:var(--bg-surface);border-right:1px solid var(--border-subtle);padding:12px;flex-shrink:0;overflow-y:auto">
               <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:8px">Category</div>
               <div class="nf-item active"><div class="nf-dot" style="background:var(--text-secondary)"></div> All <span class="nf-count">25</span></div>
-              <div class="nf-item"><div class="nf-dot" style="background:var(--accent)"></div> Technical <span class="nf-count">8</span></div>
-              <div class="nf-item"><div class="nf-dot" style="background:var(--green)"></div> Preferences <span class="nf-count">5</span></div>
-              <div class="nf-item"><div class="nf-dot" style="background:var(--purple)"></div> Identity <span class="nf-count">3</span></div>
-              <div class="nf-item"><div class="nf-dot" style="background:var(--orange)"></div> Process <span class="nf-count">6</span></div>
-              <div class="nf-item"><div class="nf-dot" style="background:var(--cyan)"></div> UX <span class="nf-count">3</span></div>
+              <div class="nf-item"><div class="nf-dot" style="background:var(--accent)"></div> Family <span class="nf-count">8</span></div>
+              <div class="nf-item"><div class="nf-dot" style="background:var(--green)"></div> Dietary <span class="nf-count">5</span></div>
+              <div class="nf-item"><div class="nf-dot" style="background:var(--purple)"></div> Kids <span class="nf-count">3</span></div>
+              <div class="nf-item"><div class="nf-dot" style="background:var(--orange)"></div> Routines <span class="nf-count">6</span></div>
+              <div class="nf-item"><div class="nf-dot" style="background:var(--cyan)"></div> Business <span class="nf-count">3</span></div>
               <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin:14px 0 8px">Type</div>
               <div class="nf-item"><div class="nf-dot" style="background:var(--cyan)"></div> Fact <span class="nf-count">18</span></div>
               <div class="nf-item"><div class="nf-dot" style="background:var(--orange)"></div> Topic Snapshot <span class="nf-count">7</span></div>
@@ -1595,34 +1586,34 @@ retrieval system...
             <!-- Global memory cards -->
             <div class="memory-list">
               <div class="mem-card">
-                <div class="mem-card-header"><span class="mem-type fact">Fact</span><span class="mem-cat">identity</span><span class="mem-origin">&#128100; user</span></div>
-                <div class="mem-content">Allan is a developer based in the Philippines, running Loudbox Studios. He builds PiNG! as a commercial AI workspace product.</div>
-                <div class="mem-footer"><span>conf: 0.98</span><span>&middot;</span><span>Active since Dec 2025</span><span class="mem-pin" style="margin-left:auto">&#9733;</span></div>
+                <div class="mem-card-header"><span class="mem-type fact">Fact</span><span class="mem-cat">family</span><span class="mem-origin">&#128100; user</span></div>
+                <div class="mem-content">Rachel Torres is a stay-at-home mom with 3 kids. She manages homeschooling, household, and runs an Etsy craft shop selling handmade jewelry.</div>
+                <div class="mem-footer"><span>conf: 0.98</span><span>&middot;</span><span>Active since Jan 2026</span><span class="mem-pin" style="margin-left:auto">&#9733;</span></div>
               </div>
               <div class="mem-card">
-                <div class="mem-card-header"><span class="mem-type fact">Fact</span><span class="mem-cat">preferences</span><span class="mem-origin">&#128100; user</span></div>
-                <div class="mem-content">Always use bun instead of npm for package management. Never auto-commit — only commit when explicitly asked.</div>
+                <div class="mem-card-header"><span class="mem-type fact">Fact</span><span class="mem-cat">dietary</span><span class="mem-origin">&#128100; user</span></div>
+                <div class="mem-content">Mia is allergic to tree nuts and shellfish. Always verify ingredients before adding any recipe to the family meal plan.</div>
                 <div class="mem-footer"><span>conf: 0.99</span><span>&middot;</span><span>Stated explicitly</span><span class="mem-pin" style="margin-left:auto">&#9733;</span></div>
               </div>
               <div class="mem-card">
-                <div class="mem-card-header"><span class="mem-type fact">Fact</span><span class="mem-cat">technical</span><span class="mem-origin">&#129302; auto</span></div>
-                <div class="mem-content">The SDK is used as a downstream adapter to produce correct Gemini wire format (including thoughtSignature management) FROM the event IR</div>
-                <div class="mem-footer"><span>conf: 0.92</span><span>&middot;</span><span>&#128172; Source conversation &middot; today 8:25 AM</span></div>
+                <div class="mem-card-header"><span class="mem-type fact">Fact</span><span class="mem-cat">kids</span><span class="mem-origin">&#129302; auto</span></div>
+                <div class="mem-content">Ethan (12) loves robotics and science experiments. Mia (8) is into art, soccer, and unicorns. Liam (2) is transitioning to one nap.</div>
+                <div class="mem-footer"><span>conf: 0.92</span><span>&middot;</span><span>&#128172; Multiple conversations &middot; today</span></div>
               </div>
               <div class="mem-card">
-                <div class="mem-card-header"><span class="mem-type topic">Topic Snapshot</span><span class="mem-cat">process</span><span class="mem-origin">&#129302; auto</span></div>
-                <div class="mem-content">PlanPack evolution: V12 complete (C26-C39 SHIPPED), MCP-HARDEN in progress (C1-C2 done, C3-C5 pending). 54 learnings recorded. Governance version 2.28.</div>
+                <div class="mem-card-header"><span class="mem-type topic">Topic Snapshot</span><span class="mem-cat">routines</span><span class="mem-origin">&#129302; auto</span></div>
+                <div class="mem-content">Weekly routine: Mon-Fri homeschool 9-12, Tue/Thu Mia soccer 4PM, Wed Ethan piano 3:30PM. Etsy orders ship Mon/Wed/Fri. Groceries delivered Thu.</div>
                 <div class="mem-footer"><span>Last refreshed: 1d ago</span><span>&middot;</span><span>5 source conversations</span></div>
               </div>
               <div class="mem-card">
-                <div class="mem-card-header"><span class="mem-type fact">Fact</span><span class="mem-cat">technical</span><span class="mem-origin">&#129302; auto</span></div>
-                <div class="mem-content">better-sqlite3 is synchronous — do NOT use await on DB calls. DI pattern uses get*Service(deps?) / reset*Service() singleton getters.</div>
+                <div class="mem-card-header"><span class="mem-type fact">Fact</span><span class="mem-cat">business</span><span class="mem-origin">&#129302; auto</span></div>
+                <div class="mem-content">Etsy shop: "Torres Handcrafted" — 42 active listings, avg sale $18-$25. Best sellers: beaded bracelets and vintage-style earrings.</div>
                 <div class="mem-footer"><span>conf: 0.96</span><span>&middot;</span><span>Verified across 4 conversations</span></div>
               </div>
               <div class="mem-card">
-                <div class="mem-card-header"><span class="mem-type topic">Topic Snapshot</span><span class="mem-cat">ux</span><span class="mem-origin">&#129302; auto</span></div>
-                <div class="mem-content">Project View UI design: replacing modal-based project interface with full-page workspace. 8 views (Overview, Chats, Notes, Files, Knowledge, Analytics, Tasks, Calendar).</div>
-                <div class="mem-footer"><span>Last refreshed: 3h ago</span><span>&middot;</span><span>&#128172; UI Talk</span></div>
+                <div class="mem-card-header"><span class="mem-type topic">Topic Snapshot</span><span class="mem-cat">family</span><span class="mem-origin">&#129302; auto</span></div>
+                <div class="mem-content">Family budget: $4,200/mo household. Grocery $600, kids activities $180, Etsy supplies $120. March is under budget by $58 so far.</div>
+                <div class="mem-footer"><span>Last refreshed: 3h ago</span><span>&middot;</span><span>&#128172; Budget Tracker</span></div>
               </div>
             </div>
           </div>
@@ -1631,7 +1622,7 @@ retrieval system...
     </div>
 
     <!-- ══════════ VIEW: ANALYTICS ══════════ -->
-    <div class="view" id="view-analytics" data-guide="{&quot;title&quot;: &quot;Analytics Dashboard&quot;, &quot;tag&quot;: &quot;Insights&quot;, &quot;body&quot;: &quot;Understand how you use AI &amp;mdash; &lt;em&gt;messages, tokens, costs, all visualized&lt;/em&gt;. Track spending by model and task type. Export reports. Data-driven AI usage for teams that care about ROI.&quot;, &quot;cat&quot;: &quot;kat-lean-left&quot;}">
+    <div class="view" id="view-analytics" data-guide="{&quot;title&quot;: &quot;Analytics Dashboard&quot;, &quot;tag&quot;: &quot;Insights&quot;, &quot;body&quot;: &quot;Understand how you use AI &amp;mdash; &lt;em&gt;messages, tokens, costs, all visualized&lt;/em&gt;. Track spending by model and task type. Export reports. Data-driven AI usage for families that care about value.&quot;, &quot;cat&quot;: &quot;kat-lean-left&quot;}">
       <div class="view-toolbar">
         <div class="view-title">&#128202; Analytics</div>
         <div class="view-spacer"></div>
@@ -1641,9 +1632,9 @@ retrieval system...
       <div class="view-scroll analytics-body">
         <div class="an-stats">
           <div class="an-stat"><div class="an-stat-label">Messages</div><div class="an-stat-value">262</div><div class="an-stat-trend up">&#8593; +65% vs last week</div></div>
-          <div class="an-stat"><div class="an-stat-label">Tokens Used</div><div class="an-stat-value">4.2M</div><div class="an-stat-trend up">&#8593; +38%</div></div>
+          <div class="an-stat"><div class="an-stat-label">Tokens Used</div><div class="an-stat-value">1.8M</div><div class="an-stat-trend up">&#8593; +38%</div></div>
           <div class="an-stat"><div class="an-stat-label">Notes Created</div><div class="an-stat-value">28</div><div class="an-stat-trend up">&#8593; 18 auto-extracted</div></div>
-          <div class="an-stat"><div class="an-stat-label">AI Cost</div><div class="an-stat-value" style="font-family:var(--font-mono)">$14.27</div><div class="an-stat-trend" style="color:var(--text-muted)">of $50 budget</div></div>
+          <div class="an-stat"><div class="an-stat-label">AI Cost</div><div class="an-stat-value" style="font-family:var(--font-mono)">$4.20</div><div class="an-stat-trend" style="color:var(--text-muted)">of $15 budget</div></div>
           <div class="an-stat"><div class="an-stat-label">Conversations</div><div class="an-stat-value">56</div><div class="an-stat-trend up">&#8593; +3 this week</div></div>
         </div>
         <div class="an-grid">
@@ -1665,7 +1656,7 @@ retrieval system...
           <div class="an-card">
             <div class="an-card-header">&#128176; Cost by Task Type</div>
             <div class="an-card-body">
-              <table class="cost-table"><tr><th>Task Type</th><th>Cost</th></tr><tr><td>Chat Messages</td><td style="color:var(--accent)">$8.42</td></tr><tr><td>File Summaries</td><td>$2.14</td></tr><tr><td>Note Extraction</td><td>$1.86</td></tr><tr><td>Smart Search</td><td>$0.92</td></tr><tr><td>Conv. Summaries</td><td>$0.54</td></tr></table>
+              <table class="cost-table"><tr><th>Task Type</th><th>Cost</th></tr><tr><td>Chat Messages</td><td style="color:var(--accent)">$1.82</td></tr><tr><td>File Summaries</td><td>$0.94</td></tr><tr><td>Note Extraction</td><td>$0.68</td></tr><tr><td>Smart Search</td><td>$0.42</td></tr><tr><td>Conv. Summaries</td><td>$0.34</td></tr></table>
             </div>
           </div>
         </div>
@@ -1682,13 +1673,13 @@ retrieval system...
                 <div class="chart-bar-group"><div class="chart-bar" style="height:85%;background:var(--accent)"></div><div class="chart-bar" style="height:18%;background:var(--green)"></div><div class="chart-bar-label">Sat</div></div>
                 <div class="chart-bar-group"><div class="chart-bar" style="height:100%;background:var(--accent)"></div><div class="chart-bar" style="height:22%;background:var(--green)"></div><div class="chart-bar-label">Sun</div></div>
               </div>
-              <div class="chart-legend"><div class="chart-legend-item"><div class="chart-legend-dot" style="background:var(--accent)"></div> Opus ($11.20)</div><div class="chart-legend-item"><div class="chart-legend-dot" style="background:var(--green)"></div> Sonnet ($2.45)</div><div class="chart-legend-item"><div class="chart-legend-dot" style="background:var(--orange)"></div> Haiku ($0.62)</div></div>
+              <div class="chart-legend"><div class="chart-legend-item"><div class="chart-legend-dot" style="background:var(--accent)"></div> Opus ($2.80)</div><div class="chart-legend-item"><div class="chart-legend-dot" style="background:var(--green)"></div> Sonnet ($1.10)</div><div class="chart-legend-item"><div class="chart-legend-dot" style="background:var(--orange)"></div> Haiku ($0.30)</div></div>
             </div>
           </div>
           <div class="an-card">
             <div class="an-card-header">&#128640; Background AI Usage</div>
             <div class="an-card-body">
-              <table class="cost-table"><tr><th>Metric</th><th>Value</th></tr><tr><td>Background Tasks</td><td>142</td></tr><tr><td>Cache Hits</td><td style="color:var(--green)">68 (48%)</td></tr><tr><td>Background Cost</td><td>$3.85</td></tr><tr><td>Budget Used</td><td style="color:var(--orange)">28.5%</td></tr></table>
+              <table class="cost-table"><tr><th>Metric</th><th>Value</th></tr><tr><td>Background Tasks</td><td>142</td></tr><tr><td>Cache Hits</td><td style="color:var(--green)">68 (48%)</td></tr><tr><td>Background Cost</td><td>$0.85</td></tr><tr><td>Budget Used</td><td style="color:var(--orange)">28.5%</td></tr></table>
             </div>
           </div>
         </div>
@@ -1710,18 +1701,18 @@ retrieval system...
           <div class="kanban-col" style="border-top:2px solid var(--red)">
             <div class="kanban-col-header" style="color:var(--red)" data-guide="{&quot;title&quot;: &quot;Overdue Tasks&quot;, &quot;tag&quot;: &quot;Kanban Board&quot;, &quot;body&quot;: &quot;The accountability lane &amp;mdash; &lt;em&gt;tasks past their deadline glow red so nothing slips through&lt;/em&gt;. AI flags overdue items from your conversations automatically. Drag to reprioritize, click to jump into the chat where it started.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">&#9888; Overdue <span class="kc-count" style="background:var(--red-dim);color:var(--red)">6</span></div>
             <div class="kanban-col-body">
-              <div class="task-card"><div class="task-card-title">Review PR by EOD</div><div class="task-card-meta"><span class="task-priority-dot high"></span><span class="task-due overdue">46d overdue</span></div></div>
-              <div class="task-card"><div class="task-card-title">Fix MCP hardening C3</div><div class="task-card-meta"><span class="task-priority-dot critical"></span><span style="font-size:10px;padding:1px 5px;border-radius:3px;background:var(--red-dim);color:var(--red)">Critical</span><span class="task-due overdue">12d</span></div></div>
-              <div class="task-card"><div class="task-card-title">Update learnings registry with Tier-2 fields</div><div class="task-card-meta"><span class="task-priority-dot high"></span><span class="task-due overdue">5d</span></div></div>
-              <div class="task-card"><div class="task-card-title">Fix the repeating problem</div><div class="task-card-meta"><span class="task-priority-dot high"></span><span class="task-due overdue">3d</span></div></div>
+              <div class="task-card"><div class="task-card-title">Ship 3 Etsy orders</div><div class="task-card-meta"><span class="task-priority-dot high"></span><span class="task-due overdue">2d overdue</span></div></div>
+              <div class="task-card"><div class="task-card-title">Schedule Liam's 2-year checkup</div><div class="task-card-meta"><span class="task-priority-dot critical"></span><span style="font-size:10px;padding:1px 5px;border-radius:3px;background:var(--red-dim);color:var(--red)">Urgent</span><span class="task-due overdue">5d</span></div></div>
+              <div class="task-card"><div class="task-card-title">Sign Ethan up for robotics camp</div><div class="task-card-meta"><span class="task-priority-dot high"></span><span class="task-due overdue">3d</span></div></div>
+              <div class="task-card"><div class="task-card-title">Order Mia's birthday decorations</div><div class="task-card-meta"><span class="task-priority-dot high"></span><span class="task-due overdue">1d</span></div></div>
             </div>
           </div>
           <div class="kanban-col">
             <div class="kanban-col-header" data-guide="{&quot;title&quot;: &quot;To Do Backlog&quot;, &quot;tag&quot;: &quot;Kanban Board&quot;, &quot;body&quot;: &quot;Your full backlog, beautifully organized &amp;mdash; &lt;em&gt;25 tasks and counting&lt;/em&gt;. Mix of AI-detected and manually created. Drag to reorder priority, click + to add instantly. Every task links back to the conversation that spawned it.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">&#128203; To Do <span class="kc-count">25</span><span class="kc-add">+</span></div>
             <div class="kanban-col-body">
-              <div class="task-card"><div class="task-card-title">Auto Runner C2 — implement spec</div><div class="task-card-meta"><span class="task-priority-dot high"></span><span class="task-due ok">Mar 15</span><span class="task-link-badge">PlanPack</span></div></div>
-              <div class="task-card"><div class="task-card-title">Universal tool calling for all models</div><div class="task-card-meta"><span class="task-priority-dot normal"></span><span class="task-due ok">Mar 20</span></div></div>
-              <div class="task-card"><div class="task-card-title">Implement project view UI (this mockup!)</div><div class="task-card-meta"><span class="task-priority-dot normal"></span><span class="task-due ok">Mar 25</span></div></div>
+              <div class="task-card"><div class="task-card-title">Plan Week 13 meals — nut-free focus</div><div class="task-card-meta"><span class="task-priority-dot high"></span><span class="task-due ok">Mar 20</span><span class="task-link-badge">Meal Plan</span></div></div>
+              <div class="task-card"><div class="task-card-title">Prep craft fair inventory — March 28</div><div class="task-card-meta"><span class="task-priority-dot normal"></span><span class="task-due ok">Mar 25</span></div></div>
+              <div class="task-card"><div class="task-card-title">Research summer swim lessons for kids</div><div class="task-card-meta"><span class="task-priority-dot normal"></span><span class="task-due ok">Mar 28</span></div></div>
               <div style="font-size:10px;color:var(--text-muted);text-align:center;padding:8px">+ 22 more tasks...</div>
             </div>
           </div>
@@ -1732,8 +1723,8 @@ retrieval system...
           <div class="kanban-col" style="border-top:2px solid var(--green);opacity:0.7">
             <div class="kanban-col-header" style="color:var(--green)" data-guide="{&quot;title&quot;: &quot;Done &amp;amp; Shipped&quot;, &quot;tag&quot;: &quot;Kanban Board&quot;, &quot;body&quot;: &quot;The victory lane &amp;mdash; &lt;em&gt;every completed task lives here as proof of progress&lt;/em&gt;. Satisfying drag-and-drop completion. AI auto-moves tasks when it detects they are finished in conversation. Ship it!&quot;, &quot;cat&quot;: &quot;kat-flip&quot;}">&#10003; Done <span class="kc-count" style="background:var(--green-dim);color:var(--green)">6</span></div>
             <div class="kanban-col-body">
-              <div class="task-card"><div class="task-card-title done">Browser Health — SHIP (all 16 chunks)</div><div class="task-card-meta"><span class="task-priority-dot" style="background:var(--green)"></span><span style="color:var(--green);font-size:10px">completed 2h ago</span></div></div>
-              <div class="task-card"><div class="task-card-title done">Tools Wave 2 — SHIP</div><div class="task-card-meta"><span class="task-priority-dot" style="background:var(--green)"></span><span style="color:var(--green);font-size:10px">completed 5d ago</span></div></div>
+              <div class="task-card"><div class="task-card-title done">Week 12 meal plan completed</div><div class="task-card-meta"><span class="task-priority-dot" style="background:var(--green)"></span><span style="color:var(--green);font-size:10px">completed 2h ago</span></div></div>
+              <div class="task-card"><div class="task-card-title done">Etsy spring collection listed (8 items)</div><div class="task-card-meta"><span class="task-priority-dot" style="background:var(--green)"></span><span style="color:var(--green);font-size:10px">completed 3d ago</span></div></div>
             </div>
           </div>
         </div>
@@ -1741,9 +1732,9 @@ retrieval system...
           <div class="ts-header">&#129302; AI Suggestions <span class="ts-count">3</span></div>
           <div class="ts-body">
             <div style="font-size:10px;color:var(--text-muted);margin-bottom:8px;padding:4px">Tasks extracted from recent conversations:</div>
-            <div class="suggestion-card"><div class="task-card-title" style="color:var(--text-secondary)">Implement chat pane v2 layout from mockup</div><div class="suggestion-source">"...make me a mock up" — UI Talk</div><div class="task-card-meta"><span class="task-priority-dot normal"></span><span class="suggestion-confidence">conf: 0.88</span></div><div class="suggestion-actions"><button class="sg-btn accept" data-tooltip="Accept this AI suggestion — adds it to your task board">&#10003; Accept</button><button class="sg-btn reject" data-tooltip="Dismiss this suggestion — AI learns your preferences over time">&#10005; Reject</button></div></div>
-            <div class="suggestion-card"><div class="task-card-title" style="color:var(--text-secondary)">Add Tier-2 fields to learnings registry</div><div class="suggestion-source">"...does not yet have ACTIVE/MUST..." — chat</div><div class="task-card-meta"><span class="task-priority-dot high"></span><span class="suggestion-confidence">conf: 0.92</span><span style="font-size:10px;color:var(--orange);margin-left:auto">may be duplicate</span></div><div class="suggestion-actions"><button class="sg-btn accept">&#10003; Accept</button><button class="sg-btn reject">&#10005; Reject</button></div></div>
-            <div class="suggestion-card"><div class="task-card-title" style="color:var(--text-secondary)">Set up project view as landing page</div><div class="suggestion-source">"...shown first instead of chat..." — UI Talk</div><div class="task-card-meta"><span class="task-priority-dot normal"></span><span class="suggestion-confidence">conf: 0.85</span></div><div class="suggestion-actions"><button class="sg-btn accept">&#10003; Accept</button><button class="sg-btn reject">&#10005; Reject</button></div></div>
+            <div class="suggestion-card"><div class="task-card-title" style="color:var(--text-secondary)">Buy nut-free cupcake mix for Mia's birthday</div><div class="suggestion-source">"...need allergy-safe cake..." — Birthday Planning</div><div class="task-card-meta"><span class="task-priority-dot normal"></span><span class="suggestion-confidence">conf: 0.88</span></div><div class="suggestion-actions"><button class="sg-btn accept" data-tooltip="Accept this AI suggestion — adds it to your task board">&#10003; Accept</button><button class="sg-btn reject" data-tooltip="Dismiss this suggestion — AI learns your preferences over time">&#10005; Reject</button></div></div>
+            <div class="suggestion-card"><div class="task-card-title" style="color:var(--text-secondary)">Restock Etsy shipping supplies</div><div class="suggestion-source">"...running low on bubble mailers..." — Etsy Business</div><div class="task-card-meta"><span class="task-priority-dot high"></span><span class="suggestion-confidence">conf: 0.92</span><span style="font-size:10px;color:var(--orange);margin-left:auto">before craft fair</span></div><div class="suggestion-actions"><button class="sg-btn accept">&#10003; Accept</button><button class="sg-btn reject">&#10005; Reject</button></div></div>
+            <div class="suggestion-card"><div class="task-card-title" style="color:var(--text-secondary)">Book Ethan's eye exam appointment</div><div class="suggestion-source">"...he's been squinting at the board..." — Health</div><div class="task-card-meta"><span class="task-priority-dot normal"></span><span class="suggestion-confidence">conf: 0.85</span></div><div class="suggestion-actions"><button class="sg-btn accept">&#10003; Accept</button><button class="sg-btn reject">&#10005; Reject</button></div></div>
           </div>
         </div>
       </div>
@@ -1776,37 +1767,37 @@ retrieval system...
               <div class="cal-grid-header-cell">Sun</div><div class="cal-grid-header-cell">Mon</div><div class="cal-grid-header-cell">Tue</div><div class="cal-grid-header-cell">Wed</div><div class="cal-grid-header-cell">Thu</div><div class="cal-grid-header-cell">Fri</div><div class="cal-grid-header-cell">Sat</div>
             </div>
             <div class="cal-grid-body">
-              <div class="cal-cell"><div class="cal-cell-day">1</div><div class="cal-event meeting">Sprint Planning</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">2</div><div class="cal-event deadline">PR Review deadline</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">3</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">4</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">5</div><div class="cal-event task">MCP Harden C3 due</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">1</div><div class="cal-event deadline">Etsy orders ship</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">2</div><div class="cal-event meeting">Mia soccer</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">3</div><div class="cal-event task">Ethan piano</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">4</div><div class="cal-event meeting">Mia soccer</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">5</div><div class="cal-event reminder">Grocery delivery</div></div>
               <div class="cal-cell"><div class="cal-cell-day">6</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">7</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">7</div><div class="cal-event task">Meal prep Sunday</div></div>
               <div class="cal-cell"><div class="cal-cell-day">8</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">9</div><div class="cal-event task done">BH C16 &#10003;</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">10</div><div class="cal-event meeting">UI Review</div></div>
-              <div class="cal-cell today"><div class="cal-cell-day">11</div><div class="cal-event milestone">&#127881; BH SHIP</div><div class="cal-event reminder">Standup 9AM</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">12</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">9</div><div class="cal-event meeting">Mia soccer</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">10</div><div class="cal-event task">Ethan piano</div></div>
+              <div class="cal-cell today"><div class="cal-cell-day">11</div><div class="cal-event reminder">Mia soccer</div><div class="cal-event deadline">Etsy orders ship</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">12</div><div class="cal-event reminder">Grocery delivery</div></div>
               <div class="cal-cell"><div class="cal-cell-day">13</div></div>
               <div class="cal-cell"><div class="cal-cell-day">14</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">15</div><div class="cal-event task">AR C2 due</div><div class="cal-event meeting">Weekly Sync</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">15</div><div class="cal-event meeting">Mia soccer</div></div>
               <div class="cal-cell"><div class="cal-cell-day">16</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">17</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">18</div><div class="cal-event deadline">Sprint deadline</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">19</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">20</div><div class="cal-event task">Universal tools due</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">17</div><div class="cal-event task">Ethan piano</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">18</div><div class="cal-event meeting">Mia soccer</div><div class="cal-event deadline">Etsy orders ship</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">19</div><div class="cal-event reminder">Grocery delivery</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">20</div><div class="cal-event milestone">&#127973; Liam pediatrician</div></div>
               <div class="cal-cell"><div class="cal-cell-day">21</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">22</div><div class="cal-event task">AR C3-C6 due</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">22</div><div class="cal-event meeting">Mia soccer</div></div>
               <div class="cal-cell"><div class="cal-cell-day">23</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">24</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">25</div><div class="cal-event task">Project View UI due</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">24</div><div class="cal-event task">Ethan piano recital</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">25</div><div class="cal-event deadline">Robotics camp signup</div></div>
               <div class="cal-cell"><div class="cal-cell-day">26</div></div>
               <div class="cal-cell"><div class="cal-cell-day">27</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">28</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">29</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">28</div><div class="cal-event milestone">&#127912; Etsy Craft Fair</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">29</div><div class="cal-event milestone">&#127874; Mia's Birthday!</div></div>
               <div class="cal-cell"><div class="cal-cell-day">30</div></div>
-              <div class="cal-cell"><div class="cal-cell-day">31</div><div class="cal-event milestone">&#127937; Month End</div></div>
+              <div class="cal-cell"><div class="cal-cell-day">31</div><div class="cal-event reminder">Monthly budget review</div></div>
               <div class="cal-cell other-month"><div class="cal-cell-day">1</div></div>
               <div class="cal-cell other-month"><div class="cal-cell-day">2</div></div>
               <div class="cal-cell other-month"><div class="cal-cell-day">3</div></div>
@@ -1838,7 +1829,7 @@ retrieval system...
               <div class="cal-week-cell"></div><div class="cal-week-cell"></div><div class="cal-week-cell"></div><div class="cal-week-cell"></div><div class="cal-week-cell"></div><div class="cal-week-cell"></div><div class="cal-week-cell"></div>
               <!-- 9 AM -->
               <div class="cal-hour-label">9 AM</div>
-              <div class="cal-week-cell"></div><div class="cal-week-cell"><div class="cal-hour-event" style="background:var(--purple-dim);color:var(--purple);border-left:2px solid var(--purple)">BH C16 &#10003;</div></div><div class="cal-week-cell"><div class="cal-hour-event" style="background:var(--accent-glow);color:var(--accent);border-left:2px solid var(--accent)">UI Review</div></div><div class="cal-week-cell cal-now-line"><div class="cal-hour-event" style="background:var(--yellow-dim);color:var(--yellow);border-left:2px solid var(--yellow)">Standup 9AM</div></div><div class="cal-week-cell"></div><div class="cal-week-cell"></div><div class="cal-week-cell"></div>
+              <div class="cal-week-cell"></div><div class="cal-week-cell"><div class="cal-hour-event" style="background:var(--purple-dim);color:var(--purple);border-left:2px solid var(--purple)">Homeschool</div></div><div class="cal-week-cell"><div class="cal-hour-event" style="background:var(--accent-glow);color:var(--accent);border-left:2px solid var(--accent)">Homeschool</div></div><div class="cal-week-cell cal-now-line"><div class="cal-hour-event" style="background:var(--yellow-dim);color:var(--yellow);border-left:2px solid var(--yellow)">Homeschool 9AM</div></div><div class="cal-week-cell"></div><div class="cal-week-cell"></div><div class="cal-week-cell"></div>
               <!-- 10 AM -->
               <div class="cal-hour-label">10 AM</div>
               <div class="cal-week-cell"></div><div class="cal-week-cell"></div><div class="cal-week-cell"></div><div class="cal-week-cell"><div class="cal-hour-event" style="background:var(--green-dim);color:var(--green);border-left:2px solid var(--green)">&#127881; BH SHIP</div></div><div class="cal-week-cell"></div><div class="cal-week-cell"></div><div class="cal-week-cell"></div>
@@ -1879,8 +1870,8 @@ retrieval system...
               <div class="cal-hour-row"><div class="cal-hour-label">6 AM</div><div class="cal-hour-content"></div></div>
               <div class="cal-hour-row"><div class="cal-hour-label">7 AM</div><div class="cal-hour-content"></div></div>
               <div class="cal-hour-row"><div class="cal-hour-label">8 AM</div><div class="cal-hour-content"></div></div>
-              <div class="cal-hour-row"><div class="cal-hour-label">9 AM</div><div class="cal-hour-content"><div class="cal-hour-event" style="background:var(--yellow-dim);color:var(--yellow);border-left:3px solid var(--yellow)">&#128276; Standup 9AM — Reminder</div></div></div>
-              <div class="cal-hour-row"><div class="cal-hour-label">10 AM</div><div class="cal-hour-content"><div class="cal-hour-event" style="background:var(--green-dim);color:var(--green);border-left:3px solid var(--green)">&#127881; Browser Health SHIP — Milestone (all day)</div></div></div>
+              <div class="cal-hour-row"><div class="cal-hour-label">9 AM</div><div class="cal-hour-content"><div class="cal-hour-event" style="background:var(--yellow-dim);color:var(--yellow);border-left:3px solid var(--yellow)">&#128276; Homeschool 9AM — Reminder</div></div></div>
+              <div class="cal-hour-row"><div class="cal-hour-label">10 AM</div><div class="cal-hour-content"><div class="cal-hour-event" style="background:var(--green-dim);color:var(--green);border-left:3px solid var(--green)">&#127881; Mia's Birthday Party — Milestone (all day)</div></div></div>
               <div class="cal-hour-row"><div class="cal-hour-label">11 AM</div><div class="cal-hour-content"></div></div>
               <div class="cal-hour-row"><div class="cal-hour-label">12 PM</div><div class="cal-hour-content"></div></div>
               <div class="cal-hour-row"><div class="cal-hour-label">1 PM</div><div class="cal-hour-content"></div></div>
@@ -1902,18 +1893,18 @@ retrieval system...
           <div class="cal-sidebar-body">
             <div class="cal-sidebar-section">
               <div class="cal-sidebar-section-title">Today's Events</div>
-              <div class="cal-agenda-item" style="border-left:3px solid var(--green)" onclick="openEventModal('edit')"><div class="cal-agenda-title">&#127881; Browser Health SHIP</div><div class="cal-agenda-time">All day &middot; Milestone</div><div class="cal-agenda-meta"><span style="color:var(--green)">&#9679;</span> completed</div></div>
-              <div class="cal-agenda-item" style="border-left:3px solid var(--yellow)" onclick="openEventModal('edit')"><div class="cal-agenda-title">Standup 9AM</div><div class="cal-agenda-time">9:00 AM &middot; Reminder</div></div>
+              <div class="cal-agenda-item" style="border-left:3px solid var(--green)" onclick="openEventModal('edit')"><div class="cal-agenda-title">&#127881; Mia's Birthday Party</div><div class="cal-agenda-time">All day &middot; Milestone</div><div class="cal-agenda-meta"><span style="color:var(--green)">&#9679;</span> planned</div></div>
+              <div class="cal-agenda-item" style="border-left:3px solid var(--yellow)" onclick="openEventModal('edit')"><div class="cal-agenda-title">Homeschool 9AM</div><div class="cal-agenda-time">9:00 AM &middot; Reminder</div></div>
             </div>
             <div class="cal-sidebar-section">
               <div class="cal-sidebar-section-title">Upcoming This Week</div>
-              <div class="cal-agenda-item" style="border-left:3px solid var(--purple)"><div class="cal-agenda-title">AR C2 due</div><div class="cal-agenda-time">Mar 15 &middot; Task deadline</div></div>
-              <div class="cal-agenda-item" style="border-left:3px solid var(--accent)"><div class="cal-agenda-title">Weekly Sync</div><div class="cal-agenda-time">Mar 15, 2:00 PM &middot; Meeting</div></div>
+              <div class="cal-agenda-item" style="border-left:3px solid var(--purple)"><div class="cal-agenda-title">Etsy orders ship</div><div class="cal-agenda-time">Mar 15 &middot; Task deadline</div></div>
+              <div class="cal-agenda-item" style="border-left:3px solid var(--accent)"><div class="cal-agenda-title">Grocery Pickup</div><div class="cal-agenda-time">Mar 15, 2:00 PM &middot; Reminder</div></div>
             </div>
             <div class="cal-sidebar-section">
               <div class="cal-sidebar-section-title">Overdue Tasks</div>
-              <div class="cal-agenda-item" style="border-left:3px solid var(--red)"><div class="cal-agenda-title">Review PR by EOD</div><div class="cal-agenda-time" style="color:var(--red)">46 days overdue</div></div>
-              <div class="cal-agenda-item" style="border-left:3px solid var(--red)"><div class="cal-agenda-title">Fix MCP hardening C3</div><div class="cal-agenda-time" style="color:var(--red)">12 days overdue</div></div>
+              <div class="cal-agenda-item" style="border-left:3px solid var(--red)"><div class="cal-agenda-title">Schedule Liam's checkup</div><div class="cal-agenda-time" style="color:var(--red)">5 days overdue</div></div>
+              <div class="cal-agenda-item" style="border-left:3px solid var(--red)"><div class="cal-agenda-title">Update allergy card for school</div><div class="cal-agenda-time" style="color:var(--red)">3 days overdue</div></div>
             </div>
             <div class="cal-sidebar-section">
               <div class="cal-sidebar-section-title">Event Types</div>
@@ -1940,7 +1931,7 @@ retrieval system...
         <div class="modal-body">
           <div class="form-field">
             <label class="form-label">Event Title</label>
-            <input class="form-input" placeholder="e.g. Sprint Planning, Code Review..." value="" />
+            <input class="form-input" placeholder="e.g. Soccer Practice, Doctor Appointment..." value="" />
           </div>
           <div class="form-row">
             <div class="form-field">
@@ -2001,10 +1992,10 @@ retrieval system...
             <label class="form-label">Link to Chat or Task (optional)</label>
             <select class="form-input form-select">
               <option>None</option>
-              <option>Browser Health C16</option>
-              <option>Auto Runner C2</option>
-              <option>UI Talk — Mockups</option>
-              <option>Fix MCP hardening C3</option>
+              <option>Weekly Meal Plan</option>
+              <option>Homeschool — Ethan &amp; Mia</option>
+              <option>Etsy Craft Shop</option>
+              <option>Mia's Birthday Planning</option>
             </select>
           </div>
         </div>
@@ -2016,7 +2007,7 @@ retrieval system...
     </div>
 
     <!-- ══════════ VIEW: SKILLS ══════════ -->
-    <div class="view" id="view-skills" data-guide="{&quot;title&quot;: &quot;Project CatSkills&quot;, &quot;tag&quot;: &quot;CatSkills&quot;, &quot;body&quot;: &quot;8 skills scoped to this project &amp;mdash; &lt;em&gt;Code Review, Test Generator, GitHub PR Bot, and more&lt;/em&gt;. Run any skill with one click, or browse the global library of 47 to add new ones.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+    <div class="view" id="view-skills" data-guide="{&quot;title&quot;: &quot;Project CatSkills&quot;, &quot;tag&quot;: &quot;CatSkills&quot;, &quot;body&quot;: &quot;8 skills scoped to this project &amp;mdash; &lt;em&gt;Meal Planner, Grocery List Builder, Budget Tracker, and more&lt;/em&gt;. Run any skill with one click, or browse the global library of 47 to add new ones.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
       <div class="view-toolbar">
         <div class="view-title" style="display:flex;align-items:center;gap:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;opacity:0.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Project CatSkills <span class="count">8 catskills scoped to this project</span></div>
         <div class="view-spacer"></div>
@@ -2033,29 +2024,29 @@ retrieval system...
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px">
           <div style="background:var(--bg-surface);border-radius:12px;box-shadow:var(--card-shadow);cursor:pointer;overflow:hidden">
-            <div style="padding:12px 14px 8px"><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px"><div style="width:26px;height:26px;border-radius:6px;background:rgba(59,130,246,0.12);color:#3b82f6;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><div style="font-size:13px;font-weight:600;line-height:1.3">Code Review</div><div style="font-size:10px;color:#3b82f6;text-transform:uppercase;letter-spacing:0.04em;font-weight:500">Prompt</div></div></div><div style="font-size:11px;color:var(--text-secondary);line-height:1.4;-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden;margin-bottom:6px">Structured code review with severity-tiered findings and actionable recommendations</div><div style="display:flex;gap:4px"><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">review</span><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">quality</span></div></div>
+            <div style="padding:12px 14px 8px"><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px"><div style="width:26px;height:26px;border-radius:6px;background:rgba(59,130,246,0.12);color:#3b82f6;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><div style="font-size:13px;font-weight:600;line-height:1.3">Meal Planner</div><div style="font-size:10px;color:#3b82f6;text-transform:uppercase;letter-spacing:0.04em;font-weight:500">Prompt</div></div></div><div style="font-size:11px;color:var(--text-secondary);line-height:1.4;-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden;margin-bottom:6px">Weekly meal plans with grocery lists, prep times, and dietary restrictions built in</div><div style="display:flex;gap:4px"><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">meals</span><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">planning</span></div></div>
             <div style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-top:1px solid var(--border-subtle)"><span style="font-size:10px;color:var(--text-muted);font-family:var(--font-mono)">Used 24x</span><div style="flex:1"></div><span style="font-size:9px;padding:2px 6px;border-radius:3px;background:rgba(79,160,255,0.08);color:#4fa0ff">project</span><button style="display:flex;align-items:center;gap:3px;padding:3px 8px;border-radius:6px;font-size:10px;font-weight:500;border:none;cursor:pointer;color:#3b82f6;background:rgba(59,130,246,0.12);font-family:var(--font)">&#9654; Run</button></div>
           </div>
           <div style="background:var(--bg-surface);border-radius:12px;box-shadow:var(--card-shadow);cursor:pointer;overflow:hidden">
-            <div style="padding:12px 14px 8px"><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px"><div style="width:26px;height:26px;border-radius:6px;background:rgba(59,130,246,0.12);color:#3b82f6;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><div style="font-size:13px;font-weight:600;line-height:1.3">Test Generator</div><div style="font-size:10px;color:#3b82f6;text-transform:uppercase;letter-spacing:0.04em;font-weight:500">Prompt</div></div></div><div style="font-size:11px;color:var(--text-secondary);line-height:1.4;-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden;margin-bottom:6px">Generates comprehensive test suites with edge cases and full coverage</div><div style="display:flex;gap:4px"><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">testing</span><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">vitest</span></div></div>
+            <div style="padding:12px 14px 8px"><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px"><div style="width:26px;height:26px;border-radius:6px;background:rgba(59,130,246,0.12);color:#3b82f6;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><div style="font-size:13px;font-weight:600;line-height:1.3">Grocery List Builder</div><div style="font-size:10px;color:#3b82f6;text-transform:uppercase;letter-spacing:0.04em;font-weight:500">Prompt</div></div></div><div style="font-size:11px;color:var(--text-secondary);line-height:1.4;-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden;margin-bottom:6px">Builds organized grocery lists from meal plans with budget estimates and store sections</div><div style="display:flex;gap:4px"><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">grocery</span><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">budget</span></div></div>
             <div style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-top:1px solid var(--border-subtle)"><span style="font-size:10px;color:var(--text-muted);font-family:var(--font-mono)">Used 18x</span><div style="flex:1"></div><span style="font-size:9px;padding:2px 6px;border-radius:3px;background:rgba(79,160,255,0.08);color:#4fa0ff">project</span><button style="display:flex;align-items:center;gap:3px;padding:3px 8px;border-radius:6px;font-size:10px;font-weight:500;border:none;cursor:pointer;color:#3b82f6;background:rgba(59,130,246,0.12);font-family:var(--font)">&#9654; Run</button></div>
           </div>
           <div style="background:var(--bg-surface);border-radius:12px;box-shadow:var(--card-shadow);cursor:pointer;overflow:hidden">
-            <div style="padding:12px 14px 8px"><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px"><div style="width:26px;height:26px;border-radius:6px;background:var(--orange-dim);color:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div><div style="font-size:13px;font-weight:600;line-height:1.3">GitHub PR Bot</div><div style="font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:0.04em;font-weight:500">Integration</div></div></div><div style="font-size:11px;color:var(--text-secondary);line-height:1.4;-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden;margin-bottom:6px">Automated PR creation and review with GitHub API and webhooks</div><div style="display:flex;gap:4px"><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">github</span><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">pr</span></div></div>
+            <div style="padding:12px 14px 8px"><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px"><div style="width:26px;height:26px;border-radius:6px;background:var(--orange-dim);color:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div><div style="font-size:13px;font-weight:600;line-height:1.3">Etsy Listing Writer</div><div style="font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:0.04em;font-weight:500">Integration</div></div></div><div style="font-size:11px;color:var(--text-secondary);line-height:1.4;-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden;margin-bottom:6px">Writes SEO-optimized Etsy listings with tags, descriptions, and pricing suggestions</div><div style="display:flex;gap:4px"><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">etsy</span><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">crafts</span></div></div>
             <div style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-top:1px solid var(--border-subtle)"><span style="font-size:10px;color:var(--text-muted);font-family:var(--font-mono)">Used 22x</span><div style="flex:1"></div><span style="font-size:9px;padding:2px 6px;border-radius:3px;background:rgba(79,160,255,0.08);color:#4fa0ff">project</span><button style="display:flex;align-items:center;gap:3px;padding:3px 8px;border-radius:6px;font-size:10px;font-weight:500;border:none;cursor:pointer;color:var(--orange);background:var(--orange-dim);font-family:var(--font)">&#9654; Run</button></div>
           </div>
           <div style="background:var(--bg-surface);border-radius:12px;box-shadow:var(--card-shadow);cursor:pointer;overflow:hidden">
-            <div style="padding:12px 14px 8px"><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px"><div style="width:26px;height:26px;border-radius:6px;background:rgba(167,139,250,0.12);color:#a78bfa;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div style="font-size:13px;font-weight:600;line-height:1.3">Full Review Pipeline</div><div style="font-size:10px;color:#a78bfa;text-transform:uppercase;letter-spacing:0.04em;font-weight:500">Workflow</div></div></div><div style="font-size:11px;color:var(--text-secondary);line-height:1.4;-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden;margin-bottom:6px">Chains Code Review → Security Audit → Test Generator</div><div style="display:flex;gap:4px"><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">pipeline</span><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">review</span></div></div>
+            <div style="padding:12px 14px 8px"><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px"><div style="width:26px;height:26px;border-radius:6px;background:rgba(167,139,250,0.12);color:#a78bfa;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div style="font-size:13px;font-weight:600;line-height:1.3">Weekly Family Planner</div><div style="font-size:10px;color:#a78bfa;text-transform:uppercase;letter-spacing:0.04em;font-weight:500">Workflow</div></div></div><div style="font-size:11px;color:var(--text-secondary);line-height:1.4;-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden;margin-bottom:6px">Chains Meal Planner → Grocery List → Calendar Sync</div><div style="display:flex;gap:4px"><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">planning</span><span style="font-size:9px;padding:1px 6px;border-radius:3px;background:var(--border-subtle);color:var(--text-muted)">family</span></div></div>
             <div style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-top:1px solid var(--border-subtle)"><span style="font-size:10px;color:var(--text-muted);font-family:var(--font-mono)">Used 6x</span><div style="flex:1"></div><span style="font-size:9px;padding:2px 6px;border-radius:3px;background:rgba(79,160,255,0.08);color:#4fa0ff">project</span><button style="display:flex;align-items:center;gap:3px;padding:3px 8px;border-radius:6px;font-size:10px;font-weight:500;border:none;cursor:pointer;color:#a78bfa;background:rgba(167,139,250,0.12);font-family:var(--font)">&#9654; Run</button></div>
           </div>
         </div>
         <div style="margin-top:16px;padding:12px 14px;background:var(--bg-surface);border-radius:12px;box-shadow:var(--card-shadow)">
           <div style="font-size:11px;font-weight:600;color:var(--text-secondary);margin-bottom:8px">Also available from global library</div>
           <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:10px;border:1px dashed var(--border);color:var(--text-muted);cursor:pointer"><span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;flex-shrink:0"></span> + Think Deeper</span>
-            <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:10px;border:1px dashed var(--border);color:var(--text-muted);cursor:pointer"><span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;flex-shrink:0"></span> + Security Audit</span>
-            <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:10px;border:1px dashed var(--border);color:var(--text-muted);cursor:pointer"><span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;flex-shrink:0"></span> + Refactor Clean</span>
-            <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:10px;border:1px dashed var(--border);color:var(--text-muted);cursor:pointer"><span style="width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0"></span> + Deploy Checker</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:10px;border:1px dashed var(--border);color:var(--text-muted);cursor:pointer"><span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;flex-shrink:0"></span> + Homework Helper</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:10px;border:1px dashed var(--border);color:var(--text-muted);cursor:pointer"><span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;flex-shrink:0"></span> + Allergy Checker</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:10px;border:1px dashed var(--border);color:var(--text-muted);cursor:pointer"><span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;flex-shrink:0"></span> + Bedtime Story Creator</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:10px;border:1px dashed var(--border);color:var(--text-muted);cursor:pointer"><span style="width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0"></span> + Chore Chart Generator</span>
             <span style="font-size:10px;color:var(--accent);padding:4px 0;cursor:pointer">Browse all 47 catskills &rarr;</span>
           </div>
         </div>
@@ -2241,7 +2232,7 @@ retrieval system...
     const chatMini = e.target.closest('.chat-mini');
     const openChatBtn = e.target.closest('.action-btn.primary');
     if (chatItem || listItem || chatMini || (openChatBtn && openChatBtn.textContent.trim().includes('Open Chat'))) {
-      window.location.href = 'chat-pane-v3.html';
+      window.location.href = 'chat.html';
     }
   });
 

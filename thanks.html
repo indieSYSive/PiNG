@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In! — PiNG!</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0a0f1a;
+    color: #f1f5f9;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  .container {
+    max-width: 560px;
+  }
+  .kat-emoji {
+    font-size: 80px;
+    margin-bottom: 1.5rem;
+    display: block;
+    animation: bounce 2s ease infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #4a9cff 0%, #818cf8 50%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .highlight {
+    color: #4a9cff;
+    font-weight: 600;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #4a9cff 0%, #818cf8 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .back-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(74, 156, 255, 0.3);
+  }
+  .confetti {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .confetti span {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    animation: fall linear forwards;
+    opacity: 0;
+  }
+  @keyframes fall {
+    0% { opacity: 1; transform: translateY(-20px) rotate(0deg); }
+    100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+  }
+</style>
+</head>
+<body>
+  <div class="confetti" id="confetti"></div>
+  <div class="container">
+    <span class="kat-emoji">🐱</span>
+    <h1>You're on the list!</h1>
+    <p>
+      We'll send you a heads-up when <span class="highlight">PiNG!</span> is ready for beta.
+      No spam, no fluff — just the good stuff.
+    </p>
+    <p style="font-size: 0.95rem;">
+      In the meantime, explore the interactive demos to see what's coming.
+    </p>
+    <a href="index.html" class="back-link">← Back to PiNG!</a>
+  </div>
+  <script>
+    // Simple confetti effect
+    const colors = ['#4a9cff', '#818cf8', '#a78bfa', '#3ddc84', '#f5a623', '#ff5c5c'];
+    const container = document.getElementById('confetti');
+    for (let i = 0; i < 50; i++) {
+      const span = document.createElement('span');
+      span.style.left = Math.random() * 100 + '%';
+      span.style.background = colors[Math.floor(Math.random() * colors.length)];
+      span.style.animationDuration = (2 + Math.random() * 3) + 's';
+      span.style.animationDelay = Math.random() * 2 + 's';
+      span.style.width = (4 + Math.random() * 8) + 'px';
+      span.style.height = (4 + Math.random() * 8) + 'px';
+      container.appendChild(span);
+    }
+  </script>
+</body>
+</html>

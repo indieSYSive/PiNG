@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PiNG! — Home</title>
+<title>PiNG! — Legal Dashboard</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   /* Type scale: 11 / 13 / 16 / 20 / 28 */
@@ -412,12 +412,12 @@
 
 </head>
 <body>
-<a href="../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
+<a href="../../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
 
 <!-- ═══ SIDEBAR ═══ -->
 <div class="sidebar" data-guide="{&quot;title&quot;: &quot;Project Navigator&quot;, &quot;tag&quot;: &quot;Navigation&quot;, &quot;body&quot;: &quot;All your projects in one sidebar. Each project is an &lt;em&gt;isolated AI workspace&lt;/em&gt; with its own chats, files, knowledge, and agent history. Click to dive in, right-click for options.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
   <!-- Brand header with cat mascot -->
-  <div class="sb-brand" onclick="window.location.href='home-v2.html'">
+  <div class="sb-brand" onclick="window.location.href='home.html'">
     <svg class="sb-brand-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(79,160,255,0.06)" stroke="#4fa0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#4fa0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -466,89 +466,72 @@
     </div>
   </div>
 
-  <div class="sb-projects-header">Projects <span class="count">21</span></div>
+  <div class="sb-projects-header">Projects <span class="count">8</span></div>
 
   <div class="sb-projects-list">
     <div>
-      <div class="sb-proj active" data-tooltip="Your active project — click to open, expand arrow to see chats"><span class="arrow open" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--green)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none" data-tooltip="Open this project workspace — AI context, files, chats, and knowledge all in one place">PiNG!</a><span class="chat-count">56</span><span class="proj-actions"><button class="proj-action" title="Open project browser" data-tooltip="Open the full project workspace with files, knowledge, and settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options" data-tooltip="Rename, archive, duplicate, or configure this project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj active" data-tooltip="Your active project — click to open, expand arrow to see chats"><span class="arrow open" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--green)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none" data-tooltip="Open this project workspace — AI context, files, chats, and knowledge all in one place">&#9878;&#65039; Morrison &amp; Associates</a><span class="chat-count">18</span><span class="proj-actions"><button class="proj-action" title="Open project browser" data-tooltip="Open the full project workspace with files, knowledge, and settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options" data-tooltip="Rename, archive, duplicate, or configure this project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
       <div class="sb-proj-chats open">
-        <a href="chat-pane-v3.html" class="sb-proj-chat" data-tooltip="Resume this AI conversation with full context preserved"><span class="chat-dot" style="background:var(--green)"></span>Universal tool calling</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--green)"></span>check the repo</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Browser Talk</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Browser Health C16</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Auto Runner C2</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>MCP Harden C3</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>UI Discussion</a>
-        <a href="#" class="sb-proj-chat" style="opacity:0.5">+13 more...</a>
+        <a href="chat.html" class="sb-proj-chat" data-tooltip="Resume this AI conversation with full context preserved"><span class="chat-dot" style="background:var(--green)"></span>Contract review — TechCorp</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--green)"></span>Case law research — IP</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Client brief — Johnson</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Discovery analysis</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Deposition prep</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Regulatory compliance</a>
+        <a href="#" class="sb-proj-chat" style="opacity:0.5">+12 more...</a>
       </div>
     </div>
     <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">CatSkills</a><span class="chat-count">6</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128203; TechCorp Merger</a><span class="chat-count">12</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
       <div class="sb-proj-chats">
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Skill browser redesign</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Runner implementation</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Approval toast UX</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Merger agreement review</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Due diligence checklist</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Indemnification analysis</a>
+        <a href="#" class="sb-proj-chat" style="opacity:0.5">+9 more...</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128270; Johnson v. State</a><span class="chat-count">8</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats">
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Motion to suppress</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Witness prep notes</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128220; Contract Templates</a><span class="chat-count">6</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats">
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>NDA template update</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--orange)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#9200; Billing &amp; Time</a><span class="chat-count">5</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj-chats">
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--orange)"></span>March billing reconciliation</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Rate adjustments</a>
         <a href="#" class="sb-proj-chat" style="opacity:0.5">+3 more...</a>
       </div>
     </div>
     <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Mia's Telephone</a><span class="chat-count">2</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#127963;&#65039; IP Litigation — Nexus</a><span class="chat-count">7</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
       <div class="sb-proj-chats">
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Initial setup</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Audio pipeline</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Patent claim analysis</a>
+        <a href="#" class="sb-proj-chat" style="opacity:0.5">+6 more...</a>
       </div>
     </div>
     <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Payroll</a><span class="chat-count">1</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128193; Pro Bono Housing</a><span class="chat-count">3</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
       <div class="sb-proj-chats">
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Tax calculation fix</a>
-      </div>
-    </div>
-    <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--orange)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Loudbox Talent</a><span class="chat-count">3</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
-      <div class="sb-proj-chats">
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--orange)"></span>API integration</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Dashboard layout</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Candidate search</a>
-      </div>
-    </div>
-    <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Lattice Demo</a><span class="chat-count">6</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
-      <div class="sb-proj-chats">
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Prototype setup</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Data model design</a>
-        <a href="#" class="sb-proj-chat" style="opacity:0.5">+4 more...</a>
-      </div>
-    </div>
-    <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Physics</a><span class="chat-count">3</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
-      <div class="sb-proj-chats">
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Simulation engine</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Tenant rights brief</a>
         <a href="#" class="sb-proj-chat" style="opacity:0.5">+2 more...</a>
       </div>
     </div>
     <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Harness Tests</a><span class="chat-count">2</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128209; Bar CLE</a><span class="chat-count">2</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
       <div class="sb-proj-chats">
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Test harness setup</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>CI integration</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>CLE credit tracking</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Ethics webinar notes</a>
       </div>
     </div>
-    <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Memory Test 5</a><span class="chat-count">4</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
-      <div class="sb-proj-chats">
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Memory leak analysis</a>
-        <a href="#" class="sb-proj-chat" style="opacity:0.5">+3 more...</a>
-      </div>
-    </div>
-    <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project-unified-v2.html" class="name" style="color:inherit;text-decoration:none">Download Test</a><span class="chat-count">2</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
-      <div class="sb-proj-chats">
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Download manager</a>
-        <a href="chat-pane-v3.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Resume support</a>
-      </div>
-    </div>
-    <div class="sb-proj" style="opacity:0.4"><span class="dot" style="background:var(--text-muted)"></span><span class="name">+11 more...</span><span class="chat-count"></span></div>
   </div>
 
   <div class="sb-footer" data-guide="{&quot;title&quot;: &quot;Workspace Utilities&quot;, &quot;tag&quot;: &quot;Settings&quot;, &quot;body&quot;: &quot;&lt;em&gt;Usage tracking, trash recovery, and global settings&lt;/em&gt; &amp;mdash; always accessible from the sidebar footer. Monitor your AI spending, recover deleted items, or tweak your entire workspace.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">
@@ -611,29 +594,29 @@
         <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#4fa0ff" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
       </svg>
       <div class="greeting-text">
-        <h1>Good evening, <span>Allan</span></h1>
+        <h1>Good evening, <span>Sarah</span></h1>
         <div class="greeting-date">Wednesday, March 11</div>
-        <div class="greeting-nudge"><strong>36 overdue</strong> tasks across 3 projects</div>
+        <div class="greeting-nudge"><strong>12 filing deadlines</strong> across 5 active cases</div>
       </div>
     </div>
 
     <!-- ═══ WIDGET GRID ═══ -->
-    <div class="widget-grid" id="widget-grid" data-guide="{&quot;title&quot;: &quot;Your Command Center&quot;, &quot;tag&quot;: &quot;Dashboard&quot;, &quot;body&quot;: &quot;A fully customizable widget grid &amp;mdash; &lt;em&gt;drag, resize, add, remove&lt;/em&gt;. Every widget is live data from your AI workspace. This is your mission control for vibe coding.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+    <div class="widget-grid" id="widget-grid" data-guide="{&quot;title&quot;: &quot;Your Command Center&quot;, &quot;tag&quot;: &quot;Dashboard&quot;, &quot;body&quot;: &quot;A fully customizable widget grid &amp;mdash; &lt;em&gt;drag, resize, add, remove&lt;/em&gt;. Every widget is live data from your AI workspace. This is your mission control for managing cases and clients.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
 
       <!-- ═══ ROW 1 ═══ -->
 
       <!-- Recent Activity -->
-      <div class="widget wg-4" data-widget="activity" data-guide="{&quot;title&quot;: &quot;Activity Feed&quot;, &quot;tag&quot;: &quot;Dashboard&quot;, &quot;body&quot;: &quot;Your real-time pulse on everything happening across projects. Every AI chat, commit, and agent action \u2014 &lt;em&gt;all in one glanceable stream&lt;/em&gt;. No more tab-hopping to stay in the loop.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
+      <div class="widget wg-4" data-widget="activity" data-guide="{&quot;title&quot;: &quot;Activity Feed&quot;, &quot;tag&quot;: &quot;Dashboard&quot;, &quot;body&quot;: &quot;Your real-time pulse on everything happening across projects. Every AI chat, document review, and agent action \u2014 &lt;em&gt;all in one glanceable stream&lt;/em&gt;. No more tab-hopping to stay in the loop.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
         <div class="widget-header" style="color:var(--orange)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           Recent Activity
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="act-item"><div class="act-icon" style="background:var(--purple-dim);color:var(--purple)">&#9881;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>Trust Mechanism:</strong> Receipts with cryptographic hash...</div><div class="act-meta"><span class="act-project">PiNG!</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
-          <div class="act-item"><div class="act-icon" style="background:var(--green-dim);color:var(--green)">&#10003;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>Concurrency:</strong> Handled via Git Worktrees...</div><div class="act-meta"><span class="act-project">PiNG!</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
-          <div class="act-item"><div class="act-icon" style="background:var(--accent-glow);color:var(--accent)">&#9672;</div><div style="flex:1;min-width:0"><div class="act-text">Stop assuming cross-chat messages work...</div><div class="act-meta"><span class="act-project">PiNG!</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
-          <div class="act-item"><div class="act-icon" style="background:var(--yellow-dim);color:var(--yellow)">&#9733;</div><div style="flex:1;min-width:0"><div class="act-text">Adopt Star + Context Horizon model...</div><div class="act-meta"><span class="act-project">PiNG!</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
+          <div class="act-item"><div class="act-icon" style="background:var(--purple-dim);color:var(--purple)">&#9881;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>TechCorp agreement</strong> &mdash; 3 clauses flagged</div><div class="act-meta"><span class="act-project">TechCorp Merger</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
+          <div class="act-item"><div class="act-icon" style="background:var(--green-dim);color:var(--green)">&#10003;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>Johnson motion to suppress</strong> drafted</div><div class="act-meta"><span class="act-project">Johnson v. State</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
+          <div class="act-item"><div class="act-icon" style="background:var(--accent-glow);color:var(--accent)">&#9672;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>CLE webinar</strong> &mdash; 2 credits earned</div><div class="act-meta"><span class="act-project">Bar CLE</span> 4h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
+          <div class="act-item"><div class="act-icon" style="background:var(--yellow-dim);color:var(--yellow)">&#9733;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>Billing:</strong> 142 hours this month</div><div class="act-meta"><span class="act-project">Billing &amp; Time</span> 5h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -647,9 +630,9 @@
         </div>
         <div class="widget-body">
           <div class="task-counts">
-            <div class="task-count-box"><div class="task-count-label">Overdue</div><div class="task-count-value danger">36</div></div>
-            <div class="task-count-box"><div class="task-count-label">Today</div><div class="task-count-value">0</div></div>
-            <div class="task-count-box"><div class="task-count-label">This Week</div><div class="task-count-value">0</div></div>
+            <div class="task-count-box"><div class="task-count-label">Overdue</div><div class="task-count-value danger">3</div></div>
+            <div class="task-count-box"><div class="task-count-label">Today</div><div class="task-count-value">5</div></div>
+            <div class="task-count-box"><div class="task-count-label">This Week</div><div class="task-count-value">12</div></div>
           </div>
           <div class="view-all-link">View all tasks <span>&rarr;</span></div>
         </div>
@@ -657,16 +640,16 @@
       </div>
 
       <!-- Project Health -->
-      <div class="widget wg-4" data-widget="health" data-guide="{&quot;title&quot;: &quot;System Health Monitor&quot;, &quot;tag&quot;: &quot;DevOps&quot;, &quot;body&quot;: &quot;Real-time health of your dev environment \u2014 &lt;em&gt;memory, CPU, disk, and running processes&lt;/em&gt;. Spot resource hogs before they crash your build. One widget, zero guesswork.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+      <div class="widget wg-4" data-widget="health" data-guide="{&quot;title&quot;: &quot;Case Health Monitor&quot;, &quot;tag&quot;: &quot;Case Tracking&quot;, &quot;body&quot;: &quot;Real-time progress across your active cases \u2014 &lt;em&gt;deadlines, tasks, and completion status&lt;/em&gt;. Spot overdue items before they become problems. One widget, zero guesswork.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
         <div class="widget-header">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
           Project Health
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="ph-item"><span class="ph-dot" style="background:var(--orange)"></span><span class="ph-name">Memory test 4</span><span class="ph-tasks">0/51</span><span class="ph-overdue">34 overdue</span><span class="ph-pct">0%</span></div>
-          <div class="ph-item"><span class="ph-dot" style="background:var(--red)"></span><span class="ph-name">Mia's Telephone</span><span class="ph-tasks">0/2</span><span class="ph-overdue">2 overdue</span><span class="ph-pct">0%</span></div>
-          <div class="ph-item"><span class="ph-dot" style="background:var(--green)"></span><span class="ph-name">PiNG!</span><div class="ph-bar"><div class="ph-fill" style="width:16%;background:var(--green)"></div></div><span class="ph-tasks">6/37</span><span class="ph-pct">16%</span></div>
+          <div class="ph-item"><span class="ph-dot" style="background:var(--orange)"></span><span class="ph-name">TechCorp Merger</span><div class="ph-bar"><div class="ph-fill" style="width:65%;background:var(--orange)"></div></div><span class="ph-tasks">8/12</span><span class="ph-pct">65%</span></div>
+          <div class="ph-item"><span class="ph-dot" style="background:var(--red)"></span><span class="ph-name">Johnson v. State</span><div class="ph-bar"><div class="ph-fill" style="width:40%;background:var(--red)"></div></div><span class="ph-tasks">3/8</span><span class="ph-overdue">2 overdue</span><span class="ph-pct">40%</span></div>
+          <div class="ph-item"><span class="ph-dot" style="background:var(--green)"></span><span class="ph-name">IP Litigation — Nexus</span><div class="ph-bar"><div class="ph-fill" style="width:85%;background:var(--green)"></div></div><span class="ph-tasks">6/7</span><span class="ph-pct">85%</span></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -682,15 +665,15 @@
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"Local LLM thesis" &mdash; 3660KB context</div><button class="brain-action" data-tooltip="Jump to this chat before context runs out — save your conversation">Open Chat</button></div></div>
-          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"Local LLM Rehab" &mdash; 1867KB context</div><button class="brain-action">Open Chat</button></div></div>
-          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"Browser Talk" &mdash; 1603KB context</div></div></div>
+          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"TechCorp merger review" &mdash; 3660KB context</div><button class="brain-action" data-tooltip="Jump to this chat before context runs out — save your conversation">Open Chat</button></div></div>
+          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"Johnson motion research" &mdash; 1867KB context</div><button class="brain-action">Open Chat</button></div></div>
+          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"IP portfolio analysis" &mdash; 1603KB context</div></div></div>
         </div>
         <div class="resize-handle"></div>
       </div>
 
       <!-- Calendar -->
-      <div class="widget wg-7" data-widget="calendar" data-guide="{&quot;title&quot;: &quot;Integrated Calendar&quot;, &quot;tag&quot;: &quot;Planning&quot;, &quot;body&quot;: &quot;Your schedule, inline with your workspace. &lt;em&gt;See deadlines alongside active AI tasks&lt;/em&gt; \u2014 no context-switching to a separate calendar app. Plan your sprint without leaving PiNG.&quot;, &quot;cat&quot;: &quot;kat-lean-left&quot;}">
+      <div class="widget wg-7" data-widget="calendar" data-guide="{&quot;title&quot;: &quot;Integrated Calendar&quot;, &quot;tag&quot;: &quot;Planning&quot;, &quot;body&quot;: &quot;Your schedule, inline with your workspace. &lt;em&gt;See deadlines alongside active AI tasks&lt;/em&gt; \u2014 no context-switching to a separate calendar app. Plan your week without leaving PiNG.&quot;, &quot;cat&quot;: &quot;kat-lean-left&quot;}">
         <div class="widget-header">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           March 2026
@@ -699,8 +682,8 @@
         <div class="widget-body">
           <div class="cal-grid">
             <div class="cal-head">Sun</div><div class="cal-head">Mon</div><div class="cal-head">Tue</div><div class="cal-head">Wed</div><div class="cal-head">Thu</div><div class="cal-head">Fri</div><div class="cal-head">Sat</div>
-            <div class="cal-cell"><div class="day-num">1</div><div class="cal-evt deadline">deadline...</div></div>
-            <div class="cal-cell"><div class="day-num">2</div><div class="cal-evt meeting">offline deadline...</div></div>
+            <div class="cal-cell"><div class="day-num">1</div><div class="cal-evt deadline">Filing: Johnson</div></div>
+            <div class="cal-cell"><div class="day-num">2</div><div class="cal-evt meeting">Client mtg: TechCorp</div></div>
             <div class="cal-cell"><div class="day-num">3</div></div>
             <div class="cal-cell"><div class="day-num">4</div></div>
             <div class="cal-cell"><div class="day-num">5</div></div>
@@ -716,7 +699,7 @@
             <div class="cal-cell"><div class="day-num">15</div></div>
             <div class="cal-cell"><div class="day-num">16</div></div>
             <div class="cal-cell"><div class="day-num">17</div></div>
-            <div class="cal-cell"><div class="day-num">18</div><div class="cal-evt task">deadline is on...</div><div class="cal-evt reminder">my deadline...</div></div>
+            <div class="cal-cell"><div class="day-num">18</div><div class="cal-evt task">Discovery due</div><div class="cal-evt reminder">Depo: witness #3</div></div>
             <div class="cal-cell"><div class="day-num">19</div></div>
             <div class="cal-cell"><div class="day-num">20</div></div>
             <div class="cal-cell"><div class="day-num">21</div></div>
@@ -742,18 +725,18 @@
       <!-- ═══ ROW 3 ═══ -->
 
       <!-- Focus -->
-      <div class="widget wg-4" data-widget="focus" data-guide="{&quot;title&quot;: &quot;Focus Mode Timer&quot;, &quot;tag&quot;: &quot;Deep Work&quot;, &quot;body&quot;: &quot;Pomodoro-style focus sessions &lt;em&gt;built into your AI workspace&lt;/em&gt;. Start a focus block and let PiNG queue non-urgent notifications. Code deeper, ship faster.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+      <div class="widget wg-4" data-widget="focus" data-guide="{&quot;title&quot;: &quot;Focus Mode Timer&quot;, &quot;tag&quot;: &quot;Deep Work&quot;, &quot;body&quot;: &quot;Pomodoro-style focus sessions &lt;em&gt;built into your AI workspace&lt;/em&gt;. Start a focus block and let PiNG queue non-urgent notifications. Draft deeper, bill smarter.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
         <div class="widget-header" style="color:var(--red)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
           Focus
-          <span class="badge" style="background:var(--red-dim);color:var(--red)">36 overdue</span>
+          <span class="badge" style="background:var(--red-dim);color:var(--red)">3 overdue</span>
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="focus-row"><div class="focus-text">Review PR by EOD</div><div class="focus-meta">47d overdue</div><span class="focus-arrow">&rsaquo;</span></div>
-          <div class="focus-row"><div class="focus-text">Fix FTS5 external content sync</div><div class="focus-meta">3d overdue</div><span class="focus-arrow">&rsaquo;</span></div>
-          <div class="focus-row"><div class="focus-text">Add browser timeout retry</div><div class="focus-meta">2d overdue</div><span class="focus-arrow">&rsaquo;</span></div>
-          <div class="focus-row"><div class="focus-text">Payroll Q1 reconciliation</div><div class="focus-meta">14d overdue</div><span class="focus-arrow">&rsaquo;</span></div>
+          <div class="focus-row"><div class="focus-text">Review TechCorp indemnification</div><div class="focus-meta">Due today</div><span class="focus-arrow">&rsaquo;</span></div>
+          <div class="focus-row"><div class="focus-text">Draft partner memo</div><div class="focus-meta">Due tomorrow</div><span class="focus-arrow">&rsaquo;</span></div>
+          <div class="focus-row"><div class="focus-text">Prepare Johnson deposition</div><div class="focus-meta">2d overdue</div><span class="focus-arrow">&rsaquo;</span></div>
+          <div class="focus-row"><div class="focus-text">File discovery response by Friday</div><div class="focus-meta">Due Fri</div><span class="focus-arrow">&rsaquo;</span></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -767,9 +750,9 @@
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="agent-row"><span class="agent-dot running"></span><div style="flex:1;min-width:0"><div class="agent-name">Browser Health C16</div><div class="agent-task">Executing gate-check &mdash; 1037 tests...</div></div><span class="agent-model opus">opus</span></div>
-          <div class="agent-row"><span class="agent-dot running"></span><div style="flex:1;min-width:0"><div class="agent-name">Auto Runner C2</div><div class="agent-task">Planning AR-C2 implementation...</div></div><span class="agent-model opus">opus</span></div>
-          <div class="agent-row"><span class="agent-dot idle"></span><div style="flex:1;min-width:0"><div class="agent-name">Memory Indexer</div><div class="agent-task">Idle &mdash; last run 22m ago</div></div><span class="agent-model opus" style="background:var(--bg-active);color:var(--text-muted)">idle</span></div>
+          <div class="agent-row"><span class="agent-dot running"></span><div style="flex:1;min-width:0"><div class="agent-name">Contract Analyzer</div><div class="agent-task">Reviewing merger section 7.2...</div></div><span class="agent-model opus">opus</span></div>
+          <div class="agent-row"><span class="agent-dot running"></span><div style="flex:1;min-width:0"><div class="agent-name">Legal Researcher</div><div class="agent-task">Searching CA non-compete law...</div></div><span class="agent-model opus">opus</span></div>
+          <div class="agent-row"><span class="agent-dot idle"></span><div style="flex:1;min-width:0"><div class="agent-name">Billing Tracker</div><div class="agent-task">Idle &mdash; last run 30m ago</div></div><span class="agent-model opus" style="background:var(--bg-active);color:var(--text-muted)">idle</span></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -782,14 +765,14 @@
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="cost-row"><span class="cost-label">This month</span><span class="cost-value" style="color:var(--accent)">$14.27</span></div>
-          <div class="cost-row"><span class="cost-label">Budget</span><span class="cost-value">$50.00</span></div>
-          <div class="cost-row"><span class="cost-label">Total tokens</span><span class="cost-value">4.2M</span></div>
+          <div class="cost-row"><span class="cost-label">This month</span><span class="cost-value" style="color:var(--accent)">$32.50</span></div>
+          <div class="cost-row"><span class="cost-label">Budget</span><span class="cost-value">$100.00</span></div>
+          <div class="cost-row"><span class="cost-label">Total tokens</span><span class="cost-value">6.8M</span></div>
           <div style="height:1px;background:var(--border-subtle);margin:6px 0"></div>
-          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">GitHub</span><span class="conn-detail">3 open PRs</span></div>
-          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">MCP Servers</span><span class="conn-detail">3 active</span></div>
-          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">Linear</span><span class="conn-detail">synced</span></div>
-          <div class="conn-row"><span class="conn-dot warn"></span><span class="conn-name">Slack</span><span class="conn-detail">not connected</span></div>
+          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">Westlaw</span><span class="conn-detail">linked</span></div>
+          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">Clio</span><span class="conn-detail">synced</span></div>
+          <div class="conn-row"><span class="conn-dot warn"></span><span class="conn-name">Court Filing</span><span class="conn-detail">3 pending</span></div>
+          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">Calendar</span><span class="conn-detail">12 deadlines</span></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -797,7 +780,7 @@
       <!-- ═══ ROW 4 ═══ -->
 
       <!-- Scheduled Tasks -->
-      <div class="widget wg-6" data-widget="scheduled" data-guide="{&quot;title&quot;: &quot;Scheduled Tasks&quot;, &quot;tag&quot;: &quot;Automation&quot;, &quot;body&quot;: &quot;Set it and forget it \u2014 &lt;em&gt;cron-style automation for your AI workflows&lt;/em&gt;. Schedule code reviews, daily summaries, or test runs. Your AI assistant works while you sleep.&quot;, &quot;cat&quot;: &quot;kat-perk&quot;}">
+      <div class="widget wg-6" data-widget="scheduled" data-guide="{&quot;title&quot;: &quot;Scheduled Tasks&quot;, &quot;tag&quot;: &quot;Automation&quot;, &quot;body&quot;: &quot;Set it and forget it \u2014 &lt;em&gt;cron-style automation for your AI workflows&lt;/em&gt;. Schedule case digests, filing deadline checks, or billing reconciliations. Your AI assistant works while you sleep.&quot;, &quot;cat&quot;: &quot;kat-perk&quot;}">
         <div class="widget-header">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           Scheduled Tasks
@@ -805,9 +788,9 @@
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="focus-row"><div style="flex:1"><div class="focus-text">Daily gate-check</div><div class="focus-meta" style="margin-top:2px">PiNG! &middot; Every day 9:00 AM &middot; Next: tomorrow</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
-          <div class="focus-row"><div style="flex:1"><div class="focus-text">Weekly memory prune</div><div class="focus-meta" style="margin-top:2px">All projects &middot; Fridays 6:00 PM &middot; Next: Mar 14</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
-          <div class="focus-row"><div style="flex:1"><div class="focus-text">Dependency audit</div><div class="focus-meta" style="margin-top:2px">PiNG! &middot; Monthly 1st &middot; Next: Apr 1</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
+          <div class="focus-row"><div style="flex:1"><div class="focus-text">Daily case digest</div><div class="focus-meta" style="margin-top:2px">Morrison &middot; Every day 8:00 AM &middot; Next: tomorrow</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
+          <div class="focus-row"><div style="flex:1"><div class="focus-text">Weekly billing</div><div class="focus-meta" style="margin-top:2px">Billing &middot; Fridays 5:00 PM &middot; Next: Mar 14</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
+          <div class="focus-row"><div style="flex:1"><div class="focus-text">Filing deadline check</div><div class="focus-meta" style="margin-top:2px">All cases &middot; Daily 7:00 AM &middot; Next: tomorrow</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -820,10 +803,10 @@
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body" style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
-          <div class="stat-box"><div class="stat-value">21</div><div class="stat-label">Projects</div></div>
-          <div class="stat-box"><div class="stat-value" style="color:var(--accent)">87</div><div class="stat-label">Chats</div></div>
-          <div class="stat-box"><div class="stat-value" style="color:var(--green)">5,758</div><div class="stat-label">Tests</div></div>
-          <div class="stat-box"><div class="stat-value">142</div><div class="stat-label">Memories</div></div>
+          <div class="stat-box"><div class="stat-value">8</div><div class="stat-label">Projects</div></div>
+          <div class="stat-box"><div class="stat-value" style="color:var(--accent)">61</div><div class="stat-label">Chats</div></div>
+          <div class="stat-box"><div class="stat-value" style="color:var(--green)">234</div><div class="stat-label">Documents</div></div>
+          <div class="stat-box"><div class="stat-value">47</div><div class="stat-label">Precedents</div></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -838,16 +821,16 @@
         </div>
         <div class="widget-body">
           <div class="sk-row">
-            <a class="sk-card" href="skills-v2.html" data-tooltip="Open this CatSkill — view details, edit, or run it"><div class="sk-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="sk-info"><div class="sk-name">Code Review</div><div class="sk-type">Prompt</div></div><span class="sk-meta">24x</span></a>
-            <a class="sk-card" href="skills-v2.html"><div class="sk-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="sk-info"><div class="sk-name">GitHub PR Bot</div><div class="sk-type">Integration</div></div><span class="sk-meta">22x</span></a>
+            <a class="sk-card" href="skills-detail.html" data-tooltip="Open this CatSkill — view details, edit, or run it"><div class="sk-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="sk-info"><div class="sk-name">Contract Reviewer</div><div class="sk-type">Prompt</div></div><span class="sk-meta">22x</span></a>
+            <a class="sk-card" href="skills-detail.html"><div class="sk-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="sk-info"><div class="sk-name">Legal Research</div><div class="sk-type">Integration</div></div><span class="sk-meta">20x</span></a>
           </div>
           <div class="sk-row">
-            <a class="sk-card" href="skills-v2.html"><div class="sk-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="sk-info"><div class="sk-name">Daily Standup</div><div class="sk-type">Workflow</div></div><span class="sk-meta">19x</span></a>
-            <a class="sk-card" href="skills-v2.html"><div class="sk-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="sk-info"><div class="sk-name">Test Generator</div><div class="sk-type">Prompt</div></div><span class="sk-meta">18x</span></a>
+            <a class="sk-card" href="skills-detail.html"><div class="sk-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="sk-info"><div class="sk-name">Brief Writer</div><div class="sk-type">Workflow</div></div><span class="sk-meta">18x</span></a>
+            <a class="sk-card" href="skills-detail.html"><div class="sk-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="sk-info"><div class="sk-name">Discovery Analyzer</div><div class="sk-type">Prompt</div></div><span class="sk-meta">14x</span></a>
           </div>
           <div class="sk-footer">
             <div class="sk-stat"><span class="sk-stat-item"><strong>28</strong> prompt</span><span class="sk-stat-item"><strong>10</strong> integration</span><span class="sk-stat-item"><strong>9</strong> workflow</span></div>
-            <a href="skills-v2.html">All CatSkills &rarr;</a>
+            <a href="skills-browse.html">All CatSkills &rarr;</a>
           </div>
         </div>
         <div class="resize-handle"></div>
@@ -867,31 +850,31 @@
           <!-- Today -->
           <div>
             <div class="session-group-label">Today</div>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit;background:var(--accent-glow)"><span class="session-dot active"></span><div class="session-info"><div class="session-name" style="color:var(--accent)">Ingest and wait functionality</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot active"></span><div class="session-info"><div class="session-name">Continue previous coding session work</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot active"></span><div class="session-info"><div class="session-name">Perfect mockup and plan PiNG implem...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Parallel work on skills and orchestrator</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Review UI Talk album mockup HTML</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Debug Gemini 3.0 compatibility issues</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">sonnet</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Investigate PiNG folder linking issue</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit;background:var(--accent-glow)"><span class="session-dot active"></span><div class="session-info"><div class="session-name" style="color:var(--accent)">Review TechCorp merger agreement</div><div class="session-meta"><span class="session-project-tag">TechCorp</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot active"></span><div class="session-info"><div class="session-name">Draft Johnson motion to suppress</div><div class="session-meta"><span class="session-project-tag">Johnson</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot active"></span><div class="session-info"><div class="session-name">IP case law precedent search</div><div class="session-meta"><span class="session-project-tag">IP Litigation</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Prepare deposition questions</div><div class="session-meta"><span class="session-project-tag">Johnson</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Billing hours reconciliation</div><div class="session-meta"><span class="session-project-tag">Billing</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">CLE credit tracking</div><div class="session-meta"><span class="session-project-tag">Bar CLE</span> <span class="session-model">sonnet</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Client intake — new matter</div><div class="session-meta"><span class="session-project-tag">Morrison</span> <span class="session-model">opus</span></div></div></a>
           </div>
           <!-- Yesterday -->
           <div>
             <div class="session-group-label">Yesterday</div>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Investigate HTML file drag-and-drop br...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Work on PlanPack C from handoff docs</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Review non-compete enforceability...</div><div class="session-meta"><span class="session-project-tag">TechCorp</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Draft discovery response to defendant</div><div class="session-meta"><span class="session-project-tag">Johnson</span> <span class="session-model">opus</span></div></div></a>
           </div>
           <!-- Older -->
           <div>
             <div class="session-group-label">Older</div>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Verify PlanPack A monolith split compl...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Design LLM-Core spec for PiNG works...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Create PiNG landing page for March la...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">sonnet</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Design local LLM integration with Meta...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Quick Fixes 030826</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Evaluate learnings system competitive ...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Broken learnings plan pack</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat-pane-v3.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Analyze Skills A3 and Orchestration P1 ...</div><div class="session-meta"><span class="session-project-tag">PiNG!</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Nexus patent claim mapping</div><div class="session-meta"><span class="session-project-tag">IP Litigation</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Tenant eviction defense brief</div><div class="session-meta"><span class="session-project-tag">Pro Bono</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Contract template library setup</div><div class="session-meta"><span class="session-project-tag">Templates</span> <span class="session-model">sonnet</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">March billing summary generation</div><div class="session-meta"><span class="session-project-tag">Billing</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Regulatory compliance check — FDA</div><div class="session-meta"><span class="session-project-tag">Morrison</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Case law digest — employment law</div><div class="session-meta"><span class="session-project-tag">Morrison</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Expert witness identification — Nexus</div><div class="session-meta"><span class="session-project-tag">IP Litigation</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">CLE ethics seminar notes review</div><div class="session-meta"><span class="session-project-tag">Bar CLE</span> <span class="session-model">opus</span></div></div></a>
           </div>
         </div>
         <div class="resize-handle"></div>

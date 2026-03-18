@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PiNG! — CatSkills v2</title>
+<title>PiNG! — Family Skills Detail</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -506,14 +506,14 @@
 
 </head>
 <body>
-<a href="../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
+<a href="../../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
 
 <!-- ===== TITLE BAR ===== -->
 <div class="title-bar">
   <div class="traffic-lights"><div class="tl tl-c"></div><div class="tl tl-m"></div><div class="tl tl-x"></div></div>
   <div class="title-nav">
-    <a href="home-v2.html">Home</a><span class="sep">/</span>
-    <a href="project-unified-v2.html">PiNG!</a><span class="sep">/</span>
+    <a href="home.html">Home</a><span class="sep">/</span>
+    <a href="project.html">PiNG!</a><span class="sep">/</span>
     <span class="current">CatSkills</span>
   </div>
 </div>
@@ -537,14 +537,14 @@
     <div class="sb-sep"></div>
     <div class="sb-label">Categories</div>
     <div class="sb-cats">
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--blue)"></div><span class="sb-cat-name">Code Quality</span><span class="sb-cat-n">14</span></div>
-      <div class="sb-subcats"><div class="sb-subcat">Review</div><div class="sb-subcat">Testing</div><div class="sb-subcat">Security</div></div>
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--green)"></div><span class="sb-cat-name">Productivity</span><span class="sb-cat-n">11</span></div>
-      <div class="sb-subcats"><div class="sb-subcat">Analysis</div><div class="sb-subcat">Writing</div><div class="sb-subcat">Templates</div></div>
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--purple)"></div><span class="sb-cat-name">Workflows</span><span class="sb-cat-n">8</span></div>
-      <div class="sb-subcats"><div class="sb-subcat">Pipelines</div><div class="sb-subcat">Automation</div></div>
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--orange)"></div><span class="sb-cat-name">Integrations</span><span class="sb-cat-n">9</span></div>
-      <div class="sb-subcats"><div class="sb-subcat">APIs</div><div class="sb-subcat">Webhooks</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--blue)"></div><span class="sb-cat-name">Family</span><span class="sb-cat-n">14</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Meals</div><div class="sb-subcat">Schedules</div><div class="sb-subcat">Budget</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--green)"></div><span class="sb-cat-name">Health</span><span class="sb-cat-n">11</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Pediatric</div><div class="sb-subcat">Allergies</div><div class="sb-subcat">Nutrition</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--purple)"></div><span class="sb-cat-name">Activities</span><span class="sb-cat-n">8</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Sports</div><div class="sb-subcat">School</div><div class="sb-subcat">Camps</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--orange)"></div><span class="sb-cat-name">Home</span><span class="sb-cat-n">9</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Projects</div><div class="sb-subcat">Maintenance</div></div>
       <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--cyan)"></div><span class="sb-cat-name">Custom</span><span class="sb-cat-n">5</span></div>
       <div class="sb-subcats"><div class="sb-subcat">Personal</div></div>
     </div>
@@ -578,92 +578,92 @@
     <div class="skills-scroll">
       <div class="skills-grid" id="skillsGrid" data-guide="{&quot;title&quot;: &quot;CatSkills Grid&quot;, &quot;tag&quot;: &quot;Library&quot;, &quot;body&quot;: &quot;Your collection of &lt;em&gt;reusable AI superpowers&lt;/em&gt; &amp;mdash; Prompts, Integrations, and Workflows. Click any card for details, star favorites, or hit Run to execute instantly. 47 skills and growing.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
         <!-- 10 skill cards -->
-        <div class="skill-card" onclick="showDetail('code-review')" data-tooltip="Code Review — structured feedback with severity levels and fix suggestions">
+        <div class="skill-card" onclick="showDetail('meal-planner')" data-tooltip="Meal Planner — weekly meal plans with allergy awareness and budget tracking">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Code Review</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">Structured code review with severity-tiered findings and actionable recommendations</div>
-            <div class="skill-card-tags"><span class="skill-tag">review</span><span class="skill-tag">quality</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Meal Planner</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Weekly meal plans with allergy-safe recipes, grocery lists, and budget tracking for the whole family</div>
+            <div class="skill-card-tags"><span class="skill-tag">meals</span><span class="skill-tag">recipes</span></div>
           </div>
-          <div class="skill-card-footer"><span class="skill-usage">Used 24x</span><div class="skill-footer-spacer"></div><div class="skill-star fav" data-tooltip="Favorited — this skill appears in your quick-access panel"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation();showRunner('code-review')" data-tooltip="Execute this skill immediately — AI runs it with your current context"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 24x</span><div class="skill-footer-spacer"></div><div class="skill-star fav" data-tooltip="Favorited — this skill appears in your quick-access panel"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation();showRunner('meal-planner')" data-tooltip="Execute this skill immediately — AI runs it with your current context"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('test-gen')" data-tooltip="Test Generator — auto-generate test suites from your source code">
+        <div class="skill-card" onclick="showDetail('homework-helper')" data-tooltip="Homework Helper — age-appropriate tutoring for math, science, and reading">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Test Generator</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">Generates comprehensive test suites with edge cases, mocking strategies, and full coverage</div>
-            <div class="skill-card-tags"><span class="skill-tag">testing</span><span class="skill-tag">vitest</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Homework Helper</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Age-appropriate tutoring and homework help for Ethan (12) and Mia (8) across all subjects</div>
+            <div class="skill-card-tags"><span class="skill-tag">school</span><span class="skill-tag">tutoring</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 18x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('think-deeper')" data-tooltip="Think Deeper — force extended reasoning for complex decisions">
+        <div class="skill-card" onclick="showDetail('schedule-coordinator')" data-tooltip="Schedule Coordinator — sync family calendars, carpools, and activities">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Think Deeper</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">Multi-phase analytical reasoning for complex technical problems and architectural decisions</div>
-            <div class="skill-card-tags"><span class="skill-tag">analysis</span><span class="skill-tag">reasoning</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Schedule Coordinator</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Syncs family calendars, coordinates carpools, and manages activity schedules for all three kids</div>
+            <div class="skill-card-tags"><span class="skill-tag">calendar</span><span class="skill-tag">scheduling</span></div>
           </div>
-          <div class="skill-card-footer"><span class="skill-usage">Used 11x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 31x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('security-audit')" data-tooltip="Security Audit — scan for vulnerabilities and dependency risks">
+        <div class="skill-card" onclick="showDetail('budget-tracker')" data-tooltip="Budget Tracker — track family spending, grocery budgets, and savings goals">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Security Audit</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">OWASP-aligned vulnerability scanning with severity classification and remediation guidance</div>
-            <div class="skill-card-tags"><span class="skill-tag">security</span><span class="skill-tag">audit</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Budget Tracker</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Tracks weekly grocery spending, family budget categories, and savings goals with alerts</div>
+            <div class="skill-card-tags"><span class="skill-tag">budget</span><span class="skill-tag">finance</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 12x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('refactor-clean')" data-tooltip="Refactor Clean — restructure code while preserving behavior">
+        <div class="skill-card" onclick="showDetail('party-planner')" data-tooltip="Party Planner — plan birthday parties, playdates, and family gatherings">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Refactor Clean</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">SOLID-based code refactoring with before/after analysis and regression safety checks</div>
-            <div class="skill-card-tags"><span class="skill-tag">refactor</span><span class="skill-tag">clean</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Party Planner</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Plans birthday parties, playdates, and family gatherings with themed checklists and vendor lists</div>
+            <div class="skill-card-tags"><span class="skill-tag">party</span><span class="skill-tag">events</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 15x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('customer-report')" data-tooltip="Customer Report — pull data from APIs and generate formatted reports">
+        <div class="skill-card" onclick="showDetail('instacart-sync')" data-tooltip="Instacart Sync — auto-sync grocery lists and schedule deliveries">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Customer Report</div><div class="skill-card-type integration">Integration</div></div></div>
-            <div class="skill-card-desc">Fetches customer data from CRM API and generates formatted weekly reports</div>
-            <div class="skill-card-tags"><span class="skill-tag">api</span><span class="skill-tag">reporting</span></div>
+            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Instacart Sync</div><div class="skill-card-type integration">Integration</div></div></div>
+            <div class="skill-card-desc">Auto-syncs grocery lists to Instacart, checks item availability, and schedules deliveries</div>
+            <div class="skill-card-tags"><span class="skill-tag">instacart</span><span class="skill-tag">grocery</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 8x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation();showApproval()" data-tooltip="Run this integration skill — may require approval for API access"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('github-pr')" data-tooltip="GitHub PR Bot — auto-draft PRs with descriptions and reviewer assignments">
+        <div class="skill-card" onclick="showDetail('gcal-sync')" data-tooltip="Google Calendar Sync — two-way sync with your family Google Calendar">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">GitHub PR Bot</div><div class="skill-card-type integration">Integration</div></div></div>
-            <div class="skill-card-desc">Automated PR creation and review with GitHub API and webhook notifications</div>
-            <div class="skill-card-tags"><span class="skill-tag">github</span><span class="skill-tag">pr</span></div>
+            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Google Calendar Sync</div><div class="skill-card-type integration">Integration</div></div></div>
+            <div class="skill-card-desc">Two-way sync with Google Calendar for appointments, school events, and family activities</div>
+            <div class="skill-card-tags"><span class="skill-tag">calendar</span><span class="skill-tag">google</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 22x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('deploy-checker')" data-tooltip="Deploy Checker — pre-flight checks: tests, types, lint, dependencies">
+        <div class="skill-card" onclick="showDetail('allergy-checker')" data-tooltip="Allergy Checker — scan recipes and products for allergens">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Deploy Checker</div><div class="skill-card-type integration">Integration</div></div></div>
-            <div class="skill-card-desc">Validates deployment readiness across CI pipelines, tests, and environment configs</div>
-            <div class="skill-card-tags"><span class="skill-tag">deploy</span><span class="skill-tag">ci</span></div>
+            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Allergy Checker</div><div class="skill-card-type integration">Integration</div></div></div>
+            <div class="skill-card-desc">Scans recipes and product labels for nut allergens and flags unsafe ingredients for Mia</div>
+            <div class="skill-card-tags"><span class="skill-tag">allergy</span><span class="skill-tag">safety</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 7x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('full-review')" data-tooltip="Full Review Pipeline — chain Code Review + Security Audit + Test Gen in one workflow">
+        <div class="skill-card" onclick="showDetail('weekly-routine')" data-tooltip="Weekly Family Routine — automate meal plans, grocery orders, and calendar syncs">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Full Review Pipeline</div><div class="skill-card-type workflow">Workflow</div></div></div>
-            <div class="skill-card-desc">Chains Code Review, Security Audit, and Test Generator into a complete review pipeline</div>
-            <div class="skill-card-tags"><span class="skill-tag">pipeline</span><span class="skill-tag">review</span></div>
+            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Weekly Family Routine</div><div class="skill-card-type workflow">Workflow</div></div></div>
+            <div class="skill-card-desc">Automated weekly chain: meal plan, grocery list, Instacart order, calendar sync</div>
+            <div class="skill-card-tags"><span class="skill-tag">routine</span><span class="skill-tag">weekly</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 6x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run workflow" onclick="event.stopPropagation()" data-tooltip="Execute this workflow — runs all chained steps in sequence"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('daily-standup')" data-tooltip="Daily Standup — summarize progress and blockers from your chat history">
+        <div class="skill-card" onclick="showDetail('morning-briefing')" data-tooltip="Morning Briefing — daily family summary with weather, schedules, tasks, and reminders">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Daily Standup</div><div class="skill-card-type workflow">Workflow</div></div></div>
-            <div class="skill-card-desc">Generates standup reports from recent commits, PRs, and task progress across projects</div>
-            <div class="skill-card-tags"><span class="skill-tag">standup</span><span class="skill-tag">report</span></div>
+            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Morning Briefing</div><div class="skill-card-type workflow">Workflow</div></div></div>
+            <div class="skill-card-desc">Daily 7AM briefing: weather, school schedules, tasks due, appointments, and meal prep reminders</div>
+            <div class="skill-card-tags"><span class="skill-tag">daily</span><span class="skill-tag">briefing</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 19x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run workflow" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
@@ -674,10 +674,10 @@
     <div class="suggestion-bar" data-guide="{&quot;title&quot;: &quot;Smart Suggestions&quot;, &quot;tag&quot;: &quot;AI Context&quot;, &quot;body&quot;: &quot;PiNG analyzes your current conversation and &lt;em&gt;recommends CatSkills that match your context&lt;/em&gt;. One click to inject. The AI learns which suggestions you accept over time.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
       <span class="sg-label">Suggested for this conversation</span>
       <div class="sg-pills">
-        <div class="sg-pill" data-tooltip="Click to inject this suggested skill into your current conversation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Code Review</div>
-        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Think Deeper</div>
-        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Test Generator</div>
-        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Full Review Pipeline</div>
+        <div class="sg-pill" data-tooltip="Click to inject this suggested skill into your current conversation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Meal Planner</div>
+        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Allergy Checker</div>
+        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Budget Tracker</div>
+        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Weekly Family Routine</div>
       </div>
       <button class="sg-all" data-tooltip="Browse the full CatSkills library — 47 skills available">All CatSkills &rarr;</button>
     </div>
@@ -689,8 +689,8 @@
 
     <div class="dp-header">
       <div class="dp-badge prompt" id="dpBadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Prompt</div>
-      <div class="dp-name" id="dpName">Code Review</div>
-      <div class="dp-meta" id="dpMeta">v1.0.0 &middot; Created Mar 5, 2026 &middot; Last used 2h ago</div>
+      <div class="dp-name" id="dpName">Meal Planner</div>
+      <div class="dp-meta" id="dpMeta">v1.2.0 &middot; Created Jan 15, 2026 &middot; Last used 2h ago</div>
     </div>
 
     <div class="dp-tabs" data-guide="{&quot;title&quot;: &quot;Info &amp; Runner Tabs&quot;, &quot;tag&quot;: &quot;Dual View&quot;, &quot;body&quot;: &quot;Switch between &lt;em&gt;Info (skill configuration and metadata) and Runner (live execution)&lt;/em&gt;. Info shows what a skill does. Runner shows what it is doing right now.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
@@ -702,11 +702,11 @@
     <div class="dp-body" id="dpInfo">
       <div class="dp-section">
         <div class="dp-section-label">Description</div>
-        <div class="dp-desc">Performs a structured code review with severity-tiered findings (critical, warning, suggestion). Analyzes code quality, patterns, potential bugs, and architectural concerns. Provides actionable feedback with specific line references.</div>
+        <div class="dp-desc">Generates weekly meal plans for a family of 5 (2 adults, 3 kids) with allergy awareness, age-appropriate portions, and budget tracking. Outputs grocery lists organized by store section.</div>
       </div>
       <div class="dp-section">
         <div class="dp-section-label">Tags</div>
-        <div class="dp-tags"><span class="dp-tag">review</span><span class="dp-tag">quality</span><span class="dp-tag">code-analysis</span><span class="dp-tag">best-practices</span></div>
+        <div class="dp-tags"><span class="dp-tag">meals</span><span class="dp-tag">recipes</span><span class="dp-tag">grocery</span><span class="dp-tag">family</span></div>
       </div>
       <div class="dp-section">
         <div class="dp-section-label">Allowed Tools</div>
@@ -722,8 +722,8 @@
       </div>
       <div class="dp-section">
         <div class="dp-section-label">Variables</div>
-        <div class="dp-var"><div class="dp-var-name">{{language}}</div><div><div class="dp-var-desc">Programming language of code being reviewed</div><div class="dp-var-meta">optional &middot; default: TypeScript</div></div></div>
-        <div class="dp-var"><div class="dp-var-name">{{focusArea}}</div><div><div class="dp-var-desc">Specific area to focus review on</div><div class="dp-var-meta">optional</div></div></div>
+        <div class="dp-var"><div class="dp-var-name">{{dietaryNeeds}}</div><div><div class="dp-var-desc">Allergies and dietary restrictions</div><div class="dp-var-meta">required &middot; default: nut-free (Mia)</div></div></div>
+        <div class="dp-var"><div class="dp-var-name">{{weeklyBudget}}</div><div><div class="dp-var-desc">Weekly grocery budget</div><div class="dp-var-meta">optional &middot; default: $150</div></div></div>
       </div>
       <div class="dp-section">
         <div class="dp-section-label">Governance</div>
@@ -736,7 +736,7 @@
       <div class="dp-section">
         <div class="dp-section-label">Skill Folder</div>
         <div style="font-size:10px;color:var(--text-muted);font-family:var(--font-mono);background:var(--bg-elevated);padding:6px 8px;border-radius:var(--radius-sm);border:1px solid var(--border-subtle)">
-          <div>code-review/</div>
+          <div>meal-planner/</div>
           <div style="padding-left:12px;color:var(--text-secondary)">SKILL.md</div>
           <div style="padding-left:12px;color:var(--text-secondary)">ping.yaml</div>
         </div>
@@ -747,27 +747,27 @@
     <div class="dp-body runner-view" id="dpRunner">
       <div class="runner-status" data-tooltip="Live execution status — see which phase is running right now">
         <div class="runner-status-dot"></div>
-        <span class="runner-status-text">Running &mdash; Phase 2: Analyzing quality...</span>
+        <span class="runner-status-text">Running &mdash; Phase 2: Generating meal plan...</span>
       </div>
       <div class="runner-progress" data-guide="{&quot;title&quot;: &quot;Execution Progress&quot;, &quot;tag&quot;: &quot;Live Status&quot;, &quot;body&quot;: &quot;Real-time progress tracking &amp;mdash; &lt;em&gt;see which phase is running, percentage complete, and current operation&lt;/em&gt;. The progress bar fills as each phase completes.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
         <div class="runner-progress-bar"><div class="runner-progress-fill prompt" style="width:67%"></div></div>
         <div class="runner-progress-label"><span>Phase 2 of 4</span><span>67%</span></div>
       </div>
-      <div class="runner-output" data-guide="{&quot;title&quot;: &quot;Live Execution Output&quot;, &quot;tag&quot;: &quot;Runner&quot;, &quot;body&quot;: &quot;Watch your skill execute in real time &amp;mdash; &lt;em&gt;markdown-formatted output streams live as AI works&lt;/em&gt;. See analysis results, code suggestions, and structured findings appear phase by phase.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}"><span class="event">[start] execution-a7f3 &bull; code-review &bull; manual</span>
-<span class="event">[progress] 25% &mdash; Phase 1: Understanding context</span>
-<span class="chunk"><span class="md-h2">Review Summary</span>- <span class="md-bold">Scope:</span> src/services/BrowserManager.ts (322 lines)
-- <span class="md-bold">Verdict:</span> REQUEST CHANGES
-- <span class="md-bold">Risk Level:</span> MEDIUM</span>
+      <div class="runner-output" data-guide="{&quot;title&quot;: &quot;Live Execution Output&quot;, &quot;tag&quot;: &quot;Runner&quot;, &quot;body&quot;: &quot;Watch your skill execute in real time &amp;mdash; &lt;em&gt;markdown-formatted output streams live as AI works&lt;/em&gt;. See meal plans, grocery lists, and budget breakdowns appear phase by phase.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}"><span class="event">[start] execution-a7f3 &bull; meal-planner &bull; manual</span>
+<span class="event">[progress] 25% &mdash; Phase 1: Reading dietary preferences</span>
+<span class="chunk"><span class="md-h2">Meal Plan Summary</span>- <span class="md-bold">Family:</span> 2 adults, Ethan (12), Mia (8), Liam (2)
+- <span class="md-bold">Allergies:</span> Mia &mdash; nut-free
+- <span class="md-bold">Budget:</span> $150/week</span>
 
-<span class="event">[progress] 50% &mdash; Phase 2: Analyzing quality</span>
-<span class="chunk"><span class="md-h2">Findings</span>
-<span class="md-h3">P0 &mdash; Must Fix</span><span class="md-trow"><span class="md-th"> #   File:Line              Finding</span></span><span class="md-trow"> 1   BrowserManager.ts:47   Missing error handling on...</span></span></div>
+<span class="event">[progress] 50% &mdash; Phase 2: Generating meal plan</span>
+<span class="chunk"><span class="md-h2">Week 12 Plan</span>
+<span class="md-h3">Monday</span><span class="md-trow"><span class="md-th"> Meal      Recipe                    Est. Cost</span></span><span class="md-trow"> Dinner    Chicken stir-fry (nut-free)   $8.50</span></span></div>
       <div class="runner-vardebug" data-guide="{&quot;title&quot;: &quot;Variable Resolution Debug&quot;, &quot;tag&quot;: &quot;Transparency&quot;, &quot;body&quot;: &quot;See exactly how &lt;em&gt;variables resolved at runtime&lt;/em&gt; &amp;mdash; which values came from skill defaults, which from user input, and which from project context. Full transparency into AI behavior.&quot;, &quot;cat&quot;: &quot;kat-lean-right&quot;}">
         <div class="runner-vardebug-title">&#9654; Variable Resolution</div>
         <table class="runner-var-table">
           <tr><th>Variable</th><th>Value</th><th>Source</th></tr>
-          <tr><td class="var-name">language</td><td class="var-val">TypeScript</td><td><span class="var-src">skill_default</span></td></tr>
-          <tr><td class="var-name">focusArea</td><td class="var-val">error handling</td><td><span class="var-src">input</span></td></tr>
+          <tr><td class="var-name">dietaryNeeds</td><td class="var-val">nut-free (Mia)</td><td><span class="var-src">project_memory</span></td></tr>
+          <tr><td class="var-name">weeklyBudget</td><td class="var-val">$150</td><td><span class="var-src">skill_default</span></td></tr>
         </table>
       </div>
       <button class="runner-cancel" data-tooltip="Cancel the current execution — stops AI mid-run"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg> Cancel Execution</button>
@@ -789,8 +789,8 @@
     </div>
     <div class="ed-body">
       <!-- Common fields -->
-      <div class="ed-field"><div class="ed-label">Name</div><input class="ed-input" value="Code Review" /></div>
-      <div class="ed-field"><div class="ed-label">Description</div><textarea class="ed-textarea" rows="2">Structured code review with severity-tiered findings and actionable recommendations</textarea></div>
+      <div class="ed-field"><div class="ed-label">Name</div><input class="ed-input" value="Meal Planner" /></div>
+      <div class="ed-field"><div class="ed-label">Description</div><textarea class="ed-textarea" rows="2">Weekly meal plans with allergy-safe recipes, grocery lists, and budget tracking for the whole family</textarea></div>
       <div class="ed-field">
         <div class="ed-label">Type</div>
         <div class="ed-type-selector" data-guide="{&quot;title&quot;: &quot;Skill Type Picker&quot;, &quot;tag&quot;: &quot;Architecture&quot;, &quot;body&quot;: &quot;Three skill architectures: &lt;em&gt;Prompt (SKILL.md templates), Integration (API action chains), Workflow (multi-step pipelines)&lt;/em&gt;. Each unlocks a specialized editor tailored to that pattern.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
@@ -807,30 +807,30 @@
         <div class="ed-field">
           <div class="ed-label">Skill Content (SKILL.md)</div>
           <textarea class="ed-textarea mono" rows="8">---
-name: code-review
-description: Structured code review with severity-tiered findings
-tags: [review, quality, pr, code-review]
-version: 1.0.0
+name: meal-planner
+description: Weekly meal plans with allergy-safe recipes and budget tracking
+tags: [meals, recipes, grocery, family]
+version: 1.2.0
 allowed-tools: Read, Grep, Glob
 context: fork
 ---
 
-# Code Review
+# Meal Planner
 
-You are a senior staff engineer conducting a thorough code review. Analyze the provided code with a focus on correctness, maintainability, and production readiness.
+You are creating a weekly meal plan for our family of 5. Ethan (12) has a nut allergy. Liam (2) is starting solids. Budget: $150/week.
 
-## Review Process
+## Planning Process
 
-### Phase 1 — Understand Context
-- Identify the purpose of the change
-- Determine scope: which files changed and why
+### Phase 1 — Read Dietary Preferences
+- Check allergy profiles and dietary restrictions
+- Review age-appropriate food guidelines
 ...</textarea>
         </div>
         <div class="ed-field">
           <div class="ed-label">Variables</div>
           <div class="ed-vars">
-            <div class="ed-var-row"><input value="language" style="max-width:120px" /><input value="Programming language of code being reviewed" /><input value="TypeScript" placeholder="default" style="max-width:100px" /><button class="ed-var-rm" data-tooltip="Remove this variable from the skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-            <div class="ed-var-row"><input value="focusArea" style="max-width:120px" /><input value="Specific area to focus review on" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="dietaryNeeds" style="max-width:120px" /><input value="Allergies and dietary restrictions" /><input value="nut-free (Mia)" placeholder="default" style="max-width:100px" /><button class="ed-var-rm" data-tooltip="Remove this variable from the skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="weeklyBudget" style="max-width:120px" /><input value="Weekly grocery budget" /><input value="$150" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
           </div>
           <button class="ed-add-btn" data-tooltip="Add a new variable or step to this skill definition">+ Add Variable</button>
         </div>
@@ -841,24 +841,24 @@ You are a senior staff engineer conducting a thorough code review. Analyze the p
         <div class="ed-field">
           <div class="ed-label">Skill Content (SKILL.md)</div>
           <textarea class="ed-textarea mono" rows="4">---
-name: customer-report
-description: Fetches customer data from CRM API and generates reports
-tags: [api, reporting]
+name: instacart-sync
+description: Syncs grocery lists to Instacart and schedules deliveries
+tags: [instacart, grocery, delivery]
 version: 1.0.0
 context: fork
 ---
 
-# Customer Report
-Generate a formatted customer report using the data retrieved from the CRM API...</textarea>
+# Instacart Sync
+Sync the weekly grocery list to Instacart, check item availability, and schedule delivery...</textarea>
         </div>
         <div class="ed-field">
           <div class="ed-label">Pre-Actions (run before skill body)</div>
           <div class="ed-action-card" data-guide="{&quot;title&quot;: &quot;API Action Config&quot;, &quot;tag&quot;: &quot;Integration&quot;, &quot;body&quot;: &quot;Configure pre and post actions for integration skills &amp;mdash; &lt;em&gt;HTTP method, URL, headers, and response handling&lt;/em&gt;. Chain API calls, webhooks, and data transforms into a single skill.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
-            <div class="ed-action-header"><span class="ed-action-badge pre">PRE</span><span class="ed-action-name">Fetch Customer Data</span><span class="ed-action-type-tag">api</span></div>
+            <div class="ed-action-header"><span class="ed-action-badge pre">PRE</span><span class="ed-action-name">Fetch Grocery List</span><span class="ed-action-type-tag">api</span></div>
             <div class="ed-action-body">
               <div class="ed-action-row"><label>Method</label><select><option selected>GET</option><option>POST</option><option>PUT</option><option>DELETE</option></select></div>
-              <div class="ed-action-row"><label>URL</label><input value="https://api.example.com/customers/{{customerId}}" /></div>
-              <div class="ed-action-row"><label>Headers</label><input value="Authorization: Bearer {{env.CRM_API_KEY}}" /></div>
+              <div class="ed-action-row"><label>URL</label><input value="https://connect.instacart.com/v2/lists/{{listId}}" /></div>
+              <div class="ed-action-row"><label>Headers</label><input value="Authorization: Bearer {{env.INSTACART_API_KEY}}" /></div>
             </div>
           </div>
           <button class="ed-add-btn">+ Add Pre-Action</button>
@@ -866,10 +866,10 @@ Generate a formatted customer report using the data retrieved from the CRM API..
         <div class="ed-field">
           <div class="ed-label">Post-Actions (run after skill body)</div>
           <div class="ed-action-card">
-            <div class="ed-action-header"><span class="ed-action-badge post">POST</span><span class="ed-action-name">Notify Slack</span><span class="ed-action-type-tag">webhook</span></div>
+            <div class="ed-action-header"><span class="ed-action-badge post">POST</span><span class="ed-action-name">Schedule Delivery</span><span class="ed-action-type-tag">api</span></div>
             <div class="ed-action-body">
               <div class="ed-action-row"><label>Method</label><select><option>GET</option><option selected>POST</option></select></div>
-              <div class="ed-action-row"><label>URL</label><input value="https://hooks.slack.com/services/T00/B00/xxx" /></div>
+              <div class="ed-action-row"><label>URL</label><input value="https://connect.instacart.com/v2/deliveries/schedule" /></div>
             </div>
           </div>
           <button class="ed-add-btn">+ Add Post-Action</button>
@@ -877,7 +877,7 @@ Generate a formatted customer report using the data retrieved from the CRM API..
         <div class="ed-field">
           <div class="ed-label">Variables</div>
           <div class="ed-vars">
-            <div class="ed-var-row"><input value="customerId" style="max-width:120px" /><input value="CRM customer ID to fetch" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="listId" style="max-width:120px" /><input value="Instacart grocery list ID" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
           </div>
           <button class="ed-add-btn">+ Add Variable</button>
         </div>
@@ -892,28 +892,28 @@ Generate a formatted customer report using the data retrieved from the CRM API..
               <div class="ed-step-grip"><span></span><span></span><span></span></div>
               <div class="ed-step-num">1</div>
               <div class="ed-step-content">
-                <select class="ed-step-skill-select"><option selected>Code Review (Prompt)</option><option>Test Generator (Prompt)</option><option>Security Audit (Prompt)</option><option>Refactor Clean (Prompt)</option><option>Think Deeper (Prompt)</option></select>
+                <select class="ed-step-skill-select"><option selected>Meal Planner (Prompt)</option><option>Homework Helper (Prompt)</option><option>Schedule Coordinator (Prompt)</option><option>Budget Tracker (Prompt)</option><option>Party Planner (Prompt)</option></select>
                 <div class="ed-step-mapping-label">Input Mapping</div>
-                <div class="ed-step-mapping-row"><input value="language" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{language}}" /></div>
-                <div class="ed-step-mapping-row"><input value="focusArea" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{focusArea}}" /></div>
+                <div class="ed-step-mapping-row"><input value="dietaryNeeds" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{dietaryNeeds}}" /></div>
+                <div class="ed-step-mapping-row"><input value="weeklyBudget" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{weeklyBudget}}" /></div>
               </div>
             </div>
             <div class="ed-step">
               <div class="ed-step-grip"><span></span><span></span><span></span></div>
               <div class="ed-step-num">2</div>
               <div class="ed-step-content">
-                <select class="ed-step-skill-select"><option>Code Review (Prompt)</option><option>Test Generator (Prompt)</option><option selected>Security Audit (Prompt)</option><option>Refactor Clean (Prompt)</option><option>Think Deeper (Prompt)</option></select>
+                <select class="ed-step-skill-select"><option>Meal Planner (Prompt)</option><option>Homework Helper (Prompt)</option><option>Schedule Coordinator (Prompt)</option><option selected>Instacart Sync (Integration)</option><option>Budget Tracker (Prompt)</option></select>
                 <div class="ed-step-mapping-label">Input Mapping</div>
-                <div class="ed-step-mapping-row"><input value="scope" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{steps.1.output}}" /></div>
+                <div class="ed-step-mapping-row"><input value="groceryList" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{steps.1.output}}" /></div>
               </div>
             </div>
             <div class="ed-step">
               <div class="ed-step-grip"><span></span><span></span><span></span></div>
               <div class="ed-step-num">3</div>
               <div class="ed-step-content">
-                <select class="ed-step-skill-select"><option>Code Review (Prompt)</option><option selected>Test Generator (Prompt)</option><option>Security Audit (Prompt)</option><option>Refactor Clean (Prompt)</option><option>Think Deeper (Prompt)</option></select>
+                <select class="ed-step-skill-select"><option>Meal Planner (Prompt)</option><option>Homework Helper (Prompt)</option><option selected>Google Calendar Sync (Integration)</option><option>Instacart Sync (Integration)</option><option>Budget Tracker (Prompt)</option></select>
                 <div class="ed-step-mapping-label">Input Mapping</div>
-                <div class="ed-step-mapping-row"><input value="testFramework" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="vitest" /></div>
+                <div class="ed-step-mapping-row"><input value="calendarId" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="family-main" /></div>
               </div>
             </div>
           </div>
@@ -922,8 +922,8 @@ Generate a formatted customer report using the data retrieved from the CRM API..
         <div class="ed-field">
           <div class="ed-label">Workflow Variables (passed to first step)</div>
           <div class="ed-vars">
-            <div class="ed-var-row"><input value="language" style="max-width:120px" /><input value="Language for the review pipeline" /><input value="TypeScript" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-            <div class="ed-var-row"><input value="focusArea" style="max-width:120px" /><input value="Focus area for code review step" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="dietaryNeeds" style="max-width:120px" /><input value="Allergies for the meal plan step" /><input value="nut-free (Mia)" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="weeklyBudget" style="max-width:120px" /><input value="Weekly grocery budget" /><input value="$150" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
           </div>
         </div>
       </div>
@@ -940,7 +940,7 @@ Generate a formatted customer report using the data retrieved from the CRM API..
         </div>
       </div>
 
-      <div class="ed-field"><div class="ed-label">Tags</div><input class="ed-input" value="review, quality, pr, code-review" /></div>
+      <div class="ed-field"><div class="ed-label">Tags</div><input class="ed-input" value="meals, recipes, grocery, family" /></div>
     </div>
     <div class="ed-footer">
       <button class="btn-ghost" onclick="closeEditor()">Cancel</button>
@@ -953,10 +953,10 @@ Generate a formatted customer report using the data retrieved from the CRM API..
 <div class="approval-toast" id="approvalToast" data-guide="{&quot;title&quot;: &quot;Integration Approval&quot;, &quot;tag&quot;: &quot;Security&quot;, &quot;body&quot;: &quot;Integration skills that access external APIs &lt;em&gt;require explicit approval before running&lt;/em&gt;. See exactly which domains will be contacted and what actions will execute. Allow once, always, or deny.&quot;, &quot;cat&quot;: &quot;kat-flip&quot;}">
   <div class="at-timer"><div class="at-timer-fill" id="atTimerFill" style="width:78%"></div></div>
   <div class="at-body">
-    <div class="at-title"><span>"Customer Report"</span> needs approval</div>
+    <div class="at-title"><span>"Instacart Sync"</span> needs approval</div>
     <div class="at-info">
-      <div class="at-domains">INTEGRATION: api.example.com, hooks.slack.com</div>
-      <div class="at-actions-summary">Actions: 1 pre (api), 1 post (webhook)</div>
+      <div class="at-domains">INTEGRATION: connect.instacart.com</div>
+      <div class="at-actions-summary">Actions: 1 pre (fetch list), 1 post (schedule delivery)</div>
     </div>
     <div class="at-reason">First run of INTEGRATION catskill</div>
   </div>
@@ -1031,7 +1031,7 @@ function showRunner(id) {
 
 // Editor
 function openEditor(mode) {
-  const name = document.getElementById('dpName').textContent || 'Code Review';
+  const name = document.getElementById('dpName').textContent || 'Meal Planner';
   document.getElementById('edTitle').textContent = mode === 'new' ? 'New CatSkill' : 'Edit: ' + name;
   document.getElementById('editorOverlay').classList.add('open');
   // Reset type selector to Prompt for new skills

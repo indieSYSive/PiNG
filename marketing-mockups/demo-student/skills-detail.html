@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PiNG! — CatSkills v2</title>
+<title>PiNG! — Student Skills</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -506,14 +506,14 @@
 
 </head>
 <body>
-<a href="../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
+<a href="../../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1a1e28;color:#e2e4ea;border:1px solid #2a2f3d;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#252a36'" onmouseout="this.style.background='#1a1e28'">&#8592; Back to Landing Page</a>
 
 <!-- ===== TITLE BAR ===== -->
 <div class="title-bar">
   <div class="traffic-lights"><div class="tl tl-c"></div><div class="tl tl-m"></div><div class="tl tl-x"></div></div>
   <div class="title-nav">
-    <a href="home-v2.html">Home</a><span class="sep">/</span>
-    <a href="project-unified-v2.html">PiNG!</a><span class="sep">/</span>
+    <a href="home.html">Home</a><span class="sep">/</span>
+    <a href="project.html">Study Central</a><span class="sep">/</span>
     <span class="current">CatSkills</span>
   </div>
 </div>
@@ -537,20 +537,20 @@
     <div class="sb-sep"></div>
     <div class="sb-label">Categories</div>
     <div class="sb-cats">
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--blue)"></div><span class="sb-cat-name">Code Quality</span><span class="sb-cat-n">14</span></div>
-      <div class="sb-subcats"><div class="sb-subcat">Review</div><div class="sb-subcat">Testing</div><div class="sb-subcat">Security</div></div>
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--green)"></div><span class="sb-cat-name">Productivity</span><span class="sb-cat-n">11</span></div>
-      <div class="sb-subcats"><div class="sb-subcat">Analysis</div><div class="sb-subcat">Writing</div><div class="sb-subcat">Templates</div></div>
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--purple)"></div><span class="sb-cat-name">Workflows</span><span class="sb-cat-n">8</span></div>
-      <div class="sb-subcats"><div class="sb-subcat">Pipelines</div><div class="sb-subcat">Automation</div></div>
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--orange)"></div><span class="sb-cat-name">Integrations</span><span class="sb-cat-n">9</span></div>
-      <div class="sb-subcats"><div class="sb-subcat">APIs</div><div class="sb-subcat">Webhooks</div></div>
-      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--cyan)"></div><span class="sb-cat-name">Custom</span><span class="sb-cat-n">5</span></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--blue)"></div><span class="sb-cat-name">Writing</span><span class="sb-cat-n">8</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Essays</div><div class="sb-subcat">Citations</div><div class="sb-subcat">Grammar</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--green)"></div><span class="sb-cat-name">STEM</span><span class="sb-cat-n">9</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Math</div><div class="sb-subcat">Science</div><div class="sb-subcat">Coding</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--purple)"></div><span class="sb-cat-name">Research</span><span class="sb-cat-n">6</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Sources</div><div class="sb-subcat">Analysis</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--orange)"></div><span class="sb-cat-name">Productivity</span><span class="sb-cat-n">5</span></div>
+      <div class="sb-subcats"><div class="sb-subcat">Planning</div><div class="sb-subcat">Review</div></div>
+      <div class="sb-cat" onclick="toggleCat(this)"><span class="sb-cat-arrow">&#9654;</span><div class="sb-cat-dot" style="background:var(--cyan)"></div><span class="sb-cat-name">Custom</span><span class="sb-cat-n">4</span></div>
       <div class="sb-subcats"><div class="sb-subcat">Personal</div></div>
     </div>
     <div class="sb-footer">
       <button class="sb-new-cat" data-tooltip="Create a new category to organize your growing skill collection">+ New Category</button>
-      <div class="sb-count" data-tooltip="Total CatSkills in your library — growing as you create and import">47 catskills</div>
+      <div class="sb-count" data-tooltip="Total CatSkills in your library — growing as you create and import">32 catskills</div>
     </div>
   </div>
 
@@ -569,103 +569,103 @@
     </div>
 
     <div class="type-filters" data-guide="{&quot;title&quot;: &quot;Skill Type Filters&quot;, &quot;tag&quot;: &quot;Organization&quot;, &quot;body&quot;: &quot;Filter by type: &lt;em&gt;Prompt (28), Integration (10), Workflow (9)&lt;/em&gt;. Each type powers different AI capabilities &amp;mdash; from simple prompts to full multi-step automations.&quot;, &quot;cat&quot;: &quot;kat-think&quot;}">
-      <div class="type-pill active" onclick="filterType(this,'all')" data-tooltip="Show all skill types — browse your complete library">All <span class="pill-n">47</span></div>
-      <div class="type-pill" onclick="filterType(this,'prompt')" data-tooltip="Prompt skills — reusable AI instruction templates for any task"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Prompt <span class="pill-n">28</span></div>
-      <div class="type-pill" onclick="filterType(this,'integration')" data-tooltip="Integration skills — connect AI to external APIs and services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Integration <span class="pill-n">10</span></div>
-      <div class="type-pill" onclick="filterType(this,'workflow')" data-tooltip="Workflow skills — multi-step automation pipelines"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Workflow <span class="pill-n">9</span></div>
+      <div class="type-pill active" onclick="filterType(this,'all')" data-tooltip="Show all skill types — browse your complete library">All <span class="pill-n">32</span></div>
+      <div class="type-pill" onclick="filterType(this,'prompt')" data-tooltip="Prompt skills — reusable AI instruction templates for any task"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Prompt <span class="pill-n">18</span></div>
+      <div class="type-pill" onclick="filterType(this,'integration')" data-tooltip="Integration skills — connect AI to external APIs and services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Integration <span class="pill-n">6</span></div>
+      <div class="type-pill" onclick="filterType(this,'workflow')" data-tooltip="Workflow skills — multi-step automation pipelines"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Workflow <span class="pill-n">8</span></div>
     </div>
 
     <div class="skills-scroll">
-      <div class="skills-grid" id="skillsGrid" data-guide="{&quot;title&quot;: &quot;CatSkills Grid&quot;, &quot;tag&quot;: &quot;Library&quot;, &quot;body&quot;: &quot;Your collection of &lt;em&gt;reusable AI superpowers&lt;/em&gt; &amp;mdash; Prompts, Integrations, and Workflows. Click any card for details, star favorites, or hit Run to execute instantly. 47 skills and growing.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
+      <div class="skills-grid" id="skillsGrid" data-guide="{&quot;title&quot;: &quot;CatSkills Grid&quot;, &quot;tag&quot;: &quot;Library&quot;, &quot;body&quot;: &quot;Your collection of &lt;em&gt;reusable AI superpowers&lt;/em&gt; &amp;mdash; Prompts, Integrations, and Workflows. Click any card for details, star favorites, or hit Run to execute instantly. 32 skills and growing.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
         <!-- 10 skill cards -->
-        <div class="skill-card" onclick="showDetail('code-review')" data-tooltip="Code Review — structured feedback with severity levels and fix suggestions">
+        <div class="skill-card" onclick="showDetail('essay-writer')" data-tooltip="Essay Writer — structured essay drafting with thesis, arguments, and citations">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Code Review</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">Structured code review with severity-tiered findings and actionable recommendations</div>
-            <div class="skill-card-tags"><span class="skill-tag">review</span><span class="skill-tag">quality</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Essay Writer</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Structured essay drafting with thesis development, argument flow, and inline citations</div>
+            <div class="skill-card-tags"><span class="skill-tag">writing</span><span class="skill-tag">essays</span></div>
           </div>
-          <div class="skill-card-footer"><span class="skill-usage">Used 24x</span><div class="skill-footer-spacer"></div><div class="skill-star fav" data-tooltip="Favorited — this skill appears in your quick-access panel"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation();showRunner('code-review')" data-tooltip="Execute this skill immediately — AI runs it with your current context"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 34x</span><div class="skill-footer-spacer"></div><div class="skill-star fav" data-tooltip="Favorited — this skill appears in your quick-access panel"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation();showRunner('essay-writer')" data-tooltip="Execute this skill immediately — AI runs it with your current context"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('test-gen')" data-tooltip="Test Generator — auto-generate test suites from your source code">
+        <div class="skill-card" onclick="showDetail('math-solver')" data-tooltip="Math Solver — step-by-step solutions for calculus, algebra, and statistics">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Test Generator</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">Generates comprehensive test suites with edge cases, mocking strategies, and full coverage</div>
-            <div class="skill-card-tags"><span class="skill-tag">testing</span><span class="skill-tag">vitest</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Math Solver</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Step-by-step solutions for calculus, algebra, and statistics with worked examples</div>
+            <div class="skill-card-tags"><span class="skill-tag">math</span><span class="skill-tag">stem</span></div>
           </div>
-          <div class="skill-card-footer"><span class="skill-usage">Used 18x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 28x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('think-deeper')" data-tooltip="Think Deeper — force extended reasoning for complex decisions">
+        <div class="skill-card" onclick="showDetail('study-guide')" data-tooltip="Study Guide Builder — create study guides from lecture notes and textbooks">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Think Deeper</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">Multi-phase analytical reasoning for complex technical problems and architectural decisions</div>
-            <div class="skill-card-tags"><span class="skill-tag">analysis</span><span class="skill-tag">reasoning</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Study Guide Builder</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Creates comprehensive study guides from lecture notes with key concepts and review questions</div>
+            <div class="skill-card-tags"><span class="skill-tag">study</span><span class="skill-tag">review</span></div>
           </div>
-          <div class="skill-card-footer"><span class="skill-usage">Used 11x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 22x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('security-audit')" data-tooltip="Security Audit — scan for vulnerabilities and dependency risks">
+        <div class="skill-card" onclick="showDetail('flashcard-gen')" data-tooltip="Flashcard Generator — auto-generate flashcards from notes and textbooks">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Security Audit</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">OWASP-aligned vulnerability scanning with severity classification and remediation guidance</div>
-            <div class="skill-card-tags"><span class="skill-tag">security</span><span class="skill-tag">audit</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Flashcard Generator</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Auto-generates flashcard decks from notes and textbooks with spaced repetition support</div>
+            <div class="skill-card-tags"><span class="skill-tag">flashcards</span><span class="skill-tag">review</span></div>
           </div>
-          <div class="skill-card-footer"><span class="skill-usage">Used 12x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 19x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('refactor-clean')" data-tooltip="Refactor Clean — restructure code while preserving behavior">
+        <div class="skill-card" onclick="showDetail('citation-fmt')" data-tooltip="Citation Formatter — format references in APA, MLA, Chicago, and IEEE">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Refactor Clean</div><div class="skill-card-type prompt">Prompt</div></div></div>
-            <div class="skill-card-desc">SOLID-based code refactoring with before/after analysis and regression safety checks</div>
-            <div class="skill-card-tags"><span class="skill-tag">refactor</span><span class="skill-tag">clean</span></div>
+            <div class="skill-card-top"><div class="type-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Citation Formatter</div><div class="skill-card-type prompt">Prompt</div></div></div>
+            <div class="skill-card-desc">Formats references in APA 7th, MLA 9th, Chicago, and IEEE with bibliography generation</div>
+            <div class="skill-card-tags"><span class="skill-tag">citations</span><span class="skill-tag">apa</span></div>
           </div>
           <div class="skill-card-footer"><span class="skill-usage">Used 15x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run prompt" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('customer-report')" data-tooltip="Customer Report — pull data from APIs and generate formatted reports">
+        <div class="skill-card" onclick="showDetail('research-asst')" data-tooltip="Research Assistant — search Google Scholar, summarize papers, and build bibliographies">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Customer Report</div><div class="skill-card-type integration">Integration</div></div></div>
-            <div class="skill-card-desc">Fetches customer data from CRM API and generates formatted weekly reports</div>
-            <div class="skill-card-tags"><span class="skill-tag">api</span><span class="skill-tag">reporting</span></div>
+            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Research Assistant</div><div class="skill-card-type integration">Integration</div></div></div>
+            <div class="skill-card-desc">Searches Google Scholar, summarizes papers, and builds annotated bibliographies</div>
+            <div class="skill-card-tags"><span class="skill-tag">research</span><span class="skill-tag">scholar</span></div>
           </div>
-          <div class="skill-card-footer"><span class="skill-usage">Used 8x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation();showApproval()" data-tooltip="Run this integration skill — may require approval for API access"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 21x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation();showApproval()" data-tooltip="Run this integration skill — may require approval for API access"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('github-pr')" data-tooltip="GitHub PR Bot — auto-draft PRs with descriptions and reviewer assignments">
+        <div class="skill-card" onclick="showDetail('canvas-sync')" data-tooltip="Canvas LMS Sync — sync assignments, grades, and deadlines from Canvas">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">GitHub PR Bot</div><div class="skill-card-type integration">Integration</div></div></div>
-            <div class="skill-card-desc">Automated PR creation and review with GitHub API and webhook notifications</div>
-            <div class="skill-card-tags"><span class="skill-tag">github</span><span class="skill-tag">pr</span></div>
+            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Canvas LMS Sync</div><div class="skill-card-type integration">Integration</div></div></div>
+            <div class="skill-card-desc">Syncs assignments, grades, and deadlines from Canvas LMS into your study workspace</div>
+            <div class="skill-card-tags"><span class="skill-tag">canvas</span><span class="skill-tag">lms</span></div>
           </div>
-          <div class="skill-card-footer"><span class="skill-usage">Used 22x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 12x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('deploy-checker')" data-tooltip="Deploy Checker — pre-flight checks: tests, types, lint, dependencies">
+        <div class="skill-card" onclick="showDetail('gre-prep')" data-tooltip="GRE Prep Coach — practice verbal, quant, and analytical writing with score tracking">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Deploy Checker</div><div class="skill-card-type integration">Integration</div></div></div>
-            <div class="skill-card-desc">Validates deployment readiness across CI pipelines, tests, and environment configs</div>
-            <div class="skill-card-tags"><span class="skill-tag">deploy</span><span class="skill-tag">ci</span></div>
+            <div class="skill-card-top"><div class="type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="skill-card-info"><div class="skill-card-name">GRE Prep Coach</div><div class="skill-card-type integration">Integration</div></div></div>
+            <div class="skill-card-desc">Practice verbal, quantitative, and analytical writing sections with adaptive score tracking</div>
+            <div class="skill-card-tags"><span class="skill-tag">gre</span><span class="skill-tag">test-prep</span></div>
           </div>
-          <div class="skill-card-footer"><span class="skill-usage">Used 7x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 9x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run integration" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('full-review')" data-tooltip="Full Review Pipeline — chain Code Review + Security Audit + Test Gen in one workflow">
+        <div class="skill-card" onclick="showDetail('research-pipeline')" data-tooltip="Research Paper Pipeline — full workflow from topic to draft with sources and outline">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Full Review Pipeline</div><div class="skill-card-type workflow">Workflow</div></div></div>
-            <div class="skill-card-desc">Chains Code Review, Security Audit, and Test Generator into a complete review pipeline</div>
-            <div class="skill-card-tags"><span class="skill-tag">pipeline</span><span class="skill-tag">review</span></div>
+            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Research Paper Pipeline</div><div class="skill-card-type workflow">Workflow</div></div></div>
+            <div class="skill-card-desc">Chains Research Assistant, Essay Writer, and Citation Formatter into a complete paper workflow</div>
+            <div class="skill-card-tags"><span class="skill-tag">pipeline</span><span class="skill-tag">research</span></div>
           </div>
-          <div class="skill-card-footer"><span class="skill-usage">Used 6x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run workflow" onclick="event.stopPropagation()" data-tooltip="Execute this workflow — runs all chained steps in sequence"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 8x</span><div class="skill-footer-spacer"></div><div class="skill-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run workflow" onclick="event.stopPropagation()" data-tooltip="Execute this workflow — runs all chained steps in sequence"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
 
-        <div class="skill-card" onclick="showDetail('daily-standup')" data-tooltip="Daily Standup — summarize progress and blockers from your chat history">
+        <div class="skill-card" onclick="showDetail('daily-recap')" data-tooltip="Daily Study Recap — summarize what you studied, assignments completed, and upcoming deadlines">
           <div class="skill-card-body">
-            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Daily Standup</div><div class="skill-card-type workflow">Workflow</div></div></div>
-            <div class="skill-card-desc">Generates standup reports from recent commits, PRs, and task progress across projects</div>
-            <div class="skill-card-tags"><span class="skill-tag">standup</span><span class="skill-tag">report</span></div>
+            <div class="skill-card-top"><div class="type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skill-card-info"><div class="skill-card-name">Daily Study Recap</div><div class="skill-card-type workflow">Workflow</div></div></div>
+            <div class="skill-card-desc">Generates daily study summaries with progress tracking and upcoming deadline reminders</div>
+            <div class="skill-card-tags"><span class="skill-tag">recap</span><span class="skill-tag">planning</span></div>
           </div>
-          <div class="skill-card-footer"><span class="skill-usage">Used 19x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run workflow" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
+          <div class="skill-card-footer"><span class="skill-usage">Used 17x</span><div class="skill-footer-spacer"></div><div class="skill-star fav"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><button class="skill-run workflow" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run</button></div>
         </div>
       </div>
     </div>
@@ -674,12 +674,12 @@
     <div class="suggestion-bar" data-guide="{&quot;title&quot;: &quot;Smart Suggestions&quot;, &quot;tag&quot;: &quot;AI Context&quot;, &quot;body&quot;: &quot;PiNG analyzes your current conversation and &lt;em&gt;recommends CatSkills that match your context&lt;/em&gt;. One click to inject. The AI learns which suggestions you accept over time.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
       <span class="sg-label">Suggested for this conversation</span>
       <div class="sg-pills">
-        <div class="sg-pill" data-tooltip="Click to inject this suggested skill into your current conversation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Code Review</div>
-        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Think Deeper</div>
-        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Test Generator</div>
-        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Full Review Pipeline</div>
+        <div class="sg-pill" data-tooltip="Click to inject this suggested skill into your current conversation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Essay Writer</div>
+        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Math Solver</div>
+        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Citation Formatter</div>
+        <div class="sg-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Research Paper Pipeline</div>
       </div>
-      <button class="sg-all" data-tooltip="Browse the full CatSkills library — 47 skills available">All CatSkills &rarr;</button>
+      <button class="sg-all" data-tooltip="Browse the full CatSkills library — 32 skills available">All CatSkills &rarr;</button>
     </div>
   </div>
 
@@ -689,7 +689,7 @@
 
     <div class="dp-header">
       <div class="dp-badge prompt" id="dpBadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Prompt</div>
-      <div class="dp-name" id="dpName">Code Review</div>
+      <div class="dp-name" id="dpName">Essay Writer</div>
       <div class="dp-meta" id="dpMeta">v1.0.0 &middot; Created Mar 5, 2026 &middot; Last used 2h ago</div>
     </div>
 
@@ -702,11 +702,11 @@
     <div class="dp-body" id="dpInfo">
       <div class="dp-section">
         <div class="dp-section-label">Description</div>
-        <div class="dp-desc">Performs a structured code review with severity-tiered findings (critical, warning, suggestion). Analyzes code quality, patterns, potential bugs, and architectural concerns. Provides actionable feedback with specific line references.</div>
+        <div class="dp-desc">Drafts structured essays with thesis development, argument flow, counterarguments, and inline citations. Supports APA, MLA, and Chicago formats. Provides paragraph-level feedback on coherence, transitions, and evidence strength.</div>
       </div>
       <div class="dp-section">
         <div class="dp-section-label">Tags</div>
-        <div class="dp-tags"><span class="dp-tag">review</span><span class="dp-tag">quality</span><span class="dp-tag">code-analysis</span><span class="dp-tag">best-practices</span></div>
+        <div class="dp-tags"><span class="dp-tag">writing</span><span class="dp-tag">essays</span><span class="dp-tag">thesis</span><span class="dp-tag">citations</span></div>
       </div>
       <div class="dp-section">
         <div class="dp-section-label">Allowed Tools</div>
@@ -722,8 +722,8 @@
       </div>
       <div class="dp-section">
         <div class="dp-section-label">Variables</div>
-        <div class="dp-var"><div class="dp-var-name">{{language}}</div><div><div class="dp-var-desc">Programming language of code being reviewed</div><div class="dp-var-meta">optional &middot; default: TypeScript</div></div></div>
-        <div class="dp-var"><div class="dp-var-name">{{focusArea}}</div><div><div class="dp-var-desc">Specific area to focus review on</div><div class="dp-var-meta">optional</div></div></div>
+        <div class="dp-var"><div class="dp-var-name">{{subject}}</div><div><div class="dp-var-desc">Target subject area</div><div class="dp-var-meta">optional</div></div></div>
+        <div class="dp-var"><div class="dp-var-name">{{gradeLevel}}</div><div><div class="dp-var-desc">Academic level</div><div class="dp-var-meta">optional &middot; default: College</div></div></div>
       </div>
       <div class="dp-section">
         <div class="dp-section-label">Governance</div>
@@ -736,7 +736,7 @@
       <div class="dp-section">
         <div class="dp-section-label">Skill Folder</div>
         <div style="font-size:10px;color:var(--text-muted);font-family:var(--font-mono);background:var(--bg-elevated);padding:6px 8px;border-radius:var(--radius-sm);border:1px solid var(--border-subtle)">
-          <div>code-review/</div>
+          <div>essay-writer/</div>
           <div style="padding-left:12px;color:var(--text-secondary)">SKILL.md</div>
           <div style="padding-left:12px;color:var(--text-secondary)">ping.yaml</div>
         </div>
@@ -747,27 +747,27 @@
     <div class="dp-body runner-view" id="dpRunner">
       <div class="runner-status" data-tooltip="Live execution status — see which phase is running right now">
         <div class="runner-status-dot"></div>
-        <span class="runner-status-text">Running &mdash; Phase 2: Analyzing quality...</span>
+        <span class="runner-status-text">Running &mdash; Phase 2: Building argument structure...</span>
       </div>
       <div class="runner-progress" data-guide="{&quot;title&quot;: &quot;Execution Progress&quot;, &quot;tag&quot;: &quot;Live Status&quot;, &quot;body&quot;: &quot;Real-time progress tracking &amp;mdash; &lt;em&gt;see which phase is running, percentage complete, and current operation&lt;/em&gt;. The progress bar fills as each phase completes.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
         <div class="runner-progress-bar"><div class="runner-progress-fill prompt" style="width:67%"></div></div>
         <div class="runner-progress-label"><span>Phase 2 of 4</span><span>67%</span></div>
       </div>
-      <div class="runner-output" data-guide="{&quot;title&quot;: &quot;Live Execution Output&quot;, &quot;tag&quot;: &quot;Runner&quot;, &quot;body&quot;: &quot;Watch your skill execute in real time &amp;mdash; &lt;em&gt;markdown-formatted output streams live as AI works&lt;/em&gt;. See analysis results, code suggestions, and structured findings appear phase by phase.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}"><span class="event">[start] execution-a7f3 &bull; code-review &bull; manual</span>
-<span class="event">[progress] 25% &mdash; Phase 1: Understanding context</span>
-<span class="chunk"><span class="md-h2">Review Summary</span>- <span class="md-bold">Scope:</span> src/services/BrowserManager.ts (322 lines)
-- <span class="md-bold">Verdict:</span> REQUEST CHANGES
-- <span class="md-bold">Risk Level:</span> MEDIUM</span>
+      <div class="runner-output" data-guide="{&quot;title&quot;: &quot;Live Execution Output&quot;, &quot;tag&quot;: &quot;Runner&quot;, &quot;body&quot;: &quot;Watch your skill execute in real time &amp;mdash; &lt;em&gt;markdown-formatted output streams live as AI works&lt;/em&gt;. See analysis results, code suggestions, and structured findings appear phase by phase.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}"><span class="event">[start] execution-a7f3 &bull; essay-writer &bull; manual</span>
+<span class="event">[progress] 25% &mdash; Phase 1: Analyzing topic and sources</span>
+<span class="chunk"><span class="md-h2">Essay Outline</span>- <span class="md-bold">Topic:</span> Renewable Energy vs Nuclear Power
+- <span class="md-bold">Format:</span> APA 7th Edition
+- <span class="md-bold">Word Target:</span> 2,500 words</span>
 
-<span class="event">[progress] 50% &mdash; Phase 2: Analyzing quality</span>
-<span class="chunk"><span class="md-h2">Findings</span>
-<span class="md-h3">P0 &mdash; Must Fix</span><span class="md-trow"><span class="md-th"> #   File:Line              Finding</span></span><span class="md-trow"> 1   BrowserManager.ts:47   Missing error handling on...</span></span></div>
+<span class="event">[progress] 50% &mdash; Phase 2: Building argument structure</span>
+<span class="chunk"><span class="md-h2">Thesis &amp; Arguments</span>
+<span class="md-h3">Central Thesis</span><span class="md-trow"><span class="md-th"> #   Section                 Status</span></span><span class="md-trow"> 1   Introduction + Thesis   Drafted with 3 source citations...</span></span></div>
       <div class="runner-vardebug" data-guide="{&quot;title&quot;: &quot;Variable Resolution Debug&quot;, &quot;tag&quot;: &quot;Transparency&quot;, &quot;body&quot;: &quot;See exactly how &lt;em&gt;variables resolved at runtime&lt;/em&gt; &amp;mdash; which values came from skill defaults, which from user input, and which from project context. Full transparency into AI behavior.&quot;, &quot;cat&quot;: &quot;kat-lean-right&quot;}">
         <div class="runner-vardebug-title">&#9654; Variable Resolution</div>
         <table class="runner-var-table">
           <tr><th>Variable</th><th>Value</th><th>Source</th></tr>
-          <tr><td class="var-name">language</td><td class="var-val">TypeScript</td><td><span class="var-src">skill_default</span></td></tr>
-          <tr><td class="var-name">focusArea</td><td class="var-val">error handling</td><td><span class="var-src">input</span></td></tr>
+          <tr><td class="var-name">subject</td><td class="var-val">Environmental Science</td><td><span class="var-src">input</span></td></tr>
+          <tr><td class="var-name">gradeLevel</td><td class="var-val">College</td><td><span class="var-src">skill_default</span></td></tr>
         </table>
       </div>
       <button class="runner-cancel" data-tooltip="Cancel the current execution — stops AI mid-run"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg> Cancel Execution</button>
@@ -789,8 +789,8 @@
     </div>
     <div class="ed-body">
       <!-- Common fields -->
-      <div class="ed-field"><div class="ed-label">Name</div><input class="ed-input" value="Code Review" /></div>
-      <div class="ed-field"><div class="ed-label">Description</div><textarea class="ed-textarea" rows="2">Structured code review with severity-tiered findings and actionable recommendations</textarea></div>
+      <div class="ed-field"><div class="ed-label">Name</div><input class="ed-input" value="Essay Writer" /></div>
+      <div class="ed-field"><div class="ed-label">Description</div><textarea class="ed-textarea" rows="2">Structured essay drafting with thesis development, argument flow, and inline citations</textarea></div>
       <div class="ed-field">
         <div class="ed-label">Type</div>
         <div class="ed-type-selector" data-guide="{&quot;title&quot;: &quot;Skill Type Picker&quot;, &quot;tag&quot;: &quot;Architecture&quot;, &quot;body&quot;: &quot;Three skill architectures: &lt;em&gt;Prompt (SKILL.md templates), Integration (API action chains), Workflow (multi-step pipelines)&lt;/em&gt;. Each unlocks a specialized editor tailored to that pattern.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
@@ -807,30 +807,30 @@
         <div class="ed-field">
           <div class="ed-label">Skill Content (SKILL.md)</div>
           <textarea class="ed-textarea mono" rows="8">---
-name: code-review
-description: Structured code review with severity-tiered findings
-tags: [review, quality, pr, code-review]
+name: essay-writer
+description: Structured essay drafting with thesis and citations
+tags: [writing, essays, thesis, citations]
 version: 1.0.0
 allowed-tools: Read, Grep, Glob
 context: fork
 ---
 
-# Code Review
+# Essay Writer
 
-You are a senior staff engineer conducting a thorough code review. Analyze the provided code with a focus on correctness, maintainability, and production readiness.
+You are an academic writing tutor helping draft a structured essay. Focus on thesis clarity, argument flow, evidence quality, and proper citations.
 
-## Review Process
+## Writing Process
 
-### Phase 1 — Understand Context
-- Identify the purpose of the change
-- Determine scope: which files changed and why
+### Phase 1 — Analyze Topic
+- Identify the essay prompt and requirements
+- Determine scope: argument type and citation format
 ...</textarea>
         </div>
         <div class="ed-field">
           <div class="ed-label">Variables</div>
           <div class="ed-vars">
-            <div class="ed-var-row"><input value="language" style="max-width:120px" /><input value="Programming language of code being reviewed" /><input value="TypeScript" placeholder="default" style="max-width:100px" /><button class="ed-var-rm" data-tooltip="Remove this variable from the skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-            <div class="ed-var-row"><input value="focusArea" style="max-width:120px" /><input value="Specific area to focus review on" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="subject" style="max-width:120px" /><input value="Target subject area" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm" data-tooltip="Remove this variable from the skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="gradeLevel" style="max-width:120px" /><input value="Academic level" /><input value="College" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
           </div>
           <button class="ed-add-btn" data-tooltip="Add a new variable or step to this skill definition">+ Add Variable</button>
         </div>
@@ -841,24 +841,24 @@ You are a senior staff engineer conducting a thorough code review. Analyze the p
         <div class="ed-field">
           <div class="ed-label">Skill Content (SKILL.md)</div>
           <textarea class="ed-textarea mono" rows="4">---
-name: customer-report
-description: Fetches customer data from CRM API and generates reports
-tags: [api, reporting]
+name: research-assistant
+description: Searches Google Scholar and builds annotated bibliographies
+tags: [research, scholar, sources]
 version: 1.0.0
 context: fork
 ---
 
-# Customer Report
-Generate a formatted customer report using the data retrieved from the CRM API...</textarea>
+# Research Assistant
+Search academic databases for relevant papers and build annotated bibliographies...</textarea>
         </div>
         <div class="ed-field">
           <div class="ed-label">Pre-Actions (run before skill body)</div>
           <div class="ed-action-card" data-guide="{&quot;title&quot;: &quot;API Action Config&quot;, &quot;tag&quot;: &quot;Integration&quot;, &quot;body&quot;: &quot;Configure pre and post actions for integration skills &amp;mdash; &lt;em&gt;HTTP method, URL, headers, and response handling&lt;/em&gt;. Chain API calls, webhooks, and data transforms into a single skill.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
-            <div class="ed-action-header"><span class="ed-action-badge pre">PRE</span><span class="ed-action-name">Fetch Customer Data</span><span class="ed-action-type-tag">api</span></div>
+            <div class="ed-action-header"><span class="ed-action-badge pre">PRE</span><span class="ed-action-name">Search Google Scholar</span><span class="ed-action-type-tag">api</span></div>
             <div class="ed-action-body">
               <div class="ed-action-row"><label>Method</label><select><option selected>GET</option><option>POST</option><option>PUT</option><option>DELETE</option></select></div>
-              <div class="ed-action-row"><label>URL</label><input value="https://api.example.com/customers/{{customerId}}" /></div>
-              <div class="ed-action-row"><label>Headers</label><input value="Authorization: Bearer {{env.CRM_API_KEY}}" /></div>
+              <div class="ed-action-row"><label>URL</label><input value="https://scholar.google.com/scholar?q={{searchQuery}}" /></div>
+              <div class="ed-action-row"><label>Headers</label><input value="User-Agent: PiNG-Research/1.0" /></div>
             </div>
           </div>
           <button class="ed-add-btn">+ Add Pre-Action</button>
@@ -866,10 +866,10 @@ Generate a formatted customer report using the data retrieved from the CRM API..
         <div class="ed-field">
           <div class="ed-label">Post-Actions (run after skill body)</div>
           <div class="ed-action-card">
-            <div class="ed-action-header"><span class="ed-action-badge post">POST</span><span class="ed-action-name">Notify Slack</span><span class="ed-action-type-tag">webhook</span></div>
+            <div class="ed-action-header"><span class="ed-action-badge post">POST</span><span class="ed-action-name">Save to Zotero</span><span class="ed-action-type-tag">webhook</span></div>
             <div class="ed-action-body">
               <div class="ed-action-row"><label>Method</label><select><option>GET</option><option selected>POST</option></select></div>
-              <div class="ed-action-row"><label>URL</label><input value="https://hooks.slack.com/services/T00/B00/xxx" /></div>
+              <div class="ed-action-row"><label>URL</label><input value="https://api.zotero.org/users/{{userId}}/items" /></div>
             </div>
           </div>
           <button class="ed-add-btn">+ Add Post-Action</button>
@@ -877,7 +877,7 @@ Generate a formatted customer report using the data retrieved from the CRM API..
         <div class="ed-field">
           <div class="ed-label">Variables</div>
           <div class="ed-vars">
-            <div class="ed-var-row"><input value="customerId" style="max-width:120px" /><input value="CRM customer ID to fetch" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="searchQuery" style="max-width:120px" /><input value="Academic search query terms" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
           </div>
           <button class="ed-add-btn">+ Add Variable</button>
         </div>
@@ -892,28 +892,28 @@ Generate a formatted customer report using the data retrieved from the CRM API..
               <div class="ed-step-grip"><span></span><span></span><span></span></div>
               <div class="ed-step-num">1</div>
               <div class="ed-step-content">
-                <select class="ed-step-skill-select"><option selected>Code Review (Prompt)</option><option>Test Generator (Prompt)</option><option>Security Audit (Prompt)</option><option>Refactor Clean (Prompt)</option><option>Think Deeper (Prompt)</option></select>
+                <select class="ed-step-skill-select"><option selected>Research Assistant (Integration)</option><option>Essay Writer (Prompt)</option><option>Citation Formatter (Prompt)</option><option>Note Summarizer (Prompt)</option><option>Study Guide Builder (Prompt)</option></select>
                 <div class="ed-step-mapping-label">Input Mapping</div>
-                <div class="ed-step-mapping-row"><input value="language" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{language}}" /></div>
-                <div class="ed-step-mapping-row"><input value="focusArea" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{focusArea}}" /></div>
+                <div class="ed-step-mapping-row"><input value="searchQuery" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{topic}}" /></div>
+                <div class="ed-step-mapping-row"><input value="maxResults" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="10" /></div>
               </div>
             </div>
             <div class="ed-step">
               <div class="ed-step-grip"><span></span><span></span><span></span></div>
               <div class="ed-step-num">2</div>
               <div class="ed-step-content">
-                <select class="ed-step-skill-select"><option>Code Review (Prompt)</option><option>Test Generator (Prompt)</option><option selected>Security Audit (Prompt)</option><option>Refactor Clean (Prompt)</option><option>Think Deeper (Prompt)</option></select>
+                <select class="ed-step-skill-select"><option>Research Assistant (Integration)</option><option selected>Essay Writer (Prompt)</option><option>Citation Formatter (Prompt)</option><option>Note Summarizer (Prompt)</option><option>Study Guide Builder (Prompt)</option></select>
                 <div class="ed-step-mapping-label">Input Mapping</div>
-                <div class="ed-step-mapping-row"><input value="scope" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{steps.1.output}}" /></div>
+                <div class="ed-step-mapping-row"><input value="sources" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="{{steps.1.output}}" /></div>
               </div>
             </div>
             <div class="ed-step">
               <div class="ed-step-grip"><span></span><span></span><span></span></div>
               <div class="ed-step-num">3</div>
               <div class="ed-step-content">
-                <select class="ed-step-skill-select"><option>Code Review (Prompt)</option><option selected>Test Generator (Prompt)</option><option>Security Audit (Prompt)</option><option>Refactor Clean (Prompt)</option><option>Think Deeper (Prompt)</option></select>
+                <select class="ed-step-skill-select"><option>Research Assistant (Integration)</option><option>Essay Writer (Prompt)</option><option selected>Citation Formatter (Prompt)</option><option>Note Summarizer (Prompt)</option><option>Study Guide Builder (Prompt)</option></select>
                 <div class="ed-step-mapping-label">Input Mapping</div>
-                <div class="ed-step-mapping-row"><input value="testFramework" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="vitest" /></div>
+                <div class="ed-step-mapping-row"><input value="citationStyle" style="max-width:80px" /><span class="ed-step-mapping-arrow">&rarr;</span><input value="APA 7th" /></div>
               </div>
             </div>
           </div>
@@ -922,8 +922,8 @@ Generate a formatted customer report using the data retrieved from the CRM API..
         <div class="ed-field">
           <div class="ed-label">Workflow Variables (passed to first step)</div>
           <div class="ed-vars">
-            <div class="ed-var-row"><input value="language" style="max-width:120px" /><input value="Language for the review pipeline" /><input value="TypeScript" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-            <div class="ed-var-row"><input value="focusArea" style="max-width:120px" /><input value="Focus area for code review step" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="topic" style="max-width:120px" /><input value="Research paper topic" /><input value="" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            <div class="ed-var-row"><input value="citationStyle" style="max-width:120px" /><input value="Citation format for bibliography" /><input value="APA 7th" placeholder="default" style="max-width:100px" /><button class="ed-var-rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
           </div>
         </div>
       </div>
@@ -953,9 +953,9 @@ Generate a formatted customer report using the data retrieved from the CRM API..
 <div class="approval-toast" id="approvalToast" data-guide="{&quot;title&quot;: &quot;Integration Approval&quot;, &quot;tag&quot;: &quot;Security&quot;, &quot;body&quot;: &quot;Integration skills that access external APIs &lt;em&gt;require explicit approval before running&lt;/em&gt;. See exactly which domains will be contacted and what actions will execute. Allow once, always, or deny.&quot;, &quot;cat&quot;: &quot;kat-flip&quot;}">
   <div class="at-timer"><div class="at-timer-fill" id="atTimerFill" style="width:78%"></div></div>
   <div class="at-body">
-    <div class="at-title"><span>"Customer Report"</span> needs approval</div>
+    <div class="at-title"><span>"Research Paper Pipeline"</span> needs approval</div>
     <div class="at-info">
-      <div class="at-domains">INTEGRATION: api.example.com, hooks.slack.com</div>
+      <div class="at-domains">INTEGRATION: scholar.google.com, api.zotero.org</div>
       <div class="at-actions-summary">Actions: 1 pre (api), 1 post (webhook)</div>
     </div>
     <div class="at-reason">First run of INTEGRATION catskill</div>
@@ -1031,7 +1031,7 @@ function showRunner(id) {
 
 // Editor
 function openEditor(mode) {
-  const name = document.getElementById('dpName').textContent || 'Code Review';
+  const name = document.getElementById('dpName').textContent || 'Essay Writer';
   document.getElementById('edTitle').textContent = mode === 'new' ? 'New CatSkill' : 'Edit: ' + name;
   document.getElementById('editorOverlay').classList.add('open');
   // Reset type selector to Prompt for new skills
