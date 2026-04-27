@@ -1315,12 +1315,25 @@ const personas = {
       'skills-browse': 'marketing-mockups/demo-mom/skills-browse.html',
       'skills-detail': 'marketing-mockups/demo-mom/skills-detail.html'
     }
+  },
+  producer: {
+    label: 'Music Producer',
+    name: 'Diego Salazar (Producer)',
+    emoji: '🎚️',
+    summary: 'PiNG! tracks mix revisions, manages sample libraries, A/B-references masters, and coordinates client deliveries \u2014 in one studio workspace.',
+    paths: {
+      home: 'marketing-mockups/demo-producer/home.html',
+      chat: 'marketing-mockups/demo-producer/chat.html',
+      project: 'marketing-mockups/demo-producer/project.html',
+      'skills-browse': 'marketing-mockups/demo-producer/skills-browse.html',
+      'skills-detail': 'marketing-mockups/demo-producer/skills-detail.html'
+    }
   }
 };
 
-// Weighted random: developer ~40%, others ~15% each
+// Weighted random: developer ~35%, others ~13% each
 function pickPersona() {
-  const weighted = ['developer','developer','developer','developer','developer','developer','developer','developer','student','student','student','lawyer','lawyer','lawyer','finance','finance','finance','mom','mom','mom'];
+  const weighted = ['developer','developer','developer','developer','developer','developer','developer','developer','student','student','student','lawyer','lawyer','lawyer','finance','finance','finance','mom','mom','mom','producer','producer','producer'];
   return weighted[Math.floor(Math.random() * weighted.length)];
 }
 

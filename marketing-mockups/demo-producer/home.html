@@ -3,30 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PiNG! — Legal Dashboard</title>
+<title>PiNG! — Eclipse Sessions</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   /* Type scale: 11 / 13 / 16 / 20 / 28 */
   :root {
-    --bg-deep: #fafaf8; --bg-surface: #f5f5f2; --bg-elevated: #ffffff;
-    --bg-hover: #eeede9; --bg-active: #e6e5e0;
-    --border: #d8d8d2; --border-subtle: #e4e4de;
-    --text-primary: #1a1a1a; --text-secondary: #5a5a66; --text-muted: #8a8a96;
-    --accent: #0052cc; --accent-dim: #003d99; --accent-glow: rgba(0, 82, 204,0.08);
-    --warm-accent: #0077ed; --warm-accent-dim: rgba(0, 119, 237,0.10);
-    --green: #16a34a; --green-dim: rgba(22, 163, 74,0.15);
-    --orange: #f59e0b; --orange-dim: rgba(245, 158, 11,0.12);
-    --red: #dc2626; --red-dim: rgba(220, 38, 38,0.12);
-    --purple: #7c3aed; --purple-dim: rgba(124, 58, 237,0.12);
-    --cyan: #0284c7; --cyan-dim: rgba(2, 132, 199,0.10);
-    --yellow: #f59e0b; --yellow-dim: rgba(245, 158, 11,0.12);
-    --pink: #db2777; --pink-dim: rgba(219, 39, 119,0.12);
+    --bg-deep: #0d0d0d; --bg-surface: #141414; --bg-elevated: #1c1c1c;
+    --bg-hover: #242424; --bg-active: #2c2c2c;
+    --border: #2a2a2a; --border-subtle: #1e1e1e;
+    --text-primary: #f5f5f5; --text-secondary: #999999; --text-muted: #666666;
+    --accent: #ff9500; --accent-dim: #cc7700; --accent-glow: rgba(255, 149, 0,0.12);
+    --warm-accent: #ffaa1a; --warm-accent-dim: rgba(255, 170, 26,0.12);
+    --green: #00d084; --green-dim: rgba(0,208,132,0.15);
+    --orange: #ffb84d; --orange-dim: rgba(255, 184, 77,0.12);
+    --red: #ff4444; --red-dim: rgba(255, 68, 68,0.12);
+    --purple: #a78bfa; --purple-dim: rgba(167, 139, 250,0.12);
+    --cyan: #ff9500; --cyan-dim: rgba(255, 149, 0,0.10);
+    --yellow: #ffb84d; --yellow-dim: rgba(255, 184, 77,0.12);
+    --pink: #ff3b8d; --pink-dim: rgba(255, 59, 141,0.12);
     --blue: #3b82f6; --blue-dim: rgba(59,130,246,0.12);
     --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
     --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
     --radius: 8px; --radius-sm: 6px; --radius-lg: 12px;
-    --card-shadow: 0 2px 8px rgba(250, 250, 248,0.6), 0 0 0 1px rgba(26, 26, 26,0.02);
-    --card-shadow-hover: 0 4px 16px rgba(250, 250, 248,0.7), 0 0 0 1px rgba(26, 26, 26,0.04);
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03);
+    --card-shadow-hover: 0 4px 16px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
   }
   body { font-family: var(--font); background: var(--bg-deep); color: var(--text-primary); font-size: 13px; -webkit-font-smoothing: antialiased; height: 100vh; display: flex; overflow: hidden; }
   ::-webkit-scrollbar { width: 5px; }
@@ -38,8 +38,8 @@
   .sidebar.collapsed { width: 0; border-right: none; overflow: hidden; }
   .sidebar-resize { position: absolute; top: 0; bottom: 0; right: -2px; width: 3px; cursor: col-resize; z-index: 10; }
   .sidebar-resize:hover, .sidebar-resize.active { background: var(--accent); opacity: 0.5; }
-  .col-btn { position: absolute; top: 50%; z-index: 25; width: 24px; height: 24px; border-radius: 50%; background: var(--bg-elevated); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); font-size: 11px; transition: all 0.15s; transform: translateY(-50%); box-shadow: 0 2px 6px rgba(250, 250, 248,0.3); }
-  .col-btn:hover { background: var(--bg-hover); color: var(--text-primary); border-color: var(--accent-dim); box-shadow: 0 2px 8px rgba(250, 250, 248,0.4); }
+  .col-btn { position: absolute; top: 50%; z-index: 25; width: 24px; height: 24px; border-radius: 50%; background: var(--bg-elevated); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); font-size: 11px; transition: all 0.15s; transform: translateY(-50%); box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
+  .col-btn:hover { background: var(--bg-hover); color: var(--text-primary); border-color: var(--accent-dim); box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
   .sb-brand { padding: 16px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border-subtle); cursor: pointer; transition: background 0.12s; }
   .sb-brand:hover { background: var(--bg-hover); }
   .sb-brand-icon { width: 36px; height: 36px; flex-shrink: 0; }
@@ -113,7 +113,7 @@
   /* ═══ WIDGET ═══ */
   .widget { background: var(--bg-surface); border: 1px solid transparent; border-radius: var(--radius-lg); overflow: hidden; transition: border-color 0.15s, box-shadow 0.2s; position: relative; min-height: 100px; box-shadow: var(--card-shadow); }
   .widget:hover { border-color: var(--border-subtle); box-shadow: var(--card-shadow-hover); }
-  .widget.dragging { opacity: 0.6; border-color: var(--accent-dim); box-shadow: 0 8px 32px rgba(250, 250, 248,0.5); z-index: 100; }
+  .widget.dragging { opacity: 0.6; border-color: var(--accent-dim); box-shadow: 0 8px 32px rgba(0,0,0,0.5); z-index: 100; }
   .widget.drag-over { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-glow); }
 
   .widget-header { display: flex; align-items: center; gap: 6px; padding: 12px 14px 8px; font-size: 13px; font-weight: 600; cursor: grab; user-select: none; }
@@ -200,7 +200,7 @@
   .cal-cell:hover { background: var(--bg-hover); }
   .cal-cell .day-num { font-size: 10px; font-weight: 600; color: var(--text-secondary); margin-bottom: 2px; }
   .cal-cell.today .day-num { color: var(--accent); background: var(--accent-glow); width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-  .cal-cell.today { background: rgba(0, 82, 204,0.03); }
+  .cal-cell.today { background: rgba(255, 149, 0,0.03); }
   .cal-cell.other { opacity: 0.2; }
   .cal-evt { font-size: 9px; padding: 1px 3px; border-radius: 2px; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .cal-evt.deadline { background: var(--red-dim); color: var(--red); }
@@ -218,7 +218,7 @@
   /* ═══ Agents ═══ */
   .agent-row { display: flex; align-items: center; gap: 8px; padding: 7px 8px; background: var(--bg-elevated); border: none; border-radius: var(--radius-sm); margin-bottom: 4px; }
   .agent-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-  .agent-dot.running { background: var(--green); box-shadow: 0 0 6px rgba(22, 163, 74,0.4); }
+  .agent-dot.running { background: var(--green); box-shadow: 0 0 6px rgba(0, 208, 132,0.4); }
   .agent-dot.idle { background: var(--text-muted); }
   .agent-name { font-size: 11px; font-weight: 500; }
   .agent-task { font-size: 10px; color: var(--text-muted); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -249,7 +249,7 @@
   .session-item { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.12s; }
   .session-item:hover { background: var(--bg-hover); }
   .session-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-  .session-dot.active { background: var(--green); box-shadow: 0 0 6px rgba(22, 163, 74,0.3); }
+  .session-dot.active { background: var(--green); box-shadow: 0 0 6px rgba(0, 208, 132,0.3); }
   .session-dot.idle { background: var(--text-muted); }
   .session-info { flex: 1; min-width: 0; }
   .session-name { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -258,7 +258,7 @@
   .session-model { font-size: 10px; padding: 1px 4px; border-radius: 3px; font-family: var(--font-mono); background: var(--accent-glow); color: var(--accent); }
 
   /* ═══ Drag ghost ═══ */
-  .drag-ghost { position: fixed; pointer-events: none; z-index: 1000; opacity: 0.85; transform: rotate(1.5deg); box-shadow: 0 12px 40px rgba(250, 250, 248,0.6); }
+  .drag-ghost { position: fixed; pointer-events: none; z-index: 1000; opacity: 0.85; transform: rotate(1.5deg); box-shadow: 0 12px 40px rgba(0,0,0,0.6); }
 </style>
 
 <style id="ping-marketing-styles">
@@ -268,17 +268,17 @@
   content: attr(data-tooltip);
   position: fixed; left: var(--tip-x, 0); top: var(--tip-y, 0);
   transform: translateX(-50%) translateY(-100%) translateY(-8px);
-  background: #ffffff; color: #1a1a1a; font-size: 11px; font-weight: 400;
+  background: #1c1c1c; color: #f5f5f5; font-size: 11px; font-weight: 400;
   padding: 6px 10px; border-radius: 6px; max-width: 280px; width: max-content;
   white-space: normal; text-align: center; pointer-events: none;
   opacity: 0; z-index: 10010; line-height: 1.4;
   transition: opacity 0.18s ease 0.35s;
-  box-shadow: 0 4px 12px rgba(250, 250, 248,0.5), 0 0 0 1px rgba(0, 82, 204,0.15);
-  border: 1px solid rgba(0, 82, 204,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255, 149, 0,0.15);
+  border: 1px solid rgba(255, 149, 0,0.2);
 }
 [data-tooltip]:hover::after { opacity: 1; }
 /* Override any page-native tooltip CSS that conflicts with our injected system */
-.panel-toggle[data-tooltip]:hover::after { content: attr(data-tooltip) !important; position: fixed !important; left: var(--tip-x, 0) !important; top: var(--tip-y, 0) !important; bottom: auto !important; transform: translateX(-50%) translateY(-100%) translateY(-8px) !important; background: #ffffff !important; color: #1a1a1a !important; font-size: 11px !important; padding: 6px 10px !important; border-radius: 6px !important; max-width: 280px !important; width: max-content !important; border: 1px solid rgba(0, 82, 204,0.2) !important; box-shadow: 0 4px 12px rgba(250, 250, 248,0.5), 0 0 0 1px rgba(0, 82, 204,0.15) !important; z-index: 10010 !important; }
+.panel-toggle[data-tooltip]:hover::after { content: attr(data-tooltip) !important; position: fixed !important; left: var(--tip-x, 0) !important; top: var(--tip-y, 0) !important; bottom: auto !important; transform: translateX(-50%) translateY(-100%) translateY(-8px) !important; background: #1c1c1c !important; color: #f5f5f5 !important; font-size: 11px !important; padding: 6px 10px !important; border-radius: 6px !important; max-width: 280px !important; width: max-content !important; border: 1px solid rgba(255, 149, 0,0.2) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255, 149, 0,0.15) !important; z-index: 10010 !important; }
 /* When tooltip is showing, suppress guide card on same element */
 [data-tooltip].tooltip-active[data-guide] { pointer-events: auto; }
 
@@ -287,8 +287,8 @@
   position: fixed; z-index: 10002; width: 340px; max-width: calc(100vw - 24px);
   pointer-events: auto;
   background: linear-gradient(145deg, #1e2235 0%, #151829 100%);
-  border: 1px solid rgba(0, 82, 204,0.25); border-radius: 16px;
-  box-shadow: 0 16px 48px rgba(250, 250, 248,0.6), 0 0 80px rgba(0, 82, 204,0.06), inset 0 1px 0 rgba(26, 26, 26,0.04);
+  border: 1px solid rgba(255, 149, 0,0.25); border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 80px rgba(255, 149, 0,0.06), inset 0 1px 0 rgba(255,255,255,0.04);
   overflow: hidden; opacity: 0; transform: translateY(8px) scale(0.97);
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -296,7 +296,7 @@
 .ping-guide-card.visible { opacity: 1; transform: translateY(0) scale(1); }
 .ping-guide-accent {
   height: 3px;
-  background: linear-gradient(90deg, #0052cc 0%, #7c3aed 50%, #0052cc 100%);
+  background: linear-gradient(90deg, #ff9500 0%, #a78bfa 50%, #ff9500 100%);
   background-size: 200% 100%;
   animation: guideShimmer 3s ease infinite;
 }
@@ -319,21 +319,21 @@
 
 .ping-guide-kat-wrap {
   width: 64px; height: 54px; flex-shrink: 0;
-  filter: drop-shadow(0 0 6px rgba(0, 82, 204,0.3));
+  filter: drop-shadow(0 0 6px rgba(255, 149, 0,0.3));
 }
 .ping-guide-kat-wrap .kat-mascot { width: 64px; height: 54px; }
 .ping-guide-text { flex: 1; min-width: 0; }
 .ping-guide-tag {
   display: inline-block; font-size: 9px; font-weight: 600; text-transform: uppercase;
   letter-spacing: 0.8px; padding: 2px 7px; border-radius: 4px; margin-bottom: 6px;
-  background: rgba(0, 82, 204,0.15); color: #0052cc;
+  background: rgba(255, 149, 0,0.15); color: #ff9500;
 }
 .ping-guide-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3; }
 .ping-guide-body { font-size: 12px; color: #a0a4b8; line-height: 1.55; }
-.ping-guide-body em { color: #0052cc; font-style: normal; font-weight: 500; }
+.ping-guide-body em { color: #ff9500; font-style: normal; font-weight: 500; }
 
 [data-guide].guide-active {
-  box-shadow: 0 0 0 2px rgba(0, 82, 204,0.35), 0 0 24px rgba(0, 82, 204,0.08) !important;
+  box-shadow: 0 0 0 2px rgba(255, 149, 0,0.35), 0 0 24px rgba(255, 149, 0,0.08) !important;
   transition: box-shadow 0.3s ease;
 }
 
@@ -412,41 +412,41 @@
 
 </head>
 <body>
-<a href="../../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#ffffff;color:#1a1a1a;border:1px solid #d8d8d2;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#eeede9'" onmouseout="this.style.background='#ffffff'">&#8592; Back to Landing Page</a>
+<a href="../../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1c1c1c;color:#f5f5f5;border:1px solid #2a2a2a;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#242424'" onmouseout="this.style.background='#1c1c1c'">&#8592; Back to Landing Page</a>
 
 <!-- ═══ SIDEBAR ═══ -->
 <div class="sidebar" data-guide="{&quot;title&quot;: &quot;Project Navigator&quot;, &quot;tag&quot;: &quot;Navigation&quot;, &quot;body&quot;: &quot;All your projects in one sidebar. Each project is an &lt;em&gt;isolated AI workspace&lt;/em&gt; with its own chats, files, knowledge, and agent history. Click to dive in, right-click for options.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
   <!-- Brand header with cat mascot -->
   <div class="sb-brand" onclick="window.location.href='home.html'">
     <svg class="sb-brand-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#0052cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="38" cy="26" r="12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M30 16 L27 4 L35 12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M44 14 L48 2 L50 12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M31 14 L29 7 L34 12" stroke="#7c3aed" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M45 13 L47.5 5 L49 12" stroke="#7c3aed" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
-      <ellipse cx="33" cy="25" rx="2.5" ry="3" fill="#0052cc"/>
-      <ellipse cx="43" cy="24" rx="2.5" ry="3" fill="#0052cc"/>
-      <ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#fafaf8"/>
-      <ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#fafaf8"/>
+      <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#ff9500" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="38" cy="26" r="12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M30 16 L27 4 L35 12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M44 14 L48 2 L50 12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M31 14 L29 7 L34 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M45 13 L47.5 5 L49 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse cx="33" cy="25" rx="2.5" ry="3" fill="#ff9500"/>
+      <ellipse cx="43" cy="24" rx="2.5" ry="3" fill="#ff9500"/>
+      <ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0d0d0d"/>
+      <ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0d0d0d"/>
       <circle cx="34" cy="24" r="0.8" fill="#151820"/>
       <circle cx="44" cy="23" r="0.8" fill="#151820"/>
-      <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#7c3aed"/>
-      <path d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <line x1="28" y1="27" x2="20" y2="25" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-      <line x1="28" y1="29" x2="19" y2="29" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-      <line x1="28" y1="31" x2="20" y2="33" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-      <line x1="48" y1="26" x2="56" y2="24" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-      <line x1="48" y1="28" x2="57" y2="28" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-      <line x1="48" y1="30" x2="56" y2="32" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-      <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M50 39 L50 40.5" stroke="#0052cc" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
-      <path d="M52 38.5 L52 40" stroke="#0052cc" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
-      <path d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#0052cc" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
-      <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#0052cc" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+      <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#a78bfa"/>
+      <path d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="28" y1="27" x2="20" y2="25" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="28" y1="29" x2="19" y2="29" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="28" y1="31" x2="20" y2="33" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="48" y1="26" x2="56" y2="24" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="48" y1="28" x2="57" y2="28" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <line x1="48" y1="30" x2="56" y2="32" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M50 39 L50 40.5" stroke="#ff9500" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+      <path d="M52 38.5 L52 40" stroke="#ff9500" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+      <path d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#ff9500" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+      <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#ff9500" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
     </svg>
     <div>
       <div class="sb-brand-name">PiNG<span style="color:var(--accent)">!</span></div>
@@ -470,66 +470,59 @@
 
   <div class="sb-projects-list">
     <div>
-      <div class="sb-proj active" data-tooltip="Your active project — click to open, expand arrow to see chats"><span class="arrow open" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--green)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none" data-tooltip="Open this project workspace — AI context, files, chats, and knowledge all in one place">&#9878;&#65039; Morrison &amp; Associates</a><span class="chat-count">18</span><span class="proj-actions"><button class="proj-action" title="Open project browser" data-tooltip="Open the full project workspace with files, knowledge, and settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options" data-tooltip="Rename, archive, duplicate, or configure this project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj active" data-tooltip="Your active project — click to open, expand arrow to see chats"><span class="arrow open" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--green)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none" data-tooltip="Open this project workspace — AI context, files, chats, and knowledge all in one place">&#128200; Eclipse Sessions</a><span class="chat-count">22</span></div>
       <div class="sb-proj-chats open">
-        <a href="chat.html" class="sb-proj-chat" data-tooltip="Resume this AI conversation with full context preserved"><span class="chat-dot" style="background:var(--green)"></span>Contract review — TechCorp</a>
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--green)"></span>Case law research — IP</a>
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Client brief — Johnson</a>
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Discovery analysis</a>
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Deposition prep</a>
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Regulatory compliance</a>
-        <a href="#" class="sb-proj-chat" style="opacity:0.5">+12 more...</a>
+        <a href="chat.html" class="sb-proj-chat" data-tooltip="Resume this AI conversation with full context preserved"><span class="chat-dot" style="background:var(--green)"></span>Vocal comp — 'Eclipse'</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--green)"></span>Mix bus glue compressor</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>808 sub layering — Track 03</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Reference: Daft Punk</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Stem bounce automation</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Master EQ for streaming</a>
+        <a href="#" class="sb-proj-chat" style="opacity:0.5">+16 more...</a>
       </div>
     </div>
     <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128203; TechCorp Merger</a><span class="chat-count">12</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128202; Sample Library</a><span class="chat-count">14</span></div>
       <div class="sb-proj-chats">
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Merger agreement review</a>
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Due diligence checklist</a>
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Indemnification analysis</a>
-        <a href="#" class="sb-proj-chat" style="opacity:0.5">+9 more...</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>AMD margin analysis</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Intel fab capex review</a>
       </div>
     </div>
     <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128270; Johnson v. State</a><span class="chat-count">8</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128176; Client Mixes</a><span class="chat-count">9</span></div>
       <div class="sb-proj-chats">
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Motion to suppress</a>
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Witness prep notes</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Mix revision pass 03</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>New allocation model</a>
       </div>
     </div>
     <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128220; Contract Templates</a><span class="chat-count">6</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128203; Mix Templates</a><span class="chat-count">7</span></div>
       <div class="sb-proj-chats">
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>NDA template update</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Mix template update</a>
       </div>
     </div>
     <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--orange)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#9200; Billing &amp; Time</a><span class="chat-count">5</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--orange)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#9889; Stem Bounces</a><span class="chat-count">5</span></div>
       <div class="sb-proj-chats">
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--orange)"></span>March billing reconciliation</a>
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Rate adjustments</a>
-        <a href="#" class="sb-proj-chat" style="opacity:0.5">+3 more...</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--orange)"></span>Momentum scanner config</a>
       </div>
     </div>
     <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#127963;&#65039; IP Litigation — Nexus</a><span class="chat-count">7</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128209; Master Bus</a><span class="chat-count">4</span></div>
       <div class="sb-proj-chats">
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Patent claim analysis</a>
-        <a href="#" class="sb-proj-chat" style="opacity:0.5">+6 more...</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Loudness check Q1</a>
       </div>
     </div>
     <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128193; Pro Bono Housing</a><span class="chat-count">3</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#127760; Reference Library</a><span class="chat-count">6</span></div>
       <div class="sb-proj-chats">
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Tenant rights brief</a>
-        <a href="#" class="sb-proj-chat" style="opacity:0.5">+2 more...</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Soothe2 plugin update</a>
       </div>
     </div>
     <div>
-      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128209; Bar CLE</a><span class="chat-count">2</span><span class="proj-actions"><button class="proj-action" title="Open project browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><button class="proj-action" title="More options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></span></div>
+      <div class="sb-proj"><span class="arrow" onclick="toggleProjectChats(this.closest('.sb-proj').parentElement)">&#9654;</span><span class="dot" style="background:var(--text-muted)"></span><a href="project.html" class="name" style="color:inherit;text-decoration:none">&#128193; Session Notes</a><span class="chat-count">3</span></div>
       <div class="sb-proj-chats">
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>CLE credit tracking</a>
-        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Ethics webinar notes</a>
+        <a href="chat.html" class="sb-proj-chat"><span class="chat-dot" style="background:var(--text-muted)"></span>Weekly desk summary</a>
       </div>
     </div>
   </div>
@@ -564,59 +557,59 @@
     <!-- Greeting with cat mascot -->
     <div class="greeting" data-guide="{&quot;title&quot;: &quot;Your Personal Greeting&quot;, &quot;tag&quot;: &quot;Home&quot;, &quot;body&quot;: &quot;PiNG greets you by name with &lt;em&gt;smart nudges about overdue tasks and active projects&lt;/em&gt;. The cat mascot lives here too &amp;mdash; your friendly AI companion at the heart of your workspace.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
       <svg class="greeting-cat" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#0052cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="38" cy="26" r="12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M30 16 L27 4 L35 12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M44 14 L48 2 L50 12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M31 14 L29 7 L34 12" stroke="#7c3aed" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M45 13 L47.5 5 L49 12" stroke="#7c3aed" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <ellipse cx="33" cy="25" rx="2.5" ry="3" fill="#0052cc"/>
-        <ellipse cx="43" cy="24" rx="2.5" ry="3" fill="#0052cc"/>
-        <ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#fafaf8"/>
-        <ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#fafaf8"/>
+        <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#ff9500" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="38" cy="26" r="12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M30 16 L27 4 L35 12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M44 14 L48 2 L50 12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M31 14 L29 7 L34 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M45 13 L47.5 5 L49 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <ellipse cx="33" cy="25" rx="2.5" ry="3" fill="#ff9500"/>
+        <ellipse cx="43" cy="24" rx="2.5" ry="3" fill="#ff9500"/>
+        <ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0d0d0d"/>
+        <ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0d0d0d"/>
         <circle cx="34" cy="24" r="0.8" fill="#151820"/>
         <circle cx="44" cy="23" r="0.8" fill="#151820"/>
-        <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#7c3aed"/>
-        <path d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <line x1="28" y1="27" x2="20" y2="25" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-        <line x1="28" y1="29" x2="19" y2="29" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-        <line x1="28" y1="31" x2="20" y2="33" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-        <line x1="48" y1="26" x2="56" y2="24" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-        <line x1="48" y1="28" x2="57" y2="28" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-        <line x1="48" y1="30" x2="56" y2="32" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-        <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M50 39 L50 40.5" stroke="#0052cc" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
-        <path d="M52 38.5 L52 40" stroke="#0052cc" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
-        <path d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#0052cc" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
-        <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#0052cc" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+        <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#a78bfa"/>
+        <path d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="28" y1="27" x2="20" y2="25" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <line x1="28" y1="29" x2="19" y2="29" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <line x1="28" y1="31" x2="20" y2="33" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <line x1="48" y1="26" x2="56" y2="24" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <line x1="48" y1="28" x2="57" y2="28" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <line x1="48" y1="30" x2="56" y2="32" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M50 39 L50 40.5" stroke="#ff9500" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+        <path d="M52 38.5 L52 40" stroke="#ff9500" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+        <path d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#ff9500" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+        <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#ff9500" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
       </svg>
       <div class="greeting-text">
-        <h1>Good evening, <span>Sarah</span></h1>
+        <h1>Good evening, <span>Diego</span></h1>
         <div class="greeting-date">Wednesday, March 11</div>
-        <div class="greeting-nudge"><strong>12 filing deadlines</strong> across 5 active cases</div>
+        <div class="greeting-nudge"><strong>5 mix revisions due</strong> across 3 active sessions</div>
       </div>
     </div>
 
     <!-- ═══ WIDGET GRID ═══ -->
-    <div class="widget-grid" id="widget-grid" data-guide="{&quot;title&quot;: &quot;Your Command Center&quot;, &quot;tag&quot;: &quot;Dashboard&quot;, &quot;body&quot;: &quot;A fully customizable widget grid &amp;mdash; &lt;em&gt;drag, resize, add, remove&lt;/em&gt;. Every widget is live data from your AI workspace. This is your mission control for managing cases and clients.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+    <div class="widget-grid" id="widget-grid" data-guide="{&quot;title&quot;: &quot;Your Command Center&quot;, &quot;tag&quot;: &quot;Dashboard&quot;, &quot;body&quot;: &quot;A fully customizable widget grid &amp;mdash; &lt;em&gt;drag, resize, add, remove&lt;/em&gt;. Every widget is live data from your AI workspace. This is your mission control for AI-powered research.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
 
       <!-- ═══ ROW 1 ═══ -->
 
       <!-- Recent Activity -->
-      <div class="widget wg-4" data-widget="activity" data-guide="{&quot;title&quot;: &quot;Activity Feed&quot;, &quot;tag&quot;: &quot;Dashboard&quot;, &quot;body&quot;: &quot;Your real-time pulse on everything happening across projects. Every AI chat, document review, and agent action \u2014 &lt;em&gt;all in one glanceable stream&lt;/em&gt;. No more tab-hopping to stay in the loop.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
+      <div class="widget wg-4" data-widget="activity" data-guide="{&quot;title&quot;: &quot;Activity Feed&quot;, &quot;tag&quot;: &quot;Dashboard&quot;, &quot;body&quot;: &quot;Your real-time pulse on everything happening across projects. Every AI chat, update, and agent action \u2014 &lt;em&gt;all in one glanceable stream&lt;/em&gt;. No more tab-hopping to stay in the loop.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
         <div class="widget-header" style="color:var(--orange)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           Recent Activity
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="act-item"><div class="act-icon" style="background:var(--purple-dim);color:var(--purple)">&#9881;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>TechCorp agreement</strong> &mdash; 3 clauses flagged</div><div class="act-meta"><span class="act-project">TechCorp Merger</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
-          <div class="act-item"><div class="act-icon" style="background:var(--green-dim);color:var(--green)">&#10003;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>Johnson motion to suppress</strong> drafted</div><div class="act-meta"><span class="act-project">Johnson v. State</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
-          <div class="act-item"><div class="act-icon" style="background:var(--accent-glow);color:var(--accent)">&#9672;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>CLE webinar</strong> &mdash; 2 credits earned</div><div class="act-meta"><span class="act-project">Bar CLE</span> 4h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
-          <div class="act-item"><div class="act-icon" style="background:var(--yellow-dim);color:var(--yellow)">&#9733;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>Billing:</strong> 142 hours this month</div><div class="act-meta"><span class="act-project">Billing &amp; Time</span> 5h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
+          <div class="act-item"><div class="act-icon" style="background:var(--green-dim);color:var(--green)">&#10003;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>Eclipse vocals comped — 47 takes,</strong> 3 keepers</div><div class="act-meta"><span class="act-project">Eclipse</span> 1h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
+          <div class="act-item"><div class="act-icon" style="background:var(--accent-glow);color:var(--accent)">&#9672;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>Stem bounce automationd</strong> — tech -5%, energy +5%</div><div class="act-meta"><span class="act-project">Client Mixes</span> 2h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
+          <div class="act-item"><div class="act-icon" style="background:var(--purple-dim);color:var(--purple)">&#9881;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>Soothe2 plugin installed</strong> — library re-scanned</div><div class="act-meta"><span class="act-project">Reference Library</span> 3h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
+          <div class="act-item"><div class="act-icon" style="background:var(--yellow-dim);color:var(--yellow)">&#9733;</div><div style="flex:1;min-width:0"><div class="act-text"><strong>Loudness pass — all 11 tracks at -14 LUFS</strong></div><div class="act-meta"><span class="act-project">Master Bus</span> 4h ago</div></div><span class="act-arrow">&rsaquo;</span></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -630,9 +623,9 @@
         </div>
         <div class="widget-body">
           <div class="task-counts">
-            <div class="task-count-box"><div class="task-count-label">Overdue</div><div class="task-count-value danger">3</div></div>
-            <div class="task-count-box"><div class="task-count-label">Today</div><div class="task-count-value">5</div></div>
-            <div class="task-count-box"><div class="task-count-label">This Week</div><div class="task-count-value">12</div></div>
+            <div class="task-count-box"><div class="task-count-label">Overdue</div><div class="task-count-value danger">36</div></div>
+            <div class="task-count-box"><div class="task-count-label">Today</div><div class="task-count-value">0</div></div>
+            <div class="task-count-box"><div class="task-count-label">This Week</div><div class="task-count-value">0</div></div>
           </div>
           <div class="view-all-link">View all tasks <span>&rarr;</span></div>
         </div>
@@ -640,16 +633,16 @@
       </div>
 
       <!-- Project Health -->
-      <div class="widget wg-4" data-widget="health" data-guide="{&quot;title&quot;: &quot;Case Health Monitor&quot;, &quot;tag&quot;: &quot;Case Tracking&quot;, &quot;body&quot;: &quot;Real-time progress across your active cases \u2014 &lt;em&gt;deadlines, tasks, and completion status&lt;/em&gt;. Spot overdue items before they become problems. One widget, zero guesswork.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
+      <div class="widget wg-4" data-widget="health" data-guide="{&quot;title&quot;: &quot;System Health Monitor&quot;, &quot;tag&quot;: &quot;DevOps&quot;, &quot;body&quot;: &quot;Real-time health of your dev environment \u2014 &lt;em&gt;memory, CPU, disk, and running processes&lt;/em&gt;. Spot resource hogs before they crash your build. One widget, zero guesswork.&quot;, &quot;cat&quot;: &quot;kat-excited&quot;}">
         <div class="widget-header">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
           Project Health
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="ph-item"><span class="ph-dot" style="background:var(--orange)"></span><span class="ph-name">TechCorp Merger</span><div class="ph-bar"><div class="ph-fill" style="width:65%;background:var(--orange)"></div></div><span class="ph-tasks">8/12</span><span class="ph-pct">65%</span></div>
-          <div class="ph-item"><span class="ph-dot" style="background:var(--red)"></span><span class="ph-name">Johnson v. State</span><div class="ph-bar"><div class="ph-fill" style="width:40%;background:var(--red)"></div></div><span class="ph-tasks">3/8</span><span class="ph-overdue">2 overdue</span><span class="ph-pct">40%</span></div>
-          <div class="ph-item"><span class="ph-dot" style="background:var(--green)"></span><span class="ph-name">IP Litigation — Nexus</span><div class="ph-bar"><div class="ph-fill" style="width:85%;background:var(--green)"></div></div><span class="ph-tasks">6/7</span><span class="ph-pct">85%</span></div>
+          <div class="ph-item"><span class="ph-dot" style="background:var(--orange)"></span><span class="ph-name">Memory test 4</span><span class="ph-tasks">0/51</span><span class="ph-overdue">34 overdue</span><span class="ph-pct">0%</span></div>
+          <div class="ph-item"><span class="ph-dot" style="background:var(--red)"></span><span class="ph-name">Mia's Telephone</span><span class="ph-tasks">0/2</span><span class="ph-overdue">2 overdue</span><span class="ph-pct">0%</span></div>
+          <div class="ph-item"><span class="ph-dot" style="background:var(--green)"></span><span class="ph-name">PiNG!</span><div class="ph-bar"><div class="ph-fill" style="width:16%;background:var(--green)"></div></div><span class="ph-tasks">6/37</span><span class="ph-pct">16%</span></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -665,15 +658,15 @@
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"TechCorp merger review" &mdash; 3660KB context</div><button class="brain-action" data-tooltip="Jump to this chat before context runs out — save your conversation">Open Chat</button></div></div>
-          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"Johnson motion research" &mdash; 1867KB context</div><button class="brain-action">Open Chat</button></div></div>
-          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"IP portfolio analysis" &mdash; 1603KB context</div></div></div>
+          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"Local LLM thesis" &mdash; 3660KB context</div><button class="brain-action" data-tooltip="Jump to this chat before context runs out — save your conversation">Open Chat</button></div></div>
+          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"Local LLM Rehab" &mdash; 1867KB context</div><button class="brain-action">Open Chat</button></div></div>
+          <div class="brain-item"><div class="brain-icon" style="background:var(--orange-dim);color:var(--orange)">&#9888;</div><div class="brain-info"><div class="brain-title">Context Approaching Limit</div><div class="brain-detail">"Browser Talk" &mdash; 1603KB context</div></div></div>
         </div>
         <div class="resize-handle"></div>
       </div>
 
       <!-- Calendar -->
-      <div class="widget wg-7" data-widget="calendar" data-guide="{&quot;title&quot;: &quot;Integrated Calendar&quot;, &quot;tag&quot;: &quot;Planning&quot;, &quot;body&quot;: &quot;Your schedule, inline with your workspace. &lt;em&gt;See deadlines alongside active AI tasks&lt;/em&gt; \u2014 no context-switching to a separate calendar app. Plan your week without leaving PiNG.&quot;, &quot;cat&quot;: &quot;kat-lean-left&quot;}">
+      <div class="widget wg-7" data-widget="calendar" data-guide="{&quot;title&quot;: &quot;Integrated Calendar&quot;, &quot;tag&quot;: &quot;Planning&quot;, &quot;body&quot;: &quot;Your schedule, inline with your workspace. &lt;em&gt;See deadlines alongside active AI tasks&lt;/em&gt; \u2014 no context-switching to a separate calendar app. Plan your research calendar without leaving PiNG.&quot;, &quot;cat&quot;: &quot;kat-lean-left&quot;}">
         <div class="widget-header">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           March 2026
@@ -682,8 +675,8 @@
         <div class="widget-body">
           <div class="cal-grid">
             <div class="cal-head">Sun</div><div class="cal-head">Mon</div><div class="cal-head">Tue</div><div class="cal-head">Wed</div><div class="cal-head">Thu</div><div class="cal-head">Fri</div><div class="cal-head">Sat</div>
-            <div class="cal-cell"><div class="day-num">1</div><div class="cal-evt deadline">Filing: Johnson</div></div>
-            <div class="cal-cell"><div class="day-num">2</div><div class="cal-evt meeting">Client mtg: TechCorp</div></div>
+            <div class="cal-cell"><div class="day-num">1</div><div class="cal-evt deadline">deadline...</div></div>
+            <div class="cal-cell"><div class="day-num">2</div><div class="cal-evt meeting">offline deadline...</div></div>
             <div class="cal-cell"><div class="day-num">3</div></div>
             <div class="cal-cell"><div class="day-num">4</div></div>
             <div class="cal-cell"><div class="day-num">5</div></div>
@@ -699,7 +692,7 @@
             <div class="cal-cell"><div class="day-num">15</div></div>
             <div class="cal-cell"><div class="day-num">16</div></div>
             <div class="cal-cell"><div class="day-num">17</div></div>
-            <div class="cal-cell"><div class="day-num">18</div><div class="cal-evt task">Discovery due</div><div class="cal-evt reminder">Depo: witness #3</div></div>
+            <div class="cal-cell"><div class="day-num">18</div><div class="cal-evt task">deadline is on...</div><div class="cal-evt reminder">my deadline...</div></div>
             <div class="cal-cell"><div class="day-num">19</div></div>
             <div class="cal-cell"><div class="day-num">20</div></div>
             <div class="cal-cell"><div class="day-num">21</div></div>
@@ -725,18 +718,18 @@
       <!-- ═══ ROW 3 ═══ -->
 
       <!-- Focus -->
-      <div class="widget wg-4" data-widget="focus" data-guide="{&quot;title&quot;: &quot;Focus Mode Timer&quot;, &quot;tag&quot;: &quot;Deep Work&quot;, &quot;body&quot;: &quot;Pomodoro-style focus sessions &lt;em&gt;built into your AI workspace&lt;/em&gt;. Start a focus block and let PiNG queue non-urgent notifications. Draft deeper, bill smarter.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
+      <div class="widget wg-4" data-widget="focus" data-guide="{&quot;title&quot;: &quot;Focus Mode Timer&quot;, &quot;tag&quot;: &quot;Deep Work&quot;, &quot;body&quot;: &quot;Pomodoro-style focus sessions &lt;em&gt;built into your AI workspace&lt;/em&gt;. Start a focus block and let PiNG queue non-urgent notifications. Code deeper, ship faster.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
         <div class="widget-header" style="color:var(--red)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
           Focus
-          <span class="badge" style="background:var(--red-dim);color:var(--red)">3 overdue</span>
+          <span class="badge" style="background:var(--red-dim);color:var(--red)">36 overdue</span>
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="focus-row"><div class="focus-text">Review TechCorp indemnification</div><div class="focus-meta">Due today</div><span class="focus-arrow">&rsaquo;</span></div>
-          <div class="focus-row"><div class="focus-text">Draft partner memo</div><div class="focus-meta">Due tomorrow</div><span class="focus-arrow">&rsaquo;</span></div>
-          <div class="focus-row"><div class="focus-text">Prepare Johnson deposition</div><div class="focus-meta">2d overdue</div><span class="focus-arrow">&rsaquo;</span></div>
-          <div class="focus-row"><div class="focus-text">File discovery response by Friday</div><div class="focus-meta">Due Fri</div><span class="focus-arrow">&rsaquo;</span></div>
+          <div class="focus-row"><div class="focus-text">Bounce stems for Aria's track</div><div class="focus-meta">due today</div><span class="focus-arrow">&rsaquo;</span></div>
+          <div class="focus-row"><div class="focus-text">Send rough mix to Aria</div><div class="focus-meta">due tomorrow</div><span class="focus-arrow">&rsaquo;</span></div>
+          <div class="focus-row"><div class="focus-text">Re-amp guitar DI</div><div class="focus-meta">due Fri</div><span class="focus-arrow">&rsaquo;</span></div>
+          <div class="focus-row"><div class="focus-text">Master EP for Spotify pre-save</div><div class="focus-meta">due next Mon</div><span class="focus-arrow">&rsaquo;</span></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -750,9 +743,9 @@
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="agent-row"><span class="agent-dot running"></span><div style="flex:1;min-width:0"><div class="agent-name">Contract Analyzer</div><div class="agent-task">Reviewing merger section 7.2...</div></div><span class="agent-model opus">opus</span></div>
-          <div class="agent-row"><span class="agent-dot running"></span><div style="flex:1;min-width:0"><div class="agent-name">Legal Researcher</div><div class="agent-task">Searching CA non-compete law...</div></div><span class="agent-model opus">opus</span></div>
-          <div class="agent-row"><span class="agent-dot idle"></span><div style="flex:1;min-width:0"><div class="agent-name">Billing Tracker</div><div class="agent-task">Idle &mdash; last run 30m ago</div></div><span class="agent-model opus" style="background:var(--bg-active);color:var(--text-muted)">idle</span></div>
+          <div class="agent-row"><span class="agent-dot running"></span><div style="flex:1;min-width:0"><div class="agent-name">Mix Reference Coach</div><div class="agent-task">A/B-ing against Eclipse master...</div></div><span class="agent-model opus">opus</span></div>
+          <div class="agent-row"><span class="agent-dot running"></span><div style="flex:1;min-width:0"><div class="agent-name">LUFS Monitor</div><div class="agent-task">Tracking integrated loudness...</div></div><span class="agent-model opus">opus</span></div>
+          <div class="agent-row"><span class="agent-dot idle"></span><div style="flex:1;min-width:0"><div class="agent-name">Market Scanner</div><div class="agent-task">Idle 15m</div></div><span class="agent-model opus" style="background:var(--bg-active);color:var(--text-muted)">idle</span></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -765,14 +758,14 @@
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="cost-row"><span class="cost-label">This month</span><span class="cost-value" style="color:var(--accent)">$32.50</span></div>
-          <div class="cost-row"><span class="cost-label">Budget</span><span class="cost-value">$100.00</span></div>
-          <div class="cost-row"><span class="cost-label">Total tokens</span><span class="cost-value">6.8M</span></div>
+          <div class="cost-row"><span class="cost-label">This month</span><span class="cost-value" style="color:var(--accent)">$45.80</span></div>
+          <div class="cost-row"><span class="cost-label">Budget</span><span class="cost-value">$150.00</span></div>
+          <div class="cost-row"><span class="cost-label">Total tokens</span><span class="cost-value">9.4M</span></div>
           <div style="height:1px;background:var(--border-subtle);margin:6px 0"></div>
-          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">Westlaw</span><span class="conn-detail">linked</span></div>
-          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">Clio</span><span class="conn-detail">synced</span></div>
-          <div class="conn-row"><span class="conn-dot warn"></span><span class="conn-name">Court Filing</span><span class="conn-detail">3 pending</span></div>
-          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">Calendar</span><span class="conn-detail">12 deadlines</span></div>
+          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">Splice</span><span class="conn-detail">linked</span></div>
+          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">FactSet</span><span class="conn-detail">synced</span></div>
+          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">DistroKid</span><span class="conn-detail">auto-filing</span></div>
+          <div class="conn-row"><span class="conn-dot ok"></span><span class="conn-name">Slack</span><span class="conn-detail">research</span></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -780,7 +773,7 @@
       <!-- ═══ ROW 4 ═══ -->
 
       <!-- Scheduled Tasks -->
-      <div class="widget wg-6" data-widget="scheduled" data-guide="{&quot;title&quot;: &quot;Scheduled Tasks&quot;, &quot;tag&quot;: &quot;Automation&quot;, &quot;body&quot;: &quot;Set it and forget it \u2014 &lt;em&gt;cron-style automation for your AI workflows&lt;/em&gt;. Schedule case digests, filing deadline checks, or billing reconciliations. Your AI assistant works while you sleep.&quot;, &quot;cat&quot;: &quot;kat-perk&quot;}">
+      <div class="widget wg-6" data-widget="scheduled" data-guide="{&quot;title&quot;: &quot;Scheduled Tasks&quot;, &quot;tag&quot;: &quot;Automation&quot;, &quot;body&quot;: &quot;Set it and forget it \u2014 &lt;em&gt;cron-style automation for your AI workflows&lt;/em&gt;. Schedule mix analysis, market briefs, or sector scans. Your AI assistant works while you sleep.&quot;, &quot;cat&quot;: &quot;kat-perk&quot;}">
         <div class="widget-header">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           Scheduled Tasks
@@ -788,9 +781,9 @@
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
-          <div class="focus-row"><div style="flex:1"><div class="focus-text">Daily case digest</div><div class="focus-meta" style="margin-top:2px">Morrison &middot; Every day 8:00 AM &middot; Next: tomorrow</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
-          <div class="focus-row"><div style="flex:1"><div class="focus-text">Weekly billing</div><div class="focus-meta" style="margin-top:2px">Billing &middot; Fridays 5:00 PM &middot; Next: Mar 14</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
-          <div class="focus-row"><div style="flex:1"><div class="focus-text">Filing deadline check</div><div class="focus-meta" style="margin-top:2px">All cases &middot; Daily 7:00 AM &middot; Next: tomorrow</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
+          <div class="focus-row"><div style="flex:1"><div class="focus-text">Daily session brief</div><div class="focus-meta" style="margin-top:2px">Eclipse &middot; Every day 7:00 AM &middot; Next: tomorrow</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
+          <div class="focus-row"><div style="flex:1"><div class="focus-text">Weekly LUFS audit</div><div class="focus-meta" style="margin-top:2px">Client Mixes &middot; Fridays 4:00 PM &middot; Next: Mar 14</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
+          <div class="focus-row"><div style="flex:1"><div class="focus-text">Earnings calendar alert</div><div class="focus-meta" style="margin-top:2px">All projects &middot; Daily 6:00 AM &middot; Next: tomorrow</div></div><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:var(--green-dim);color:var(--green)">active</span></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -804,9 +797,9 @@
         </div>
         <div class="widget-body" style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
           <div class="stat-box"><div class="stat-value">8</div><div class="stat-label">Projects</div></div>
-          <div class="stat-box"><div class="stat-value" style="color:var(--accent)">61</div><div class="stat-label">Chats</div></div>
-          <div class="stat-box"><div class="stat-value" style="color:var(--green)">234</div><div class="stat-label">Documents</div></div>
-          <div class="stat-box"><div class="stat-value">47</div><div class="stat-label">Precedents</div></div>
+          <div class="stat-box"><div class="stat-value" style="color:var(--accent)">70</div><div class="stat-label">Chats</div></div>
+          <div class="stat-box"><div class="stat-value" style="color:var(--green)">18</div><div class="stat-label">Models</div></div>
+          <div class="stat-box"><div class="stat-value">156</div><div class="stat-label">Reports</div></div>
         </div>
         <div class="resize-handle"></div>
       </div>
@@ -816,21 +809,21 @@
         <div class="widget-header" style="color:var(--accent)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           CatSkills
-          <span class="badge" style="background:rgba(0, 82, 204,0.1);color:var(--accent)">47</span>
+          <span class="badge" style="background:rgba(255, 149, 0,0.1);color:var(--accent)">47</span>
           <div class="drag-hint"><div class="drag-dots"><span></span><span></span></div></div>
         </div>
         <div class="widget-body">
           <div class="sk-row">
-            <a class="sk-card" href="skills-detail.html" data-tooltip="Open this CatSkill — view details, edit, or run it"><div class="sk-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="sk-info"><div class="sk-name">Contract Reviewer</div><div class="sk-type">Prompt</div></div><span class="sk-meta">22x</span></a>
-            <a class="sk-card" href="skills-detail.html"><div class="sk-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="sk-info"><div class="sk-name">Legal Research</div><div class="sk-type">Integration</div></div><span class="sk-meta">20x</span></a>
+            <a class="sk-card" href="skills-detail.html" data-tooltip="Open this CatSkill — view details, edit, or run it"><div class="sk-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="sk-info"><div class="sk-name">Mix Reference Coach</div><div class="sk-type">Prompt</div></div><span class="sk-meta">24x</span></a>
+            <a class="sk-card" href="skills-detail.html"><div class="sk-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="sk-info"><div class="sk-name">Vocal Chain</div><div class="sk-type">Integration</div></div><span class="sk-meta">20x</span></a>
           </div>
           <div class="sk-row">
-            <a class="sk-card" href="skills-detail.html"><div class="sk-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="sk-info"><div class="sk-name">Brief Writer</div><div class="sk-type">Workflow</div></div><span class="sk-meta">18x</span></a>
-            <a class="sk-card" href="skills-detail.html"><div class="sk-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="sk-info"><div class="sk-name">Discovery Analyzer</div><div class="sk-type">Prompt</div></div><span class="sk-meta">14x</span></a>
+            <a class="sk-card" href="skills-detail.html"><div class="sk-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="sk-info"><div class="sk-name">Mix Risk</div><div class="sk-type">Workflow</div></div><span class="sk-meta">18x</span></a>
+            <a class="sk-card" href="skills-detail.html"><div class="sk-icon prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="sk-info"><div class="sk-name">Market Screener</div><div class="sk-type">Prompt</div></div><span class="sk-meta">15x</span></a>
           </div>
           <div class="sk-footer">
             <div class="sk-stat"><span class="sk-stat-item"><strong>28</strong> prompt</span><span class="sk-stat-item"><strong>10</strong> integration</span><span class="sk-stat-item"><strong>9</strong> workflow</span></div>
-            <a href="skills-browse.html">All CatSkills &rarr;</a>
+            <a href="skills-detail.html">All CatSkills &rarr;</a>
           </div>
         </div>
         <div class="resize-handle"></div>
@@ -850,31 +843,21 @@
           <!-- Today -->
           <div>
             <div class="session-group-label">Today</div>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit;background:var(--accent-glow)"><span class="session-dot active"></span><div class="session-info"><div class="session-name" style="color:var(--accent)">Review TechCorp merger agreement</div><div class="session-meta"><span class="session-project-tag">TechCorp</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot active"></span><div class="session-info"><div class="session-name">Draft Johnson motion to suppress</div><div class="session-meta"><span class="session-project-tag">Johnson</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot active"></span><div class="session-info"><div class="session-name">IP case law precedent search</div><div class="session-meta"><span class="session-project-tag">IP Litigation</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Prepare deposition questions</div><div class="session-meta"><span class="session-project-tag">Johnson</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Billing hours reconciliation</div><div class="session-meta"><span class="session-project-tag">Billing</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">CLE credit tracking</div><div class="session-meta"><span class="session-project-tag">Bar CLE</span> <span class="session-model">sonnet</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Client intake — new matter</div><div class="session-meta"><span class="session-project-tag">Morrison</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit;background:var(--accent-glow)"><span class="session-dot active"></span><div class="session-info"><div class="session-name" style="color:var(--accent)">Vocal comp — 'Eclipse' lead</div><div class="session-meta"><span class="session-project-tag">Eclipse</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot active"></span><div class="session-info"><div class="session-name">Layer 808 sub on Track 03</div><div class="session-meta"><span class="session-project-tag">Mix Templates</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Aria's EP — mix revision 3</div><div class="session-meta"><span class="session-project-tag">Client Mixes</span> <span class="session-model">opus</span></div></div></a>
           </div>
           <!-- Yesterday -->
           <div>
             <div class="session-group-label">Yesterday</div>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Review non-compete enforceability...</div><div class="session-meta"><span class="session-project-tag">TechCorp</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Draft discovery response to defendant</div><div class="session-meta"><span class="session-project-tag">Johnson</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Splice loop browse — trap kit</div><div class="session-meta"><span class="session-project-tag">Samples</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">A/B reference Tame Impala master</div><div class="session-meta"><span class="session-project-tag">Reference Library</span> <span class="session-model">opus</span></div></div></a>
           </div>
           <!-- Older -->
           <div>
             <div class="session-group-label">Older</div>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Nexus patent claim mapping</div><div class="session-meta"><span class="session-project-tag">IP Litigation</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Tenant eviction defense brief</div><div class="session-meta"><span class="session-project-tag">Pro Bono</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Contract template library setup</div><div class="session-meta"><span class="session-project-tag">Templates</span> <span class="session-model">sonnet</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">March billing summary generation</div><div class="session-meta"><span class="session-project-tag">Billing</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Regulatory compliance check — FDA</div><div class="session-meta"><span class="session-project-tag">Morrison</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Case law digest — employment law</div><div class="session-meta"><span class="session-project-tag">Morrison</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Expert witness identification — Nexus</div><div class="session-meta"><span class="session-project-tag">IP Litigation</span> <span class="session-model">opus</span></div></div></a>
-            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">CLE ethics seminar notes review</div><div class="session-meta"><span class="session-project-tag">Bar CLE</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Master EP for streaming LUFS</div><div class="session-meta"><span class="session-project-tag">Master Bus</span> <span class="session-model">opus</span></div></div></a>
+            <a href="chat.html" class="session-item" style="text-decoration:none;color:inherit"><span class="session-dot idle"></span><div class="session-info"><div class="session-name">Glue compressor — mix bus</div><div class="session-meta"><span class="session-project-tag">Mix Templates</span> <span class="session-model">opus</span></div></div></a>
           </div>
         </div>
         <div class="resize-handle"></div>
@@ -1185,7 +1168,7 @@ function toggleProjectChats(wrapper) {
   document.body.appendChild(card);
 
   // Inject KAT SVG
-  document.getElementById('guide-kat').innerHTML = `<svg class="kat-mascot" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">  <!-- Body -->  <ellipse class="kat-body" cx="28" cy="44" rx="14" ry="10" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Tail -->  <path class="kat-tail" d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#0052cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Head -->  <g class="kat-head">    <circle cx="38" cy="26" r="12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Left ear -->    <path class="kat-ear-l" d="M30 16 L27 4 L35 12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M31 14 L29 7 L34 12" stroke="#7c3aed" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Right ear -->    <path class="kat-ear-r" d="M44 14 L48 2 L50 12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M45 13 L47.5 5 L49 12" stroke="#7c3aed" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Eyes -->    <g class="kat-eyes">      <ellipse class="kat-eye-l" cx="33" cy="25" rx="2.5" ry="3" fill="#0052cc"/>      <ellipse class="kat-eye-r" cx="43" cy="24" rx="2.5" ry="3" fill="#0052cc"/>      <ellipse class="kat-pupil-l" cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#fafaf8"/>      <ellipse class="kat-pupil-r" cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#fafaf8"/>      <circle cx="34" cy="24" r="0.8" fill="#151820"/>      <circle cx="44" cy="23" r="0.8" fill="#151820"/>    </g>    <!-- Nose -->    <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#7c3aed"/>    <!-- Mouth -->    <path class="kat-mouth" d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Whiskers -->    <g class="kat-whiskers">      <line x1="28" y1="27" x2="20" y2="25" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="29" x2="19" y2="29" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="31" x2="20" y2="33" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="26" x2="56" y2="24" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="28" x2="57" y2="28" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="30" x2="56" y2="32" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>    </g>  </g>  <!-- Back leg / tail extension -->  <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <path d="M50 39 L50 40.5" stroke="#0052cc" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <path d="M52 38.5 L52 40" stroke="#0052cc" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <!-- Paws -->  <path class="kat-paw-r" d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <path class="kat-paw-l" d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Chest fur lines -->  <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#0052cc" stroke-width="1" opacity="0.3" stroke-linecap="round"/>  <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#0052cc" stroke-width="1" opacity="0.2" stroke-linecap="round"/></svg>`;
+  document.getElementById('guide-kat').innerHTML = `<svg class="kat-mascot" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">  <!-- Body -->  <ellipse class="kat-body" cx="28" cy="44" rx="14" ry="10" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Tail -->  <path class="kat-tail" d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#ff9500" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Head -->  <g class="kat-head">    <circle cx="38" cy="26" r="12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Left ear -->    <path class="kat-ear-l" d="M30 16 L27 4 L35 12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M31 14 L29 7 L34 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Right ear -->    <path class="kat-ear-r" d="M44 14 L48 2 L50 12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M45 13 L47.5 5 L49 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Eyes -->    <g class="kat-eyes">      <ellipse class="kat-eye-l" cx="33" cy="25" rx="2.5" ry="3" fill="#ff9500"/>      <ellipse class="kat-eye-r" cx="43" cy="24" rx="2.5" ry="3" fill="#ff9500"/>      <ellipse class="kat-pupil-l" cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0d0d0d"/>      <ellipse class="kat-pupil-r" cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0d0d0d"/>      <circle cx="34" cy="24" r="0.8" fill="#151820"/>      <circle cx="44" cy="23" r="0.8" fill="#151820"/>    </g>    <!-- Nose -->    <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#a78bfa"/>    <!-- Mouth -->    <path class="kat-mouth" d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Whiskers -->    <g class="kat-whiskers">      <line x1="28" y1="27" x2="20" y2="25" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="29" x2="19" y2="29" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="31" x2="20" y2="33" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="26" x2="56" y2="24" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="28" x2="57" y2="28" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="30" x2="56" y2="32" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>    </g>  </g>  <!-- Back leg / tail extension -->  <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <path d="M50 39 L50 40.5" stroke="#ff9500" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <path d="M52 38.5 L52 40" stroke="#ff9500" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <!-- Paws -->  <path class="kat-paw-r" d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <path class="kat-paw-l" d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Chest fur lines -->  <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#ff9500" stroke-width="1" opacity="0.3" stroke-linecap="round"/>  <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#ff9500" stroke-width="1" opacity="0.2" stroke-linecap="round"/></svg>`;
 
   let activeEl = null;
   let hideTimeout = null;

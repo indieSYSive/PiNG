@@ -3,32 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PiNG! — Skills Library</title>
+<title>PiNG! — Eclipse Sessions</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
-    --bg-deep: #fafaf8; --bg-surface: #f5f5f2; --bg-elevated: #ffffff;
-    --bg-hover: #eeede9; --bg-active: #e6e5e0;
-    --border: #d8d8d2; --border-subtle: #e4e4de;
-    --text-primary: #1a1a1a; --text-secondary: #5a5a66; --text-muted: #8a8a96;
-    --accent: #0052cc; --accent-dim: #003d99; --accent-glow: rgba(0, 82, 204,0.08);
-    --warm-accent: #0077ed;
-    --green: #16a34a; --red: #dc2626; --yellow: #f59e0b;
-    --purple: #7c3aed; --orange: #f59e0b; --cyan: #0284c7;
-    --green-dim: rgba(22, 163, 74,0.15); --red-dim: rgba(220, 38, 38,0.12);
-    --purple-dim: rgba(124, 58, 237,0.12); --orange-dim: rgba(245, 158, 11,0.12);
-    --cyan-dim: rgba(2, 132, 199,0.10); --yellow-dim: rgba(245, 158, 11,0.12);
+    --bg-deep: #0d0d0d; --bg-surface: #141414; --bg-elevated: #1c1c1c;
+    --bg-hover: #242424; --bg-active: #2c2c2c;
+    --border: #2a2a2a; --border-subtle: #1e1e1e;
+    --text-primary: #f5f5f5; --text-secondary: #999999; --text-muted: #666666;
+    --accent: #ff9500; --accent-dim: #cc7700; --accent-glow: rgba(255, 149, 0,0.12);
+    --warm-accent: #ffaa1a;
+    --green: #00d084; --red: #ff4444; --yellow: #ffb84d;
+    --purple: #a78bfa; --orange: #ffb84d; --cyan: #ff9500;
+    --green-dim: rgba(0,208,132,0.15); --red-dim: rgba(255, 68, 68,0.12);
+    --purple-dim: rgba(167, 139, 250,0.12); --orange-dim: rgba(255, 184, 77,0.12);
+    --cyan-dim: rgba(255, 149, 0,0.10); --yellow-dim: rgba(255, 184, 77,0.12);
     --blue: #3b82f6; --blue-dim: rgba(59,130,246,0.12);
     --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
     --font-mono: 'SF Mono', 'Fira Code', monospace;
     --radius-sm: 6px; --radius-lg: 12px;
-    --card-shadow: 0 2px 8px rgba(250, 250, 248,0.6), 0 0 0 1px rgba(26, 26, 26,0.02);
-    --card-shadow-hover: 0 4px 16px rgba(250, 250, 248,0.7), 0 0 0 1px rgba(26, 26, 26,0.04);
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03);
+    --card-shadow-hover: 0 4px 16px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
   }
   body { font-family: var(--font); background: var(--bg-deep); color: var(--text-primary); font-size: 13px; -webkit-font-smoothing: antialiased; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
   ::-webkit-scrollbar { width: 5px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: rgba(26, 26, 26,0.08); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
 
   /* ===== TITLE BAR ===== */
   .title-bar { height: 38px; background: var(--bg-surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 12px; flex-shrink: 0; -webkit-app-region: drag; }
@@ -56,8 +56,8 @@
   .sb-nav-item.active { background: var(--accent-glow); color: var(--accent); }
   .sb-nav-item svg { width: 14px; height: 14px; flex-shrink: 0; opacity: 0.7; }
   .sb-nav-item.active svg { opacity: 1; }
-  .sb-nav-badge { margin-left: auto; font-size: 10px; font-weight: 600; min-width: 16px; height: 16px; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 0 4px; background: rgba(26, 26, 26,0.08); color: var(--text-muted); }
-  .sb-separator { height: 1px; background: rgba(26, 26, 26,0.04); margin: 6px 14px; }
+  .sb-nav-badge { margin-left: auto; font-size: 10px; font-weight: 600; min-width: 16px; height: 16px; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 0 4px; background: rgba(255,255,255,0.08); color: var(--text-muted); }
+  .sb-separator { height: 1px; background: rgba(255,255,255,0.04); margin: 6px 14px; }
   .sb-section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); padding: 10px 14px 4px; }
   .sb-categories { flex: 1; overflow-y: auto; padding: 0 8px; }
   .sb-cat { display: flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: var(--radius-sm); font-size: 12px; color: var(--text-secondary); cursor: pointer; transition: all 0.1s; }
@@ -71,9 +71,9 @@
   .sb-subcats.open { display: block; }
   .sb-subcat { padding: 4px 10px; font-size: 11px; color: var(--text-muted); cursor: pointer; border-radius: var(--radius-sm); transition: all 0.1s; }
   .sb-subcat:hover { color: var(--text-secondary); background: var(--bg-hover); }
-  .sb-footer { border-top: 1px solid rgba(26, 26, 26,0.04); padding: 8px; }
-  .sb-new-cat { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 6px; border-radius: var(--radius-sm); font-size: 11px; color: var(--text-muted); cursor: pointer; transition: all 0.12s; border: 1px dashed rgba(26, 26, 26,0.06); background: transparent; font-family: var(--font); width: 100%; }
-  .sb-new-cat:hover { color: var(--text-secondary); border-color: rgba(26, 26, 26,0.12); background: var(--bg-hover); }
+  .sb-footer { border-top: 1px solid rgba(255,255,255,0.04); padding: 8px; }
+  .sb-new-cat { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 6px; border-radius: var(--radius-sm); font-size: 11px; color: var(--text-muted); cursor: pointer; transition: all 0.12s; border: 1px dashed rgba(255,255,255,0.06); background: transparent; font-family: var(--font); width: 100%; }
+  .sb-new-cat:hover { color: var(--text-secondary); border-color: rgba(255,255,255,0.12); background: var(--bg-hover); }
   .sb-new-cat svg { width: 12px; height: 12px; }
   .sb-skill-count { font-size: 10px; color: var(--text-muted); text-align: center; padding: 6px 0 2px; }
 
@@ -95,17 +95,17 @@
   .toggle-btn.active { background: var(--accent-glow); color: var(--accent); }
   .toggle-btn svg { width: 13px; height: 13px; }
   .sort-select { padding: 6px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-elevated); font-size: 11px; color: var(--text-secondary); font-family: var(--font); cursor: pointer; height: 30px; appearance: none; -webkit-appearance: none; padding-right: 24px; background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23555d73' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; }
-  .sort-select:hover { border-color: rgba(26, 26, 26,0.1); }
+  .sort-select:hover { border-color: rgba(255,255,255,0.1); }
   .btn-primary { display: flex; align-items: center; gap: 5px; padding: 6px 14px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; cursor: pointer; border: none; font-family: var(--font); background: var(--accent); color: #fff; height: 30px; transition: all 0.12s; }
   .btn-primary:hover { background: #5daaff; }
   .btn-primary svg { width: 13px; height: 13px; }
   .btn-secondary { display: flex; align-items: center; gap: 5px; padding: 6px 14px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; cursor: pointer; border: 1px solid var(--border-subtle); font-family: var(--font); background: var(--bg-elevated); color: var(--text-secondary); height: 30px; transition: all 0.12s; }
-  .btn-secondary:hover { background: var(--bg-hover); border-color: rgba(26, 26, 26,0.1); }
+  .btn-secondary:hover { background: var(--bg-hover); border-color: rgba(255,255,255,0.1); }
 
   /* ===== TYPE FILTER PILLS ===== */
   .type-filters { display: flex; gap: 6px; padding: 0 24px 12px; background: var(--bg-surface); border-bottom: 1px solid var(--border); flex-shrink: 0; }
   .type-pill { display: flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: var(--radius-sm); font-size: 11px; color: var(--text-secondary); cursor: pointer; border: 1px solid var(--border-subtle); background: var(--bg-elevated); transition: all 0.12s; font-family: var(--font); }
-  .type-pill:hover { border-color: rgba(26, 26, 26,0.1); color: var(--text-primary); }
+  .type-pill:hover { border-color: rgba(255,255,255,0.1); color: var(--text-primary); }
   .type-pill.active { border-color: var(--accent-dim); color: var(--accent); background: var(--accent-glow); }
   .type-pill svg { width: 12px; height: 12px; }
   .type-pill .pill-count { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); }
@@ -131,8 +131,8 @@
   .skill-card-type { font-size: 10px; color: var(--text-muted); }
   .skill-card-desc { font-size: 11px; color: var(--text-muted); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 8px; flex: 1; }
   .skill-card-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 10px; }
-  .skill-tag { font-size: 10px; padding: 2px 7px; border-radius: 3px; background: rgba(26, 26, 26,0.04); color: var(--text-muted); }
-  .skill-card-footer { display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-top: 1px solid rgba(26, 26, 26,0.04); }
+  .skill-tag { font-size: 10px; padding: 2px 7px; border-radius: 3px; background: rgba(255,255,255,0.04); color: var(--text-muted); }
+  .skill-card-footer { display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-top: 1px solid rgba(255,255,255,0.04); }
   .skill-usage { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); }
   .skill-footer-spacer { flex: 1; }
   .skill-star { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); cursor: pointer; color: var(--text-muted); transition: all 0.12s; }
@@ -140,7 +140,7 @@
   .skill-star.favorited { color: var(--yellow); }
   .skill-star svg { width: 13px; height: 13px; }
   .skill-inject { display: flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 10px; font-weight: 500; color: var(--accent); background: var(--accent-glow); border: none; cursor: pointer; font-family: var(--font); transition: all 0.12s; }
-  .skill-inject:hover { background: rgba(0, 82, 204,0.18); }
+  .skill-inject:hover { background: rgba(255, 149, 0,0.18); }
   .skill-inject svg { width: 11px; height: 11px; }
 
   /* ===== LIST VIEW ITEMS ===== */
@@ -173,7 +173,7 @@
   .detail-section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
   .detail-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
   .detail-tags { display: flex; gap: 5px; flex-wrap: wrap; }
-  .detail-tag { font-size: 10px; padding: 3px 8px; border-radius: 3px; background: rgba(26, 26, 26,0.04); color: var(--text-muted); }
+  .detail-tag { font-size: 10px; padding: 3px 8px; border-radius: 3px; background: rgba(255,255,255,0.04); color: var(--text-muted); }
   .detail-tools { display: flex; gap: 6px; flex-wrap: wrap; }
   .detail-tool-pill { display: flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 11px; font-family: var(--font-mono); background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border-subtle); }
   .detail-tool-pill svg { width: 11px; height: 11px; opacity: 0.5; }
@@ -195,9 +195,9 @@
   .detail-close:hover { background: var(--bg-hover); color: var(--text-primary); }
 
   /* ===== EDITOR OVERLAY ===== */
-  .editor-overlay { position: fixed; inset: 0; background: rgba(250, 250, 248,0.6); backdrop-filter: blur(8px); z-index: 1000; display: none; align-items: center; justify-content: center; }
+  .editor-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 1000; display: none; align-items: center; justify-content: center; }
   .editor-overlay.open { display: flex; }
-  .editor-panel { width: 680px; max-height: 85vh; background: var(--bg-surface); border-radius: var(--radius-lg); box-shadow: 0 16px 64px rgba(250, 250, 248,0.6), 0 0 0 1px rgba(26, 26, 26,0.06); display: flex; flex-direction: column; overflow: hidden; }
+  .editor-panel { width: 680px; max-height: 85vh; background: var(--bg-surface); border-radius: var(--radius-lg); box-shadow: 0 16px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06); display: flex; flex-direction: column; overflow: hidden; }
   .editor-header { display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
   .editor-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; flex: 1; }
   .editor-close { width: 28px; height: 28px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); transition: all 0.12s; }
@@ -212,7 +212,7 @@
   .editor-textarea.mono { font-family: var(--font-mono); font-size: 11px; min-height: 180px; line-height: 1.6; }
   .editor-type-selector { display: flex; gap: 6px; }
   .editor-type-option { display: flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: var(--radius-sm); font-size: 12px; cursor: pointer; border: 1px solid var(--border-subtle); background: var(--bg-elevated); color: var(--text-secondary); transition: all 0.12s; }
-  .editor-type-option:hover { border-color: rgba(26, 26, 26,0.1); }
+  .editor-type-option:hover { border-color: rgba(255,255,255,0.1); }
   .editor-type-option.selected { border-color: var(--accent-dim); background: var(--accent-glow); color: var(--accent); }
   .editor-type-option svg { width: 14px; height: 14px; }
   .editor-vars { display: flex; flex-direction: column; gap: 6px; }
@@ -221,12 +221,12 @@
   .editor-var-row input:focus { border-color: var(--accent-dim); }
   .editor-var-remove { width: 24px; height: 24px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); transition: all 0.12s; flex-shrink: 0; }
   .editor-var-remove:hover { color: var(--red); background: var(--red-dim); }
-  .editor-add-var { display: flex; align-items: center; gap: 4px; padding: 6px 10px; border-radius: var(--radius-sm); font-size: 11px; color: var(--text-muted); cursor: pointer; border: 1px dashed rgba(26, 26, 26,0.06); background: transparent; font-family: var(--font); transition: all 0.12s; width: fit-content; }
-  .editor-add-var:hover { color: var(--text-secondary); border-color: rgba(26, 26, 26,0.12); }
+  .editor-add-var { display: flex; align-items: center; gap: 4px; padding: 6px 10px; border-radius: var(--radius-sm); font-size: 11px; color: var(--text-muted); cursor: pointer; border: 1px dashed rgba(255,255,255,0.06); background: transparent; font-family: var(--font); transition: all 0.12s; width: fit-content; }
+  .editor-add-var:hover { color: var(--text-secondary); border-color: rgba(255,255,255,0.12); }
   .editor-gov-toggles { display: flex; flex-direction: column; gap: 6px; }
   .editor-gov-toggle { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-elevated); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); }
   .editor-gov-toggle-label { font-size: 12px; color: var(--text-secondary); }
-  .editor-switch { width: 32px; height: 16px; border-radius: 8px; background: rgba(26, 26, 26,0.08); cursor: pointer; position: relative; transition: background 0.15s; }
+  .editor-switch { width: 32px; height: 16px; border-radius: 8px; background: rgba(255,255,255,0.08); cursor: pointer; position: relative; transition: background 0.15s; }
   .editor-switch::after { content: ''; width: 12px; height: 12px; border-radius: 50%; background: var(--text-muted); position: absolute; top: 2px; left: 2px; transition: all 0.15s; }
   .editor-switch.on { background: var(--accent-dim); }
   .editor-switch.on::after { background: var(--accent); left: 18px; }
@@ -251,17 +251,17 @@
   content: attr(data-tooltip);
   position: fixed; left: var(--tip-x, 0); top: var(--tip-y, 0);
   transform: translateX(-50%) translateY(-100%) translateY(-8px);
-  background: #ffffff; color: #1a1a1a; font-size: 11px; font-weight: 400;
+  background: #1c1c1c; color: #f5f5f5; font-size: 11px; font-weight: 400;
   padding: 6px 10px; border-radius: 6px; max-width: 280px; width: max-content;
   white-space: normal; text-align: center; pointer-events: none;
   opacity: 0; z-index: 10010; line-height: 1.4;
   transition: opacity 0.18s ease 0.35s;
-  box-shadow: 0 4px 12px rgba(250, 250, 248,0.5), 0 0 0 1px rgba(0, 82, 204,0.15);
-  border: 1px solid rgba(0, 82, 204,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255, 149, 0,0.15);
+  border: 1px solid rgba(255, 149, 0,0.2);
 }
 [data-tooltip]:hover::after { opacity: 1; }
 /* Override any page-native tooltip CSS that conflicts with our injected system */
-.panel-toggle[data-tooltip]:hover::after { content: attr(data-tooltip) !important; position: fixed !important; left: var(--tip-x, 0) !important; top: var(--tip-y, 0) !important; bottom: auto !important; transform: translateX(-50%) translateY(-100%) translateY(-8px) !important; background: #ffffff !important; color: #1a1a1a !important; font-size: 11px !important; padding: 6px 10px !important; border-radius: 6px !important; max-width: 280px !important; width: max-content !important; border: 1px solid rgba(0, 82, 204,0.2) !important; box-shadow: 0 4px 12px rgba(250, 250, 248,0.5), 0 0 0 1px rgba(0, 82, 204,0.15) !important; z-index: 10010 !important; }
+.panel-toggle[data-tooltip]:hover::after { content: attr(data-tooltip) !important; position: fixed !important; left: var(--tip-x, 0) !important; top: var(--tip-y, 0) !important; bottom: auto !important; transform: translateX(-50%) translateY(-100%) translateY(-8px) !important; background: #1c1c1c !important; color: #f5f5f5 !important; font-size: 11px !important; padding: 6px 10px !important; border-radius: 6px !important; max-width: 280px !important; width: max-content !important; border: 1px solid rgba(255, 149, 0,0.2) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255, 149, 0,0.15) !important; z-index: 10010 !important; }
 /* When tooltip is showing, suppress guide card on same element */
 [data-tooltip].tooltip-active[data-guide] { pointer-events: auto; }
 
@@ -270,8 +270,8 @@
   position: fixed; z-index: 10002; width: 340px; max-width: calc(100vw - 24px);
   pointer-events: auto;
   background: linear-gradient(145deg, #1e2235 0%, #151829 100%);
-  border: 1px solid rgba(0, 82, 204,0.25); border-radius: 16px;
-  box-shadow: 0 16px 48px rgba(250, 250, 248,0.6), 0 0 80px rgba(0, 82, 204,0.06), inset 0 1px 0 rgba(26, 26, 26,0.04);
+  border: 1px solid rgba(255, 149, 0,0.25); border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 80px rgba(255, 149, 0,0.06), inset 0 1px 0 rgba(255,255,255,0.04);
   overflow: hidden; opacity: 0; transform: translateY(8px) scale(0.97);
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -279,7 +279,7 @@
 .ping-guide-card.visible { opacity: 1; transform: translateY(0) scale(1); }
 .ping-guide-accent {
   height: 3px;
-  background: linear-gradient(90deg, #0052cc 0%, #7c3aed 50%, #0052cc 100%);
+  background: linear-gradient(90deg, #ff9500 0%, #a78bfa 50%, #ff9500 100%);
   background-size: 200% 100%;
   animation: guideShimmer 3s ease infinite;
 }
@@ -302,21 +302,21 @@
 
 .ping-guide-kat-wrap {
   width: 64px; height: 54px; flex-shrink: 0;
-  filter: drop-shadow(0 0 6px rgba(0, 82, 204,0.3));
+  filter: drop-shadow(0 0 6px rgba(255, 149, 0,0.3));
 }
 .ping-guide-kat-wrap .kat-mascot { width: 64px; height: 54px; }
 .ping-guide-text { flex: 1; min-width: 0; }
 .ping-guide-tag {
   display: inline-block; font-size: 9px; font-weight: 600; text-transform: uppercase;
   letter-spacing: 0.8px; padding: 2px 7px; border-radius: 4px; margin-bottom: 6px;
-  background: rgba(0, 82, 204,0.15); color: #0052cc;
+  background: rgba(255, 149, 0,0.15); color: #ff9500;
 }
 .ping-guide-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3; }
 .ping-guide-body { font-size: 12px; color: #a0a4b8; line-height: 1.55; }
-.ping-guide-body em { color: #0052cc; font-style: normal; font-weight: 500; }
+.ping-guide-body em { color: #ff9500; font-style: normal; font-weight: 500; }
 
 [data-guide].guide-active {
-  box-shadow: 0 0 0 2px rgba(0, 82, 204,0.35), 0 0 24px rgba(0, 82, 204,0.08) !important;
+  box-shadow: 0 0 0 2px rgba(255, 149, 0,0.35), 0 0 24px rgba(255, 149, 0,0.08) !important;
   transition: box-shadow 0.3s ease;
 }
 
@@ -395,7 +395,7 @@
 
 </head>
 <body>
-<a href="../../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#ffffff;color:#1a1a1a;border:1px solid #d8d8d2;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#eeede9'" onmouseout="this.style.background='#ffffff'">&#8592; Back to Landing Page</a>
+<a href="../../index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;background:#1c1c1c;color:#f5f5f5;border:1px solid #2a2a2a;border-radius:8px;padding:8px 16px;font-size:13px;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#242424'" onmouseout="this.style.background='#1c1c1c'">&#8592; Back to Landing Page</a>
 
 <!-- ===== TITLE BAR ===== -->
 <div class="title-bar">
@@ -407,7 +407,7 @@
   <div class="title-nav">
     <a href="home.html">Home</a>
     <span class="sep">/</span>
-    <a href="project.html">Morrison &amp; Associates</a>
+    <a href="project.html">📈 Eclipse</a>
     <span class="sep">/</span>
     <span class="current">Skills</span>
   </div>
@@ -421,17 +421,17 @@
   <div class="sidebar" data-guide="{&quot;title&quot;: &quot;Skills Navigator&quot;, &quot;tag&quot;: &quot;Navigation&quot;, &quot;body&quot;: &quot;Browse by category &amp;mdash; &lt;em&gt;All, Favorites, Recent, Analytics&lt;/em&gt;. Organized folders for every skill type. The command center for your AI superpowers.&quot;, &quot;cat&quot;: &quot;kat-wave&quot;}">
     <div class="sb-brand">
       <svg class="sb-brand-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#0052cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="38" cy="26" r="12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M30 16 L27 4 L35 12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M44 14 L48 2 L50 12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <ellipse cx="33" cy="25" rx="2.5" ry="3" fill="#0052cc"/>
-        <ellipse cx="43" cy="24" rx="2.5" ry="3" fill="#0052cc"/>
-        <ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#fafaf8"/>
-        <ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#fafaf8"/>
-        <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#7c3aed"/>
-        <path d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <ellipse cx="28" cy="44" rx="14" ry="10" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#ff9500" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="38" cy="26" r="12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M30 16 L27 4 L35 12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M44 14 L48 2 L50 12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <ellipse cx="33" cy="25" rx="2.5" ry="3" fill="#ff9500"/>
+        <ellipse cx="43" cy="24" rx="2.5" ry="3" fill="#ff9500"/>
+        <ellipse cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0d0d0d"/>
+        <ellipse cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0d0d0d"/>
+        <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#a78bfa"/>
+        <path d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <span class="sb-brand-label">Skills</span>
     </div>
@@ -466,62 +466,62 @@
     <!-- Categories -->
     <div class="sb-section-label">Categories</div>
     <div class="sb-categories">
-      <!-- Litigation -->
+      <!-- Code Quality -->
       <div class="sb-cat" onclick="toggleCategory(this)">
         <span class="sb-cat-arrow">&#9654;</span>
         <div class="sb-cat-icon" style="background: var(--blue-dim); color: var(--blue);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
-        <span class="sb-cat-name">Litigation</span>
+        <span class="sb-cat-name">Research</span>
         <span class="sb-cat-count">14</span>
       </div>
       <div class="sb-subcats">
-        <div class="sb-subcat">Discovery</div>
-        <div class="sb-subcat">Motions</div>
-        <div class="sb-subcat">Depositions</div>
+        <div class="sb-subcat">Earnings</div>
+        <div class="sb-subcat">Filings</div>
+        <div class="sb-subcat">Screening</div>
       </div>
 
-      <!-- Transactional -->
+      <!-- Productivity -->
       <div class="sb-cat" onclick="toggleCategory(this)">
         <span class="sb-cat-arrow">&#9654;</span>
         <div class="sb-cat-icon" style="background: var(--green-dim); color: var(--green);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
-        <span class="sb-cat-name">Transactional</span>
+        <span class="sb-cat-name">Modeling</span>
         <span class="sb-cat-count">11</span>
       </div>
       <div class="sb-subcats">
-        <div class="sb-subcat">Contracts</div>
-        <div class="sb-subcat">M&amp;A</div>
-        <div class="sb-subcat">Due Diligence</div>
+        <div class="sb-subcat">Vocal</div>
+        <div class="sb-subcat">LBO</div>
+        <div class="sb-subcat">Comp Tables</div>
       </div>
 
-      <!-- Research -->
+      <!-- AI & Models -->
       <div class="sb-cat" onclick="toggleCategory(this)">
         <span class="sb-cat-arrow">&#9654;</span>
         <div class="sb-cat-icon" style="background: var(--purple-dim); color: var(--purple);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><path d="M8.56 6.22A4 4 0 0116 6"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/><path d="M8 22h8"/></svg>
         </div>
-        <span class="sb-cat-name">Research</span>
+        <span class="sb-cat-name">Risk</span>
         <span class="sb-cat-count">8</span>
       </div>
       <div class="sb-subcats">
-        <div class="sb-subcat">Case Law</div>
-        <div class="sb-subcat">Statutes</div>
+        <div class="sb-subcat">VAR</div>
+        <div class="sb-subcat">Stress Testing</div>
       </div>
 
-      <!-- Practice Mgmt -->
+      <!-- DevOps -->
       <div class="sb-cat" onclick="toggleCategory(this)">
         <span class="sb-cat-arrow">&#9654;</span>
         <div class="sb-cat-icon" style="background: var(--orange-dim); color: var(--orange);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
         </div>
-        <span class="sb-cat-name">Practice Mgmt</span>
+        <span class="sb-cat-name">Operations</span>
         <span class="sb-cat-count">9</span>
       </div>
       <div class="sb-subcats">
-        <div class="sb-subcat">Billing</div>
-        <div class="sb-subcat">Calendar</div>
+        <div class="sb-subcat">Reporting</div>
+        <div class="sb-subcat">Master Bus</div>
       </div>
 
       <!-- Custom -->
@@ -592,7 +592,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
         Workflow <span class="pill-count">10</span>
       </div>
-      <div class="type-pill" data-type="integration" onclick="filterType(this)" data-tooltip="Integration skills — connect AI to external services like Westlaw, Clio, and court APIs">
+      <div class="type-pill" data-type="integration" onclick="filterType(this)" data-tooltip="Integration skills — connect AI to external services like Splice, FactSet, and APIs">
         <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
         Integration <span class="pill-count">11</span>
       </div>
@@ -604,22 +604,22 @@
       <!-- GRID VIEW -->
       <div class="skills-grid" id="skills-grid" data-guide="{&quot;title&quot;: &quot;Skills Grid&quot;, &quot;tag&quot;: &quot;Library&quot;, &quot;body&quot;: &quot;Every CatSkill at your fingertips &amp;mdash; &lt;em&gt;Knowledge, Tools, Workflows, and Integrations&lt;/em&gt;. Click to view details, star your favorites, or inject directly into chat. 47 skills and growing.&quot;, &quot;cat&quot;: &quot;kat-happy&quot;}">
 
-        <!-- Card 1: Contract Reviewer -->
-        <div class="skill-card" data-type="knowledge" data-skill="code-review" onclick="showDetail('code-review')" data-tooltip="Contract Reviewer — clause-by-clause analysis with risk flags, redline suggestions, and precedent comparison">
+        <!-- Card 1: Mix Reference Coach -->
+        <div class="skill-card" data-type="knowledge" data-skill="code-review" onclick="showDetail('code-review')" data-tooltip="Mix Reference Coach — parse mix session reports with revenue, margins, and guidance analysis">
           <div class="skill-card-body">
             <div class="skill-card-top">
               <div class="skill-type-icon knowledge">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
               </div>
               <div class="skill-card-info">
-                <div class="skill-card-name">Contract Reviewer</div>
+                <div class="skill-card-name">Mix Reference Coach</div>
                 <div class="skill-card-type">Knowledge</div>
               </div>
             </div>
-            <div class="skill-card-desc">Clause-by-clause contract analysis with risk flags, redline suggestions, and precedent comparison</div>
+            <div class="skill-card-desc">Structured mix analysis with revenue, margins, and guidance assessment</div>
             <div class="skill-card-tags">
-              <span class="skill-tag">contracts</span>
-              <span class="skill-tag">redline</span>
+              <span class="skill-tag">mix session</span>
+              <span class="skill-tag">analysis</span>
             </div>
           </div>
           <div class="skill-card-footer">
@@ -635,22 +635,22 @@
           </div>
         </div>
 
-        <!-- Card 2: Legal Research -->
-        <div class="skill-card" data-type="tool" onclick="showDetail('test-gen')" data-tooltip="Legal Research — Westlaw and case-law database search with citation verification">
+        <!-- Card 2: Vocal Chain -->
+        <div class="skill-card" data-type="tool" onclick="showDetail('test-gen')" data-tooltip="Vocal Chain — build discounted cash flow models with bear/base/bull scenario analysis">
           <div class="skill-card-body">
             <div class="skill-card-top">
               <div class="skill-type-icon tool">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
               </div>
               <div class="skill-card-info">
-                <div class="skill-card-name">Legal Research</div>
+                <div class="skill-card-name">Vocal Chain</div>
                 <div class="skill-card-type">Tool</div>
               </div>
             </div>
-            <div class="skill-card-desc">Westlaw and case-law database search with citation verification and precedent analysis</div>
+            <div class="skill-card-desc">Builds discounted cash flow models with bear/base/bull scenarios and sensitivity tables</div>
             <div class="skill-card-tags">
-              <span class="skill-tag">research</span>
-              <span class="skill-tag">westlaw</span>
+              <span class="skill-tag">dcf</span>
+              <span class="skill-tag">valuation</span>
             </div>
           </div>
           <div class="skill-card-footer">
@@ -666,22 +666,22 @@
           </div>
         </div>
 
-        <!-- Card 3: Brief Writer -->
-        <div class="skill-card" data-type="knowledge" onclick="showDetail('think-deeper')" data-tooltip="Brief Writer — IRAC-structured legal brief drafting with argument development">
+        <!-- Card 3: Mix Risk -->
+        <div class="skill-card" data-type="knowledge" onclick="showDetail('think-deeper')" data-tooltip="Mix Risk — calculate VAR, run stress tests, and analyze correlation across holdings">
           <div class="skill-card-body">
             <div class="skill-card-top">
               <div class="skill-type-icon knowledge">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
               </div>
               <div class="skill-card-info">
-                <div class="skill-card-name">Brief Writer</div>
+                <div class="skill-card-name">Mix Risk</div>
                 <div class="skill-card-type">Knowledge</div>
               </div>
             </div>
-            <div class="skill-card-desc">IRAC-structured legal brief drafting with argument development and citation formatting</div>
+            <div class="skill-card-desc">Calculates Value-at-Risk, runs stress tests, and analyzes correlation across mix holdings</div>
             <div class="skill-card-tags">
-              <span class="skill-tag">briefs</span>
-              <span class="skill-tag">IRAC</span>
+              <span class="skill-tag">risk</span>
+              <span class="skill-tag">var</span>
             </div>
           </div>
           <div class="skill-card-footer">
@@ -697,22 +697,22 @@
           </div>
         </div>
 
-        <!-- Card 4: Discovery Analyzer -->
-        <div class="skill-card" data-type="tool" onclick="showDetail('sec-audit')" data-tooltip="Discovery Analyzer — document review and privilege classification with relevance scoring">
+        <!-- Card 4: Market Screener -->
+        <div class="skill-card" data-type="tool" onclick="showDetail('sec-audit')" data-tooltip="Market Screener — scan equities by sector, valuation, momentum, and custom screening criteria">
           <div class="skill-card-body">
             <div class="skill-card-top">
               <div class="skill-type-icon tool">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
               </div>
               <div class="skill-card-info">
-                <div class="skill-card-name">Discovery Analyzer</div>
+                <div class="skill-card-name">Market Screener</div>
                 <div class="skill-card-type">Tool</div>
               </div>
             </div>
-            <div class="skill-card-desc">Document review and privilege classification with relevance scoring and production tracking</div>
+            <div class="skill-card-desc">Scans equities by sector, valuation multiples, momentum signals, and custom screening criteria</div>
             <div class="skill-card-tags">
-              <span class="skill-tag">discovery</span>
-              <span class="skill-tag">privilege</span>
+              <span class="skill-tag">screening</span>
+              <span class="skill-tag">equities</span>
             </div>
           </div>
           <div class="skill-card-footer">
@@ -728,22 +728,22 @@
           </div>
         </div>
 
-        <!-- Card 5: Deposition Prep -->
-        <div class="skill-card" data-type="tool" onclick="showDetail('refactor')" data-tooltip="Deposition Prep — witness outline and question generation with impeachment strategy">
+        <!-- Card 5: Client Report Writer -->
+        <div class="skill-card" data-type="tool" onclick="showDetail('refactor')" data-tooltip="Client Report Writer — generate polished client-facing mix reports and session summaries">
           <div class="skill-card-body">
             <div class="skill-card-top">
               <div class="skill-type-icon tool">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
               </div>
               <div class="skill-card-info">
-                <div class="skill-card-name">Deposition Prep</div>
+                <div class="skill-card-name">Client Report Writer</div>
                 <div class="skill-card-type">Tool</div>
               </div>
             </div>
-            <div class="skill-card-desc">Witness outline and question generation with impeachment strategy and exhibit coordination</div>
+            <div class="skill-card-desc">Generates polished client mix reports with holdings, performance attribution, and recommendations</div>
             <div class="skill-card-tags">
-              <span class="skill-tag">deposition</span>
-              <span class="skill-tag">witness</span>
+              <span class="skill-tag">reporting</span>
+              <span class="skill-tag">client</span>
             </div>
           </div>
           <div class="skill-card-footer">
@@ -759,22 +759,22 @@
           </div>
         </div>
 
-        <!-- Card 6: Compliance Checker -->
-        <div class="skill-card" data-type="workflow" onclick="showDetail('planpack')" data-tooltip="Compliance Checker — regulatory compliance scanning across jurisdictions with risk assessment">
+        <!-- Card 6: Macro Analyzer -->
+        <div class="skill-card" data-type="workflow" onclick="showDetail('planpack')" data-tooltip="Macro Analyzer — track Master policy, GDP, inflation, and macro indicators impacting mixs">
           <div class="skill-card-body">
             <div class="skill-card-top">
               <div class="skill-type-icon workflow">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
               </div>
               <div class="skill-card-info">
-                <div class="skill-card-name">Compliance Checker</div>
+                <div class="skill-card-name">Macro Analyzer</div>
                 <div class="skill-card-type">Workflow</div>
               </div>
             </div>
-            <div class="skill-card-desc">Regulatory compliance scanning across jurisdictions with risk assessment and remediation tracking</div>
+            <div class="skill-card-desc">Tracks Master policy, GDP, inflation, and macro indicators with impact analysis on mix positioning</div>
             <div class="skill-card-tags">
-              <span class="skill-tag">compliance</span>
-              <span class="skill-tag">regulatory</span>
+              <span class="skill-tag">macro</span>
+              <span class="skill-tag">economics</span>
             </div>
           </div>
           <div class="skill-card-footer">
@@ -790,22 +790,22 @@
           </div>
         </div>
 
-        <!-- Card 7: Billing Calculator -->
-        <div class="skill-card" data-type="integration" onclick="showDetail('gh-pr')" data-tooltip="Billing Calculator — time entry calculation and invoice generation with rate tables">
+        <!-- Card 7: Stem Filing Reader -->
+        <div class="skill-card" data-type="integration" onclick="showDetail('gh-pr')" data-tooltip="Stem Filing Reader — parse 10-K, 10-Q, and 8-K filings with automated extraction and analysis">
           <div class="skill-card-body">
             <div class="skill-card-top">
               <div class="skill-type-icon integration">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
               </div>
               <div class="skill-card-info">
-                <div class="skill-card-name">Billing Calculator</div>
+                <div class="skill-card-name">Stem Filing Reader</div>
                 <div class="skill-card-type">Integration</div>
               </div>
             </div>
-            <div class="skill-card-desc">Time entry calculation and invoice generation with rate tables and matter code tracking</div>
+            <div class="skill-card-desc">Parses Stem 10-K, 10-Q, and 8-K filings with automated extraction of financials, risk factors, and footnotes</div>
             <div class="skill-card-tags">
-              <span class="skill-tag">billing</span>
-              <span class="skill-tag">invoicing</span>
+              <span class="skill-tag">sec</span>
+              <span class="skill-tag">filings</span>
             </div>
           </div>
           <div class="skill-card-footer">
@@ -821,22 +821,22 @@
           </div>
         </div>
 
-        <!-- Card 8: Client Intake -->
-        <div class="skill-card" data-type="workflow" onclick="showDetail('standup')" data-tooltip="Client Intake — new matter intake forms with conflict checks and engagement letters">
+        <!-- Card 8: Comp Table Builder -->
+        <div class="skill-card" data-type="workflow" onclick="showDetail('standup')" data-tooltip="Comp Table Builder — build comparable company analysis tables with multiples and peer rankings">
           <div class="skill-card-body">
             <div class="skill-card-top">
               <div class="skill-type-icon workflow">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
               </div>
               <div class="skill-card-info">
-                <div class="skill-card-name">Client Intake</div>
+                <div class="skill-card-name">Comp Table Builder</div>
                 <div class="skill-card-type">Workflow</div>
               </div>
             </div>
-            <div class="skill-card-desc">New matter intake forms with conflict checks, engagement letters, and client onboarding</div>
+            <div class="skill-card-desc">Builds comparable company analysis tables with EV/EBITDA, P/E, and peer group rankings</div>
             <div class="skill-card-tags">
-              <span class="skill-tag">intake</span>
-              <span class="skill-tag">onboarding</span>
+              <span class="skill-tag">comps</span>
+              <span class="skill-tag">valuation</span>
             </div>
           </div>
           <div class="skill-card-footer">
@@ -852,22 +852,22 @@
           </div>
         </div>
 
-        <!-- Card 9: Motion Drafter -->
-        <div class="skill-card" data-type="knowledge" onclick="showDetail('memory')" data-tooltip="Motion Drafter — template-based motion and pleading drafting with court-specific formatting">
+        <!-- Card 9: Trade Logger -->
+        <div class="skill-card" data-type="knowledge" onclick="showDetail('memory')" data-tooltip="Trade Logger — record and track all trade executions with timestamps, rationale, and P&amp;L">
           <div class="skill-card-body">
             <div class="skill-card-top">
               <div class="skill-type-icon knowledge">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
               </div>
               <div class="skill-card-info">
-                <div class="skill-card-name">Motion Drafter</div>
+                <div class="skill-card-name">Trade Logger</div>
                 <div class="skill-card-type">Knowledge</div>
               </div>
             </div>
-            <div class="skill-card-desc">Template-based motion and pleading drafting with court-specific formatting and filing rules</div>
+            <div class="skill-card-desc">Records and tracks all trade executions with timestamps, rationale, position sizing, and P&amp;L attribution</div>
             <div class="skill-card-tags">
-              <span class="skill-tag">motions</span>
-              <span class="skill-tag">pleadings</span>
+              <span class="skill-tag">trading</span>
+              <span class="skill-tag">logging</span>
             </div>
           </div>
           <div class="skill-card-footer">
@@ -883,22 +883,22 @@
           </div>
         </div>
 
-        <!-- Card 10: Case Timeline -->
-        <div class="skill-card" data-type="integration" onclick="showDetail('deploy')" data-tooltip="Case Timeline — court calendar and deadline tracking with statute of limitations alerts">
+        <!-- Card 10: Master Bus Checker -->
+        <div class="skill-card" data-type="integration" onclick="showDetail('deploy')" data-tooltip="Master Bus Checker — verify regulatory compliance, position limits, and trading restrictions">
           <div class="skill-card-body">
             <div class="skill-card-top">
               <div class="skill-type-icon integration">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
               </div>
               <div class="skill-card-info">
-                <div class="skill-card-name">Case Timeline</div>
+                <div class="skill-card-name">Master Bus Checker</div>
                 <div class="skill-card-type">Integration</div>
               </div>
             </div>
-            <div class="skill-card-desc">Court calendar and deadline tracking with statute of limitations alerts and filing reminders</div>
+            <div class="skill-card-desc">Validates regulatory compliance across position limits, trading restrictions, and reporting requirements</div>
             <div class="skill-card-tags">
-              <span class="skill-tag">calendar</span>
-              <span class="skill-tag">deadlines</span>
+              <span class="skill-tag">compliance</span>
+              <span class="skill-tag">regulatory</span>
             </div>
           </div>
           <div class="skill-card-footer">
@@ -920,61 +920,61 @@
       <div class="skills-list" id="skills-list" data-guide="{&quot;title&quot;: &quot;List View&quot;, &quot;tag&quot;: &quot;Compact&quot;, &quot;body&quot;: &quot;Scan your entire library at a glance &amp;mdash; &lt;em&gt;skill name, type, description, and usage count&lt;/em&gt; in dense rows. Perfect for power users who know exactly what they need.&quot;, &quot;cat&quot;: &quot;kat-yawn&quot;}">
         <div class="skill-list-item" data-type="knowledge" onclick="showDetail('code-review')">
           <div class="skill-type-icon knowledge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg></div>
-          <div class="skill-list-info"><div class="skill-list-name">Contract Reviewer</div><div class="skill-list-desc">Clause-by-clause contract analysis with risk flags</div></div>
+          <div class="skill-list-info"><div class="skill-list-name">Mix Reference Coach</div><div class="skill-list-desc">Parse mix session reports with revenue, margins, and guidance analysis</div></div>
           <div class="skill-list-type">Knowledge</div>
           <div class="skill-list-usage">24x</div>
         </div>
         <div class="skill-list-item" data-type="tool" onclick="showDetail('test-gen')">
           <div class="skill-type-icon tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-          <div class="skill-list-info"><div class="skill-list-name">Legal Research</div><div class="skill-list-desc">Westlaw and case-law database search</div></div>
+          <div class="skill-list-info"><div class="skill-list-name">Vocal Chain</div><div class="skill-list-desc">Build discounted cash flow models with scenario analysis</div></div>
           <div class="skill-list-type">Tool</div>
           <div class="skill-list-usage">18x</div>
         </div>
         <div class="skill-list-item" data-type="knowledge" onclick="showDetail('think-deeper')">
           <div class="skill-type-icon knowledge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg></div>
-          <div class="skill-list-info"><div class="skill-list-name">Brief Writer</div><div class="skill-list-desc">IRAC-structured legal brief drafting</div></div>
+          <div class="skill-list-info"><div class="skill-list-name">Mix Risk</div><div class="skill-list-desc">Calculate VAR, stress tests, and correlation analysis</div></div>
           <div class="skill-list-type">Knowledge</div>
           <div class="skill-list-usage">31x</div>
         </div>
         <div class="skill-list-item" data-type="tool" onclick="showDetail('sec-audit')">
           <div class="skill-type-icon tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-          <div class="skill-list-info"><div class="skill-list-name">Discovery Analyzer</div><div class="skill-list-desc">Document review and privilege classification</div></div>
+          <div class="skill-list-info"><div class="skill-list-name">Market Screener</div><div class="skill-list-desc">Scan equities by valuation and momentum signals</div></div>
           <div class="skill-list-type">Tool</div>
           <div class="skill-list-usage">12x</div>
         </div>
         <div class="skill-list-item" data-type="tool" onclick="showDetail('refactor')">
           <div class="skill-type-icon tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-          <div class="skill-list-info"><div class="skill-list-name">Deposition Prep</div><div class="skill-list-desc">Witness outline and question generation</div></div>
+          <div class="skill-list-info"><div class="skill-list-name">Client Report Writer</div><div class="skill-list-desc">Generate polished client mix reports</div></div>
           <div class="skill-list-type">Tool</div>
           <div class="skill-list-usage">15x</div>
         </div>
         <div class="skill-list-item" data-type="workflow" onclick="showDetail('planpack')">
           <div class="skill-type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg></div>
-          <div class="skill-list-info"><div class="skill-list-name">Compliance Checker</div><div class="skill-list-desc">Regulatory compliance scanning across jurisdictions</div></div>
+          <div class="skill-list-info"><div class="skill-list-name">Macro Analyzer</div><div class="skill-list-desc">Track Master policy, GDP, and macro indicators</div></div>
           <div class="skill-list-type">Workflow</div>
           <div class="skill-list-usage">8x</div>
         </div>
         <div class="skill-list-item" data-type="integration" onclick="showDetail('gh-pr')">
           <div class="skill-type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
-          <div class="skill-list-info"><div class="skill-list-name">Billing Calculator</div><div class="skill-list-desc">Time entry calculation and invoice generation</div></div>
+          <div class="skill-list-info"><div class="skill-list-name">Stem Filing Reader</div><div class="skill-list-desc">Parse 10-K, 10-Q, and 8-K filings automatically</div></div>
           <div class="skill-list-type">Integration</div>
           <div class="skill-list-usage">22x</div>
         </div>
         <div class="skill-list-item" data-type="workflow" onclick="showDetail('standup')">
           <div class="skill-type-icon workflow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg></div>
-          <div class="skill-list-info"><div class="skill-list-name">Client Intake</div><div class="skill-list-desc">New matter intake with conflict checks</div></div>
+          <div class="skill-list-info"><div class="skill-list-name">Comp Table Builder</div><div class="skill-list-desc">Build comparable company analysis with multiples</div></div>
           <div class="skill-list-type">Workflow</div>
           <div class="skill-list-usage">19x</div>
         </div>
         <div class="skill-list-item" data-type="knowledge" onclick="showDetail('memory')">
           <div class="skill-type-icon knowledge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg></div>
-          <div class="skill-list-info"><div class="skill-list-name">Motion Drafter</div><div class="skill-list-desc">Template-based motion and pleading drafting</div></div>
+          <div class="skill-list-info"><div class="skill-list-name">Trade Logger</div><div class="skill-list-desc">Record trade executions with rationale and P&amp;L</div></div>
           <div class="skill-list-type">Knowledge</div>
           <div class="skill-list-usage">11x</div>
         </div>
         <div class="skill-list-item" data-type="integration" onclick="showDetail('deploy')">
           <div class="skill-type-icon integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
-          <div class="skill-list-info"><div class="skill-list-name">Case Timeline</div><div class="skill-list-desc">Court calendar and deadline tracking</div></div>
+          <div class="skill-list-info"><div class="skill-list-name">Master Bus Checker</div><div class="skill-list-desc">Verify regulatory compliance and position limits</div></div>
           <div class="skill-list-type">Integration</div>
           <div class="skill-list-usage">7x</div>
         </div>
@@ -988,19 +988,19 @@
       <div class="suggestion-pills">
         <div class="suggestion-pill" data-tooltip="Click to inject this suggested skill into your current conversation">
           <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
-          Contract Reviewer
+          Mix Reference Coach
         </div>
         <div class="suggestion-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93"/><circle cx="12" cy="14" r="4"/><path d="M12 18v4"/></svg>
-          Brief Writer
+          Mix Risk
         </div>
         <div class="suggestion-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-          Legal Research
+          Vocal Chain
         </div>
         <div class="suggestion-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
-          Compliance Checker
+          Macro Analyzer
         </div>
       </div>
       <button class="suggestion-all" data-tooltip="Browse the full skills library — 47 skills available">
@@ -1023,7 +1023,7 @@
             <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
         </div>
-        <div class="detail-name">Contract Reviewer</div>
+        <div class="detail-name">Mix Reference Coach</div>
         <div class="detail-meta">
           Version 1.0.0 &nbsp;&middot;&nbsp; Created Mar 5, 2026 &nbsp;&middot;&nbsp; Last used 2h ago
         </div>
@@ -1043,17 +1043,17 @@
       <!-- Description -->
       <div class="detail-section">
         <div class="detail-section-label">Description</div>
-        <div class="detail-desc">Performs clause-by-clause contract analysis with risk-tiered findings (critical, caution, note). Reviews indemnification caps, liability clauses, IP assignments, and termination provisions. Provides redline suggestions with precedent citations.</div>
+        <div class="detail-desc">Performs structured mix analysis with severity-tiered findings (beat, miss, in-line). Analyzes revenue growth, margin trends, guidance changes, and segment performance. Provides actionable session insights with specific data references.</div>
       </div>
 
       <!-- Tags -->
       <div class="detail-section">
         <div class="detail-section-label">Tags</div>
         <div class="detail-tags">
-          <span class="detail-tag">contracts</span>
-          <span class="detail-tag">redline</span>
-          <span class="detail-tag">risk-analysis</span>
-          <span class="detail-tag">due-diligence</span>
+          <span class="detail-tag">mix session</span>
+          <span class="detail-tag">analysis</span>
+          <span class="detail-tag">fundamentals</span>
+          <span class="detail-tag">equity-research</span>
         </div>
       </div>
 
@@ -1089,16 +1089,16 @@
       <div class="detail-section">
         <div class="detail-section-label">Variables</div>
         <div class="detail-var">
-          <div class="detail-var-name">{{jurisdiction}}</div>
+          <div class="detail-var-name">{{ticker}}</div>
           <div class="detail-var-info">
-            <div class="detail-var-desc">Governing jurisdiction</div>
+            <div class="detail-var-desc">Stock ticker symbol</div>
             <div class="detail-var-meta">text, optional</div>
           </div>
         </div>
         <div class="detail-var">
-          <div class="detail-var-name">{{contractType}}</div>
+          <div class="detail-var-name">{{sector}}</div>
           <div class="detail-var-info">
-            <div class="detail-var-desc">Contract type (M&amp;A, NDA, SaaS, etc.)</div>
+            <div class="detail-var-desc">Industry sector</div>
             <div class="detail-var-meta">text, optional</div>
           </div>
         </div>
@@ -1152,13 +1152,13 @@
       <!-- Name -->
       <div class="editor-field">
         <label class="editor-label">Name</label>
-        <input class="editor-input" type="text" placeholder="Skill name..." value="Contract Reviewer" />
+        <input class="editor-input" type="text" placeholder="Skill name..." value="Mix Reference Coach" />
       </div>
 
       <!-- Description -->
       <div class="editor-field">
         <label class="editor-label">Description</label>
-        <textarea class="editor-textarea" placeholder="What does this skill do?">Clause-by-clause contract analysis with risk flags and redline suggestions</textarea>
+        <textarea class="editor-textarea" placeholder="What does this skill do?">Structured mix analysis with revenue, margins, and guidance assessment</textarea>
       </div>
 
       <!-- Type -->
@@ -1188,20 +1188,20 @@
       <div class="editor-field">
         <label class="editor-label">Skill Content (SKILL.md)</label>
         <textarea class="editor-textarea mono">---
-name: Contract Reviewer
+name: Mix Reference Coach
 version: 1.0.0
 type: knowledge
-description: Clause-by-clause contract analysis with risk flags
-tags: [contracts, redline, risk-analysis]
+description: Structured mix analysis with fundamentals
+tags: [mix session, analysis, fundamentals]
 allowedTools: [Read, Grep, Glob]
 contextMode: fork
 variables:
-  - name: jurisdiction
-    description: Governing jurisdiction
+  - name: ticker
+    description: Stock ticker symbol
     type: text
     required: false
-  - name: contractType
-    description: Contract type (M&amp;A, NDA, SaaS, etc.)
+  - name: sector
+    description: Industry sector
     type: text
     required: false
 governance:
@@ -1210,22 +1210,22 @@ governance:
   maxExecutionTime: 120
 ---
 
-# Contract Reviewer
+# Mix Reference Coach
 
-You are performing a clause-by-clause contract review.
+You are performing a structured mix analysis.
 
 ## Process
-1. Read the contract document(s)
-2. Analyze clauses for risk across categories
-3. Rate severity: critical / caution / note
-4. Provide redline suggestions with precedent refs
+1. Read the quarterly filing or mix session report
+2. Analyze revenue, margins, and guidance
+3. Rate outcome: beat / miss / in-line
+4. Provide actionable session insights
 
 ## Output Format
-For each finding:
-- **[SEVERITY]** Clause title
-- Section: clause reference
-- Issue: risk description
-- Recommendation: suggested revision</textarea>
+For each metric:
+- **[OUTCOME]** Brief title
+- Metric: actual vs consensus
+- Trend: quarter-over-quarter change
+- Implication: session recommendation</textarea>
       </div>
 
       <!-- Variables -->
@@ -1233,15 +1233,15 @@ For each finding:
         <label class="editor-label">Variables</label>
         <div class="editor-vars" data-guide="{&quot;title&quot;: &quot;Skill Variables&quot;, &quot;tag&quot;: &quot;Customization&quot;, &quot;body&quot;: &quot;Define &lt;em&gt;input variables with names, descriptions, and defaults&lt;/em&gt;. Variables make skills reusable across projects &amp;mdash; same skill, different context. Users fill them in at runtime.&quot;, &quot;cat&quot;: &quot;kat-lick&quot;}">
           <div class="editor-var-row">
-            <input type="text" value="jurisdiction" placeholder="Name" />
-            <input type="text" value="Governing jurisdiction" placeholder="Description" />
+            <input type="text" value="ticker" placeholder="Name" />
+            <input type="text" value="Stock ticker symbol" placeholder="Description" />
             <div class="editor-var-remove" data-tooltip="Remove this variable from the skill definition">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </div>
           </div>
           <div class="editor-var-row">
-            <input type="text" value="contractType" placeholder="Name" />
-            <input type="text" value="Contract type (M&amp;A, NDA, SaaS)" placeholder="Description" />
+            <input type="text" value="sector" placeholder="Name" />
+            <input type="text" value="Industry sector" placeholder="Description" />
             <div class="editor-var-remove">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </div>
@@ -1256,7 +1256,7 @@ For each finding:
       <!-- Tags -->
       <div class="editor-field">
         <label class="editor-label">Tags</label>
-        <input class="editor-input" type="text" placeholder="Comma-separated tags" value="contracts, redline, risk-analysis, due-diligence" />
+        <input class="editor-input" type="text" placeholder="Comma-separated tags" value="mix session, analysis, fundamentals, equity-research" />
       </div>
 
       <!-- Governance -->
@@ -1407,7 +1407,7 @@ For each finding:
   document.body.appendChild(card);
 
   // Inject KAT SVG
-  document.getElementById('guide-kat').innerHTML = `<svg class="kat-mascot" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">  <!-- Body -->  <ellipse class="kat-body" cx="28" cy="44" rx="14" ry="10" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Tail -->  <path class="kat-tail" d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#0052cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Head -->  <g class="kat-head">    <circle cx="38" cy="26" r="12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Left ear -->    <path class="kat-ear-l" d="M30 16 L27 4 L35 12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M31 14 L29 7 L34 12" stroke="#7c3aed" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Right ear -->    <path class="kat-ear-r" d="M44 14 L48 2 L50 12" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M45 13 L47.5 5 L49 12" stroke="#7c3aed" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Eyes -->    <g class="kat-eyes">      <ellipse class="kat-eye-l" cx="33" cy="25" rx="2.5" ry="3" fill="#0052cc"/>      <ellipse class="kat-eye-r" cx="43" cy="24" rx="2.5" ry="3" fill="#0052cc"/>      <ellipse class="kat-pupil-l" cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#fafaf8"/>      <ellipse class="kat-pupil-r" cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#fafaf8"/>      <circle cx="34" cy="24" r="0.8" fill="#151820"/>      <circle cx="44" cy="23" r="0.8" fill="#151820"/>    </g>    <!-- Nose -->    <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#7c3aed"/>    <!-- Mouth -->    <path class="kat-mouth" d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Whiskers -->    <g class="kat-whiskers">      <line x1="28" y1="27" x2="20" y2="25" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="29" x2="19" y2="29" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="31" x2="20" y2="33" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="26" x2="56" y2="24" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="28" x2="57" y2="28" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="30" x2="56" y2="32" stroke="#8a8a96" stroke-width="1" opacity="0.5" stroke-linecap="round"/>    </g>  </g>  <!-- Back leg / tail extension -->  <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <path d="M50 39 L50 40.5" stroke="#0052cc" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <path d="M52 38.5 L52 40" stroke="#0052cc" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <!-- Paws -->  <path class="kat-paw-r" d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <path class="kat-paw-l" d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(0, 82, 204,0.06)" stroke="#0052cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Chest fur lines -->  <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#0052cc" stroke-width="1" opacity="0.3" stroke-linecap="round"/>  <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#0052cc" stroke-width="1" opacity="0.2" stroke-linecap="round"/></svg>`;
+  document.getElementById('guide-kat').innerHTML = `<svg class="kat-mascot" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">  <!-- Body -->  <ellipse class="kat-body" cx="28" cy="44" rx="14" ry="10" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Tail -->  <path class="kat-tail" d="M12 42 C6 38, 4 28, 10 24 C14 21, 16 26, 14 30" fill="none" stroke="#ff9500" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Head -->  <g class="kat-head">    <circle cx="38" cy="26" r="12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Left ear -->    <path class="kat-ear-l" d="M30 16 L27 4 L35 12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M31 14 L29 7 L34 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Right ear -->    <path class="kat-ear-r" d="M44 14 L48 2 L50 12" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>    <path d="M45 13 L47.5 5 L49 12" stroke="#a78bfa" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Eyes -->    <g class="kat-eyes">      <ellipse class="kat-eye-l" cx="33" cy="25" rx="2.5" ry="3" fill="#ff9500"/>      <ellipse class="kat-eye-r" cx="43" cy="24" rx="2.5" ry="3" fill="#ff9500"/>      <ellipse class="kat-pupil-l" cx="33" cy="25.5" rx="1.2" ry="1.8" fill="#0d0d0d"/>      <ellipse class="kat-pupil-r" cx="43" cy="24.5" rx="1.2" ry="1.8" fill="#0d0d0d"/>      <circle cx="34" cy="24" r="0.8" fill="#151820"/>      <circle cx="44" cy="23" r="0.8" fill="#151820"/>    </g>    <!-- Nose -->    <path d="M37.5 28.5 L38.5 28.5 L38 29.5 Z" fill="#a78bfa"/>    <!-- Mouth -->    <path class="kat-mouth" d="M35 30.5 Q38 33, 38 30.5 Q38 33, 41 30.5" fill="none" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>    <!-- Whiskers -->    <g class="kat-whiskers">      <line x1="28" y1="27" x2="20" y2="25" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="29" x2="19" y2="29" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="28" y1="31" x2="20" y2="33" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="26" x2="56" y2="24" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="28" x2="57" y2="28" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>      <line x1="48" y1="30" x2="56" y2="32" stroke="#666666" stroke-width="1" opacity="0.5" stroke-linecap="round"/>    </g>  </g>  <!-- Back leg / tail extension -->  <path d="M40 38 C44 40, 50 42, 54 40 C56 39, 56 37, 54 36" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  <path d="M50 39 L50 40.5" stroke="#ff9500" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <path d="M52 38.5 L52 40" stroke="#ff9500" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>  <!-- Paws -->  <path class="kat-paw-r" d="M22 48 C20 50, 22 52, 26 52 C28 52, 29 50, 28 48" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <path class="kat-paw-l" d="M16 50 C14 52, 16 54, 20 54 C22 54, 23 52, 22 50" fill="rgba(255, 149, 0,0.06)" stroke="#ff9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>  <!-- Chest fur lines -->  <path d="M32 36 Q34 34, 36 36" fill="none" stroke="#ff9500" stroke-width="1" opacity="0.3" stroke-linecap="round"/>  <path d="M30 37 Q33 35, 35 37" fill="none" stroke="#ff9500" stroke-width="1" opacity="0.2" stroke-linecap="round"/></svg>`;
 
   let activeEl = null;
   let hideTimeout = null;
